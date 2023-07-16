@@ -2,5 +2,8 @@
 SHG (Second Harmonic Generation)
 
 # How to cite us
-Links to articles
-[aaa](https://licensebuttons.net/l/by-sa/3.0/88x31.png)
+Links to articles    
+
+![1_CCBYSA.png](Archive\images\1_CCBYSA.png)
+
+aaa
