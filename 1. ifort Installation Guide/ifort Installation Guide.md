@@ -7,8 +7,8 @@ Open terminal and **copy/paste/run** the following two commands to download and 
 
 `sudo sh ./l_BaseKit_p_2023.1.0.46401_offline.sh`
 
-![Image 1](0.%20Source%20docs/images/image1.png)
-![Image 2](0.%20Source%20docs/images/image2.png)
+![Image 1](0.%20Source%20docs/images/image1.png)<br>
+![Image 2](0.%20Source%20docs/images/image2.png)<br>
 ![Image 3](0.%20Source%20docs/images/image3.png)
 ![Image 4](0.%20Source%20docs/images/image4.png)
 ![Image 5](0.%20Source%20docs/images/image5.png)
