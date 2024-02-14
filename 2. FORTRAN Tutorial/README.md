@@ -1,4 +1,4 @@
-# FORTRAN_Tutorial
+# FORTRAN Tutorial
 
 The codes are set to introduce various applications of these commands.    
  
