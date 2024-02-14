@@ -7,13 +7,13 @@ Open terminal and **copy/paste/run** the following two commands to download and 
 
 `sudo sh ./l_BaseKit_p_2023.1.0.46401_offline.sh`
 
-![Image 1](0.%20Source%20docs/images/image1.png)<br>
-![Image 2](0.%20Source%20docs/images/image2.png)<br>
-![Image 3](0.%20Source%20docs/images/image3.png)
-![Image 4](0.%20Source%20docs/images/image4.png)
-![Image 5](0.%20Source%20docs/images/image5.png)
-![Image 6](0.%20Source%20docs/images/image6.png)
-![Image 7](0.%20Source%20docs/images/image7.png)
+![Image 1](0.%20Source%20docs/images/image1.png)<p>&nbsp;</p>
+![Image 2](0.%20Source%20docs/images/image2.png)<p>&nbsp;</p>
+![Image 3](0.%20Source%20docs/images/image3.png)<p>&nbsp;</p>
+![Image 4](0.%20Source%20docs/images/image4.png)<p>&nbsp;</p>
+![Image 5](0.%20Source%20docs/images/image5.png)<p>&nbsp;</p>
+![Image 6](0.%20Source%20docs/images/image6.png)<p>&nbsp;</p>
+![Image 7](0.%20Source%20docs/images/image7.png)<p>&nbsp;</p>
 
 ## Step 2
 Open terminal and *copy/paste/run* the following two commands to download and install second part. Then, follow the visual instructions:
@@ -22,12 +22,12 @@ Open terminal and *copy/paste/run* the following two commands to download and in
 
 `sudo sh ./l_HPCKit_p_2023.1.0.46346_offline.sh`
 
-![Image 8 ](0.%20Source%20docs/images/image8.png)
-![Image 9 ](0.%20Source%20docs/images/image9.png)
-![Image 10](0.%20Source%20docs/images/image10.png)
-![Image 11](0.%20Source%20docs/images/image11.png)
-![Image 12](0.%20Source%20docs/images/image12.png)
-![Image 13](0.%20Source%20docs/images/image13.png)
+![Image 8 ](0.%20Source%20docs/images/image8.png )<p>&nbsp;</p>
+![Image 9 ](0.%20Source%20docs/images/image9.png )<p>&nbsp;</p>
+![Image 10](0.%20Source%20docs/images/image10.png)<p>&nbsp;</p>
+![Image 11](0.%20Source%20docs/images/image11.png)<p>&nbsp;</p>
+![Image 12](0.%20Source%20docs/images/image12.png)<p>&nbsp;</p>
+![Image 13](0.%20Source%20docs/images/image13.png)<p>&nbsp;</p>
 
 ## Step 3
 Install ZSH
@@ -50,6 +50,8 @@ Add the bellow path to .zshrc
 `source "/opt/intel/oneapi/compiler/2023.1.0/env/vars.sh" intel64`
 
 Like below:
+
+
 ![Image 14](0.%20Source%20docs/images/image14.png)
 
 Close and reopen the the terminal and make sure that ifort is installed by this command:
