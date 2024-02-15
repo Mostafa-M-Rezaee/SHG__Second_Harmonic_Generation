@@ -16,7 +16,7 @@ Open terminal and **copy/paste/run** the following two commands to download and 
 ![Image 7](0.%20Source%20docs/images/image7.png)<p>&nbsp;</p>
 
 ## Step 2
-Open terminal and *copy/paste/run* the following two commands to download and install second part. Then, follow the visual instructions:
+Open terminal and **copy/paste/run** the following two commands to download and install second part. Then, follow the visual instructions:
 
 `wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/1ff1b38a-8218-4c53-9956-f0b264de35a4/l_HPCKit_p_2023.1.0.46346_offline.sh`
 
@@ -55,6 +55,7 @@ Like below:
 ![Image 14](0.%20Source%20docs/images/image14.png)
 
 Close and reopen the the terminal and make sure that ifort is installed by this command:
+
 `ifort --version`
 
 ## Sources
