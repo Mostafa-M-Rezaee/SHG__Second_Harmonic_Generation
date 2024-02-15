@@ -4,7 +4,7 @@ SHG (Second Harmonic Generation)
 # How to cite us
 Links to articles    
 
-![1_CCBYSA.png](Archive/images/1_CCBYSA.png)
+![1_CCBYSA.png](0.%20Archive/images/1_CCBYSA.png)
 
 https://creativecommons.org/licenses/by-sa/4.0/
 
