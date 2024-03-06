@@ -1,10 +1,19 @@
-# SHG__Second_Harmonic_Generation
-SHG (Second Harmonic Generation)
+# ToDo list:
+- Update programmer info for all codes
 
-# How to cite us
-Links to articles    
 
-![1_CCBYSA.png](Archive/images/1_CCBYSA.png)
+# Second Harmonic Generation (SHG)
+Welcome to the official repository for our **Non-linear Optics** research articles, with a primary focus on advancing the field and innovations in the development of **Green Lasers**. Dive into cutting-edge research in Non-linear Optics and stay updated with our latest contributions to the world of laser technology.
+
+# How to Cite Us
+Please refer to the [5. How to Cite Us]() folder for accurate citations. It contains essential guidelines for accurate referencing, ensuring accurate acknowledgement of our work.
+
+# Featured Articles:
+1. [aaa]()
+2. [bbb]()
+3. [ccc]()
+
+![1_CCBYSA.png](0.%20Archive/images/1_CCBYSA.png)
 
 https://creativecommons.org/licenses/by-sa/4.0/
 
@@ -12,4 +21,6 @@ https://creativecommons.org/licenses/by-sa/4.0/
 
 https://creativecommons.org/licenses/by-sa/4.0/
 
-aaa
+
+
+
