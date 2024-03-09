@@ -1,38 +1,35 @@
 # Installing IFORT (Intel FORTRAN) on Linux
 
 ## Step 1
-Open terminal and **copy/paste/run** the following two commands to download and install first part. Then, follow the visual instructions:
+Open the terminal and **copy/paste/run** the following two commands to download and install the first part. Then, follow the visual instructions:
 
 `wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/7deeaac4-f605-4bcf-a81b-ea7531577c61/l_BaseKit_p_2023.1.0.46401_offline.sh`
 
 `sudo sh ./l_BaseKit_p_2023.1.0.46401_offline.sh`
 
 
-![Image 1](Archive/images/1.%20ifort_installation%20images/image01.png)<p>&nbsp;</p>
+![Image 1](../Archive/images/1.%20ifort_installation%20images/image01.png)<p>&nbsp;</p>
+![Image 2](../Archive/images/1.%20ifort_installation%20images/image02.png)<p>&nbsp;</p>
+![Image 3](../Archive/images/1.%20ifort_installation%20images/image03.png)<p>&nbsp;</p>
+![Image 4](../Archive/images/1.%20ifort_installation%20images/image04.png)<p>&nbsp;</p>
+![Image 5](../Archive/images/1.%20ifort_installation%20images/image05.png)<p>&nbsp;</p>
+![Image 6](../Archive/images/1.%20ifort_installation%20images/image06.png)<p>&nbsp;</p>
+![Image 7](../Archive/images/1.%20ifort_installation%20images/image07.png)<p>&nbsp;</p>
 
-
-
-![Image 1](0.%20Source%20docs/images/image1.png)<p>&nbsp;</p>
-![Image 2](0.%20Source%20docs/images/image2.png)<p>&nbsp;</p>
-![Image 3](0.%20Source%20docs/images/image3.png)<p>&nbsp;</p>
-![Image 4](0.%20Source%20docs/images/image4.png)<p>&nbsp;</p>
-![Image 5](0.%20Source%20docs/images/image5.png)<p>&nbsp;</p>
-![Image 6](0.%20Source%20docs/images/image6.png)<p>&nbsp;</p>
-![Image 7](0.%20Source%20docs/images/image7.png)<p>&nbsp;</p>
 
 ## Step 2
-Open terminal and **copy/paste/run** the following two commands to download and install second part. Then, follow the visual instructions:
+Open the terminal and **copy/paste/run** the following two commands to download and install the second part. Then, follow the visual instructions:
 
 `wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/1ff1b38a-8218-4c53-9956-f0b264de35a4/l_HPCKit_p_2023.1.0.46346_offline.sh`
 
 `sudo sh ./l_HPCKit_p_2023.1.0.46346_offline.sh`
 
-![Image 8 ](0.%20Source%20docs/images/image8.png )<p>&nbsp;</p>
-![Image 9 ](0.%20Source%20docs/images/image9.png )<p>&nbsp;</p>
-![Image 10](0.%20Source%20docs/images/image10.png)<p>&nbsp;</p>
-![Image 11](0.%20Source%20docs/images/image11.png)<p>&nbsp;</p>
-![Image 12](0.%20Source%20docs/images/image12.png)<p>&nbsp;</p>
-![Image 13](0.%20Source%20docs/images/image13.png)<p>&nbsp;</p>
+![Image 8](../Archive/images/1.%20ifort_installation%20images/image08.png)<p>&nbsp;</p>
+![Image 9](../Archive/images/1.%20ifort_installation%20images/image09.png)<p>&nbsp;</p>
+![Image 10](../Archive/images/1.%20ifort_installation%20images/image10.png)<p>&nbsp;</p>
+![Image 11](../Archive/images/1.%20ifort_installation%20images/image11.png)<p>&nbsp;</p>
+![Image 12](../Archive/images/1.%20ifort_installation%20images/image12.png)<p>&nbsp;</p>
+![Image 13](../Archive/images/1.%20ifort_installation%20images/image13.png)<p>&nbsp;</p>
 
 ## Step 3
 Install ZSH
@@ -44,7 +41,7 @@ Install ZSH
 
 `sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"`
 
-- Close and reopen WSL terminal
+- Close and reopen the WSL terminal
 
 ## Step 4
 
@@ -57,9 +54,9 @@ Add the bellow path to .zshrc
 Like below:
 
 
-![Image 14](0.%20Source%20docs/images/image14.png)
+![Image 14](../Archive/images/1.%20ifort_installation%20images/image14.png)<p>&nbsp;</p>
 
-Close and reopen the the terminal and make sure that ifort is installed by this command:
+Close and reopen the terminal and make sure that ifort is installed by this command:
 
 `ifort --version`
 
