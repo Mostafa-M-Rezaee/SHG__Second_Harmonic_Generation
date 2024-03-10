@@ -1,13 +1,28 @@
 Please consider cite to our related works.
 
+| Abbreviation | Description                     |
+|--------------|---------------------------------|
+| SHG          | Second Harmonic Generation      |
+| G_PW         | Gaussian Pulsed Wave            |
+| G_CW         | Gaussian Continuous Wave        |
+| BG_PW        | Bessel Gaussian Pulsed Wave     |
+| BG_CW        | Bessel Gaussian Continuous Wave |
+
+
 # Contents
+8.&nbsp;Phase Mismatch G_PW   
+7.&nbsp;Heat G_PW  
+6.&nbsp;Ideal G_CW  
+5.&nbsp;Ideal BG_PW  
+4.&nbsp;Heat G_CW  
+3.&nbsp;Coupled G_CW  
+2.&nbsp;SHG G_CW Computational  
+1.&nbsp;Heat Equation Analytical  
 
 
-# 1. Article one 
+# 8. Phase Mismatch G_PW [(Link)](https://www.researchgate.net/publication/267926440_Thermally_induced_phase_mismatching_in_a_repetitively_Gaussian_pulsed_pumping_KTP_crystal_A_spatiotemporal_treatment)
 
 2015: Thermally induced phase mismatching in a repetitively Gaussian pulsed pumping KTP crystal: a spatio-temporal treatment
-
-[Link](https://www.researchgate.net/publication/267926440_Thermally_induced_phase_mismatching_in_a_repetitively_Gaussian_pulsed_pumping_KTP_crystal_A_spatiotemporal_treatment)
 
 **Harvard style**  
 ```
@@ -29,11 +44,9 @@ Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S., Askari, H. and Kh
 }
 ```
 
-# 2. Article two [Link](Link)
+# 7. Heat G_PW [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-6-1241)
 
 2015: Complete Anisotropic Time-Dependent Heat Equation in KTP Crystal under Repetitively Pulsed Gaussian Beams: A Numerical Approach
-
-[Link](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-6-1241)
 
 **Harvard style**  
 ```
@@ -55,11 +68,9 @@ Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S. and Khaldi-Nasab, 
 }
 ```
 
-# 3. Article three [Link](Link)
+# 6. Ideal G_CW [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-4-869) 
 
 2015: Temperature increase effects on a double-pass cavity type II second harmonic generation: a model for depleted Gaussian continuous-waves
-
-[Link](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-4-869)
 
 **Harvard style**  
 ```
@@ -81,11 +92,10 @@ Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M., Motazedian, A. and Shahzadeh, M.,
 }
 ```
 
-# 4. Article three [Link](Link)
+# 5. Ideal BG_PW [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-53-32-7691)
 
 2014: Pulsed Bessel-Gauss beams: A depleted wave model for type II second harmonic generation
 
-[Link](https://opg.optica.org/ao/abstract.cfm?uri=ao-53-32-7691)
 
 **Harvard style** 
 ```
@@ -107,11 +117,10 @@ Sabaeian, M., Motazedian, A., Rezaee, M.M. and Jalil-Abadi, F.S., 2014. Pulsed B
 }
 ```
 
-# 5. Article three [Link](Link)
+# 4. Heat G_CW [(Link)](https://link.springer.com/article/10.1007/s13538-014-0291-x)
 
 2014: Temperature Distribution in a Gaussian End-Pumped Nonlinear KTP Crystal: the Temperature Dependence of Thermal Conductivity and Radiation Boundary Condition
 
-[Link](Link)
 
 **Harvard style** 
 ```
@@ -134,11 +143,9 @@ becomes negligible and can be ignored.}
 ```
 
 
-# 6. Article three [Link](Link)
+# 3. Coupled G_CW [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-21-25615&id=302163)
 
 2014: Heat coupled Gaussian continuous-wave double-pass type-II second harmonic generation: inclusion of thermally induced phase mismatching and thermal lensing
-
-[Link](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-21-25615&id=302163)
 
 **Harvard style**  
 ```
@@ -161,11 +168,11 @@ Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M. and Motazedian, A., 2014. Heat cou
 ```
 
 
-# 7. Article three [Link](Link)
+# 2. SHG G_CW Computational [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-18-18-18732&id=205211)
+
 
 2010: Investigation of thermally-induced phase mismatching in continuous-wave second harmonic generation: A theoretical model
 
-[Link](https://opg.optica.org/oe/fulltext.cfm?uri=oe-18-18-18732&id=205211)
 
 **Harvard style**  
 ```
@@ -187,11 +194,11 @@ Sabaeian, M., Mousave, L. and Nadgaran, H., 2010. Investigation of thermally-ind
 }
 ```
 
-# 8. Article three [Link](Link)
+# 1. Heat Equation Analytical [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-47-13-2317)
+
 
 2008: Analytical solution of the heat equation in a longitudinally pumped cubic solid-state laser  
 
-[Link](https://opg.optica.org/ao/abstract.cfm?uri=ao-47-13-2317)
 
 **Harvard style**   
 ```
