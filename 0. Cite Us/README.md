@@ -3,10 +3,10 @@ Please consider cite to our related works.
 | Abbreviation | Description                     |
 |--------------|---------------------------------|
 | SHG          | Second Harmonic Generation      |
-| G_PW         | Gaussian Pulsed Wave            |
-| G_CW         | Gaussian Continuous Wave        |
-| BG_PW        | Bessel Gaussian Pulsed Wave     |
-| BG_CW        | Bessel Gaussian Continuous Wave |
+| G            | Gaussian                        |
+| BG           | Bessel Gaussian                 |
+| PW           | Pulsed Wave                     |
+| CW           | Continuous Wave                 |
 
 
 # Contents
