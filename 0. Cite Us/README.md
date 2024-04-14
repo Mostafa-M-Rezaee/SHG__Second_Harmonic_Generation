@@ -44,7 +44,7 @@ Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S., Askari, H. and Kh
 }
 ```
 
-# 7. Heat G_PW [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-6-1241)
+# 7. Heat Equation _ Computational _ Source G_PW [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-6-1241)
 
 2015: Complete Anisotropic Time-Dependent Heat Equation in KTP Crystal under Repetitively Pulsed Gaussian Beams: A Numerical Approach
 
@@ -168,7 +168,7 @@ Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M. and Motazedian, A., 2014. Heat cou
 ```
 
 
-# 2. SHG G_CW Computational [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-18-18-18732&id=205211)
+# 2. SHG G_CW _ Computational _ Approximate model [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-18-18-18732&id=205211)
 
 
 2010: Investigation of thermally-induced phase mismatching in continuous-wave second harmonic generation: A theoretical model
@@ -194,7 +194,7 @@ Sabaeian, M., Mousave, L. and Nadgaran, H., 2010. Investigation of thermally-ind
 }
 ```
 
-# 1. Heat Equation Analytical [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-47-13-2317)
+# 1. Heat Equation _ Analytical [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-47-13-2317)
 
 
 2008: Analytical solution of the heat equation in a longitudinally pumped cubic solid-state laser  

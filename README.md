@@ -1,8 +1,19 @@
-# ToDo list:
-- Update programmer info for all codes
+# Thermal Effect in Second Harmonic Generation (SHG)
+
+## Table of contents
+
+- [0. Jargon](#0-jargon) 
+- [1. Data problem-solving strategies](#1-data-problem-solving-strategies)   
+- [2. Introduction](#2-introduction)  
+
+# 1. About this Repository
+# 2. Problem
+# 3. Solution
+# 4. Heat Model
+# 5. Phase Mistach Model
+# 6. SHG Model
 
 
-# Second Harmonic Generation (SHG)
 Welcome to the official repository for our **Non-linear Optics** research articles, with a primary focus on advancing the field and innovations in the development of **Green Lasers**. Dive into cutting-edge research in Non-linear Optics and stay updated with our latest contributions to the world of laser technology.
 
 # How to Cite Us
