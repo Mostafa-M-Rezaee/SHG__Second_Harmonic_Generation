@@ -23,7 +23,7 @@ This GitHub repository offers comprehensive guidance, from basic to advanced lev
 Second Harmonic Generation (SHG) employs a nonlinear crystal like KTP to convert red light into green light due to green light's necessity and difficulty in direct production. During the SHG process, a powerful laser beam interacts with the crystal, causing it to emit light at exactly half the wavelength of the incoming beam, effectively doubling the light's frequency. 
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image01.png" alt="Image 1" width="55%">
+  <img src="./Archive/images/3.%20Readme_images/image01.png" alt="Image 1" width="65%">
 </p>
 
 <p align="center">Figure 1. Second Harmonic Generation</p>
@@ -31,7 +31,7 @@ Second Harmonic Generation (SHG) employs a nonlinear crystal like KTP to convert
 The crystal absorbs a portion of the laser's energy as heat which potentially damages it and reduces its ability to produce the desired light. To address this issue, the crystal is equipped with a cooling system depicted in the figure 2. A coolant circulates around the crystal, absorbing the heat generated during SHG, thereby maintaining an optimal temperature for a more efficient SHG. The crystal's lateral surface is maintained at a constant temperature through cooling. Typically, a double layer of copper covers these surfaces, with either water or liquid nitrogen passing through it. This ensures a constant temperature condition at the crystal's side surface. Additionally, the input and output surfaces of the crystal are cooled through both radiation and convection. Heat reaches these surfaces through conduction and is then transferred away by convection and radiation processes.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image02.png" alt="Image 2" width="60%">
+  <img src="./Archive/images/3.%20Readme_images/image02.png" alt="Image 2" width="65%">
 </p>
 
 <p align="center">Figure 2. Schematic of the nonlinear crystal under laser beam</p>
@@ -71,7 +71,7 @@ When a crystal is placed under the radiation of a laser, the temperature of diff
 
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="60%">
+  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="65%">
 </p>
 
 <p align="center">Figure 5. Schematic of the shape of the wave front changes due to the difference in the speed of light at different points of the crystal as a result of the temperature changes of the refractive index of the crystal.](../Archive/images/3.%20Readme_images/image05.png</p>
