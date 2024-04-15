@@ -1,5 +1,18 @@
-Please consider cite to our related works.
+# Please consider cite to our related works.
 
+# Table of contents
+- [Jargon](#jargon) 
+- [8. Phase Mismatch G_PW](#8-phase-mismatch-g_pw-link) 
+- [7. Heat Equation _ Computational _ Source G_PW](#7-heat-equation-_-computational-_-source-g_pw-link) 
+- [# 6. Ideal G_CW](#6-Ideal-G_CW-link) 
+- [# 5. Ideal BG_PW](#5-Ideal-BG_PW-link) 
+- [# 4. Heat G_CW](#4-Heat-G_CW-link) 
+- [# 3. Coupled G_CW](#3-Coupled-G_CW-link) 
+- [# 2. SHG G_CW _ Computational _ Approximate model](#2-SHG-G_CW-_-Computational-_-Approximate-model-link) 
+- [# 1. Heat Equation _ Analytical](#1-Heat-Equation-_-Analytical-link) 
+
+
+# Jargon
 | Abbreviation | Description                     |
 |--------------|---------------------------------|
 | SHG          | Second Harmonic Generation      |
@@ -7,17 +20,6 @@ Please consider cite to our related works.
 | BG           | Bessel Gaussian                 |
 | PW           | Pulsed Wave                     |
 | CW           | Continuous Wave                 |
-
-
-# Contents
-8.&nbsp;Phase Mismatch G_PW   
-7.&nbsp;Heat G_PW  
-6.&nbsp;Ideal G_CW  
-5.&nbsp;Ideal BG_PW  
-4.&nbsp;Heat G_CW  
-3.&nbsp;Coupled G_CW  
-2.&nbsp;SHG G_CW Computational  
-1.&nbsp;Heat Equation Analytical  
 
 
 # 8. Phase Mismatch G_PW [(Link)](https://www.researchgate.net/publication/267926440_Thermally_induced_phase_mismatching_in_a_repetitively_Gaussian_pulsed_pumping_KTP_crystal_A_spatiotemporal_treatment)
