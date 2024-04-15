@@ -74,7 +74,7 @@ When a crystal is placed under the radiation of a laser, the temperature of diff
   <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="75%">
 </p>
 
-<p align="center">Figure 5. Schematic of the shape of the wave front changes due to the difference in the speed of light at different points of the crystal as a result of the temperature changes of the refractive index of the crystal.](../Archive/images/3.%20Readme_images/image05.png</p>
+<p align="center">Figure 5. Schematic of the phase mismatch due to temprature gradient within the crystal.</p>
 
 
 Phase is a function of temperature and it is clear that due to the presence of the phase difference in the field equations, this quantity is very effective in determining the efficiency of the SHG. In this way, heat and electromagnetic waves are related indirectly. By delineating the correlation between phase ($φ$) and temperature ($T$), as shown below:
