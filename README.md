@@ -30,11 +30,20 @@ Second Harmonic Generation (SHG) employs a nonlinear crystal like KTP to convert
 
 The crystal absorbs a portion of the laser's energy as heat which potentially damages it and reduces its ability to produce the desired light. To address this issue, the crystal is equipped with a cooling system depicted in the figure 2. A coolant circulates around the crystal, absorbing the heat generated during SHG, thereby maintaining an optimal temperature for a more efficient SHG. The crystal's lateral surface is maintained at a constant temperature through cooling. Typically, a double layer of copper covers these surfaces, with either water or liquid nitrogen passing through it. This ensures a constant temperature condition at the crystal's side surface. Additionally, the input and output surfaces of the crystal are cooled through both radiation and convection. Heat reaches these surfaces through conduction and is then transferred away by convection and radiation processes.
 
-![Figure 2. Schematic of the nonlinear crystal under laser beam](../Archive/images/3.%20Readme_images/image02.png)<p>&nbsp;</p>
+<p align="center">
+  <img src="./Archive/images/3.%20Readme_images/image02.png" alt="Image 2">
+</p>
+
+<p align="center">Figure 2. Schematic of the nonlinear crystal under laser beam</p>
+
 
 Considering the lateral symmetry allows us to tackle the issue within a half-plane of a cylindrical crystal, as depicted in Figure 4. Visualize rotating this half-plane around the axis, which effectively encompasses the entire cylindrical crystal. With the axis of the crystal exhibiting the highest temperature and the side surface the lowest, a temperature gradient naturally forms from the axis towards the side surface. On the other hand, the maximum temperature of the crystal axis causes heat to always move from the axis to the surface; like the top of a hill that is higher than all the points around it. Therefore, the axis of the crystal acts like an insulator. In other words, if we want to solve the problem on the half plane as shown in Figure 4, we must apply the isolation boundary condition for the crystal axis.
 
-![Firgure 3. Schematic of the upper half plane of the cross section of the crystal in the longitudinal direction, the vector perpendicular to the entrance and exit surfaces of the crystal, as well as the temperature gradient vector](../Archive/images/3.%20Readme_images/image03.png)<p>&nbsp;</p>
+<p align="center">
+  <img src="./Archive/images/3.%20Readme_images/image03.png" alt="Image 3">
+</p>
+
+<p align="center">Firgure 3. Schematic of the upper half plane of the cross section of the crystal in the longitudinal direction, the vector perpendicular to the entrance and exit surfaces of the crystal, as well as the temperature gradient vector</p>
 
 
 # 3. The Challenge of Second Harmonic Generation
@@ -50,11 +59,23 @@ where mass density ($ρ$) in terms of $kg {m}^{-3}$, heat capacity ($c$) in term
 # 4. Thermal Effects in Second Harmonic Generation
 The thermal distribution within a crystal subjected to laser radiation is shown in Figure 1. Since the axis of the crystal is under the laser beam and its lateral surface is in heat exchange with the environment, the peak of the temperature gradient is at the center of the crystal, where the laser beam is focused, and gradually decreases towards the surface. Also, the left side of the crystal, where the laser initially contacts, is the hottest, with temperature decreasing towards the right side. This spatial temperature variation is crucial in understanding the thermal behaviour of crystals under laser irradiation.
 
-![Figure 4. Crystal Temprature Gradient](../Archive/images/3.%20Readme_images/image04.png)<p>&nbsp;</p>
+
+<p align="center">
+  <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4">
+</p>
+
+<p align="center">Figure 4. Crystal Temprature Gradient</p>
+
 
 When a crystal is placed under the radiation of a laser, the temperature of different points of the crystal becomes a function of space and time. As the temperature changes, the refractive index of the crystal also changes. In this way, the refractive index of the crystal will also become a function of space and time. Since the speed of light is dependent on the refractive index of the medium, the speed of light passing through different points of the crystal will also be a function of space and time. As a matter of fact, the speed of light changes in the radial directions due to the temperature gradient. Hence,  the different points of the wavefront experience different speeds and the shape of the wavefront is disturbed. This results in a phase mismatch between the primary and second harmonic waves, as shown in Figure 5.
 
-![Figure 5. Schematic of the shape of the wave front changes due to the difference in the speed of light at different points of the crystal as a result of the temperature changes of the refractive index of the crystal.](../Archive/images/3.%20Readme_images/image05.png)<p>&nbsp;</p>
+
+<p align="center">
+  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5">
+</p>
+
+<p align="center">Figure 5. Schematic of the shape of the wave front changes due to the difference in the speed of light at different points of the crystal as a result of the temperature changes of the refractive index of the crystal.](../Archive/images/3.%20Readme_images/image05.png</p>
+
 
 Phase is a function of temperature and it is clear that due to the presence of the phase difference in the field equations, this quantity is very effective in determining the efficiency of the SHG. In this way, heat and electromagnetic waves are related indirectly. By delineating the correlation between phase ($φ$) and temperature ($T$), as shown below:
 
