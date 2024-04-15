@@ -2,7 +2,7 @@
 
 
 # Table of contents
-- [1. About this Repository](#1.-About-this-Repository) 
+- [1. About this Repository](#1.-about-this-repository) 
 - [2. Second Harmonic Generation ](#2.-Second-Harmonic-Generation)
 - [3. The Challenge of Second Harmonic Generation](#3.-The-Challenge-of-Second-Harmonic-Generation)   
 - [4. Thermal Effects in Second Harmonic Generation](#4.-Thermal-Effects-in-Second-Harmonic-Generation) 
@@ -31,7 +31,7 @@ Second Harmonic Generation (SHG) employs a nonlinear crystal like KTP to convert
 The crystal absorbs a portion of the laser's energy as heat which potentially damages it and reduces its ability to produce the desired light. To address this issue, the crystal is equipped with a cooling system depicted in the figure 2. A coolant circulates around the crystal, absorbing the heat generated during SHG, thereby maintaining an optimal temperature for a more efficient SHG. The crystal's lateral surface is maintained at a constant temperature through cooling. Typically, a double layer of copper covers these surfaces, with either water or liquid nitrogen passing through it. This ensures a constant temperature condition at the crystal's side surface. Additionally, the input and output surfaces of the crystal are cooled through both radiation and convection. Heat reaches these surfaces through conduction and is then transferred away by convection and radiation processes.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image02.png" alt="Image 2">
+  <img src="./Archive/images/3.%20Readme_images/image02.png" alt="Image 2" width="60%">
 </p>
 
 <p align="center">Figure 2. Schematic of the nonlinear crystal under laser beam</p>
@@ -40,7 +40,7 @@ The crystal absorbs a portion of the laser's energy as heat which potentially da
 Considering the lateral symmetry allows us to tackle the issue within a half-plane of a cylindrical crystal, as depicted in Figure 4. Visualize rotating this half-plane around the axis, which effectively encompasses the entire cylindrical crystal. With the axis of the crystal exhibiting the highest temperature and the side surface the lowest, a temperature gradient naturally forms from the axis towards the side surface. On the other hand, the maximum temperature of the crystal axis causes heat to always move from the axis to the surface; like the top of a hill that is higher than all the points around it. Therefore, the axis of the crystal acts like an insulator. In other words, if we want to solve the problem on the half plane as shown in Figure 4, we must apply the isolation boundary condition for the crystal axis.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image03.png" alt="Image 3">
+  <img src="./Archive/images/3.%20Readme_images/image03.png" alt="Image 3" width="60%">
 </p>
 
 <p align="center">Firgure 3. Schematic of the upper half plane of the cross section of the crystal in the longitudinal direction, the vector perpendicular to the entrance and exit surfaces of the crystal, as well as the temperature gradient vector</p>
@@ -71,7 +71,7 @@ When a crystal is placed under the radiation of a laser, the temperature of diff
 
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5">
+  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="60%">
 </p>
 
 <p align="center">Figure 5. Schematic of the shape of the wave front changes due to the difference in the speed of light at different points of the crystal as a result of the temperature changes of the refractive index of the crystal.](../Archive/images/3.%20Readme_images/image05.png</p>
