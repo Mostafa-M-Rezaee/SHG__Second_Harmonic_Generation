@@ -3,16 +3,16 @@
 
 # Table of contents
 - [1. About this Repository](#1.-about-this-repository) 
-- [2. Second Harmonic Generation ](#2.-Second-Harmonic-Generation)
-- [3. The Challenge of Second Harmonic Generation](#3.-The-Challenge-of-Second-Harmonic-Generation)   
-- [4. Thermal Effects in Second Harmonic Generation](#4.-Thermal-Effects-in-Second-Harmonic-Generation) 
-- [5. Our Contribution](#5.-Our-Contribution) 
-- [6. Methodology](#6.-Methodology) 
-    - [6.1. Computational Approach](##6.1.-Computational-Approach) 
-    - [6.2. Finite Difference Method](##6.2.-Finite-Difference-Method) 
-- [7. Research Opportunity](#7.-Research-Opportunity) 
-- [8. How to Cite Us](#8.-How-to-Cite-Us) 
-- [9. For Additional Question](#9.For-Additional-Question) 
+- [2. Second Harmonic Generation ](#2.-second-harmonic-generation)
+- [3. The Challenge of Second Harmonic Generation](#3.-the-challenge-of-second-harmonic-generation)   
+- [4. Thermal Effects in Second Harmonic Generation](#4.-thermal-effects-in-second-harmonic-generation) 
+- [5. Our Contribution](#5.-our-contribution) 
+- [6. Methodology](#6.-methodology) 
+    - [6.1. Computational Approach](##6.1.-computational-approach) 
+    - [6.2. Finite Difference Method](##6.2.-finite-difference-method) 
+- [7. Research Opportunity](#7.-research-opportunity) 
+- [8. How to Cite Us](#8.-how-to-cite-us) 
+- [9. For Additional Question](#9.for-additional-question) 
 
 
 # 1. About this Repository
@@ -23,7 +23,7 @@ This GitHub repository offers comprehensive guidance, from basic to advanced lev
 Second Harmonic Generation (SHG) employs a nonlinear crystal like KTP to convert red light into green light due to green light's necessity and difficulty in direct production. During the SHG process, a powerful laser beam interacts with the crystal, causing it to emit light at exactly half the wavelength of the incoming beam, effectively doubling the light's frequency. 
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image01.png" alt="Image 1">
+  <img src="./Archive/images/3.%20Readme_images/image01.png" alt="Image 1" width="55%">
 </p>
 
 <p align="center">Figure 1. Second Harmonic Generation</p>
