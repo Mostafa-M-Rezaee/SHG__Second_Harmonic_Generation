@@ -23,7 +23,7 @@ This GitHub repository offers comprehensive guidance, from basic to advanced lev
 Second Harmonic Generation (SHG) employs a nonlinear crystal like KTP to convert red light into green light due to green light's necessity and difficulty in direct production. During the SHG process, a powerful laser beam interacts with the crystal, causing it to emit light at exactly half the wavelength of the incoming beam, effectively doubling the light's frequency. 
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image01.png" alt="Image 1" width="75%">
+  <img src="./Archive/images/3.%20Readme_images/image01.png" alt="Image 1">
 </p>
 
 <p align="center">Figure 1. Second Harmonic Generation</p>
@@ -61,7 +61,7 @@ The thermal distribution within a crystal subjected to laser radiation is shown 
 
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4" width="70%">
+  <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4" width="75%">
 </p>
 
 <p align="center">Figure 4. Crystal Temprature Gradient</p>
@@ -71,7 +71,7 @@ When a crystal is placed under the radiation of a laser, the temperature of diff
 
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="70%">
+  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="75%">
 </p>
 
 <p align="center">Figure 5. Schematic of the shape of the wave front changes due to the difference in the speed of light at different points of the crystal as a result of the temperature changes of the refractive index of the crystal.](../Archive/images/3.%20Readme_images/image05.png</p>
