@@ -23,7 +23,7 @@ This GitHub repository offers comprehensive guidance, from basic to advanced lev
 Second Harmonic Generation (SHG) employs a nonlinear crystal like KTP to convert red light into green light due to green light's necessity and difficulty in direct production. During the SHG process, a powerful laser beam interacts with the crystal, causing it to emit light at exactly half the wavelength of the incoming beam, effectively doubling the light's frequency. 
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image01.png" alt="Image 1" width="65%">
+  <img src="./Archive/images/3.%20Readme_images/image01.png" alt="Image 1" width="75%">
 </p>
 
 <p align="center">Figure 1. Second Harmonic Generation</p>
@@ -40,7 +40,7 @@ The crystal absorbs a portion of the laser's energy as heat which potentially da
 Considering the lateral symmetry allows us to tackle the issue within a half-plane of a cylindrical crystal, as depicted in Figure 4. Visualize rotating this half-plane around the axis, which effectively encompasses the entire cylindrical crystal. With the axis of the crystal exhibiting the highest temperature and the side surface the lowest, a temperature gradient naturally forms from the axis towards the side surface. On the other hand, the maximum temperature of the crystal axis causes heat to always move from the axis to the surface; like the top of a hill that is higher than all the points around it. Therefore, the axis of the crystal acts like an insulator. In other words, if we want to solve the problem on the half plane as shown in Figure 4, we must apply the isolation boundary condition for the crystal axis.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image03.png" alt="Image 3" width="60%">
+  <img src="./Archive/images/3.%20Readme_images/image03.png" alt="Image 3" width="65%">
 </p>
 
 <p align="center">Firgure 3. Schematic of the upper half plane of the cross section of the crystal in the longitudinal direction, the vector perpendicular to the entrance and exit surfaces of the crystal, as well as the temperature gradient vector</p>
@@ -61,7 +61,7 @@ The thermal distribution within a crystal subjected to laser radiation is shown 
 
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4">
+  <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4" width="70%">
 </p>
 
 <p align="center">Figure 4. Crystal Temprature Gradient</p>
@@ -71,7 +71,7 @@ When a crystal is placed under the radiation of a laser, the temperature of diff
 
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="65%">
+  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="70%">
 </p>
 
 <p align="center">Figure 5. Schematic of the shape of the wave front changes due to the difference in the speed of light at different points of the crystal as a result of the temperature changes of the refractive index of the crystal.](../Archive/images/3.%20Readme_images/image05.png</p>
