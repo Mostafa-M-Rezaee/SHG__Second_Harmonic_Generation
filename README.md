@@ -1,4 +1,4 @@
-# <center>Thermal Effect in Second Harmonic Generation</center>
+# Thermal Effect in Second Harmonic Generation
 
 
 # Table of contents
