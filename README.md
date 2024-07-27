@@ -2,8 +2,8 @@
 
 
 # Table of contents
-1. [1. About this Repository](#1-about-this-repository) 
-- [2. Second Harmonic Generation ](#2-second-harmonic-generation)
+1. [About this Repository](#1-about-this-repository) 
+2. [Second Harmonic Generation ](#2-second-harmonic-generation)
 - [3. The Challenge of Second Harmonic Generation](#3-the-challenge-of-second-harmonic-generation)   
 - [4. Thermal Effects in Second Harmonic Generation](#4-thermal-effects-in-second-harmonic-generation) 
 - [5. Our Contribution](#5-our-contribution) 
