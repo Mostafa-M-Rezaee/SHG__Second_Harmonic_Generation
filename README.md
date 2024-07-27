@@ -3,16 +3,16 @@
 
 # Table of contents
 [1. About this Repository](#1-about-this-repository)       
-[2. Second Harmonic Generation ](#2-second-harmonic-generation)
-- [3. The Challenge of Second Harmonic Generation](#3-the-challenge-of-second-harmonic-generation)   
-- [4. Thermal Effects in Second Harmonic Generation](#4-thermal-effects-in-second-harmonic-generation) 
-- [5. Our Contribution](#5-our-contribution) 
-- [6. Methodology](#6-methodology) 
-    - [6.1. Computational Approach](##61-computational-approach) 
-    - [6.2. Finite Difference Method](##62-finite-difference-method) 
-- [7. Research Opportunity](#7-research-opportunity) 
-- [8. How to Cite Us](#8-how-to-cite-us) 
-- [9. For Additional Question](#9for-additional-question) 
+[2. Second Harmonic Generation ](#2-second-harmonic-generation)       
+[3. The Challenge of Second Harmonic Generation](#3-the-challenge-of-second-harmonic-generation)          
+[4. Thermal Effects in Second Harmonic Generation](#4-thermal-effects-in-second-harmonic-generation)        
+[5. Our Contribution](#5-our-contribution)        
+[6. Methodology](#6-methodology)        
+    [6.1. Computational Approach](##61-computational-approach)        
+    [6.2. Finite Difference Method](##62-finite-difference-method)        
+[7. Research Opportunity](#7-research-opportunity)        
+[8. How to Cite Us](#8-how-to-cite-us)        
+[9. For Additional Question](#9for-additional-question)        
 
 
 # 1. About this Repository
