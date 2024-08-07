@@ -20,7 +20,7 @@ This GitHub repository offers comprehensive guidance, from basic to advanced lev
 
 
 # 2. Second Harmonic Generation 
-Second Harmonic Generation (SHG) employs a nonlinear crystal like KTP to convert red light into green light due to green light's necessity and difficulty in direct production. During the SHG process, a powerful laser beam interacts with the crystal, causing it to emit light at exactly half the wavelength of the incoming beam, effectively doubling the light's frequency. 
+Second Harmonic Generation (SHG) employs a nonlinear crystal like KTP to convert red light into green light. This conversion is essential because of green light's necessity and difficulty in direct production. During the SHG process, a powerful laser beam interacts with the crystal, causing it to emit light at exactly half the wavelength of the incoming beam, effectively doubling the light's frequency. 
 
 <p align="center">
   <img src="./Archive/images/3.%20Readme_images/image01.png" alt="Image 1">
