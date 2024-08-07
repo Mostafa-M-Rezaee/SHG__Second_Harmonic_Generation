@@ -13,7 +13,7 @@
 [7. Research Opportunity](#7-research-opportunity)        
 [8. How to Cite Us](#8-how-to-cite-us)        
 [9. For Additional Question](#9for-additional-question)        
-
+[10. Folder PATH listing](10Folder-PATH-listing)
 
 # 1. About this Repository
 This GitHub repository offers comprehensive guidance, from basic to advanced levels, for computationally addressing thermal effects in Second Harmonic Generation (SHG). As an educational resource, this repository starts with covering fundamental aspects of Fortran, including how to install it and master its essential commands. Also, we demonstrate techniques for computationally solving a nonlinear optics phenomenon using the Finite Difference Method (FDM), provide access to the codes utilized in our studies, and explain our research findings clearly. Also, we outline potential research opportunities for future exploration. Our ongoing efforts involve expanding the repository to incorporate further advancements in the field. 
@@ -121,13 +121,14 @@ Please refer to the [0. Cite Us](https://github.com/mohammad-ghadri/SHG__Second_
 
 
 # 9. For Additional Question
+If you have questions that are not covered in the resources above, the best way to reach [Mostafa M. Rezaee](https://www.linkedin.com/in/mostafa-m-rezaee/).
+Gmail: mostafa.mohammadrezaee@gmail.com
+[Linkedin](https://www.linkedin.com/in/mostafa-m-rezaee/)
+[Personal Website](https://mostafa-mr.com/)
 
 
-
-
-
+# 10. Folder PATH listing
 ```
-Folder PATH listing
 . 
 |
 +---0. Cite Us
