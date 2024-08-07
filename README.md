@@ -12,8 +12,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[6.2. Finite Difference Method](##62-finite-difference-method)        
 [7. Research Opportunity](#7-research-opportunity)        
 [8. How to Cite Us](#8-how-to-cite-us)        
-[9. For Additional Question](#9for-additional-question)        
-[10. Folder PATH listing](10Folder-PATH-listing)
+[9. For Additional Question](#9-for-additional-question)        
+[10. Folder PATH listing](#10-folder-path-listing)
 
 # 1. About this Repository
 This GitHub repository offers comprehensive guidance, from basic to advanced levels, for computationally addressing thermal effects in Second Harmonic Generation (SHG). As an educational resource, this repository starts with covering fundamental aspects of Fortran, including how to install it and master its essential commands. Also, we demonstrate techniques for computationally solving a nonlinear optics phenomenon using the Finite Difference Method (FDM), provide access to the codes utilized in our studies, and explain our research findings clearly. Also, we outline potential research opportunities for future exploration. Our ongoing efforts involve expanding the repository to incorporate further advancements in the field. 
