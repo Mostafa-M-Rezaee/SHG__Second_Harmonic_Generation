@@ -77,7 +77,7 @@ When a crystal is placed under the radiation of a laser, the temperature of diff
 <p align="center">Figure 5. Schematic of the phase mismatch due to temprature gradient within the crystal.</p>
 
 
-Phase is a function of temperature and it is clear that due to the presence of the phase difference in the field equations, this quantity is very effective in determining the efficiency of the SHG. In this way, heat and electromagnetic waves are related indirectly. By delineating the correlation between phase ($φ$) and temperature ($T$), as shown below:
+Phase is a function of temperature and it is clear that due to the presence of the phase difference in the field equations, this quantity is very effective in determining the efficiency of the SHG. In this way, heat and electromagnetic waves are related indirectly. The below formula is the correlation between phase ($φ$) and temperature ($T$):
 
 $$
 \Delta \varphi=\int_0^z \Delta k(T) d z^{\prime}
