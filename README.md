@@ -122,9 +122,9 @@ Please refer to the [0. Cite Us](https://github.com/mohammad-ghadri/SHG__Second_
 
 # 9. For Additional Question
 If you have questions that are not covered in the resources above, the best way to reach [Mostafa M. Rezaee](https://www.linkedin.com/in/mostafa-m-rezaee/).
-Gmail: mostafa.mohammadrezaee@gmail.com
-[Linkedin](https://www.linkedin.com/in/mostafa-m-rezaee/)
-[Personal Website](https://mostafa-mr.com/)
+Gmail: mostafa.mohammadrezaee@gmail.com       
+[Linkedin](https://www.linkedin.com/in/mostafa-m-rezaee/)           
+[Personal Website](https://mostafa-mr.com/)       
 
 
 # 10. Folder PATH listing
