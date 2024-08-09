@@ -9,13 +9,29 @@
 [5. Our Contribution](#5-our-contribution)        
 [6. Methodology](#6-methodology)        
 &nbsp;&nbsp;&nbsp;&nbsp;[6.1. Computational Approach](#61-computational-approach)        
-&nbsp;&nbsp;&nbsp;&nbsp;[6.2. Finite Difference Method (FDM)](#62-finite-difference-method-(FDM))        
+&nbsp;&nbsp;&nbsp;&nbsp;[6.2. Finite Difference Method (FDM)](#62-finite-difference-method-(fdm))        
 [7. Research Opportunities](#7-research-opportunities)        
 [8. How to Cite Us](#8-how-to-cite-us)        
 [9. For Additional Question](#9-for-additional-question)        
 
 # 1. About this Repository
 This GitHub repository offers comprehensive guidance, from basic to advanced levels, for computationally addressing thermal effects in Second Harmonic Generation (SHG). As an educational resource, this repository starts with covering fundamental aspects of Fortran, including how to install it and master its essential commands. Also, we demonstrate techniques for computationally solving a nonlinear optics phenomenon using the Finite Difference Method (FDM), provide access to the codes utilized in our studies, and explain our research findings clearly. Also, we outline potential research opportunities for future exploration. Our ongoing efforts involve expanding the repository to incorporate further advancements in the field. 
+
+
+**Who Is This Tutorial For?**   
+This tutorial is designed for anyone interested in computational physics, nonlinear optics, or scientific computing, regardless of their prior experience. Whether you're a student, researcher, or professional, this resource will guide you through the process of solving Thermal Effects in SHG using computational methods.
+
+**What Will You Learn?**
+By the end of this tutorial, you will:
+- Gain proficiency in Fortran, from installation to mastering essential commands.
+- Understand the basic to advanced principles of Thermal Effects in SHG.
+- Learn FDM and how to apply it for solving nonlinear optics problems computationally.
+- Access and utilize real codes used in cutting-edge research.
+- Clearly comprehend the research findings and understand the potential for future exploration in this area.
+
+**Prerequisites:**  
+This tutorial assumes no prior knowledge. It starts from the basics and gradually progresses to more advanced topics. A willingness to learn and a basic understanding of physics and mathematics will be helpful, but not strictly required.
+
 
 ```
 Folder Path Listing
@@ -70,24 +86,23 @@ Folder Path Listing
 
 
 # 2. Second Harmonic Generation (SHG)
-SHG employs a nonlinear crystal like Potassium Titanyl Phosphate (KTP) to convert red light into green light. This conversion is essential because of green light's necessity and difficulty in direct production. During the SHG process, a powerful laser beam interacts with the crystal, causing it to emit light at exactly half the wavelength of the incoming beam, effectively doubling the light's frequency. 
+SHG employs a nonlinear crystal like Potassium Titanyl Phosphate (KTP) to convert red laser (1064 nm) into green laser (532 nm). This conversion is essential because of green light's necessity and difficulty in direct production. During the SHG process, a powerful laser beam interacts with the crystal, causing it to emit light at exactly half the wavelength of the incoming beam, effectively doubling the light's frequency. 
 
 <p align="center">
   <img src="./Archive/images/3.%20Readme_images/image01.png" alt="Image 1">
 </p>
 
-<p align="center">Figure 1. Second Harmonic Generation</p>
-
-The crystal absorbs a portion of the laser's energy as heat which potentially damages it and reduces its ability to produce the desired light. To address this issue, the crystal is equipped with a cooling system depicted in the figure 2. A coolant circulates around the crystal, absorbing the heat generated during SHG, thereby maintaining an optimal temperature for a more efficient SHG. The crystal's lateral surface is maintained at a constant temperature through cooling. Typically, a double layer of copper covers these surfaces, with either water or liquid nitrogen passing through it. This ensures a constant temperature condition at the crystal's side surface. Additionally, the input and output surfaces of the crystal are cooled through both radiation and convection. Heat reaches these surfaces through conduction and is then transferred away by convection and radiation processes.
+<p align="center">Figure 1. Using Second Harmonic Generation (SHG), a KTP nonlinear crystal converts a 1064 nm red laser (Fundamental Wave) into 532 nm green light (Second Harmonic Wave), effectively doubling the frequency of the original beam through a nonlinear optical processes.</p>
+ 
+A portion of the absorebed energy is dissipated as heat within the crystal which potentially damages it and reduces its ability to produce the desired laser. To address this issue, the crystal is equipped with a cooling system depicted in the figure 2. A coolant circulates around the crystal, absorbing the heat generated during SHG, thereby maintaining an optimal temperature for a more efficient SHG. The crystal's lateral surface is maintained at a constant temperature through cooling. Typically, a double layer of copper covers these surfaces, with either water or liquid nitrogen passing through it. This ensures a constant temperature condition at the crystal's side surface. Additionally, the input and output surfaces of the crystal are cooled through both radiation and convection. Heat reaches these surfaces through conduction and is then transferred away by convection and radiation processes.
 
 <p align="center">
   <img src="./Archive/images/3.%20Readme_images/image02.png" alt="Image 2" width="65%">
 </p>
 
-<p align="center">Figure 2. Schematic of the nonlinear crystal under laser beam</p>
+<p align="center">Figure 2. A cooling system uses a double layer of copper and circulating coolant (water or liquid nitrogen) to manage heat dissipation, keeping the crystal at an optimal temperature for efficient laser performance during SHG.</p>
 
-
-Considering the lateral symmetry allows us to tackle the issue within a half-plane of a cylindrical crystal, as depicted in Figure 4. Visualize rotating this half-plane around the horizontal axis, which effectively encompasses the entire cylindrical crystal. With the axis of the crystal exhibiting the highest temperature and the side surface the lowest, a temperature gradient naturally forms from the axis towards the side surface. On the other hand, the maximum temperature of the crystal axis causes heat to always move from the axis to the surface; like the top of a hill that is higher than all the points around it. Therefore, the axis of the crystal acts like an insulator. In other words, if we want to solve the problem on the half plane as shown in Figure 4, we must apply the isolation boundary condition for the crystal axis.
+Considering the lateral symmetry allows us to tackle the issue within a half-plane of a cylindrical crystal, as depicted in Figure 3. Visualize rotating this half-plane around the horizontal axis, which effectively encompasses the entire cylindrical crystal. With the axis of the crystal exhibiting the highest temperature and the side surface the lowest, a temperature gradient naturally forms from the axis towards the side surface. On the other hand, the maximum temperature of the crystal axis causes heat to always move from the axis to the surface; like the top of a hill that is higher than all the points around it. Therefore, the axis of the crystal acts like an insulator. In other words, if we want to solve the problem on the half plane as shown in Figure 3, we must apply the isolation boundary condition for the crystal axis.
 
 <p align="center">
   <img src="./Archive/images/3.%20Readme_images/image03.png" alt="Image 3" width="65%">
@@ -97,7 +112,21 @@ Considering the lateral symmetry allows us to tackle the issue within a half-pla
 
 
 # 3. The Challenge of SHG
-In the process of SHG, a crystal is subjected to laser radiation. A portion of the laser's energy is absorbed by the crystal, converting it into thermal energy. This absorbed thermal energy elevates the crystal's temperature, thereby inducing optical characteristic alterations, significantly reducing its efficiency. To achieve optimal performance, it is crucial to fully understand the underlying physics. The absorbed heat can be characterized through the Heat Equation, which states:
+In the process of SHG, a crystal is subjected to laser radiation. A portion of the laser's energy is absorbed by the crystal, converting it into thermal energy. This absorbed thermal energy elevates the crystal's temperature, thereby inducing optical characteristic alterations, significantly reducing its efficiency. 
+
+
+
+# 4. Thermal Effects in SHG
+The thermal gradient within a crystal subjected to laser radiation is shown in Figure 4. Since the axis of the crystal is under the laser beam and its lateral surface is in heat exchange with the environment, the peak of the temperature gradient is at the center of the crystal, where the laser beam is focused, and gradually decreases towards the surface. Also, the left side of the crystal, where the laser initially contacts, is the hottest, with temperature decreasing towards the right side. This spatial temperature variation is crucial in understanding the thermal behaviour of crystals under laser irradiation.
+
+
+<p align="center">
+  <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4" width="75%">
+</p>
+
+<p align="center">Figure 4. Crystal Thermal Gradient</p>
+
+To achieve optimal performance, it is crucial to fully understand the underlying physics. The absorbed heat can be characterized through the Heat Equation, which states:
 
 $$
 +\rho c \frac{\partial T}{\partial t}-\vec{\nabla} \cdot K(T) \vec{\nabla} T=S
@@ -106,17 +135,7 @@ $$
 where mass density ($ρ$) in terms of $kg {m}^{-3}$, heat capacity ($c$) in terms of $J k g^{-1} K^{-1}$ and thermal conductivity ($K$) in terms of $W m^{-1} K^{-1}$ at $K(T)=K_0 \times T_0 / T$, which depends on temperature. In this formula, the conductivity coefficient $K_0$ is in temperature $T_0=300 \mathrm{~K}$. Also, ($S$) is the pulsed source that produces heat in terms of $Wm^{-3}$. 
 
 
-# 4. Thermal Effects in SHG
-The thermal distribution within a crystal subjected to laser radiation is shown in Figure 1. Since the axis of the crystal is under the laser beam and its lateral surface is in heat exchange with the environment, the peak of the temperature gradient is at the center of the crystal, where the laser beam is focused, and gradually decreases towards the surface. Also, the left side of the crystal, where the laser initially contacts, is the hottest, with temperature decreasing towards the right side. This spatial temperature variation is crucial in understanding the thermal behaviour of crystals under laser irradiation.
-
-
-<p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4" width="75%">
-</p>
-
-<p align="center">Figure 4. Crystal Temprature Gradient</p>
-
-
+# 5. Phase Mismatch
 When a crystal is placed under the radiation of a laser, the temperature of different points of the crystal becomes a function of space and time. As the temperature changes, the refractive index of the crystal also changes. In this way, the refractive index of the crystal will also become a function of space and time. Since the speed of light is dependent on the refractive index of the medium, the speed of light passing through different points of the crystal will also be a function of space and time. As a matter of fact, the speed of light changes in the radial directions due to the temperature gradient. Hence,  the different points of the wavefront experience different speeds and the shape of the wavefront is disturbed. This results in a phase mismatch between the primary and second harmonic waves, as shown in Figure 5.
 
 
