@@ -12,24 +12,23 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[6.2. Finite Difference Method (FDM)](#62-finite-difference-method-(fdm))        
 [7. Research Opportunities](#7-research-opportunities)        
 [8. How to Cite Us](#8-how-to-cite-us)        
-[9. For Additional Question](#9-for-additional-question)        
+[9. For Additional Questions](#9-for-additional-questions)        
 
 # 1. About this Repository
 This GitHub repository offers comprehensive guidance, from basic to advanced levels, for computationally addressing thermal effects in Second Harmonic Generation (SHG). As an educational resource, this repository starts with covering fundamental aspects of Fortran, including how to install it and master its essential commands. Also, we demonstrate techniques for computationally solving a nonlinear optics phenomenon using the Finite Difference Method (FDM), provide access to the codes utilized in our studies, and explain our research findings clearly. Also, we outline potential research opportunities for future exploration. Our ongoing efforts involve expanding the repository to incorporate further advancements in the field. 
 
-
 **Who Is This Tutorial For?**   
-This tutorial is designed for anyone interested in computational physics, nonlinear optics, or scientific computing, regardless of their prior experience. Whether you're a student, researcher, or professional, this resource will guide you through the process of solving Thermal Effects in SHG using computational methods.
+This tutorial is designed for anyone interested in computational physics, nonlinear optics, or scientific computing, regardless of their prior experience. Whether you're a student, researcher, or professional, this resource will guide you through the process of solving Thermal Effects in SHG using FDM.
 
-**What Will You Learn?**
-By the end of this tutorial, you will:
+**What Will You Learn?**    
+By the end of this tutorial, you will:           
 - Gain proficiency in Fortran, from installation to mastering essential commands.
 - Understand the basic to advanced principles of Thermal Effects in SHG.
 - Learn FDM and how to apply it for solving nonlinear optics problems computationally.
 - Access and utilize real codes used in cutting-edge research.
 - Clearly comprehend the research findings and understand the potential for future exploration in this area.
 
-**Prerequisites:**  
+**Prerequisites**:  
 This tutorial assumes no prior knowledge. It starts from the basics and gradually progresses to more advanced topics. A willingness to learn and a basic understanding of physics and mathematics will be helpful, but not strictly required.
 
 
@@ -92,9 +91,9 @@ SHG employs a nonlinear crystal like Potassium Titanyl Phosphate (KTP) to conver
   <img src="./Archive/images/3.%20Readme_images/image01.png" alt="Image 1">
 </p>
 
-<p align="center">Figure 1. Using Second Harmonic Generation (SHG), a KTP nonlinear crystal converts a 1064 nm red laser (Fundamental Wave) into 532 nm green light (Second Harmonic Wave), effectively doubling the frequency of the original beam through a nonlinear optical processes.</p>
+<p align="center">Figure 1. During SHG, a KTP nonlinear crystal converts a 1064 nm red laser (Fundamental Wave) into 532 nm green laser (Second Harmonic Wave), effectively doubling the frequency of the original beam through a nonlinear optical process.</p>
  
-A portion of the absorebed energy is dissipated as heat within the crystal which potentially damages it and reduces its ability to produce the desired laser. To address this issue, the crystal is equipped with a cooling system depicted in the figure 2. A coolant circulates around the crystal, absorbing the heat generated during SHG, thereby maintaining an optimal temperature for a more efficient SHG. The crystal's lateral surface is maintained at a constant temperature through cooling. Typically, a double layer of copper covers these surfaces, with either water or liquid nitrogen passing through it. This ensures a constant temperature condition at the crystal's side surface. Additionally, the input and output surfaces of the crystal are cooled through both radiation and convection. Heat reaches these surfaces through conduction and is then transferred away by convection and radiation processes.
+A portion of the absorebed energy during SHG is dissipated as heat within the crystal which potentially damages it and reduces its ability to produce the desired laser. To address this issue, the crystal is equipped with a cooling system depicted in the figure 2. A coolant circulates around the crystal, absorbing the heat thereby maintaining an optimal temperature for a more efficient SHG. The crystal's lateral surface is maintained at a constant temperature through cooling. Typically, a double layer of copper covers these surfaces, with either water or liquid nitrogen passing through it. This ensures a constant temperature condition at the crystal's side surface. Additionally, the input and output surfaces of the crystal are cooled through both radiation and convection. Heat reaches these surfaces through conduction and is then transferred away by convection and radiation processes.
 
 <p align="center">
   <img src="./Archive/images/3.%20Readme_images/image02.png" alt="Image 2" width="65%">
@@ -189,7 +188,7 @@ The FDM approximates derivatives in differential equations through discretizatio
 Please refer to the [0. Cite Us](https://github.com/mohammad-ghadri/SHG__Second_Harmonic_Generation/tree/main/0.%20Cite%20Us) folder for accurate citations. It contains essential guidelines for accurate referencing, ensuring accurate acknowledgement of our work.
 
 
-# 9. For Additional Question
+# 9. For Additional Questions
 If you have questions that are not covered in the resources above, the best way to reach [Mostafa M. Rezaee](https://www.linkedin.com/in/mostafa-m-rezaee/).    
 - Gmail: mostafa.mohammadrezaee@gmail.com       
 - [Linkedin](https://www.linkedin.com/in/mostafa-m-rezaee/)           
