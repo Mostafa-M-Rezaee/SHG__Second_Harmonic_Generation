@@ -210,6 +210,84 @@ We use the Finite Difference Method (FDM) to model thermal effects in SHG due to
 
 The FDM approximates derivatives in differential equations through discretization of the domain into a grid and replacing derivatives with finite difference expressions. This transforms the equation into a system of algebraic equations solvable with numerical techniques. FDM's accuracy and stability rely on discretization, approximation schemes, and solution methods chosen, offering a versatile and efficient approach for solving complex differential equations when analytical solutions are impractical. By employing FDM, we achieve cost-effective and accurate simulations, making it an ideal choice for modelling thermal effects in SHG processes.
 
+Here's a basic explanation of FDM:   
+We will use the following term from the heat equation with additional terms involving fields $\psi_1$, $\psi_2$, and $\psi_3$:
+
+$$
+\rho c \frac{\partial T}{\partial t} - \nabla K_T \cdot \nabla T - K_T \nabla^2 T = \gamma_1 \psi_1 + \gamma_2 \psi_2 + \gamma_3 \psi_3
+$$
+
+Where:
+- $T$ is the temperature.
+- $\rho$ is the density.
+- $c$ is the specific heat capacity.
+- $K_T$ is the thermal conductivity.
+- $\gamma_1$, $\gamma_2$, $\gamma_3$ are coefficients related to the fields $\psi_1$, $\psi_2$, $\psi_3$.
+
+### Applying FDM:
+
+To solve this equation using FDM, follow these steps:
+
+#### 1. Discretize Space and Time
+
+- **Space:** Divide the spatial domain into small intervals (grid points) with spacing $\Delta x$.
+- **Time:** Divide time into small intervals with spacing $\Delta t$.
+
+#### 2. Approximate Derivatives
+
+- **Time Derivative:**
+
+  $$
+  \frac{\partial T}{\partial t} \approx \frac{T_i^{n+1} - T_i^n}{\Delta t}
+  $$
+
+  Where $T_i^n$ is the temperature at grid point $x_i$ at time step $t^n$, and $T_i^{n+1}$ is the temperature at the next time step.
+
+- **Spatial Derivatives:**
+
+  - **First Derivative (Gradient):**
+
+    $$
+    \nabla T \approx \frac{T_{i+1}^n - T_{i-1}^n}{2 \Delta x}
+    $$
+
+  - **Second Derivative (Laplacian):**
+
+    $$
+    \nabla^2 T \approx \frac{T_{i+1}^n - 2 T_i^n + T_{i-1}^n}{(\Delta x)^2}
+    $$
+
+#### 3. Formulate the Finite Difference Equation
+
+Substitute the finite difference approximations into the heat equation:
+
+$$
+\rho c \frac{T_i^{n+1} - T_i^n}{\Delta t} - K_T \frac{T_{i+1}^n - 2 T_i^n + T_{i-1}^n}{(\Delta x)^2} = \gamma_1 \psi_1^n + \gamma_2 \psi_2^n + \gamma_3 \psi_3^n
+$$
+
+Rearrange to solve for $T_i^{n+1}$:
+
+$$
+T_i^{n+1} = T_i^n + \frac{\Delta t}{\rho c} \left( \gamma_1 \psi_1^n + \gamma_2 \psi_2^n + \gamma_3 \psi_3^n + K_T \frac{T_{i+1}^n - 2 T_i^n + T_{i-1}^n}{(\Delta x)^2} \right)
+$$
+
+#### 4. Example
+
+Assume:
+- Grid spacing $\Delta x = 0.1$ meter
+- Time step $\Delta t = 0.01$ seconds
+- Thermal conductivity $K_T = 0.5$
+- Density $\rho = 1.0$
+- Specific heat capacity $c = 1.0$
+
+For a grid point $x_i$ in the middle of the rod:
+
+$$
+T_i^{n+1} = T_i^n + \frac{0.01}{1.0 \times 1.0} \left( \gamma_1 \psi_1^n + \gamma_2 \psi_2^n + \gamma_3 \psi_3^n + 0.5 \frac{T_{i+1}^n - 2 T_i^n + T_{i-1}^n}{(0.1)^2} \right)
+$$
+
+This equation allows you to compute the temperature at the next time step, updating the entire temperature distribution over time.
+
 
 # 8. Research Opportunities
 
