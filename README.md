@@ -2,14 +2,14 @@
 
 # Table of contents
 [1. About this Repository](#1-about-this-repository)       
-[2. Second Harmonic Generation (SHG)](#2-second-harmonic-generation-(shg))       
-[3. The Challenge of SHG](#3-the-challenge-of-shg)          
+[2. Second Harmonic Generation (SHG)](#2-second-harmonic-generation-shg)       
+[3. The Challenge in SHG](3-thermal-challenge-in-shg)          
 [4. Thermal Gradient in a Crystal during SHG](#4-thermal-gradient-in-a-crystal-during-shg)  
 [5. Phase Mismatch](#5-phase-mismatch)        
 [6. Our Contribution](#6-our-contribution)        
 [7. Methodology](#7-methodology)        
 &nbsp;&nbsp;&nbsp;&nbsp;[7.1. Computational Approach](#71-computational-approach)        
-&nbsp;&nbsp;&nbsp;&nbsp;[7.2. Finite Difference Method (FDM)](#72-finite-difference-method-(fdm))        
+&nbsp;&nbsp;&nbsp;&nbsp;[7.2. Finite Difference Method (FDM)](#72-finite-difference-method-fdm)        
 [8. Research Opportunities](#8-research-opportunities)        
 [9. How to Cite Us](#9-how-to-cite-us)        
 [10. For Additional Questions](#10-for-additional-questions)        
