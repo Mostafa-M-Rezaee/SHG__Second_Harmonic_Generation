@@ -1,18 +1,18 @@
 # Thermal Effect in Second Harmonic Generation (SHG)
 
-
 # Table of contents
 [1. About this Repository](#1-about-this-repository)       
 [2. Second Harmonic Generation (SHG)](#2-second-harmonic-generation-(shg))       
 [3. The Challenge of SHG](#3-the-challenge-of-shg)          
-[4. Thermal Effects in SHG](#4-thermal-effects-in-shg)        
-[5. Our Contribution](#5-our-contribution)        
-[6. Methodology](#6-methodology)        
-&nbsp;&nbsp;&nbsp;&nbsp;[6.1. Computational Approach](#61-computational-approach)        
-&nbsp;&nbsp;&nbsp;&nbsp;[6.2. Finite Difference Method (FDM)](#62-finite-difference-method-(fdm))        
-[7. Research Opportunities](#7-research-opportunities)        
-[8. How to Cite Us](#8-how-to-cite-us)        
-[9. For Additional Questions](#9-for-additional-questions)        
+[4. Thermal Gradient in a Crystal during SHG](#4-thermal-gradient-in-a-crystal-during-shg)  
+[5. Phase Mismatch](#5-phase-mismatch)        
+[6. Our Contribution](#6-our-contribution)        
+[7. Methodology](#7-methodology)        
+&nbsp;&nbsp;&nbsp;&nbsp;[7.1. Computational Approach](#71-computational-approach)        
+&nbsp;&nbsp;&nbsp;&nbsp;[7.2. Finite Difference Method (FDM)](#72-finite-difference-method-(fdm))        
+[8. Research Opportunities](#8-research-opportunities)        
+[9. How to Cite Us](#9-how-to-cite-us)        
+[10. For Additional Questions](#10-for-additional-questions)        
 
 # 1. About this Repository
 This GitHub repository offers comprehensive guidance, from basic to advanced levels, for computationally addressing thermal effects in Second Harmonic Generation (SHG). As an educational resource, this repository starts with covering fundamental aspects of Fortran, including how to install it and master its essential commands. Also, we demonstrate techniques for computationally solving a nonlinear optics phenomenon using the Finite Difference Method (FDM), provide access to the codes utilized in our studies, and explain our research findings clearly. Also, we outline potential research opportunities for future exploration. Our ongoing efforts involve expanding the repository to incorporate further advancements in the field. 
@@ -110,12 +110,11 @@ Considering the lateral symmetry allows us to tackle the issue within a half-pla
 <p align="center">Firgure 3. Schematic of the upper half plane of the cross section of the crystal in the longitudinal direction, the vector perpendicular to the entrance and exit surfaces of the crystal, as well as the temperature gradient vector</p>
 
 
-# 3. The Challenge of SHG
-In the process of SHG, a crystal is subjected to laser radiation. A portion of the laser's energy is absorbed by the crystal, converting it into thermal energy. This absorbed thermal energy elevates the crystal's temperature, thereby inducing optical characteristic alterations, significantly reducing its efficiency. 
+# 3. Thermal Challenge in SHG
+As the SHG process occurs, some of the input energy is not perfectly converted into the desired higher-frequency photons. Instead, a portion of this energy is lost as heat within the nonlinear crystal or medium. The dissipated heat within the nonlinear crystal reduces efficiency by causing thermal dephasing, which disrupts phase matching. This temperature increase can also lead to crystal damage, further lowering the conversion efficiency and output power.
 
 
-
-# 4. Thermal Effects in SHG
+# 4. Thermal Gradient in a Crystal during SHG
 The thermal gradient within a crystal subjected to laser radiation is shown in Figure 4. Since the axis of the crystal is under the laser beam and its lateral surface is in heat exchange with the environment, the peak of the temperature gradient is at the center of the crystal, where the laser beam is focused, and gradually decreases towards the surface. Also, the left side of the crystal, where the laser initially contacts, is the hottest, with temperature decreasing towards the right side. This spatial temperature variation is crucial in understanding the thermal behaviour of crystals under laser irradiation.
 
 
@@ -123,9 +122,9 @@ The thermal gradient within a crystal subjected to laser radiation is shown in F
   <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4" width="75%">
 </p>
 
-<p align="center">Figure 4. Crystal Thermal Gradient</p>
+<p align="center">Figure 4. Visualization of the thermal gradient in a crystal exposed to laser radiation. The hottest point is at the center where the laser is focused, with temperature decreasing outward toward the edges. The left side, where the laser first hits, is the hottest, with the temperature gradually cooling as it moves to the right.</p>
 
-To achieve optimal performance, it is crucial to fully understand the underlying physics. The absorbed heat can be characterized through the Heat Equation, which states:
+To achieve optimal performance, it is crucial to fully understand the underlying physics.  The heat conduction equation describes the temporal and spatial evolution of temperature \( T \) within a crystal exposed to a heat source \( S \):
 
 $$
 +\rho c \frac{\partial T}{\partial t}-\vec{\nabla} \cdot K(T) \vec{\nabla} T=S
@@ -134,15 +133,47 @@ $$
 where mass density ($ρ$) in terms of $kg {m}^{-3}$, heat capacity ($c$) in terms of $J k g^{-1} K^{-1}$ and thermal conductivity ($K$) in terms of $W m^{-1} K^{-1}$ at $K(T)=K_0 \times T_0 / T$, which depends on temperature. In this formula, the conductivity coefficient $K_0$ is in temperature $T_0=300 \mathrm{~K}$. Also, ($S$) is the pulsed source that produces heat in terms of $Wm^{-3}$. 
 
 
-# 5. Phase Mismatch
-When a crystal is placed under the radiation of a laser, the temperature of different points of the crystal becomes a function of space and time. As the temperature changes, the refractive index of the crystal also changes. In this way, the refractive index of the crystal will also become a function of space and time. Since the speed of light is dependent on the refractive index of the medium, the speed of light passing through different points of the crystal will also be a function of space and time. As a matter of fact, the speed of light changes in the radial directions due to the temperature gradient. Hence,  the different points of the wavefront experience different speeds and the shape of the wavefront is disturbed. This results in a phase mismatch between the primary and second harmonic waves, as shown in Figure 5.
+### Variation of the Heat Gradient:
 
+1. **Time Evolution ($\frac{\partial T}{\partial t}$):**
+   - The term $\frac{\partial T}{\partial t}$ describes how temperature changes over time at a specific point in the crystal.
+   - Initially, the laser heats the crystal rapidly, leading to a steep temperature gradient. Over time, the rate of temperature increase slows as the crystal absorbs more heat.
+
+2. **Spatial Distribution ($\nabla T$):**
+   - The gradient $\nabla T$ indicates how temperature varies across the crystal. Near the laser's focal point, the gradient is steep, reflecting a sharp temperature rise. Away from this region, the gradient flattens as heat spreads.
+
+3. **Heat Diffusion:**
+   - $\nabla \cdot (K(T) \nabla T)$ describes the diffusion of heat, with $K(T)$ being temperature-dependent thermal conductivity. Heat diffuses more efficiently in regions with higher $K(T)$, leading to a smoother gradient over time.
+
+
+### Derivative and Gradient Explanation:
+- **Derivative**:  
+  The derivative is a fundamental concept in calculus that quantifies the rate at which a function changes with respect to its independent variable. For a given function \( f(x) \), the derivative, denoted as \( f'(x) \) or \($\frac{df}{dx}$\), represents the instantaneous rate of change of the function with respect to \( x \). It provides information about the slope of the tangent line to the function at any point \( x \). Mathematically, the derivative is defined as:
+
+  $$
+  f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}
+  $$
+
+  This limit describes how the function \( f(x) \) changes as the input \( x \) is varied infinitesimally.
+
+- **Gradient**:   
+  The gradient is an extension of the derivative concept to functions of multiple variables. For a scalar function \( f(x, y, z) \), which depends on several independent variables, the gradient \($ \nabla f $\) is a vector that points in the direction of the steepest rate of increase of the function. The magnitude of this vector represents the rate of change in that direction. The gradient is composed of the partial derivatives of the function with respect to each independent variable:
+
+  $$
+  \nabla f = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \right)
+  $$
+
+  Each component $ \frac{\partial f}{\partial x} $, $ \frac{\partial f}{\partial y} $, and $ \frac{\partial f}{\partial z} $ measures the rate of change of $ f $ with respect to the corresponding variable while holding the other variables constant.
+
+
+# 5. Phase Mismatch
+During SHG, a crystal is subjected to laser radiation, the temperature at various points within the crystal becomes spatially and temporally dependent. This variation in temperature causes corresponding changes in the crystal's refractive index, making the refractive index also a function of position and time. Since the speed of light in a medium is dependent on its refractive index, the speed of light traveling through different regions of the crystal will similarly be a function of position and time. Specifically, the temperature gradient within the crystal causes the speed of light to vary radially. Consequently, different regions of the wavefront experience different speeds, leading to distortions in the wavefront shape. This results in a phase mismatch between the fundamental and second harmonic waves. In different crystals, the wavefronts may be convex or concave. Figure 5 shows a concave wavefront.
 
 <p align="center">
   <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="75%">
 </p>
 
-<p align="center">Figure 5. Schematic of the phase mismatch due to temprature gradient within the crystal.</p>
+<p align="center">Figure 5. Schematic of the phase mismatch due to temprature gradient within the crystal. In different crystals the wavefronts may be convex or concave. This figure shows a concave wavefront.</p>
 
 
 Phase is a function of temperature and it is clear that due to the presence of the phase difference in the field equations, this quantity is very effective in determining the efficiency of the SHG. In this way, heat and electromagnetic waves are related indirectly. The below formula is the correlation between phase ($φ$) and temperature ($T$):
@@ -154,14 +185,13 @@ $$
 we can effectively integrate heat considerations into electromagnetic equations, thereby advancing our comprehension of how thermal effects impact the efficiency of nonlinear optical phenomena.
 
 
-# 5. Our Contribution
-Our study introduces a novel computational model to examine the dynamics of heat absorption within a crystal and its consequential impacts during the SHG. Our model surpasses the accuracy of prior methodologies, offering a more comprehensive understanding of this phenomenon.
+# 6. Our Contribution
+Our study introduces a novel computational model utilizing the FDM to examine heat dissipation dynamics within a crystal and their consequential impacts during SHG. This model is more accurate, easier to use, and provides a more comprehensive and detailed understanding of the thermal effects in SHG.
 
+# 7. Methodology
 
-# 6. Methodology
-
-## 6.1. Computational Approach
-When delving into field, heat and phase equations, we encounter a web of coupled equations, as shown below: 
+## 7.1. Computational Approach
+When delving into field, heat and phase equations, we encounter coupled equations, as shown below: 
 
 $$
 \begin{aligned}
@@ -175,20 +205,20 @@ $$
 
 Analytical solution of these equations requires simplifying assumptions that deviate the model from reality. For example, even the fundamental heat equation which plays a crucial role in this domain, relies on such simplifications. However, through computational approaches, we've pushed the boundaries, avoiding any simplifying assumptions to offer a more precise model. For instance, we no longer assume the thermal conductivity coefficient to be constant; instead, it dynamically varies with temperature throughout time. This shift from traditional analytical models, which rely on simplifying assumptions, enables a more accurate study of nonlinear optics phenomena.
 
-## 6.2. Finite Difference Method (FDM)
+## 7.2. Finite Difference Method (FDM)
 We use the Finite Difference Method (FDM) to model thermal effects in SHG due to its low computational cost and user-friendly nature. FDM offers simplicity in both learning and application. Since heat operates on a macroscopic scale and doesn't vary drastically, FDM provides accurate results without the need for using other complex methods. Its straightforward approach that efficiently captures the thermal dynamics involved in SHG without unnecessary complexity. 
 
 The FDM approximates derivatives in differential equations through discretization of the domain into a grid and replacing derivatives with finite difference expressions. This transforms the equation into a system of algebraic equations solvable with numerical techniques. FDM's accuracy and stability rely on discretization, approximation schemes, and solution methods chosen, offering a versatile and efficient approach for solving complex differential equations when analytical solutions are impractical. By employing FDM, we achieve cost-effective and accurate simulations, making it an ideal choice for modelling thermal effects in SHG processes.
 
 
-# 7. Research Opportunities
+# 8. Research Opportunities
 
 
-# 8. How to Cite Us
+# 9. How to Cite Us
 Please refer to the [0. Cite Us](https://github.com/mohammad-ghadri/SHG__Second_Harmonic_Generation/tree/main/0.%20Cite%20Us) folder for accurate citations. It contains essential guidelines for accurate referencing, ensuring accurate acknowledgement of our work.
 
 
-# 9. For Additional Questions
+# 10. For Additional Questions
 If you have questions that are not covered in the resources above, the best way to reach [Mostafa M. Rezaee](https://www.linkedin.com/in/mostafa-m-rezaee/).    
 - Gmail: mostafa.mohammadrezaee@gmail.com       
 - [Linkedin](https://www.linkedin.com/in/mostafa-m-rezaee/)           
