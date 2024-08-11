@@ -1,7 +1,7 @@
 # Please consider cite to our related works.
 
 # Table of contents
-- [Jargon](#jargon) 
+- [Abbreviation](#abbreviation) 
 - [8. Phase Mismatch G_PW](#8-phase-mismatch-g_pw-link) 
 - [7. Heat Equation _ Computational _ Source G_PW](#7-heat-equation-_-computational-_-source-g_pw-link) 
 - [6. Ideal G_CW](#6-Ideal-G_CW-link) 
@@ -12,7 +12,7 @@
 - [1. Heat Equation _ Analytical](#1-Heat-Equation-_-Analytical-link) 
 
 
-# Jargon
+# Abbreviation
 | Abbreviation | Description                     |
 |--------------|---------------------------------|
 | SHG          | Second Harmonic Generation      |
