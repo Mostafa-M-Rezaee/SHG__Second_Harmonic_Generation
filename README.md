@@ -25,7 +25,7 @@ By the end of this tutorial, you will:
 - Gain proficiency in Fortran, from installation to mastering essential commands.
 - Understand the basic to advanced principles of Thermal Effects in SHG.
 - Learn FDM and how to apply it for solving nonlinear optics problems computationally.
-- Access and utilize real codes used in cutting-edge research.
+- Access and utilize real codes used in this cutting-edge research.
 - Clearly comprehend the research findings and understand the potential for future exploration in this area.
 
 **Prerequisites**:  
@@ -301,7 +301,3 @@ If you have questions that are not covered in the resources above, the best way 
 - Gmail: mostafa.mohammadrezaee@gmail.com       
 - [Linkedin](https://www.linkedin.com/in/mostafa-m-rezaee/)           
 - [Personal Website](https://mostafa-mr.com/)       
-
-
-
-
