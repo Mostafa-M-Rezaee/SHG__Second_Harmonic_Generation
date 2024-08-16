@@ -110,7 +110,7 @@ The thermal gradient within a crystal subjected to laser radiation is shown in F
 
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image03.png" alt="Image 3" width="75%">
+  <img src="./Archive/images/3.%20Readme_images/image03.png" alt="Image 3" width="85%">
 </p>
 
 <p align="center">Figure 3. Visualization of the thermal gradient in a crystal exposed to laser radiation. The hottest point is at the center where the laser is focused, with temperature decreasing outward toward the edges. The left side, where the laser first hits, is the hottest, with the temperature gradually cooling as it moves to the right.</p>
