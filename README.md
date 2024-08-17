@@ -251,6 +251,7 @@ $$
 \nabla T \approx \frac{T_{i+1}^n-T_{i-1}^n}{2 \Delta x}
 $$
 
+-  
   - **Second Derivative (Laplacian):**
 
 $$
