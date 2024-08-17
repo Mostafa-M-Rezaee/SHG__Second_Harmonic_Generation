@@ -144,10 +144,26 @@ where mass density ($ρ$) in terms of $kg {m}^{-3}$, heat capacity ($c$) in term
   $$
   f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}
   $$
-aaaa
+aaaa      
+
   $$
   f^{\prime}(x)=\lim _{\Delta x \rightarrow 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}
   $$
+
+bbbb       
+
+f^{\prime}(x)=\lim _{\Delta x \rightarrow 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}
+
+ccccccccccc   
+
+\begin{equation}
+f^{\prime}(x)=\lim _{\Delta x \rightarrow 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}
+\end{equation}
+
+dddddddddd    
+
+$f^{\prime}(x)=\lim _{\Delta x \rightarrow 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}$
+   
 
   This limit describes how the function \( f(x) \) changes as the input \( x \) is varied infinitesimally.
 
