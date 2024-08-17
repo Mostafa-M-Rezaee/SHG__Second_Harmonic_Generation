@@ -29,7 +29,7 @@ By the end of this tutorial, you will:
 - Clearly comprehend the research findings and understand the potential for future exploration in this area.
 
 **Prerequisites**:  
-This tutorial assumes no prior knowledge. It starts from the basics and gradually progresses to more advanced topics. A willingness to learn and a basic understanding of physics and mathematics will be helpful, but not strictly required.
+This tutorial assumes no prior knowledge. It starts from the basics and gradually progresses to more advanced topics. A willingness to learn and a basic understanding of physics and mathematics will be helpful.
 
 
 ```
@@ -91,7 +91,7 @@ SHG employs a nonlinear crystal like Potassium Titanyl Phosphate (KTP) to conver
   <img src="./Archive/images/3.%20Readme_images/image01.png" alt="Image 1">
 </p>
 
-<p align="center">Figure 1. During SHG, a KTP nonlinear crystal converts a 1064 nm red laser (Fundamental Wave) into 532 nm green laser (Second Harmonic Wave), effectively doubling the frequency of the original beam through a nonlinear optical process.</p>
+<p align="center">Figure 1. During SHG, a nonlinear crystal like KTP converts a 1064 nm red laser (Fundamental Wave) into 532 nm green laser (Second Harmonic Wave), effectively doubling the frequency of the original beam through a nonlinear optical process.</p>
 
 # 3. Thermal Challenge in SHG
 As the SHG process occurs, some of the input energy is not perfectly converted into the desired higher-frequency photons. Instead, a portion of this energy is lost as heat within the nonlinear crystal or medium. The dissipated heat within the nonlinear crystal reduces efficiency by causing thermal dephasing, which disrupts phase matching. This temperature increase can also lead to crystal damage, further lowering the conversion efficiency and output power.
@@ -143,6 +143,10 @@ where mass density ($ρ$) in terms of $kg {m}^{-3}$, heat capacity ($c$) in term
 
   $$
   f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}
+  $$
+aaaa
+  $$
+  f^{\prime}(x)=\lim _{\Delta x \rightarrow 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}
   $$
 
   This limit describes how the function \( f(x) \) changes as the input \( x \) is varied infinitesimally.
@@ -206,7 +210,7 @@ $$
 Analytical solution of these equations requires simplifying assumptions that deviate the model from reality. For example, even the fundamental heat equation which plays a crucial role in this domain, relies on such simplifications. However, through computational approaches, we've pushed the boundaries, avoiding any simplifying assumptions to offer a more precise model. For instance, we no longer assume the thermal conductivity coefficient to be constant; instead, it dynamically varies with temperature throughout time. This shift from traditional analytical models, which rely on simplifying assumptions, enables a more accurate study of nonlinear optics phenomena.
 
 ## 7.2. Finite Difference Method (FDM)
-We use the Finite Difference Method (FDM) to model thermal effects in SHG due to its low computational cost and user-friendly nature. FDM offers simplicity in both learning and application. Since heat operates on a macroscopic scale and doesn't vary drastically, FDM provides accurate results without the need for using other complex methods. Its straightforward approach that efficiently captures the thermal dynamics involved in SHG without unnecessary complexity. 
+We use the FDM to model thermal effects in SHG due to its low computational cost and user-friendly nature. FDM offers simplicity in both learning and application. Since heat operates on a macroscopic scale and doesn't vary drastically, FDM provides accurate results without the need for using other complex methods. Its straightforward approach that efficiently captures the thermal dynamics involved in SHG without unnecessary complexity. 
 
 The FDM approximates derivatives in differential equations through discretization of the domain into a grid and replacing derivatives with finite difference expressions. This transforms the equation into a system of algebraic equations solvable with numerical techniques. FDM's accuracy and stability rely on discretization, approximation schemes, and solution methods chosen, offering a versatile and efficient approach for solving complex differential equations when analytical solutions are impractical. By employing FDM, we achieve cost-effective and accurate simulations, making it an ideal choice for modelling thermal effects in SHG processes.
 
