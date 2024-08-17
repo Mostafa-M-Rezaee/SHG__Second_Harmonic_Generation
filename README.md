@@ -141,40 +141,20 @@ where mass density ($ρ$) in terms of $kg {m}^{-3}$, heat capacity ($c$) in term
 - **Derivative**:  
   The derivative is a fundamental concept in calculus that quantifies the rate at which a function changes with respect to its independent variable. For a given function \( f(x) \), the derivative, denoted as \( f'(x) \) or \($\frac{df}{dx}$\), represents the instantaneous rate of change of the function with respect to \( x \). It provides information about the slope of the tangent line to the function at any point \( x \). Mathematically, the derivative is defined as:
 
-  $$
-  f'(x) = \lim_{\Delta x \to 0} \frac{f(x + \Delta x) - f(x)}{\Delta x}
-  $$
-aaaa      
-
-  $$
-  f^{\prime}(x)=\lim _{\Delta x \rightarrow 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}
-  $$
-
-bbbb       
-
+$$
 f^{\prime}(x)=\lim _{\Delta x \rightarrow 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}
-
-ccccccccccc   
-
-\begin{equation}
-f^{\prime}(x)=\lim _{\Delta x \rightarrow 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}
-\end{equation}
-
-dddddddddd    
-
-$f^{\prime}(x)=\lim _{\Delta x \rightarrow 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}$
-   
+$$
 
   This limit describes how the function \( f(x) \) changes as the input \( x \) is varied infinitesimally.
 
 - **Gradient**:   
-  The gradient is an extension of the derivative concept to functions of multiple variables. For a scalar function \( f(x, y, z) \), which depends on several independent variables, the gradient \($ \nabla f $\) is a vector that points in the direction of the steepest rate of increase of the function. The magnitude of this vector represents the rate of change in that direction. The gradient is composed of the partial derivatives of the function with respect to each independent variable:
+  The gradient is an extension of the derivative concept to functions of multiple variables. For a scalar function \( f(x, y, z) \), which depends on several independent variables, the gradient \($\nabla f$\) is a vector that points in the direction of the steepest rate of increase of the function. The magnitude of this vector represents the rate of change in that direction. The gradient is composed of the partial derivatives of the function with respect to each independent variable:
 
-  $$
-  \nabla f = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \right)
-  $$
+$$
+\nabla f=\left(\frac{\partial f}{\partial x} , \frac{\partial f}{\partial y} , \frac{\partial f}{\partial z}\right)
+$$
 
-  Each component $ \frac{\partial f}{\partial x} $, $ \frac{\partial f}{\partial y} $, and $ \frac{\partial f}{\partial z} $ measures the rate of change of $ f $ with respect to the corresponding variable while holding the other variables constant.     
+  Each component $\frac{\partial f}{\partial x}$ , $\frac{\partial f}{\partial y}$ , and $\frac{\partial f}{\partial z}$ measures the rate of change of $f$ with respect to the corresponding variable while holding the other variables constant.     
 
 
 Considering the lateral symmetry allows us to tackle the issue within a half-plane of a cylindrical crystal, as depicted in Figure 4. Visualize rotating this half-plane around the horizontal axis, which effectively encompasses the entire cylindrical crystal. With the axis of the crystal exhibiting the highest temperature and the side surface the lowest, a temperature gradient naturally forms from the axis towards the side surface. On the other hand, the maximum temperature of the crystal axis causes heat to always move from the axis to the surface. Therefore, the axis of the crystal acts like an insulator. In other words, if we want to solve the problem on the half plane as shown in Figure 4, we must apply the isolation boundary condition for the crystal axis.
@@ -257,9 +237,9 @@ To solve this equation using FDM, follow these steps:
 
 - **Time Derivative:**
 
-  $$
-  \frac{\partial T}{\partial t} \approx \frac{T_i^{n+1} - T_i^n}{\Delta t}
-  $$
+$$
+\frac{\partial T}{\partial t} \approx \frac{T_i^{n+1}-T_i^n}{\Delta t}
+$$
 
   Where $T_i^n$ is the temperature at grid point $x_i$ at time step $t^n$, and $T_i^{n+1}$ is the temperature at the next time step.
 
@@ -267,15 +247,15 @@ To solve this equation using FDM, follow these steps:
 
   - **First Derivative (Gradient):**
 
-    $$
-    \nabla T \approx \frac{T_{i+1}^n - T_{i-1}^n}{2 \Delta x}
-    $$
+$$
+\nabla T \approx \frac{T_{i+1}^n-T_{i-1}^n}{2 \Delta x}
+$$
 
   - **Second Derivative (Laplacian):**
 
-    $$
-    \nabla^2 T \approx \frac{T_{i+1}^n - 2 T_i^n + T_{i-1}^n}{(\Delta x)^2}
-    $$
+$$
+\nabla^2 T \approx \frac{T_{i+1}^n-2 T_i^n+T_{i-1}^n}{(\Delta x)^2}
+$$
 
 #### 3. Formulate the Finite Difference Equation
 
