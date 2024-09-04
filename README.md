@@ -3,7 +3,7 @@
 # Table of contents
 [1. About this Repository](#1-about-this-repository)       
 [2. Second Harmonic Generation (SHG)](#2-second-harmonic-generation-shg)       
-[3. The Challenge in SHG](#3-thermal-challenge-in-shg)          
+[3. Thermal Challenge in SHG](#3-thermal-challenge-in-shg)          
 [4. Thermal Gradient in a Crystal during SHG](#4-thermal-gradient-in-a-crystal-during-shg)  
 [5. Phase Mismatch](#5-phase-mismatch)        
 [6. Our Contribution](#6-our-contribution)        
