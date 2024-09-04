@@ -163,7 +163,7 @@ Considering the lateral symmetry allows us to tackle the issue within a half-pla
   <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4" width="65%">
 </p>
 
-<p align="center">Firgure 4. Schematic of the upper half plane of the cross section of the crystal in the longitudinal direction, the vector perpendicular to the entrance and exit surfaces of the crystal, as well as the temperature gradient vector</p>
+<p align="center">Firgure 4. Schematic of the upper half plane of the cross section of the crystal in the longitudinal direction, the vector perpendicular to the entrance and exit surfaces of the crystal, as well as the temperature gradient vector.</p>
 
 
 # 5. Phase Mismatch
@@ -191,7 +191,10 @@ Our study introduces a novel computational model utilizing the FDM to examine he
 # 7. Methodology
 
 ## 7.1. Computational Approach
-When delving into field, heat and phase equations, we encounter coupled equations, as shown below: 
+
+Direct measurement of internal temperature in a nonlinear crystal during Second Harmonic Generation (SHG) is not feasible due to the lack of instrumentation capable of probing the localized, transient thermal effects within the crystal. Conventional techniques are insufficient to resolve the rapid, spatially confined temperature changes, making experimental assessment impractical.
+
+Analytical approaches are similarly challenging due to the complexity of the coupled field, heat, and phase equations governing SHG, as shown below: 
 
 $$
 \begin{aligned}
