@@ -206,14 +206,16 @@ $$
 \end{aligned}
 $$
 
-Analytical solution of these equations requires simplifying assumptions that deviate the model from reality. For example, even the fundamental heat equation which plays a crucial role in this domain, relies on such simplifications. However, through computational approaches, we've pushed the boundaries, avoiding any simplifying assumptions to offer a more precise model. For instance, we no longer assume the thermal conductivity coefficient to be constant; instead, it dynamically varies with temperature throughout time. This shift from traditional analytical models, which rely on simplifying assumptions, enables a more accurate study of nonlinear optics phenomena.
+Analytical solution of these equations requires simplifying assumptions that deviate the model from reality. For example, even the fundamental heat equation which plays a crucial role in this domain, relies on such simplifications. 
+
+However, through computational approaches, we've pushed the boundaries, avoiding any simplifying assumptions to offer a more precise model. For instance, we no longer assume the thermal conductivity coefficient to be constant; instead, it dynamically varies with temperature throughout time. This shift from traditional analytical models, which rely on simplifying assumptions, enables a more accurate study of nonlinear optics phenomena.
 
 ## 7.2. Finite Difference Method (FDM)
-We use the FDM to model thermal effects in SHG due to its low computational cost and user-friendly nature. FDM offers simplicity in both learning and application. Since heat operates on a macroscopic scale and doesn't vary drastically, FDM provides accurate results without the need for using other complex methods. Its straightforward approach that efficiently captures the thermal dynamics involved in SHG without unnecessary complexity. 
+We use the FDM as the computational method to model thermal effects in SHG due to its low computational cost and user-friendly nature. FDM offers simplicity in both learning and application. Since heat operates on a macroscopic scale and doesn't vary drastically, FDM provides accurate results without the need for using other complex methods. Its straightforward approach that efficiently captures the thermal dynamics involved in SHG without unnecessary complexity. 
 
 The FDM approximates derivatives in differential equations through discretization of the domain into a grid and replacing derivatives with finite difference expressions. This transforms the equation into a system of algebraic equations solvable with numerical techniques. FDM's accuracy and stability rely on discretization, approximation schemes, and solution methods chosen, offering a versatile and efficient approach for solving complex differential equations when analytical solutions are impractical. By employing FDM, we achieve cost-effective and accurate simulations, making it an ideal choice for modelling thermal effects in SHG processes.
 
-Here's a basic explanation of FDM:   
+Here's a basic example of FDM:   
 We will use the following term from the heat equation with additional terms involving fields $\psi_1$, $\psi_2$, and $\psi_3$:
 
 $$
@@ -233,8 +235,8 @@ To solve this equation using FDM, follow these steps:
 
 #### 1. Discretize Space and Time
 
-- **Space:** Divide the spatial domain into small intervals (grid points) with spacing $\Delta x$.
 - **Time:** Divide time into small intervals with spacing $\Delta t$.
+- **Space:** Divide the spatial domain into small intervals (grid points) with spacing $\Delta x$.
 
 #### 2. Approximate Derivatives
 
@@ -275,7 +277,7 @@ $$
 T_i^{n+1} = T_i^n + \frac{\Delta t}{\rho c} \left( \gamma_1 \psi_1^n + \gamma_2 \psi_2^n + \gamma_3 \psi_3^n + K_T \frac{T_{i+1}^n - 2 T_i^n + T_{i-1}^n}{(\Delta x)^2} \right)
 $$
 
-#### 4. Example
+#### 4. Repalcing Numbers
 
 Assume:
 - Grid spacing $\Delta x = 0.1$ meter
@@ -290,7 +292,7 @@ $$
 T_i^{n+1} = T_i^n + \frac{0.01}{1.0 \times 1.0} \left( \gamma_1 \psi_1^n + \gamma_2 \psi_2^n + \gamma_3 \psi_3^n + 0.5 \frac{T_{i+1}^n - 2 T_i^n + T_{i-1}^n}{(0.1)^2} \right)
 $$
 
-This equation allows you to compute the temperature at the next time step, updating the entire temperature distribution over time.
+This equation allows you to compute the temperature at the next time step, and updating the entire temperature distribution over time.
 
 
 # 8. Research Opportunities
