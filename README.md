@@ -1,10 +1,10 @@
 # Thermal Effect in Second Harmonic Generation (SHG)
 
 **Contents**  
-[1. About this Repository](#1-about-this-repository) 
-&nbsp;&nbsp;&nbsp;&nbsp;[1.1. Who Is This Tutorial For?](#11-who-is-this-tutorial-for)        
+[1. About this Repository](#1-about-this-repository)    
+&nbsp;&nbsp;&nbsp;&nbsp;[1.1. Who Is This Tutorial For?](#11-who-is-this-tutorial-for)           
 &nbsp;&nbsp;&nbsp;&nbsp;[1.2. What Will You Learn?](#12-what-will-you-learn)  
-&nbsp;&nbsp;&nbsp;&nbsp;[1.3. Prerequisites:](#1.-prerequisites:)        
+&nbsp;&nbsp;&nbsp;&nbsp;[1.3. Prerequisites:](#13-prerequisites)        
 [2. Second Harmonic Generation (SHG)](#2-second-harmonic-generation-shg)       
 [3. Thermal Challenge in SHG](#3-thermal-challenge-in-shg)          
 [4. Thermal Gradient in a Crystal during SHG](#4-thermal-gradient-in-a-crystal-during-shg)  
