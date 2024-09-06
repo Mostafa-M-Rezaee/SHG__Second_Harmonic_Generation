@@ -204,7 +204,7 @@ $$
 & \frac{n_1}{c} \frac{d \psi_1}{d t}+\frac{d \psi_1}{d z}-\frac{i c}{2 n_1 \omega} \frac{1}{r} \frac{d \psi_1}{d r}-\frac{i c}{2 n_1 \omega} \frac{d^2 \psi_1}{d^2 r}+\frac{\gamma_1}{2} \psi_1=\frac{i}{L_T} \psi_2^* \psi_3 e^{-i \Delta \phi} \\
 & \frac{n_2}{c} \frac{d \psi_2}{d t}+\frac{d \psi_2}{d z}-\frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \psi_2}{d r}-\frac{i c}{2 n_2 \omega} \frac{d^2 \psi_2}{d^2 r}+\frac{\gamma_2}{2} \psi_2=\frac{i}{L_T} \psi_1^* \psi_3 e^{-i \Delta \phi} \\
 & \frac{n_3}{c} \frac{d \psi_2}{d t}+\frac{d \psi_3}{d z}-\frac{i c}{4 n_3 \omega} \frac{1}{r} \frac{d \psi_3}{d r}-\frac{i c}{4 n_3 \omega} \frac{d^2 \psi_3}{d^2 r}+\frac{\gamma_3}{2} \psi_3=\frac{i}{L_T} \psi_1 \psi_3 e^{i \Delta \phi} \\
-& +\rho c \frac{\partial T}{\partial t}-\nabla K_T \cdot \nabla T-K_T \nabla^2 T=\gamma_1 \psi_1+\gamma_2 \psi_2+\gamma_3 \psi_3 \\
+& +\rho c \frac{\partial T}{\partial t}-\vec{\nabla} \cdot (K(T) \vec{\nabla} T)=S \\
 & \frac{d \Delta \phi}{d z}=\frac{2 \pi}{\lambda_1}\left[\Delta n_1(T)+\Delta n_2(T)-2 \Delta n_3(T)\right]
 \end{aligned}
 $$
@@ -219,11 +219,85 @@ We use the FDM as the computational method to model thermal effects in SHG due t
 The FDM approximates derivatives in differential equations through discretization of the domain into a grid and replacing derivatives with finite difference expressions. This transforms the equation into a system of algebraic equations solvable with numerical techniques. FDM's accuracy and stability rely on discretization, approximation schemes, and solution methods chosen, offering a versatile and efficient approach for solving complex differential equations when analytical solutions are impractical. By employing FDM, we achieve cost-effective and accurate simulations, making it an ideal choice for modelling thermal effects in SHG processes.
 
 Here's a basic example of FDM:   
-We will use the following term from the heat equation with additional terms involving fields $\psi_1$, $\psi_2$, and $\psi_3$:
+We will use the following term from the heat equation:
+
+$$
++\rho c \frac{\partial T}{\partial t}-\vec{\nabla} \cdot (K(T) \vec{\nabla} T) = S
+$$
+
+where:
+- $\rho$ is the density of the material.
+- $c$ is the specific heat capacity.
+- $T$ is the temperature.
+- $t$ is time.
+- $K(T)$ is the thermal conductivity, which is temperature-dependent.
+- $\vec{\nabla}$ denotes the gradient operator.
+- $S$ represents a heat source term.
+
+
+**Expanding the Heat Equations**:   
+The original heat conduction equation given is:
+
+$$
++\rho c \frac{\partial T}{\partial t} - \vec{\nabla} \cdot (K(T) \vec{\nabla} T) = S
+$$
+
+
+First, we to focus on is the divergence of the heat flux:
+
+$$
+\vec{\nabla} \cdot (K(T) \vec{\nabla} T)
+$$
+
+This term represents the flow of heat within the material.
+Using the product rule of the divergence operator, this term can be expanded as:
+
+$$
+\vec{\nabla} \cdot (K(T) \vec{\nabla} T) = \nabla K_T \cdot \nabla T + K_T \nabla^2 T
+$$
+
+Here's how this expansion works:
+1. Divergence of a Product: The divergence of the product of a scalar field $K(T)$ and a vector field $\vec{\nabla} T$ can be expressed as:
+
+   $$
+   \vec{\nabla} \cdot (K(T) \vec{\nabla} T) = (\vec{\nabla} K(T)) \cdot (\vec{\nabla} T) + K(T) \vec{\nabla} \cdot (\vec{\nabla} T)
+   $$
+
+2. Breaking it Down:
+   - $\nabla K_T \cdot \nabla T$: This term represents the dot product of the gradient of the thermal conductivity (which depends on temperature) and the gradient of the temperature.
+   - $K_T \nabla^2 T$: This term represents the thermal conductivity multiplied by the Laplacian of the temperature ($\nabla^2 T$), which is essentially the divergence of the temperature gradient.
+
+Substituting this expanded form into the original equation:
+
+$$
++\rho c \frac{\partial T}{\partial t} - (\nabla K_T \cdot \nabla T + K_T \nabla^2 T) = S
+$$
+
+Rearrange the terms:
+
+$$
+\rho c \frac{\partial T}{\partial t} - \nabla K_T \cdot \nabla T - K_T \nabla^2 T = S
+$$
+
+Also, the source term $S$ is then expressed as a sum of separate contributions, each representing different physical sources or effects:
+
+$$
+S = \gamma_1 \psi_1 + \gamma_2 \psi_2 + \gamma_3 \psi_3
+$$
+
+Here:
+- $\gamma_1$, $\gamma_2$, and $\gamma_3$ are coefficients representing the weights or intensities of different source terms.
+- $\psi_1$, $\psi_2$, and $\psi_3$ are specific source functions related to different physical processes contributing to heat generation.
+
+Thus, the final form of the equation becomes:
 
 $$
 \rho c \frac{\partial T}{\partial t} - \nabla K_T \cdot \nabla T - K_T \nabla^2 T = \gamma_1 \psi_1 + \gamma_2 \psi_2 + \gamma_3 \psi_3
 $$
+
+This equation models heat transfer in a medium where the thermal conductivity depends on temperature, and the heat source is composed of multiple contributing factors.
+
+
 
 Where:
 - $T$ is the temperature.
