@@ -8,14 +8,16 @@
 [2. Second Harmonic Generation (SHG)](#2-second-harmonic-generation-shg)       
 [3. Thermal Challenge in SHG](#3-thermal-challenge-in-shg)          
 [4. Thermal Gradient in a Crystal during SHG](#4-thermal-gradient-in-a-crystal-during-shg)  
-[5. Phase Mismatch](#5-phase-mismatch)        
-[6. Our Contribution](#6-our-contribution)        
-[7. Methodology](#7-methodology)        
-&nbsp;&nbsp;&nbsp;&nbsp;[7.1. Computational Approach](#71-computational-approach)        
-&nbsp;&nbsp;&nbsp;&nbsp;[7.2. Finite Difference Method (FDM)](#72-finite-difference-method-fdm)        
-[8. Research Opportunities](#8-research-opportunities)        
-[9. How to Cite Us](#9-how-to-cite-us)        
-[10. For Additional Questions](#10-for-additional-questions)        
+[5. Reducing Computational Cost](#5-reducing-computational-cost)  
+[6. Boundry Conditions](#6-boundry-conditions)  
+[7. Phase Mismatch](#7-phase-mismatch)        
+[8. Our Contribution](#8-our-contribution)        
+&nbsp;&nbsp;&nbsp;&nbsp;[8.1. Methodology](#81-methodology)        
+&nbsp;&nbsp;&nbsp;&nbsp;[8.2. Computational Approach using Finite Difference Method (FDM)](#82-computational-approach-using-finite-difference-method-fdm)        
+&nbsp;&nbsp;&nbsp;&nbsp;[8.3. Our Achivements](#83-our-achivements)   
+[9. Research Opportunities](#9-research-opportunities)        
+[10. How to Cite Us](#10-how-to-cite-us)        
+[11. For Additional Questions](#11-for-additional-questions)        
 
 # 1. About this Repository
 This GitHub repository offers comprehensive guidance, from basic to advanced levels, for computationally addressing thermal effects in Second Harmonic Generation (SHG). As an educational resource, this repository starts with covering fundamental aspects of Fortran, including how to install it and master its essential commands. Also, we demonstrate techniques for computationally solving a nonlinear optics phenomenon using the Finite Difference Method (FDM), provide access to the codes utilized in our studies, and explain our research findings clearly. Also, we outline potential research opportunities for future exploration. Our ongoing efforts involve expanding the repository to incorporate further advancements in the field. 
@@ -169,7 +171,15 @@ Considering the lateral symmetry allows us to tackle the issue within a half-pla
 <p align="center"> <strong>Figure 4.</strong> Schematic of the upper half plane of the cross section of the crystal in the longitudinal direction, the vector perpendicular to the entrance and exit surfaces of the crystal, as well as the temperature gradient vector.</p>
 
 
-# 5. Phase Mismatch
+# 5. Reducing Computational Cost  
+
+
+
+# 6. Boundry Conditions  
+
+
+
+# 7. Phase Mismatch
 During SHG, a crystal is subjected to laser radiation, the temperature at various points within the crystal becomes spatially and temporally dependent. This variation in temperature causes corresponding changes in the crystal's refractive index, making the refractive index also a function of position and time. Since the speed of light in a medium is dependent on its refractive index, the speed of light traveling through different regions of the crystal will similarly be a function of position and time. Specifically, the temperature gradient within the crystal causes the speed of light to vary radially. Consequently, different regions of the wavefront experience different speeds, leading to distortions in the wavefront shape. This results in a phase mismatch between the fundamental and second harmonic waves. In different crystals, the wavefronts may be convex or concave. Figure 6 shows a concave wavefront.
 
 <p align="center">
@@ -188,13 +198,10 @@ $$
 we can effectively integrate heat considerations into electromagnetic equations, thereby advancing our comprehension of how thermal effects impact the efficiency of nonlinear optical phenomena.
 
 
-# 6. Our Contribution
+# 8. Our Contribution
 Our study introduces a novel computational model utilizing the FDM to examine heat dissipation dynamics within a crystal and their consequential impacts during SHG. This model is more accurate, easier to use, and provides a more comprehensive and detailed understanding of the thermal effects in SHG.
 
-# 7. Methodology
-
-## 7.1. Computational Approach
-
+## 8.1. Methodology
 Direct measurement of internal temperature in a nonlinear crystal during Second Harmonic Generation (SHG) is not feasible due to the lack of instrumentation capable of probing the localized, transient thermal effects within the crystal. Conventional techniques are insufficient to resolve the rapid, spatially confined temperature changes, making experimental assessment impractical.
 
 Analytical approaches are similarly challenging due to the complexity of the coupled field, heat, and phase equations governing SHG, as shown below: 
@@ -213,7 +220,7 @@ Analytical solution of these equations requires simplifying assumptions that dev
 
 However, through computational approaches, we've pushed the boundaries, avoiding any simplifying assumptions to offer a more precise model. For instance, we no longer assume the thermal conductivity coefficient to be constant; instead, it dynamically varies with temperature throughout time. This shift from traditional analytical models, which rely on simplifying assumptions, enables a more accurate study of nonlinear optics phenomena.
 
-## 7.2. Finite Difference Method (FDM)
+## 8.2. Computational Approach using Finite Difference Method (FDM)
 We use the FDM as the computational method to model thermal effects in SHG due to its low computational cost and user-friendly nature. FDM offers simplicity in both learning and application. Since heat operates on a macroscopic scale and doesn't vary drastically, FDM provides accurate results without the need for using other complex methods. Its straightforward approach that efficiently captures the thermal dynamics involved in SHG without unnecessary complexity. 
 
 The FDM approximates derivatives in differential equations through discretization of the domain into a grid and replacing derivatives with finite difference expressions. This transforms the equation into a system of algebraic equations solvable with numerical techniques. FDM's accuracy and stability rely on discretization, approximation schemes, and solution methods chosen, offering a versatile and efficient approach for solving complex differential equations when analytical solutions are impractical. By employing FDM, we achieve cost-effective and accurate simulations, making it an ideal choice for modelling thermal effects in SHG processes.
@@ -371,15 +378,16 @@ $$
 
 This equation allows you to compute the temperature at the next time step, and updating the entire temperature distribution over time.
 
+## 8.3. Our Achivements
 
-# 8. Research Opportunities
+# 9. Research Opportunities
 
 
-# 9. How to Cite Us
+# 10. How to Cite Us
 Please refer to the [0. Cite Us](https://github.com/mohammad-ghadri/SHG__Second_Harmonic_Generation/tree/main/0.%20Cite%20Us) folder for accurate citations. It contains essential guidelines for accurate referencing, ensuring accurate acknowledgement of our work.
 
 
-# 10. For Additional Questions
+# 11. For Additional Questions
 If you have questions that are not covered in the resources above, the best way to reach [Mostafa M. Rezaee](https://www.linkedin.com/in/mostafa-m-rezaee/).    
 - Gmail: mostafa.mohammadrezaee@gmail.com       
 - [Linkedin](https://www.linkedin.com/in/mostafa-m-rezaee/)           
