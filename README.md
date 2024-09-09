@@ -101,7 +101,7 @@ SHG employs a nonlinear crystal like Potassium Titanyl Phosphate (KTP) to conver
 # 3. Thermal Challenge in SHG
 As the SHG process occurs, some of the input energy is not perfectly converted into the desired higher-frequency photons. Instead, a portion of this energy is lost as heat within the nonlinear crystal or medium. The dissipated heat within the nonlinear crystal reduces efficiency by causing thermal dephasing, which disrupts phase matching. This temperature increase can also lead to crystal damage, further lowering the conversion efficiency and output power.
 
- To address this issue, the crystal is equipped with a cooling system depicted in the Figure 2. A coolant circulates around the crystal, absorbing the heat thereby maintaining an optimal temperature for a more efficient SHG. The crystal's lateral surface is maintained at a constant temperature through cooling. Typically, a double layer of copper covers these surfaces, with either water or liquid nitrogen passing through it. This ensures a constant temperature condition at the crystal's side surface. Additionally, the input and output surfaces of the crystal are cooled through both radiation and convection. Heat reaches these surfaces through conduction and is then transferred away by convection and radiation processes.
+To address this issue, the crystal is equipped with a cooling system depicted in the Figure 2. A coolant circulates around the crystal, absorbing the heat thereby maintaining an optimal temperature for a more efficient SHG. The crystal's lateral surface is maintained at a constant temperature through cooling. Typically, a double layer of copper covers these surfaces, with either water or liquid nitrogen passing through it. This ensures a constant temperature condition at the crystal's side surface. Additionally, the input and output surfaces of the crystal are cooled through both radiation and convection. Heat reaches these surfaces through conduction and is then transferred away by convection and radiation processes.
 
 <p align="center">
   <img src="./Archive/images/3.%20Readme_images/image02.png" alt="Image 2" width="65%">
@@ -162,31 +162,36 @@ $$
   Each component $\frac{\partial f}{\partial x}$ , $\frac{\partial f}{\partial y}$ , and $\frac{\partial f}{\partial z}$ measures the rate of change of $f$ with respect to the corresponding variable while holding the other variables constant.     
 
 
-Considering the lateral symmetry allows us to tackle the issue within a half-plane of a cylindrical crystal, as depicted in Figure 4. Visualize rotating this half-plane around the horizontal axis, which effectively encompasses the entire cylindrical crystal. With the axis of the crystal exhibiting the highest temperature and the side surface the lowest, a temperature gradient naturally forms from the axis towards the side surface. On the other hand, the maximum temperature of the crystal axis causes heat to always move from the axis to the surface. Therefore, the axis of the crystal acts like an insulator. In other words, if we want to solve the problem on the half plane as shown in Figure 4, we must apply the isolation boundary condition for the crystal axis.
+# 5. Reducing Computational Cost  
+To efficiently analyze Second Harmonic Generation (SHG) in a KTP crystal modeled as a cylinder, we can reduce the workload by taking advantage of the crystal’s symmetry. Instead of examining the entire cylindrical shape, we focus on a simpler two-dimensional half-plane, a rectangular section that represents one side of the cylinder. This works because of the crystal’s symmetry along its lateral axis; studying this smaller section captures the behavior of the full cylinder. By visualizing this half-plane rotating around the horizontal axis, we effectively account for the whole cylindrical structure. This approach significantly reduces the size of the problem, decreasing the number of calculations needed. It allows for high-resolution analysis with greater efficiency, maintaining the accuracy of the SHG study while saving substantial time and resources.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4" width="65%">
+  <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4" width="50%">
 </p>
 
-<p align="center"> <strong>Figure 4.</strong> Schematic of the upper half plane of the cross section of the crystal in the longitudinal direction, the vector perpendicular to the entrance and exit surfaces of the crystal, as well as the temperature gradient vector.</p>
-
-
-# 5. Reducing Computational Cost  
-
+<p align="center"> <strong>Figure 4.</strong> Schematic of the half plane of the cross section of the crystal in the longitudinal direction.</p>
 
 
 # 6. Boundry Conditions  
+The boundary conditions for heat transfer within the nonlinear crystal during SHG are critical for accurately modeling thermal behavior. The lateral surfaces of the crystal are maintained at a constant temperature through a cooling system, ensuring effective heat dissipation. Meanwhile, the input and output faces are cooled by radiation and convection, allowing heat to escape efficiently. The crystal axis, which experiences the highest temperatures, is treated as an insulated boundary due to its role as a thermal peak where heat naturally flows outward toward the cooler lateral surfaces. This boundary setup is essential for precisely modeling the heat distribution, which is crucial for optimizing the crystal’s SHG performance and preventing thermal disruptions.
 
+<p align="center">
+  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="65%">
+</p>
+
+<p align="center"> <strong>Figure 5.</strong> 
+Efficient SHG Analysis in KTP Crystals Using Symmetry: The image shows how a two-dimensional half-plane leverages the crystal’s symmetry to represent the entire cylinder, reducing computational complexity while maintaining accurate SHG analysis. 
+</p>
 
 
 # 7. Phase Mismatch
 During SHG, a crystal is subjected to laser radiation, the temperature at various points within the crystal becomes spatially and temporally dependent. This variation in temperature causes corresponding changes in the crystal's refractive index, making the refractive index also a function of position and time. Since the speed of light in a medium is dependent on its refractive index, the speed of light traveling through different regions of the crystal will similarly be a function of position and time. Specifically, the temperature gradient within the crystal causes the speed of light to vary radially. Consequently, different regions of the wavefront experience different speeds, leading to distortions in the wavefront shape. This results in a phase mismatch between the fundamental and second harmonic waves. In different crystals, the wavefronts may be convex or concave. Figure 6 shows a concave wavefront.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="75%">
+  <img src="./Archive/images/3.%20Readme_images/image06.png" alt="Image 6" width="75%">
 </p>
 
-<p align="center"> <strong>Figure 5.</strong> Schematic of the phase mismatch due to temprature gradient within the crystal. In different crystals the wavefronts may be convex or concave. This figure shows a concave wavefront.</p>
+<p align="center"> <strong>Figure 6.</strong> Schematic of the phase mismatch due to temprature gradient within the crystal. In different crystals the wavefronts may be convex or concave. This figure shows a concave wavefront.</p>
 
 
 Phase is a function of temperature and it is clear that due to the presence of the phase difference in the field equations, this quantity is very effective in determining the efficiency of the SHG. In this way, heat and electromagnetic waves are related indirectly. The below formula is the correlation between phase ($φ$) and temperature ($T$):
@@ -379,6 +384,43 @@ $$
 This equation allows you to compute the temperature at the next time step, and updating the entire temperature distribution over time.
 
 ## 8.3. Our Achivements
+The series of our studies presented here aim to address the critical issue of thermal effects in Second Harmonic Generation (SHG) processes, particularly in KTP crystals. Each article contributes a piece to solving this problem by exploring various conditions and wave types, building a comprehensive approach to managing heat in nonlinear optical systems. (Note: To make it easier to understand our achievements, the articles are sorted by thematic order, not by chronological order.)
+
+
+| Abbreviation | Description                     |
+|--------------|---------------------------------|
+| G            | Gaussian                        |
+| BG           | Bessel Gaussian                 |
+| PW           | Pulsed Wave                     |
+| CW           | Continuous Wave                 |
+
+
+1. **Heat Equation _ Analytical** [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-47-13-2317)   
+We began with "Heat Equation _ Analytical," focusing on the problem of predicting temperature distributions in laser crystals using a Continuous Wave Gaussian source. This analytical model helped us understand the basic thermal behavior in solid-state lasers, crucial for designing better systems by modeling heat within complex crystal structures.
+
+2. **Heat G_CW** [(Link)](https://link.springer.com/article/10.1007/s13538-014-0291-x)   
+The next step, "Heat G_CW," expanded on this by incorporating more realistic factors such as temperature-dependent thermal conductivity and radiation effects using a Continuous Wave Gaussian as the source. This computational study showed how these factors, often ignored, significantly impact heat distribution in KTP crystals, enhancing the thermal modeling of lasers.
+
+3. **Heat Equation _ Computational _ Source G_PW** [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-6-1241)      
+Shifting to Pulsed Wave Gaussian conditions, "Heat Equation _ Computational _ Source G_PW" developed a numerical model for heat distribution in KTP crystals under pulsed Gaussian beams. This computational study highlighted that while radiation effects are minimal, variable thermal conductivity plays a crucial role, improving accuracy in predicting heat behavior in pulsed laser systems.
+
+4. **Phase Mismatch G_PW** [(Link)](https://www.researchgate.net/publication/267926440_Thermally_induced_phase_mismatching_in_a_repetitively_Gaussian_pulsed_pumping_KTP_crystal_A_spatiotemporal_treatment)    
+"Phase Mismatch G_PW" tackled the problem of Thermally Induced Phase Mismatching (TIPM) in KTP under Pulsed Wave Gaussian conditions. It modeled how temperature rise affects nonlinear conversion efficiency, showing the need to manage TIPM to optimize SHG performance in pulsed applications.
+
+5. **Ideal G_CW** [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-4-869)    
+In "Ideal G_CW," we addressed how temperature affects SHG efficiency in double-pass cavities under Continuous Wave Gaussian conditions. The study found that even minor temperature increases could drastically reduce SHG efficiency due to beam depletion and refractive index changes, highlighting the importance of temperature control in optimizing SHG processes.
+ 
+6. **Ideal BG_PW** [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-53-32-7691)   
+"Ideal BG_PW" introduced a model using Pulsed Bessel-Gauss beams, challenging traditional assumptions like the nondepleted wave approximation. This study provided a more accurate framework for SHG by considering wave depletion effects, demonstrating the impact of beam profile on heat and SHG efficiency under pulsed conditions.
+
+7. **Coupled G_CW** [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-21-25615&id=302163)    
+"Coupled G_CW" advanced our understanding by integrating TIPM and thermal lensing in SHG with a Continuous Wave Gaussian source. By coupling eight equations, this model captured the dynamic effects of heat on SHG efficiency over time, offering a realistic simulation aligned with experimental data and enhancing our grasp of thermal influences in Continuous Wave Gaussian SHG.
+
+8. **SHG G_CW _ Computational _ Approximate model** [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-18-18-18732&id=205211)    
+Finally, "SHG G_CW _ Computational _ Approximate Model" provided a simpler theoretical approach to understanding TIPM in Continuous Wave Gaussian SHG systems. By coupling heat and SHG equations, it showed how temperature gradients and thermal dispersion reduce conversion efficiency, emphasizing the need for effective thermal management, especially at higher powers.
+
+Each study tackled specific thermal challenges under various conditions—GCW, GPW, and BGPW—showing how heat affects SHG efficiency and offering solutions. This approach not only addresses the theoretical aspects of heat distribution and phase mismatching but also provides practical insights for optimizing nonlinear optical systems. Together, these works create a robust framework for understanding and managing thermal impacts in SHG, paving the way for more efficient laser technologies.
+
 
 # 9. Research Opportunities
 
