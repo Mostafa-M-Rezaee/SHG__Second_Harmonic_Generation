@@ -386,15 +386,6 @@ This equation allows you to compute the temperature at the next time step, and u
 ## 8.3. Our Achivements
 The series of our studies presented here aim to address the critical issue of thermal effects in Second Harmonic Generation (SHG) processes, particularly in KTP crystals. Each article contributes a piece to solving this problem by exploring various conditions and wave types, building a comprehensive approach to managing heat in nonlinear optical systems. (Note: To make it easier to understand our achievements, the articles are sorted by thematic order, not by chronological order.)
 
-
-| Abbreviation | Description                     |
-|--------------|---------------------------------|
-| G            | Gaussian                        |
-| BG           | Bessel Gaussian                 |
-| PW           | Pulsed Wave                     |
-| CW           | Continuous Wave                 |
-
-
 1. **Heat Equation _ Analytical** [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-47-13-2317)   
 We began with "Heat Equation _ Analytical," focusing on the problem of predicting temperature distributions in laser crystals using a Continuous Wave Gaussian source. This analytical model helped us understand the basic thermal behavior in solid-state lasers, crucial for designing better systems by modeling heat within complex crystal structures.
 
@@ -423,7 +414,13 @@ Each study tackled specific thermal challenges under various conditions—GCW, G
 
 
 # 9. Research Opportunities
+While our research has focused on modeling the thermal effects in KTP crystals under specific wave conditions—namely Gaussian Continuous Wave (GCW), Pulsed Wave (GPW), and Bessel-Gauss Pulsed Wave (BGPW)—significant opportunities remain for further exploration in this field. A natural extension of this work involves investigating different types of wave sources and alternative nonlinear crystals. 
 
+The key distinction between different wave types and crystal materials lies in the unique heat transfer behavior each combination exhibits. These variations can fundamentally alter the thermal dynamics within the crystal, leading to different impacts on SHG efficiency and system performance. For instance, the use of other waveforms, such as Hermite-Gaussian or Laguerre-Gaussian beams, or employing different crystal materials like Lithium Niobate or Beta Barium Borate, would result in diverse heat distribution patterns and necessitate distinct thermal management strategies. 
+
+Moreover, while our studies primarily focused on developing detailed models to understand these thermal behaviors, future research can take the next step by conducting comprehensive simulations and experimental validations. These simulations can provide deeper insights into how different thermal properties, such as anisotropic conductivity and varying boundary conditions, influence heat distribution and phase mismatching across various laser and crystal configurations. Such explorations would not only enhance the theoretical understanding but also offer practical guidelines for optimizing SHG systems under varying thermal conditions.
+
+Ultimately, exploring these new avenues—varying wave sources and crystal types—will open up entirely new research trajectories, each with its own set of challenges and opportunities. This will enable a more complete understanding of thermal effects in nonlinear optical systems, contributing to the design of more efficient and adaptable laser technologies.
 
 # 10. How to Cite Us
 Please refer to the [0. Cite Us](https://github.com/mohammad-ghadri/SHG__Second_Harmonic_Generation/tree/main/0.%20Cite%20Us) folder for accurate citations. It contains essential guidelines for accurate referencing, ensuring accurate acknowledgement of our work.
