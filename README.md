@@ -166,7 +166,7 @@ $$
 To efficiently analyze Second Harmonic Generation (SHG) in a KTP crystal modeled as a cylinder, we can reduce the workload by taking advantage of the crystal’s symmetry. Instead of examining the entire cylindrical shape, we focus on a simpler two-dimensional half-plane, a rectangular section that represents one side of the cylinder. This works because of the crystal’s symmetry along its lateral axis; studying this smaller section captures the behavior of the full cylinder. By visualizing this half-plane rotating around the horizontal axis, we effectively account for the whole cylindrical structure. This approach significantly reduces the size of the problem, decreasing the number of calculations needed. It allows for high-resolution analysis with greater efficiency, maintaining the accuracy of the SHG study while saving substantial time and resources.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4" width="50%">
+  <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4" width="45%">
 </p>
 
 <p align="center"> <strong>Figure 4.</strong> Schematic of the half plane of the cross section of the crystal in the longitudinal direction.</p>
