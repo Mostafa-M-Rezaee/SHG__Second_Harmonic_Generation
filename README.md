@@ -169,7 +169,8 @@ To efficiently analyze Second Harmonic Generation (SHG) in a KTP crystal modeled
   <img src="./Archive/images/3.%20Readme_images/image04.png" alt="Image 4" width="45%">
 </p>
 
-<p align="center"> <strong>Figure 4.</strong> Schematic of the half plane of the cross section of the crystal in the longitudinal direction.</p>
+<p align="center"> <strong>Figure 4.</strong> Efficient SHG Analysis in KTP Crystals Using Symmetry: The image shows how a two-dimensional half-plane leverages the crystal’s symmetry to represent the entire cylinder, reducing computational complexity while maintaining accurate SHG analysis. 
+</p>
 
 
 # 6. Boundry Conditions  
@@ -180,7 +181,7 @@ The boundary conditions for heat transfer within the nonlinear crystal during SH
 </p>
 
 <p align="center"> <strong>Figure 5.</strong> 
-Efficient SHG Analysis in KTP Crystals Using Symmetry: The image shows how a two-dimensional half-plane leverages the crystal’s symmetry to represent the entire cylinder, reducing computational complexity while maintaining accurate SHG analysis. 
+Boundary conditions for heat transfer in SHG crystals: The lateral surfaces are cooled to a constant temperature, facilitating heat dissipation, while input and output faces are cooled by radiation and convection. The crystal axis, experiencing peak temperatures, is treated as an insulated boundary, ensuring accurate heat distribution modeling critical for optimizing SHG performance.
 </p>
 
 
