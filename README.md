@@ -186,7 +186,7 @@ Boundary conditions for heat transfer in SHG crystals: The lateral surfaces are 
 
 
 # 7. Phase Mismatch
-During SHG, a crystal is subjected to laser radiation, the temperature at various points within the crystal becomes spatially and temporally dependent. This variation in temperature causes corresponding changes in the crystal's refractive index, making the refractive index also a function of position and time. Since the speed of light in a medium is dependent on its refractive index, the speed of light traveling through different regions of the crystal will similarly be a function of position and time. Specifically, the temperature gradient within the crystal causes the speed of light to vary radially. Consequently, different regions of the wavefront experience different speeds, leading to distortions in the wavefront shape. This results in a phase mismatch between the fundamental and second harmonic waves. In different crystals, the wavefronts may be convex or concave. Figure 6 shows a concave wavefront.
+During SHG, a crystal is subjected to laser radiation, the temperature at various points within the crystal becomes spatially and temporally dependent. This variation in temperature causes corresponding changes in the crystal's refractive index, making the refractive index also a function of position and time. Since the speed of light in a medium is dependent on its refractive index, the speed of light traveling through different regions of the crystal will similarly be a function of position and time. Specifically, the temperature gradient within the crystal causes the speed of light to vary radially. Consequently, different regions of the wavefront experience different speeds, leading to distortions in the wavefront shape. This results in a phase mismatch between the fundamental and second harmonic waves. In different crystals, the wavefronts may be convex or concave. Figure 6. shows a concave wavefront.
 
 <p align="center">
   <img src="./Archive/images/3.%20Readme_images/image06.png" alt="Image 6" width="75%">
@@ -272,9 +272,9 @@ $$
 Here's how this expansion works:
 1. Divergence of a Product: The divergence of the product of a scalar field $K(T)$ and a vector field $\vec{\nabla} T$ can be expressed as:
 
-   $$
-   \vec{\nabla} \cdot (K(T) \vec{\nabla} T) = (\vec{\nabla} K(T)) \cdot (\vec{\nabla} T) + K(T) \vec{\nabla} \cdot (\vec{\nabla} T)
-   $$
+$$
+\vec{\nabla} \cdot (K(T) \vec{\nabla} T) = (\vec{\nabla} K(T)) \cdot (\vec{\nabla} T) + K(T) \vec{\nabla} \cdot (\vec{\nabla} T)
+$$
 
 2. Breaking it Down:
    - $\nabla K_T \cdot \nabla T$: This term represents the dot product of the gradient of the thermal conductivity (which depends on temperature) and the gradient of the temperature.
@@ -394,7 +394,7 @@ We began with "Heat Equation _ Analytical," focusing on the problem of predictin
 The next step, "Heat G_CW," expanded on this by incorporating more realistic factors such as temperature-dependent thermal conductivity and radiation effects using a Continuous Wave Gaussian as the source. This computational study showed how these factors, often ignored, significantly impact heat distribution in KTP crystals, enhancing the thermal modeling of lasers.
 
 3. **Heat Equation _ Computational _ Source G_PW** [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-6-1241)      
-Shifting to Pulsed Wave Gaussian conditions, "Heat Equation _ Computational _ Source G_PW" developed a numerical model for heat distribution in KTP crystals under pulsed Gaussian beams. This computational study highlighted that while radiation effects are minimal, variable thermal conductivity plays a crucial role, improving accuracy in predicting heat behavior in pulsed laser systems.
+Shifting to Pulsed Wave Gaussian conditions, "Heat Equation _ Computational _ Source G_PW" developed a numerical model for heat distribution in KTP crystals under Pulsed Gaussian beams. This computational study highlighted that while radiation effects are minimal, variable thermal conductivity plays a crucial role, improving accuracy in predicting heat behavior in pulsed laser systems.
 
 4. **Phase Mismatch G_PW** [(Link)](https://www.researchgate.net/publication/267926440_Thermally_induced_phase_mismatching_in_a_repetitively_Gaussian_pulsed_pumping_KTP_crystal_A_spatiotemporal_treatment)    
 "Phase Mismatch G_PW" tackled the problem of Thermally Induced Phase Mismatching (TIPM) in KTP under Pulsed Wave Gaussian conditions. It modeled how temperature rise affects nonlinear conversion efficiency, showing the need to manage TIPM to optimize SHG performance in pulsed applications.
@@ -411,7 +411,7 @@ In "Ideal G_CW," we addressed how temperature affects SHG efficiency in double-p
 8. **SHG G_CW _ Computational _ Approximate model** [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-18-18-18732&id=205211)    
 Finally, "SHG G_CW _ Computational _ Approximate Model" provided a simpler theoretical approach to understanding TIPM in Continuous Wave Gaussian SHG systems. By coupling heat and SHG equations, it showed how temperature gradients and thermal dispersion reduce conversion efficiency, emphasizing the need for effective thermal management, especially at higher powers.
 
-Each study tackled specific thermal challenges under various conditions—GCW, GPW, and BGPW—showing how heat affects SHG efficiency and offering solutions. This approach not only addresses the theoretical aspects of heat distribution and phase mismatching but also provides practical insights for optimizing nonlinear optical systems. Together, these works create a robust framework for understanding and managing thermal impacts in SHG, paving the way for more efficient laser technologies.
+Ultimately, exploring these new avenues—varying wave sources and crystal types—will open up entirely new research trajectories, each with its own set of challenges and opportunities. This will enable a more complete understanding of thermal effects in nonlinear optical systems, contributing to the design of more efficient and adaptable laser technologies. To facilitate further research, other researchers can use our GitHub repository as a tutorial, utilizing the provided source code as a foundation for conducting simulations and extending the study in this field. By building on our work, future studies can deepen insights into heat transfer dynamics and refine thermal management strategies across various nonlinear optical configurations.
 
 
 # 9. Research Opportunities
