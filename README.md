@@ -38,55 +38,45 @@ This tutorial assumes no prior knowledge. It starts from the basics and graduall
 
 
 ```
-Folder Path Listing
+Folder PATH listing
 . 
 |
 +---0. Cite Us
-|       1. Heat Equation Analytical.pdf
-|       2. SHG G_CW Computational.pdf
-|       3. Coupled G_CW.pdf
-|       4. Heat G_CW.pdf
-|       5. Ideal BG_PW.pdf
-|       6. Ideal G_CW.pdf
-|       7. Heat G_PW.pdf
-|       8. Phase Mismatch G_PW.pdf
+|       1. Heat Equation _ Analytical.pdf
+|       2. Heat G_CW.pdf
+|       3. Heat Equation _ Computational _ Source G_PW.pdf
+|       4. Phase Mismatch G_PW.pdf
+|       5. Ideal G_CW.pdf
+|       6. Ideal BG_PW.pdf
+|       7. Coupled G_CW.pdf
+|       8. SHG G_CW _ Computational _ Approximate model.pdf
 |       README.md
 |       
 +---1. ifort Installation Guide
 |       README.md
 |       
 +---2. FORTRAN Tutorial
-|   |   1. FORTRAN main commands.md
-|   |   2. FORTRAN coding template.md
-|   |   3. General Structure .F90
-|   |   4. Write & Read & type variables .F90
-|   |   5. Legible code.F90
-|   |   6. do loop .F90
-|   |   7. If then else .F90
-|   |   8. open file  .F90
-|   |   9. Array .F90
+|   |   1. FORTRAN_Main Commands Tutorial.md
+|   |   2. FORTRAN_Coding Template Tutorial.md
+|   |   3. FORTRAN_Coding Template.F90
+|   |   4. Write_Read_Variables Types.F90
+|   |   5. Readable Code Structure.F90
+|   |   6. do loop.F90
+|   |   7. If then else.F90
+|   |   8. open file.F90
+|   |   9. Array.F90
 |   |   README.md
 |   |   
 |   \---Persian materials
 |           1. Recommended  Textbooks .ppsx
 |           2. Scan - Book - Safari .pdf
 |           3. Fortran.pptx
-|           Fortran - Framework.pdf
+|           4. Fortran - Framework.pdf
 |           
-+---3. Literature Review
-|       1. SHG _ Gaussian _ Continious wave _ Heat _ Brazilian Journal of Physics.pdf
-|       2. SHG _ Gaussian _ Pulsed wave _ Heat _ Applied Optics.pdf
-|       21 - BG-PW-ideal fields - Applied Optics.pdf
-|       23 - G-CW-ideal fields-Applied Optics.pdf
-|       25 - G-PW-Phase-Applied Optics.pdf
-|       Applied Optics ___ Phase mismatch __ Source - Gaussian pulse wave.pdf
-|       SHG _ Gaussian _ Continious wave - Coupled-Optics Express.pdf
-|       
-+---4. Codes
++---3. SHG Codes
 |       Temp_G_PW_01_06_92.F90
 |       Temp_Phase_G_Pw_08_06_92.F90
 ```         
-
 
 
 # 2. Second Harmonic Generation (SHG)
@@ -411,7 +401,7 @@ In "Ideal G_CW," we addressed how temperature affects SHG efficiency in double-p
 8. **SHG G_CW _ Computational _ Approximate model** [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-18-18-18732&id=205211)    
 Finally, "SHG G_CW _ Computational _ Approximate Model" provided a simpler theoretical approach to understanding TIPM in Continuous Wave Gaussian SHG systems. By coupling heat and SHG equations, it showed how temperature gradients and thermal dispersion reduce conversion efficiency, emphasizing the need for effective thermal management, especially at higher powers.
 
-Each study tackled specific thermal challenges under various conditions—GCW, GPW, and BGPW—showing how heat affects SHG efficiency and offering solutions to mitigate these effects. This cohesive approach not only addresses the theoretical aspects of heat distribution and phase mismatching but also provides practical insights for optimizing nonlinear optical systems. Together, these works create a robust framework for understanding and managing thermal impacts in SHG, paving the way for more efficient laser technologies.
+Each study tackled specific thermal challenges under various conditions—GCW, GPW, and BGPW—showing how heat affects SHG efficiency and offering solutions to reduce these effects. This cohesive approach not only addresses the theoretical aspects of heat distribution and phase mismatching but also provides practical insights for optimizing nonlinear optical systems. Together, these works create a robust framework for understanding and managing thermal impacts in SHG, paving the way for more efficient laser technologies.
 
 
 # 9. Research Opportunities
