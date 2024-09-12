@@ -180,13 +180,28 @@ To efficiently analyze Second Harmonic Generation (SHG) in a KTP crystal modeled
 
 
 # 6. Boundry Conditions  
-The boundary conditions for heat transfer within the nonlinear crystal during SHG are critical for accurately modeling thermal behavior. The lateral surfaces of the crystal are maintained at a constant temperature through a cooling system, ensuring effective heat dissipation. Meanwhile, the input and output faces are cooled by radiation and convection, allowing heat to escape efficiently. The crystal axis, which experiences the highest temperatures, is treated as an insulated boundary due to its role as a thermal peak where heat naturally flows outward toward the cooler lateral surfaces. This boundary setup is essential for precisely modeling the heat distribution, which is crucial for optimizing the crystal’s SHG performance and preventing thermal disruptions.
+The boundary conditions for heat transfer within the nonlinear crystal during Second Harmonic Generation (SHG) are crucial for accurately modeling thermal behavior. To better understand how heat flows within the crystal, imagine a ball on top of a hill—it can only roll downhill and not uphill due to gravity. Similarly, heat always flows from hotter regions to cooler ones, just like the ball naturally moving down the hill (Figure 5).
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="65%">
+  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="75%">
 </p>
 
-<p align="center"> <strong>Figure 5.</strong> 
+<p align="center"> <strong>Figure 5.</strong> Just like a ball that only rolls downhill and not uphill due to gravity, heat flows from the hottest regions to the cooler ones, illustrating the natural direction of heat transfer within the crystal.
+</p>
+
+In the crystal, the highest temperatures occur along the axis, much like the top of the hill. From this thermal peak, heat naturally flows outward toward the cooler lateral surfaces, similar to how the ball moves down the slope. To manage this heat transfer:
+
+- Lateral Surfaces: These surfaces are maintained at a constant temperature using a cooling system, which acts like the valley at the bottom of the hill, continuously drawing the heat away and ensuring effective heat dissipation.
+
+- Crystal Axis: The axis is treated as an insulated boundary because it is the point where temperatures are highest (Figure 6), and heat cannot move upward or inward, just as the ball cannot climb back up the hill.
+
+This boundary setup ensures that heat always flows from the hotter crystal axis to the cooler lateral surfaces, which is essential for accurately modeling the heat distribution within the crystal. Properly managing this flow of heat helps optimize the crystal’s SHG performance and prevents thermal disruptions.
+
+<p align="center">
+  <img src="./Archive/images/3.%20Readme_images/image06.png" alt="Image 6" width="65%">
+</p>
+
+<p align="center"> <strong>Figure 6.</strong> 
 Boundary conditions for heat transfer in SHG crystals: The lateral surfaces are cooled to a constant temperature, facilitating heat dissipation, while input and output faces are cooled by radiation and convection. The crystal axis, experiencing peak temperatures, is treated as an insulated boundary, ensuring accurate heat distribution modeling critical for optimizing SHG performance.
 </p>
 
@@ -204,13 +219,13 @@ This study developed a numerical model for heat distribution under Pulsed Gaussi
 
 
 # 7. Phase Mismatch
-During SHG, a crystal is subjected to laser radiation, the temperature at various points within the crystal becomes spatially and temporally dependent. This variation in temperature causes corresponding changes in the crystal's refractive index, making the refractive index also a function of position and time. Since the speed of light in a medium is dependent on its refractive index, the speed of light traveling through different regions of the crystal will similarly be a function of position and time. Specifically, the temperature gradient within the crystal causes the speed of light to vary radially. Consequently, different regions of the wavefront experience different speeds, leading to distortions in the wavefront shape. This results in a phase mismatch between the fundamental and second harmonic waves. In different crystals, the wavefronts may be convex or concave. Figure 6. shows a concave wavefront.
+During SHG, a crystal is subjected to laser radiation, the temperature at various points within the crystal becomes spatially and temporally dependent. This variation in temperature causes corresponding changes in the crystal's refractive index, making the refractive index also a function of position and time. Since the speed of light in a medium is dependent on its refractive index, the speed of light traveling through different regions of the crystal will similarly be a function of position and time. Specifically, the temperature gradient within the crystal causes the speed of light to vary radially. Consequently, different regions of the wavefront experience different speeds, leading to distortions in the wavefront shape. This results in a phase mismatch between the fundamental and second harmonic waves. In different crystals, the wavefronts may be convex or concave. Figure 7. shows a concave wavefront.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image06.png" alt="Image 6" width="75%">
+  <img src="./Archive/images/3.%20Readme_images/image07.png" alt="Image 7" width="75%">
 </p>
 
-<p align="center"> <strong>Figure 6.</strong> Schematic of the phase mismatch due to temprature gradient within the crystal. In different crystals the wavefronts may be convex or concave. This figure shows a concave wavefront.</p>
+<p align="center"> <strong>Figure 7.</strong> Schematic of the phase mismatch due to temprature gradient within the crystal. In different crystals the wavefronts may be convex or concave. This figure shows a concave wavefront.</p>
 
 
 Phase is a function of temperature and it is clear that due to the presence of the phase difference in the field equations, this quantity is very effective in determining the efficiency of the SHG. In this way, heat and electromagnetic waves are related indirectly. The below formula is the correlation between phase ($φ$) and temperature ($T$):
