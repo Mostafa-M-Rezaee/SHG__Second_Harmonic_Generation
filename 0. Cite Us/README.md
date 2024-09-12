@@ -1,28 +1,18 @@
 **Note: Please consider cite to our related works. To make it easier to understand our achievements, the articles are sorted by thematic order, not by chronological order.**
 
 # Contents
-- [Abbreviation](#abbreviation) 
-- [1. Heat Equation _ Analytical](#1-heat-equation-_-analytical-link) 
-- [2. Heat G_CW](#2-heat-g_cw-link) 
-- [3. Heat Equation _ Computational _ Source G_PW](#3-heat-equation-_-computational-_-source-g_pw-link) 
-- [4. Phase Mismatch G_PW](#4-phase-mismatch-g_pw-link) 
-- [5. Ideal G_CW](#5-ideal-g_cw-link) 
-- [6. Ideal BG_PW](#6-ideal-bg_pw-link) 
-- [7. Coupled G_CW](#7-coupled-g_cw-link) 
-- [8. SHG G_CW _ Computational _ Approximate model](#8-shg-g_cw-_-computational-_-approximate-model-link) 
+- [1. Heat Equation _ Continuous Wave Gaussian _ Analytical](#1-heat-equation-_-continuous-wave-gaussian-_-analytical-link) 
+- [2. Heat Equation _ Continuous Wave Gaussian _ Computational](#2-heat-equation-_-continuous-wave-gaussian-_-computational-link) 
+- [3. Heat Equation _ Pulsed Wave Gaussian _ Computational](#3-heat-equation-_-pulsed-wave-gaussian-_-computational-link) 
+- [4. Phase Mismatch _ Pulsed Wave Gaussian _ Computational](#4-phase-mismatch-_-pulsed-wave-gaussian-_-computational-link) 
+- [5. Ideal _ Continuous Wave Gaussian _ Computational](#5-ideal-_-continuous-wave-gaussian-_-computational-link) 
+- [6. Ideal _ Pulsed Wave Bessel Gaussian _ Computational](#6-ideal-_-pulsed-wave-bessel-gaussian-_-computational-link) 
+- [7. Coupled _ Continuous Wave Gaussian _ Computational](#7-coupled-_-continuous-wave-gaussian-_-computational-link) 
+- [8. SHG _ Continuous Wave Gaussian _ Computational _ Approximate Model](#8-shg-_-continuous-wave-gaussian-_-computational-_-approximate-model-link) 
 
 
-# Abbreviation
-| Abbreviation | Description                     |
-|--------------|---------------------------------|
-| SHG          | Second Harmonic Generation      |
-| G            | Gaussian                        |
-| BG           | Bessel Gaussian                 |
-| PW           | Pulsed Wave                     |
-| CW           | Continuous Wave                 |
 
-
-# 1. Heat Equation _ Analytical [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-47-13-2317)
+# 1. Heat Equation _ Continuous Wave Gaussian _ Analytical [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-47-13-2317)
 
 2008: Analytical solution of the heat equation in a longitudinally pumped cubic solid-state laser  
 
@@ -47,7 +37,7 @@ Sabaeian, M., Nadgaran, H. and Mousave, L., 2008. Analytical solution of the hea
 ```
 
 
-# 2. Heat G_CW [(Link)](https://link.springer.com/article/10.1007/s13538-014-0291-x)
+# 2. Heat Equation _ Continuous Wave Gaussian _ Computational [(Link)](https://link.springer.com/article/10.1007/s13538-014-0291-x)
 
 2014: Temperature Distribution in a Gaussian End-Pumped Nonlinear KTP Crystal: the Temperature Dependence of Thermal Conductivity and Radiation Boundary Condition
 
@@ -72,7 +62,7 @@ becomes negligible and can be ignored.}
 ```
 
 
-# 3. Heat Equation _ Computational _ Source G_PW [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-6-1241)
+# 3. Heat Equation _ Pulsed Wave Gaussian _ Computational [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-6-1241)
 
 2015: Complete Anisotropic Time-Dependent Heat Equation in KTP Crystal under Repetitively Pulsed Gaussian Beams: A Numerical Approach
 
@@ -97,7 +87,7 @@ Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S. and Khaldi-Nasab, 
 ```
 
 
-# 4. Phase Mismatch G_PW [(Link)](https://www.researchgate.net/publication/267926440_Thermally_induced_phase_mismatching_in_a_repetitively_Gaussian_pulsed_pumping_KTP_crystal_A_spatiotemporal_treatment)
+# 4. Phase Mismatch _ Pulsed Wave Gaussian _ Computational [(Link)](https://www.researchgate.net/publication/267926440_Thermally_induced_phase_mismatching_in_a_repetitively_Gaussian_pulsed_pumping_KTP_crystal_A_spatiotemporal_treatment)
 
 2015: Thermally induced phase mismatching in a repetitively Gaussian pulsed pumping KTP crystal: a spatio-temporal treatment
 
@@ -122,7 +112,7 @@ Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S., Askari, H. and Kh
 ```
 
 
-# 5. Ideal G_CW [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-4-869) 
+# 5. Ideal _ Continuous Wave Gaussian _ Computational [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-4-869) 
 
 2015: Temperature increase effects on a double-pass cavity type II second harmonic generation: a model for depleted Gaussian continuous-waves
 
@@ -147,7 +137,7 @@ Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M., Motazedian, A. and Shahzadeh, M.,
 ```
 
 
-# 6. Ideal BG_PW [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-53-32-7691)
+# 6. Ideal _ Pulsed Wave Bessel Gaussian _ Computational [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-53-32-7691)
 
 2014: Pulsed Bessel-Gauss beams: A depleted wave model for type II second harmonic generation
 
@@ -172,7 +162,7 @@ Sabaeian, M., Motazedian, A., Rezaee, M.M. and Jalil-Abadi, F.S., 2014. Pulsed B
 ```
 
 
-# 7. Coupled G_CW [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-21-25615&id=302163)
+# 7. Coupled _ Continuous Wave Gaussian _ Computational [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-21-25615&id=302163)
 
 2014: Heat coupled Gaussian continuous-wave double-pass type-II second harmonic generation: inclusion of thermally induced phase mismatching and thermal lensing
 
@@ -197,9 +187,9 @@ Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M. and Motazedian, A., 2014. Heat cou
 ```
 
 
-# 8. SHG G_CW _ Computational _ Approximate model [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-18-18-18732&id=205211)
+# 8. SHG _ Continuous Wave Gaussian _ Computational _ Approximate model [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-18-18-18732&id=205211)
 
-2010: Investigation of thermally-induced phase mismatching in continuous-wave second harmonic generation: A theoretical model
+2010: Investigation of thermally-induced phase mismatching in continuous-wave Second Harmonic Generation: A theoretical model
 
 **Harvard style**  
 ```

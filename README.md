@@ -1,10 +1,11 @@
-# Thermal Effect in Second Harmonic Generation (SHG)
+# Thermal Effects in Second Harmonic Generation (SHG)
 
 **Contents**  
 [1. About this Repository](#1-about-this-repository)    
 &nbsp;&nbsp;&nbsp;&nbsp;[1.1. Who Is This Tutorial For?](#11-who-is-this-tutorial-for)           
 &nbsp;&nbsp;&nbsp;&nbsp;[1.2. What Will You Learn?](#12-what-will-you-learn)  
-&nbsp;&nbsp;&nbsp;&nbsp;[1.3. Prerequisites:](#13-prerequisites)        
+&nbsp;&nbsp;&nbsp;&nbsp;[1.3. Prerequisites](#13-prerequisites)   
+&nbsp;&nbsp;&nbsp;&nbsp;[1.4. Contents of this Repository](#14-contents-of-this-repository)         
 [2. Second Harmonic Generation (SHG)](#2-second-harmonic-generation-shg)       
 [3. Thermal Challenge in SHG](#3-thermal-challenge-in-shg)          
 [4. Thermal Gradient in a Crystal during SHG](#4-thermal-gradient-in-a-crystal-during-shg)  
@@ -14,10 +15,10 @@
 [8. Our Contribution](#8-our-contribution)        
 &nbsp;&nbsp;&nbsp;&nbsp;[8.1. Methodology](#81-methodology)        
 &nbsp;&nbsp;&nbsp;&nbsp;[8.2. Computational Approach using Finite Difference Method (FDM)](#82-computational-approach-using-finite-difference-method-fdm)        
-&nbsp;&nbsp;&nbsp;&nbsp;[8.3. Our Achivements](#83-our-achivements)   
 [9. Research Opportunities](#9-research-opportunities)        
 [10. How to Cite Us](#10-how-to-cite-us)        
 [11. For Additional Questions](#11-for-additional-questions)        
+
 
 # 1. About this Repository
 This GitHub repository offers comprehensive guidance, from basic to advanced levels, for computationally addressing thermal effects in Second Harmonic Generation (SHG). As an educational resource, this repository starts with covering fundamental aspects of Fortran, including how to install it and master its essential commands. Also, we demonstrate techniques for computationally solving a nonlinear optics phenomenon using the Finite Difference Method (FDM), provide access to the codes utilized in our studies, and explain our research findings clearly. Also, we outline potential research opportunities for future exploration. Our ongoing efforts involve expanding the repository to incorporate further advancements in the field. 
@@ -33,9 +34,17 @@ By the end of this tutorial, you will:
 - Access and utilize real codes used in this cutting-edge research.
 - Clearly comprehend the research findings and understand the potential for future exploration in this area.
 
-## 1.3. Prerequisites:  
-This tutorial assumes no prior knowledge. It starts from the basics and gradually progresses to more advanced topics. A willingness to learn and a basic understanding of physics and mathematics will be helpful.
+## 1.3. Prerequisites  
+This tutorial is designed for three types of researcher:
 
+1. **For those who are familiar with SHG and Fortran**: You can dive straight into the research phase. The codes and topics provided in this repository are meant to deepen your knowledge and assist in further studies.
+
+2. **For those who know Fortran but are new to SHG**: This tutorial will introduce you to the fundamentals of SHG, guiding you step-by-step through the key concepts. By the end, you'll be ready to tackle complex problems in this field.
+
+3. **For beginners with no prior knowledge of SHG or Fortran**: This repository is built with you in mind. We’ll start with the basics, teaching you Fortran from the ground up, followed by an introduction to SHG. Our goal is to help you progress from understanding the basics to solving advanced physics and engineering problems.
+
+
+## 1.4. Contents of this Repository 
 
 ```
 Folder PATH listing
@@ -119,20 +128,21 @@ $$
 where mass density ($ρ$) in terms of $kg {m}^{-3}$, heat capacity ($c$) in terms of $J k g^{-1} K^{-1}$ and thermal conductivity ($K$) in terms of $W m^{-1} K^{-1}$ at $K(T)=K_0 \times T_0 / T$, which depends on temperature. In this formula, the conductivity coefficient $K_0$ is in temperature $T_0=300 \mathrm{~K}$. Also, ($S$) is the pulsed source that produces heat in terms of $Wm^{-3}$. 
 
 
-### Variation of the Heat Gradient:
+### 4.1. Variation of the Heat Gradient
 
-1. **Time Evolution ($\frac{\partial T}{\partial t}$):**
-   - The term $\frac{\partial T}{\partial t}$ describes how temperature changes over time at a specific point in the crystal.
-   - Initially, the laser heats the crystal rapidly, leading to a steep temperature gradient. Over time, the rate of temperature increase slows as the crystal absorbs more heat.
+- **Time Evolution ($\frac{\partial T}{\partial t}$):**
+The term $\frac{\partial T}{\partial t}$ describes how temperature changes over time at a specific point in the crystal. Initially, the laser heats the crystal rapidly, leading to a steep temperature gradient. Over time, the rate of temperature increase slows as the crystal absorbs more heat.
 
-2. **Spatial Distribution ($\nabla T$):**
-   - The gradient $\nabla T$ indicates how temperature varies across the crystal. Near the laser's focal point, the gradient is steep, reflecting a sharp temperature rise. Away from this region, the gradient flattens as heat spreads.
+- **Spatial Distribution ($\nabla T$):**
+The gradient $\nabla T$ indicates how temperature varies across the crystal. Near the laser's focal point, the gradient is steep, reflecting a sharp temperature rise. Away from this region, the gradient flattens as heat spreads.
 
-3. **Heat Diffusion:**
-   - $\nabla \cdot (K(T) \nabla T)$ describes the diffusion of heat, with $K(T)$ being temperature-dependent thermal conductivity. Heat diffuses more efficiently in regions with higher $K(T)$, leading to a smoother gradient over time.
+- **Heat Diffusion:**
+$\nabla \cdot (K(T) \nabla T)$ describes the diffusion of heat, with $K(T)$ being temperature-dependent thermal conductivity. Heat diffuses more efficiently in regions with higher $K(T)$, leading to a smoother gradient over time.
 
 
-### Derivative and Gradient Explanation:
+### 4.2. Recap
+Below is an explanation of the definitions of the Derivative and Gradient:
+
 - **Derivative**:  
   The derivative is a fundamental concept in calculus that quantifies the rate at which a function changes with respect to its independent variable. For a given function \( f(x) \), the derivative, denoted as \( f'(x) \) or \($\frac{df}{dx}$\), represents the instantaneous rate of change of the function with respect to \( x \). It provides information about the slope of the tangent line to the function at any point \( x \). Mathematically, the derivative is defined as:
 
@@ -221,7 +231,77 @@ We use the FDM as the computational method to model thermal effects in SHG due t
 
 The FDM approximates derivatives in differential equations through discretization of the domain into a grid and replacing derivatives with finite difference expressions. This transforms the equation into a system of algebraic equations solvable with numerical techniques. FDM's accuracy and stability rely on discretization, approximation schemes, and solution methods chosen, offering a versatile and efficient approach for solving complex differential equations when analytical solutions are impractical. By employing FDM, we achieve cost-effective and accurate simulations, making it an ideal choice for modelling thermal effects in SHG processes.
 
-Here's a basic example of FDM:   
+
+**Finite Difference Approximation**: In FDM, we approximate the derivative by choosing a small but finite value of $( \Delta x $). This turns the derivative into a simple difference equation:
+
+$$
+f'(x) \approx \frac{f(x + \Delta x) - f(x)}{\Delta x}
+$$
+
+This is called the **Forward Difference** approximation.
+
+**A Simple Example**: Approximating the Derivative of $( f(x) = x^2 $)
+
+Let's use FDM to approximate the derivative of the function $( f(x) = x^2 $) at $( x = 2 $).
+
+1. Function Value at $( x = 2 $):
+   
+$$
+f(2) = 2^2 = 4
+$$
+
+2. Function Value at $( x + \Delta x $) with $( \Delta x = 0.1 $):
+   
+$$
+f(2 + 0.1) = (2.1)^2 = 4.41
+$$
+
+3. Approximate Derivative:
+   
+$$
+f'(2) \approx \frac{f(2 + 0.1) - f(2)}{0.1} = \frac{4.41 - 4}{0.1} = 4.1
+$$
+
+4. Exact Derivative for Comparison:
+   
+   The exact derivative of $( f(x) = x^2 $) is $( f'(x) = 2x $). At $( x = 2 $), this gives:
+   
+$$
+f'(2) = 2 \times 2 = 4
+$$
+
+**Note**: The approximation $( 4.1 $) is close to the exact derivative $( 4 $). As $( \Delta x $) becomes smaller, the approximation improves, demonstrating how FDM essentially breaks down the derivative to its fundamental definition by using a discrete, manageable calculation.
+
+This method helps solve differential equations where exact analytical solutions are not feasible, highlighting how FDM is powerful in practical computational scenarios.
+
+# 9. Research Opportunities
+While our research has focused on modeling the thermal effects in KTP crystals under specific wave conditions—namely Gaussian Continuous Wave (GCW), Gaussian Pulsed Wave (GPW), and Bessel-Gauss Pulsed Wave (BGPW)—significant opportunities remain for further exploration in this field. A natural extension of this work involves investigating different types of wave sources and alternative nonlinear crystals. 
+
+The key distinction between different wave types and crystal materials lies in the unique heat transfer behavior each combination exhibits. These variations can fundamentally alter the thermal dynamics within the crystal, leading to different impacts on SHG efficiency and system performance. For instance, the use of other waveforms, such as Hermite-Gaussian or Laguerre-Gaussian beams, or employing different crystal materials like Lithium Niobate or Beta Barium Borate, would result in diverse heat distribution patterns and necessitate distinct thermal management strategies. 
+
+Moreover, while our studies primarily focused on developing detailed models to understand these thermal behaviors, future research can take the next step by conducting comprehensive simulations and experimental validations. These simulations can provide deeper insights into how different thermal properties, such as anisotropic conductivity and varying boundary conditions, influence heat distribution and phase mismatching across various laser and crystal configurations. Such explorations would not only enhance the theoretical understanding but also offer practical guidelines for optimizing SHG systems under varying thermal conditions.
+
+Ultimately, exploring these new avenues will open up entirely new research trajectories, each with its own set of challenges and opportunities. This will enable a more complete understanding of thermal effects in nonlinear optical systems, contributing to the design of more efficient and adaptable laser technologies. To facilitate further research, other researchers can use our GitHub repository as a tutorial, utilizing the provided source code as a foundation for conducting simulations and extending the study in this field. By building on our work, future studies can deepen insights into heat transfer dynamics and refine thermal management strategies across various nonlinear optical configurations.
+
+We are currently working on these topics and are dedicated to pushing this research forward. In the near future, we will share the results of our ongoing studies along with new articles and code updates in this repository. Our goal is to expand thes repository into a more comprehensive resource that will support other researchers in exploring the complexities of thermal effects in nonlinear optics. Stay tuned for these updates, as they will provide even deeper insights and tools to enhance future research in this field.
+
+# 10. How to Cite Us
+Please refer to the [0. Cite Us](https://github.com/mohammad-ghadri/SHG__Second_Harmonic_Generation/tree/main/0.%20Cite%20Us) folder for accurate citations. It contains essential guidelines for accurate referencing, ensuring accurate acknowledgement of our work.
+
+
+# 11. For Additional Questions
+If you have questions that are not covered in the resources above, the best way to reach [Mostafa M. Rezaee](https://www.linkedin.com/in/mostafa-m-rezaee/).    
+- Gmail: mostafa.mohammadrezaee@gmail.com       
+- [Linkedin](https://www.linkedin.com/in/mostafa-m-rezaee/)           
+- [Personal Website](https://mostafa-mr.com/)       
+
+
+# Archive
+
+## 1.3. Prerequisites  
+This tutorial assumes no prior knowledge. It starts from the basics and gradually progresses to more advanced topics. A willingness to learn and a basic understanding of physics and mathematics will be helpful.
+
+## Here's a basic example of FDM:   
 We will use the following term from the heat equation:
 
 $$
@@ -374,7 +454,8 @@ $$
 
 This equation allows you to compute the temperature at the next time step, and updating the entire temperature distribution over time.
 
-## 8.3. Our Achivements
+
+## 8.3. Our Contribution
 The series of our studies presented here aim to address the critical issue of thermal effects in Second Harmonic Generation (SHG) processes, particularly in KTP crystals. Each article contributes a piece to solving this problem by exploring various conditions and wave types, building a comprehensive approach to managing heat in nonlinear optical systems. (Note: To make it easier to understand our achievements, the articles are sorted by thematic order, not by chronological order.)
 
 1. **Heat Equation _ Analytical** [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-47-13-2317)   
@@ -402,23 +483,3 @@ In "Ideal G_CW," we addressed how temperature affects SHG efficiency in double-p
 Finally, "SHG G_CW _ Computational _ Approximate Model" provided a simpler theoretical approach to understanding TIPM in Continuous Wave Gaussian SHG systems. By coupling heat and SHG equations, it showed how temperature gradients and thermal dispersion reduce conversion efficiency, emphasizing the need for effective thermal management, especially at higher powers.
 
 Each study tackled specific thermal challenges under various conditions—GCW, GPW, and BGPW—showing how heat affects SHG efficiency and offering solutions to reduce these effects. This cohesive approach not only addresses the theoretical aspects of heat distribution and phase mismatching but also provides practical insights for optimizing nonlinear optical systems. Together, these works create a robust framework for understanding and managing thermal impacts in SHG, paving the way for more efficient laser technologies.
-
-
-# 9. Research Opportunities
-While our research has focused on modeling the thermal effects in KTP crystals under specific wave conditions—namely Gaussian Continuous Wave (GCW), Gaussian Pulsed Wave (GPW), and Bessel-Gauss Pulsed Wave (BGPW)—significant opportunities remain for further exploration in this field. A natural extension of this work involves investigating different types of wave sources and alternative nonlinear crystals. 
-
-The key distinction between different wave types and crystal materials lies in the unique heat transfer behavior each combination exhibits. These variations can fundamentally alter the thermal dynamics within the crystal, leading to different impacts on SHG efficiency and system performance. For instance, the use of other waveforms, such as Hermite-Gaussian or Laguerre-Gaussian beams, or employing different crystal materials like Lithium Niobate or Beta Barium Borate, would result in diverse heat distribution patterns and necessitate distinct thermal management strategies. 
-
-Moreover, while our studies primarily focused on developing detailed models to understand these thermal behaviors, future research can take the next step by conducting comprehensive simulations and experimental validations. These simulations can provide deeper insights into how different thermal properties, such as anisotropic conductivity and varying boundary conditions, influence heat distribution and phase mismatching across various laser and crystal configurations. Such explorations would not only enhance the theoretical understanding but also offer practical guidelines for optimizing SHG systems under varying thermal conditions.
-
-Ultimately, exploring these new avenues will open up entirely new research trajectories, each with its own set of challenges and opportunities. This will enable a more complete understanding of thermal effects in nonlinear optical systems, contributing to the design of more efficient and adaptable laser technologies. To facilitate further research, other researchers can use our GitHub repository as a tutorial, utilizing the provided source code as a foundation for conducting simulations and extending the study in this field. By building on our work, future studies can deepen insights into heat transfer dynamics and refine thermal management strategies across various nonlinear optical configurations.
-
-# 10. How to Cite Us
-Please refer to the [0. Cite Us](https://github.com/mohammad-ghadri/SHG__Second_Harmonic_Generation/tree/main/0.%20Cite%20Us) folder for accurate citations. It contains essential guidelines for accurate referencing, ensuring accurate acknowledgement of our work.
-
-
-# 11. For Additional Questions
-If you have questions that are not covered in the resources above, the best way to reach [Mostafa M. Rezaee](https://www.linkedin.com/in/mostafa-m-rezaee/).    
-- Gmail: mostafa.mohammadrezaee@gmail.com       
-- [Linkedin](https://www.linkedin.com/in/mostafa-m-rezaee/)           
-- [Personal Website](https://mostafa-mr.com/)       
