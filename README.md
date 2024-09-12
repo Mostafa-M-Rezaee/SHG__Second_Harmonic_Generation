@@ -16,7 +16,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[7.1. Our Contribution (2)](#71-our-contribution-2)        
 [8. Field](#8-field)        
 &nbsp;&nbsp;&nbsp;&nbsp;[8.1. Our Contribution (3)](#81-our-contribution-2)        
-[9. Coupling Heat, Phase Mismatch, and Field Equation](#9-coupling-heat-phase-mismatch-and-field-equation)        
+[9. Coupling Heat, Phase Mismatch, and Field](#9-coupling-heat-phase-mismatch-and-field)        
 &nbsp;&nbsp;&nbsp;&nbsp;[9.1. Our Contribution (4)](#91-our-contribution-4)        
 [10. Our Contribution](#10-our-contribution)        
 &nbsp;&nbsp;&nbsp;&nbsp;[10.1. Methodology](#101-methodology)        
@@ -247,10 +247,21 @@ This study explored SHG efficiency under Continuous Wave Gaussian conditions, hi
 This research introduced a model using Pulsed Bessel-Gauss beams, challenging traditional assumptions like the nondepleted wave approximation. This study provided a more accurate framework for SHG by considering wave depletion effects, demonstrating the impact of beam profile on heat and SHG efficiency under pulsed conditions.
 
 
-# 9. Coupling Heat, Phase Mismatch, and Field Equation
+# 9. Coupling Heat, Phase Mismatch, and Field
+To accurately model SHG, it is essential to recognize that heat, phase mismatch, and the field are interconnected and must be treated as a coupled system. 
 
+The **heat** governs the temperature distribution within the crystal, which directly influences the refractive index through temperature-dependent material properties. This, in turn, affects the phase mismatch between the interacting waves. The **phase mismatch** modifies the interaction conditions for the fundamental and second harmonic waves, directly impacting their efficiency and the field dynamics. The **field** itself defines how the energy is transferred between the waves, how the phase evolves, and how the power distribution affects local heating within the crystal. This heating further alters the temperature profile, creating a feedback loop that perpetuates continuously.
+
+Because of this tightly coupled nature, solving these equations independently would fail to capture the dynamic interactions and feedback mechanisms that occur in real-world conditions. A proper approach is necessary to account for these interdependencies, ensuring a comprehensive and accurate representation of SHG performance under varying thermal and optical conditions.
 
 ## 9.1. Our Contribution (4)
+Our research contributions for coupling Heat, Phase Mismatch, and Field are detailed in the following publications:
+
+- **Coupled _ Continuous Wave Gaussian _ Computational** [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-21-25615&id=302163)    
+This study advanced our understanding by incorporating both Thermally Induced Phase Mismatching (TIPM) and thermal lensing into SHG models using a Continuous Wave Gaussian source. By coupling eight different equations, the model captured the dynamic interactions between heat and SHG efficiency over time. This comprehensive approach provided a realistic simulation that closely matched experimental results, significantly enhancing our understanding of thermal effects in Continuous Wave Gaussian SHG systems.
+
+- **SHG _ Continuous Wave Gaussian _ Computational _ Approximate Model** [(Link)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-18-18-18732&id=205211)    
+This article introduced a simplified theoretical model to study TIPM in Continuous Wave Gaussian SHG systems. By coupling heat dissipation and SHG equations, it demonstrated how temperature gradients and thermal dispersion negatively impact conversion efficiency. The study highlighted the importance of managing thermal effects, especially at higher power levels, to maintain optimal SHG performance.
 
 
 # 10. Our Contribution
