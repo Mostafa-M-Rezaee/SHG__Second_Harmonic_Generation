@@ -10,14 +10,20 @@
 [3. Thermal Challenge in SHG](#3-thermal-challenge-in-shg)          
 [4. Thermal Gradient in a Crystal during SHG](#4-thermal-gradient-in-a-crystal-during-shg)  
 [5. Reducing Computational Cost](#5-reducing-computational-cost)  
-[6. Boundry Conditions](#6-boundry-conditions)  
-[7. Phase Mismatch](#7-phase-mismatch)        
-[8. Our Contribution](#8-our-contribution)        
-&nbsp;&nbsp;&nbsp;&nbsp;[8.1. Methodology](#81-methodology)        
-&nbsp;&nbsp;&nbsp;&nbsp;[8.2. Computational Approach using Finite Difference Method (FDM)](#82-computational-approach-using-finite-difference-method-fdm)        
-[9. Research Opportunities](#9-research-opportunities)        
-[10. How to Cite Us](#10-how-to-cite-us)        
-[11. For Additional Questions](#11-for-additional-questions)        
+[6. Boundry Conditions](#6-boundry-conditions)   
+&nbsp;&nbsp;&nbsp;&nbsp;[6.1. Our Contribution (1)](#61-our-contribution-1)     
+[7. Phase Mismatch](#7-phase-mismatch)      
+&nbsp;&nbsp;&nbsp;&nbsp;[7.1. Our Contribution (2)](#71-our-contribution-2)        
+[8. Field](#8-field)        
+&nbsp;&nbsp;&nbsp;&nbsp;[8.1. Our Contribution (3)](#81-our-contribution-2)        
+[9. Coupling Heat, Phase Mismatch, and Field Equation](#9-coupling-heat-phase-mismatch-and-field-equation)        
+&nbsp;&nbsp;&nbsp;&nbsp;[9.1. Our Contribution (4)](#91-our-contribution-4)        
+[10. Our Contribution](#10-our-contribution)        
+&nbsp;&nbsp;&nbsp;&nbsp;[10.1. Methodology](#101-methodology)        
+&nbsp;&nbsp;&nbsp;&nbsp;[10.2. Computational Approach using Finite Difference Method (FDM)](#102-computational-approach-using-finite-difference-method-fdm)        
+[11. Research Opportunities](#11-research-opportunities)        
+[12. How to Cite Us](#12-how-to-cite-us)        
+[13. For Additional Questions](#13-for-additional-questions)        
 
 
 # 1. About this Repository
@@ -184,6 +190,18 @@ The boundary conditions for heat transfer within the nonlinear crystal during SH
 Boundary conditions for heat transfer in SHG crystals: The lateral surfaces are cooled to a constant temperature, facilitating heat dissipation, while input and output faces are cooled by radiation and convection. The crystal axis, experiencing peak temperatures, is treated as an insulated boundary, ensuring accurate heat distribution modeling critical for optimizing SHG performance.
 </p>
 
+## 6.1. Our Contribution (1)
+Our contributions to understanding these heat transfer dynamics are detailed in the following publications:
+
+- **Heat Equation _ Continuous Wave Gaussian _ Analytical** [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-47-13-2317)   
+This work focuses on predicting temperature distributions in laser crystals using a Continuous Wave Gaussian source. The analytical model provided insights into the basic thermal behavior in solid-state lasers, a critical step toward designing more efficient systems by accurately modeling heat within complex crystal structures.
+
+- **Heat Equation _ Continuous Wave Gaussian _ Computational** [(Link)](https://link.springer.com/article/10.1007/s13538-014-0291-x)   
+Building upon the analytical work, this computational study incorporated more realistic factors, such as temperature-dependent thermal conductivity and radiation effects. The model demonstrated the significant impact of these often-overlooked factors on heat distribution in KTP crystals, enhancing the thermal modeling of laser systems.
+
+- **Heat Equation _ Pulsed Wave Gaussian _ Computational** [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-6-1241)      
+This study developed a numerical model for heat distribution under Pulsed Gaussian conditions, highlighting the critical role of variable thermal conductivity, especially when radiation effects are minimal. The findings improved the accuracy of predicting heat behavior in pulsed laser systems, contributing to more effective thermal management strategies.
+
 
 # 7. Phase Mismatch
 During SHG, a crystal is subjected to laser radiation, the temperature at various points within the crystal becomes spatially and temporally dependent. This variation in temperature causes corresponding changes in the crystal's refractive index, making the refractive index also a function of position and time. Since the speed of light in a medium is dependent on its refractive index, the speed of light traveling through different regions of the crystal will similarly be a function of position and time. Specifically, the temperature gradient within the crystal causes the speed of light to vary radially. Consequently, different regions of the wavefront experience different speeds, leading to distortions in the wavefront shape. This results in a phase mismatch between the fundamental and second harmonic waves. In different crystals, the wavefronts may be convex or concave. Figure 6. shows a concave wavefront.
@@ -203,11 +221,42 @@ $$
 
 we can effectively integrate heat considerations into electromagnetic equations, thereby advancing our comprehension of how thermal effects impact the efficiency of nonlinear optical phenomena.
 
+## 7.1. Our Contribution (2)
+Our study on this phenomenon is detailed in the publication:
 
-# 8. Our Contribution
+- **Phase Mismatch _ Pulsed Wave Gaussian _ Computational** [(Link)](https://www.researchgate.net/publication/267926440_Thermally_induced_phase_mismatching_in_a_repetitively_Gaussian_pulsed_pumping_KTP_crystal_A_spatiotemporal_treatment)    
+This work addresses the issue of Thermally Induced Phase Mismatching (TIPM) in KTP crystals under Pulsed Wave Gaussian conditions. The study developed a spatiotemporal model to examine how temperature rise influences nonlinear conversion efficiency, highlighting the critical need to manage TIPM to optimize SHG performance in pulsed laser applications. The findings emphasize the importance of precise thermal management strategies to reduce phase mismatches and improve overall system efficiency.
+
+# 8. Field
+In ideal conditions where there is no heat dissipation or phase mismatch, all of the fundamental wave is perfectly converted into the Second Harmonic Wave, demonstrating the maximum possible efficiency in nonlinear crystals. 
+
+<p align="center">
+  <img src="./Archive/images/3.%20Readme_images/image01.png" alt="Image 1">
+</p>
+
+<p align="center"> <strong>Figure 1.</strong> Maximum SHG Efficiency: Achieving full conversion of the Fundamental Wave (FW) to the Second Harmonic Wave (SHW) under ideal thermal and phase conditions.
+</p>
+
+## 8.1. Our Contribution (3)
+Our research contributions exploring these ideal conditions are detailed in the following publications:
+
+- **Ideal _ Continuous Wave Gaussian _ Computational** [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-4-869)    
+This study explored SHG efficiency under Continuous Wave Gaussian conditions, highlighting how temperature fluctuations can prevent achieving ideal conversion efficiency. The study found that even minor temperature increases could drastically reduce SHG efficiency due to beam depletion and refractive index changes, highlighting the importance of temperature control in optimizing SHG processes.
+ 
+- **Ideal _ Pulsed Wave Bessel Gaussian _ Computational** [(Link)](https://opg.optica.org/ao/abstract.cfm?uri=ao-53-32-7691)   
+This research introduced a model using Pulsed Bessel-Gauss beams, challenging traditional assumptions like the nondepleted wave approximation. This study provided a more accurate framework for SHG by considering wave depletion effects, demonstrating the impact of beam profile on heat and SHG efficiency under pulsed conditions.
+
+
+# 9. Coupling Heat, Phase Mismatch, and Field Equation
+
+
+## 9.1. Our Contribution (4)
+
+
+# 10. Our Contribution
 Our study introduces a novel computational model utilizing the FDM to examine heat dissipation dynamics within a crystal and their consequential impacts during SHG. This model is more accurate, easier to use, and provides a more comprehensive and detailed understanding of the thermal effects in SHG.
 
-## 8.1. Methodology
+## 10.1. Methodology
 Direct measurement of internal temperature in a nonlinear crystal during Second Harmonic Generation (SHG) is not feasible due to the lack of instrumentation capable of probing the localized, transient thermal effects within the crystal. Conventional techniques are insufficient to resolve the rapid, spatially confined temperature changes, making experimental assessment impractical.
 
 Analytical approaches are similarly challenging due to the complexity of the coupled field, heat, and phase equations governing SHG, as shown below: 
@@ -226,7 +275,7 @@ Analytical solution of these equations requires simplifying assumptions that dev
 
 However, through computational approaches, we've pushed the boundaries, avoiding any simplifying assumptions to offer a more precise model. For instance, we no longer assume the thermal conductivity coefficient to be constant; instead, it dynamically varies with temperature throughout time. This shift from traditional analytical models, which rely on simplifying assumptions, enables a more accurate study of nonlinear optics phenomena.
 
-## 8.2. Computational Approach using Finite Difference Method (FDM)
+## 10.2. Computational Approach using Finite Difference Method (FDM)
 We use the FDM as the computational method to model thermal effects in SHG due to its low computational cost and user-friendly nature. FDM offers simplicity in both learning and application. Since heat operates on a macroscopic scale and doesn't vary drastically, FDM provides accurate results without the need for using other complex methods. Its straightforward approach that efficiently captures the thermal dynamics involved in SHG without unnecessary complexity. 
 
 The FDM approximates derivatives in differential equations through discretization of the domain into a grid and replacing derivatives with finite difference expressions. This transforms the equation into a system of algebraic equations solvable with numerical techniques. FDM's accuracy and stability rely on discretization, approximation schemes, and solution methods chosen, offering a versatile and efficient approach for solving complex differential equations when analytical solutions are impractical. By employing FDM, we achieve cost-effective and accurate simulations, making it an ideal choice for modelling thermal effects in SHG processes.
@@ -274,7 +323,7 @@ $$
 
 This method helps solve differential equations where exact analytical solutions are not feasible, highlighting how FDM is powerful in practical computational scenarios.
 
-# 9. Research Opportunities
+# 11. Research Opportunities
 While our research has focused on modeling the thermal effects in KTP crystals under specific wave conditions—namely Gaussian Continuous Wave (GCW), Gaussian Pulsed Wave (GPW), and Bessel-Gauss Pulsed Wave (BGPW)—significant opportunities remain for further exploration in this field. A natural extension of this work involves investigating different types of wave sources and alternative nonlinear crystals. 
 
 The key distinction between different wave types and crystal materials lies in the unique heat transfer behavior each combination exhibits. These variations can fundamentally alter the thermal dynamics within the crystal, leading to different impacts on SHG efficiency and system performance. For instance, the use of other waveforms, such as Hermite-Gaussian or Laguerre-Gaussian beams, or employing different crystal materials like Lithium Niobate or Beta Barium Borate, would result in diverse heat distribution patterns and necessitate distinct thermal management strategies. 
@@ -285,11 +334,11 @@ Ultimately, exploring these new avenues will open up entirely new research traje
 
 We are currently working on these topics and are dedicated to pushing this research forward. In the near future, we will share the results of our ongoing studies along with new articles and code updates in this repository. Our goal is to expand thes repository into a more comprehensive resource that will support other researchers in exploring the complexities of thermal effects in nonlinear optics. Stay tuned for these updates, as they will provide even deeper insights and tools to enhance future research in this field.
 
-# 10. How to Cite Us
+# 12. How to Cite Us
 Please refer to the [0. Cite Us](https://github.com/mohammad-ghadri/SHG__Second_Harmonic_Generation/tree/main/0.%20Cite%20Us) folder for accurate citations. It contains essential guidelines for accurate referencing, ensuring accurate acknowledgement of our work.
 
 
-# 11. For Additional Questions
+# 13. For Additional Questions
 If you have questions that are not covered in the resources above, the best way to reach [Mostafa M. Rezaee](https://www.linkedin.com/in/mostafa-m-rezaee/).    
 - Gmail: mostafa.mohammadrezaee@gmail.com       
 - [Linkedin](https://www.linkedin.com/in/mostafa-m-rezaee/)           
