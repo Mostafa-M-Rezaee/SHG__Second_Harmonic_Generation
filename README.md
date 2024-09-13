@@ -18,9 +18,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[8.1. Our Contribution (3)](#81-our-contribution-2)        
 [9. Interdependency of Heat, Phase, and Field Dynamics](#9-interdependency-of-heat-phase-and-field-dynamics)        
 &nbsp;&nbsp;&nbsp;&nbsp;[9.1. Our Contribution (4)](#91-our-contribution-4)        
-[10. Our Contribution](#10-our-contribution)        
-&nbsp;&nbsp;&nbsp;&nbsp;[10.1. Methodology](#101-methodology)        
-&nbsp;&nbsp;&nbsp;&nbsp;[10.2. Computational Approach using Finite Difference Method (FDM)](#102-computational-approach-using-finite-difference-method-fdm)        
+[10. Methodology](#10-methodology)        
+&nbsp;&nbsp;&nbsp;&nbsp;[10.1. Computational Approach using Finite Difference Method (FDM)](#101-computational-approach-using-finite-difference-method-fdm)        
 [11. Research Opportunities](#11-research-opportunities)        
 [12. How to Cite Us](#12-how-to-cite-us)        
 [13. For Additional Questions](#13-for-additional-questions)        
@@ -243,17 +242,14 @@ This study advanced our understanding by incorporating both Thermally Induced Ph
 This article introduced a simplified theoretical model to study TIPM in Continuous Wave Gaussian SHG systems. By coupling heat dissipation and SHG equations, it demonstrated how temperature gradients and thermal dispersion negatively impact conversion efficiency. The study highlighted the importance of managing thermal effects, especially at higher power levels, to maintain optimal SHG performance.
 
 
-# 10. Our Contribution
-Our study introduces a novel computational model utilizing the FDM to examine heat dissipation dynamics within a crystal and their consequential impacts during SHG. This model is more accurate, easier to use, and provides a more comprehensive and detailed understanding of the thermal effects in SHG.
-
-## 10.1. Methodology
+# 10. Methodology
 Direct measurement of internal temperature in a nonlinear crystal during Second Harmonic Generation (SHG) is not feasible due to the lack of instrumentation capable of probing the localized, transient thermal effects within the crystal. Conventional techniques are insufficient to resolve the rapid, spatially confined temperature changes, making experimental assessment impractical.
 
 Analytical approaches are similarly challenging due to the complexity of the coupled equations of heat, phase, and field  governing SHG. Analytical solution of these equations requires simplifying assumptions that deviate the model from reality. For example, even the fundamental heat equation which plays a crucial role in this domain, relies on such simplifications. 
 
 However, through computational approaches, we've pushed the boundaries, avoiding any simplifying assumptions to offer a more precise model. For instance, we no longer assume the thermal conductivity coefficient to be constant; instead, it dynamically varies with temperature throughout time. This shift from traditional analytical models, which rely on simplifying assumptions, enables a more accurate study of nonlinear optics phenomena.
 
-## 10.2. Computational Approach using Finite Difference Method (FDM)
+## 10.1. Computational Approach using Finite Difference Method (FDM)
 We use the FDM as the computational method to model thermal effects in SHG due to its low computational cost and user-friendly nature. FDM offers simplicity in both learning and application. Since heat operates on a macroscopic scale and doesn't vary drastically, FDM provides accurate results without the need for using other complex methods. Its straightforward approach that efficiently captures the thermal dynamics involved in SHG without unnecessary complexity. 
 
 The FDM approximates derivatives in differential equations through discretization of the domain into a grid and replacing derivatives with finite difference expressions. This transforms the equation into a system of algebraic equations solvable with numerical techniques. FDM's accuracy and stability rely on discretization, approximation schemes, and solution methods chosen, offering a versatile and efficient approach for solving complex differential equations when analytical solutions are impractical. By employing FDM, we achieve cost-effective and accurate simulations, making it an ideal choice for modelling thermal effects in SHG processes.
@@ -301,7 +297,7 @@ $$
 This method helps solve differential equations where exact analytical solutions are not feasible, highlighting how FDM is powerful in practical computational scenarios.
 
 # 11. Research Opportunities
-While our research has focused on modeling the thermal effects in KTP crystals under specific wave conditions—namely Gaussian Continuous Wave (GCW), Gaussian Pulsed Wave (GPW), and Bessel-Gauss Pulsed Wave (BGPW)—significant opportunities remain for further exploration in this field. A natural extension of this work involves investigating different types of wave sources and alternative nonlinear crystals. 
+While our research has focused on modeling the thermal effects in KTP crystals under specific wave conditions—namely Gaussian Continuous Wave, Gaussian Pulsed Wave, and Bessel-Gauss Pulsed Wave—significant opportunities remain for further exploration in this field. A natural extension of this work involves investigating different types of wave sources and alternative nonlinear crystals. 
 
 The key distinction between different wave types and crystal materials lies in the unique heat transfer behavior each combination exhibits. These variations can fundamentally alter the thermal dynamics within the crystal, leading to different impacts on SHG efficiency and system performance. For instance, the use of other waveforms, such as Hermite-Gaussian or Laguerre-Gaussian beams, or employing different crystal materials like Lithium Niobate or Beta Barium Borate, would result in diverse heat distribution patterns and necessitate distinct thermal management strategies. 
 
@@ -577,3 +573,6 @@ $$
 $$
 
 Analytical solution of these equations requires simplifying assumptions that deviate the model from reality. For example, even the fundamental heat equation which plays a crucial role in this domain, relies on such simplifications. 
+
+## 10. Our Contribution
+Our study introduces a novel computational model utilizing the FDM to examine heat dissipation dynamics within a crystal and their consequential impacts during SHG. This model is more accurate, easier to use, and provides a more comprehensive and detailed understanding of the thermal effects in SHG.
