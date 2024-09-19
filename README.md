@@ -181,7 +181,7 @@ The crystal axis represents the hottest region, and no heat flows along or acros
 In conclusion, the boundary condition for the crystal axis is insulation, as no heat transfer occurs along or across it. With this, all boundary conditions for the crystal are defined: insulation along the axis, constant temperature at the lateral surfaces, and convection and radiation at the faces. These boundary conditions are essential for accurately modeling the heat distribution and optimizing SHG performance.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image08.png" alt="Image 8" width="85%">
+  <img src="./Archive/images/3.%20Readme_images/image08.png" alt="Image 8" width="75%">
 </p>
 
 <p align="center"> <strong>Figure 8.</strong> 
