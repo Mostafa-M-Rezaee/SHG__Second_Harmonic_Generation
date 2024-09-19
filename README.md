@@ -153,16 +153,16 @@ To efficiently analyze Second Harmonic Generation (SHG) in a KTP crystal modeled
 In the KTP crystal, the input and output faces undergo convective and radiative cooling, allowing heat to dissipate efficiently from these surfaces. Meanwhile, the lateral surfaces are maintained at a constant temperature through a cooling system, typically using a coolant such as water or liquid nitrogen. Additionally, we need to carefully determine the boundary conditions of the crystal's axis for accurate modeling.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image06.png" alt="Image 6" width="75%">
+  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="85%">
 </p>
 
-<p align="center"> <strong>Figure 6.</strong> Heat dissipation in KTP crystal during SHG, with convective and radiative cooling at the faces and constant temperature maintained at the lateral surfaces.
+<p align="center"> <strong>Figure 5.</strong> Heat dissipation in KTP crystal during SHG, with convective and radiative cooling at the faces and constant temperature maintained at the lateral surfaces.
 </p>
 
-Just as a ball rolls downhill due to the force of gravity, heat flows from a hotter region to a colder one due to the temperature gradient. The temperature difference drives this heat transfer, similar to how gravity drives the motion of the ball. (Figure 5).
+Just as a ball rolls downhill due to the force of gravity, heat flows from a hotter region to a colder one due to the temperature gradient. The temperature difference drives this heat transfer, similar to how gravity drives the motion of the ball (Figure 6).
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="75%">
+  <img src="./Archive/images/3.%20Readme_images/image06.png" alt="Image 6" width="70%">
 </p>
 
 <p align="center"> <strong>Figure 5.</strong> Just like a ball that only rolls downhill and not uphill due to gravity, heat flows from the hottest regions to the cooler ones, illustrating the natural direction of heat transfer within the crystal.
@@ -171,7 +171,7 @@ Just as a ball rolls downhill due to the force of gravity, heat flows from a hot
 The crystal axis represents the hottest region, and no heat flows along or across it, meaning there is no conduction, convection, or radiation in this direction. Due to the temperature gradient, heat is transferred solely outward from the axis toward the cooler lateral surfaces.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image07.png" alt="Image 7" width="75%">
+  <img src="./Archive/images/3.%20Readme_images/image07.png" alt="Image 7" width="85%">
 </p>
 
 <p align="center"> <strong>Figure 7.</strong> Heat only flows radially outward from the hottest crystal axis to the cooler lateral surfaces, with no heat transfer along or across the axis.
@@ -181,7 +181,7 @@ The crystal axis represents the hottest region, and no heat flows along or acros
 In conclusion, the boundary condition for the crystal axis is insulation, as no heat transfer occurs along or across it. With this, all boundary conditions for the crystal are defined: insulation along the axis, constant temperature at the lateral surfaces, and convection and radiation at the faces. These boundary conditions are essential for accurately modeling the heat distribution and optimizing SHG performance.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image08.png" alt="Image 8" width="65%">
+  <img src="./Archive/images/3.%20Readme_images/image08.png" alt="Image 8" width="85%">
 </p>
 
 <p align="center"> <strong>Figure 8.</strong> 
