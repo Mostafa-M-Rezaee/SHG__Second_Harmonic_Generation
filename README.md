@@ -192,8 +192,9 @@ Boundary conditions for heat transfer in SHG crystals: The lateral surfaces are 
 The thermal behavior in SHG can be accurately described by the heat equation: 
 
 $$
-+\rho c \frac{\partial T}{\partial t}-\vec{\nabla} \cdot (K(T) \vec{\nabla} T) = S \tag{Heat Equation}
++\rho c \frac{\partial T}{\partial t}-\vec{\nabla} \cdot (K(T) \vec{\nabla} T) = S \hspace{2cm} \text{(Heat Equation)}
 $$
+
 
 In our next three publications, we investigate different configurations of key parameters in the model: 
 - The heat source **$(S)$** can be either continuous or pulsed, representing different energy input conditions. 
