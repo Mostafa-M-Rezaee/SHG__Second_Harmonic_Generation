@@ -162,16 +162,16 @@ In the KTP crystal, the input and output faces undergo convective and radiative 
 Just as a ball rolls downhill due to the force of gravity, heat flows from a hotter region to a colder one due to the temperature gradient. The temperature difference drives this heat transfer, similar to how gravity drives the motion of the ball (Figure 6).
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image06.png" alt="Image 6" width="70%">
+  <img src="./Archive/images/3.%20Readme_images/image06.png" alt="Image 6" width="75%">
 </p>
 
-<p align="center"> <strong>Figure 5.</strong> Just like a ball that only rolls downhill and not uphill due to gravity, heat flows from the hottest regions to the cooler ones, illustrating the natural direction of heat transfer within the crystal.
+<p align="center"> <strong>Figure 6.</strong> Just like a ball that only rolls downhill and not uphill due to gravity, heat flows from the hottest regions to the cooler ones, illustrating the natural direction of heat transfer within the crystal.
 </p>
 
 The crystal axis represents the hottest region, and no heat flows along or across it, meaning there is no conduction, convection, or radiation in this direction. Due to the temperature gradient, heat is transferred solely outward from the axis toward the cooler lateral surfaces.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image07.png" alt="Image 7" width="85%">
+  <img src="./Archive/images/3.%20Readme_images/image07.png" alt="Image 7" width="100%">
 </p>
 
 <p align="center"> <strong>Figure 7.</strong> Heat only flows radially outward from the hottest crystal axis to the cooler lateral surfaces, with no heat transfer along or across the axis.
