@@ -27,7 +27,7 @@
 
 !            *             originally Written : 30-DES-2011   by MM  &  AM  &  FS           *
 
-!            *                   last revised : 31-Aug-2012   by MM  &  AM  &  FS           *
+!            *                   last revised : 25-Jan-2014   by MM  &  AM  &  FS           *
 
 !            ********************************************************************************
 
@@ -59,78 +59,79 @@ real*8        t          ,z          ,E          ,h        ,r            ,G     
 
 character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,tpf       ,EE
 
-!------------------------------------------------ Phase Variables
-real*8        phi                    ,aa1T0       ,aa2T0       ,aa1r0T       ,aa2r0T                        &
-             ,B1T0       ,B2T0       ,bb1T0       ,bb2T0       ,bb1r0T       ,bb2r0T                        &
-	     ,C1T0       ,C2T0       ,cc1T0       ,cc2T0       ,cc1r0T       ,cc2r0T                        &                                
+!-------------------------------------- Phase Variables
+real*8        phi                                                                                                    &
+             ,B1T0         ,B2T0         ,C1T0          ,C2T0         ,B1rT         ,B2rT         ,C1rT              &
+	     ,C2rT                                                                                                   &		 
+             ,Phase                                                                                                  &
+	     ,aa1T0        ,bb1T0        ,cc1T0         ,nx1T0        ,ny1T0        ,nz1T0        ,Term1             &
+	     ,aa2T0        ,bb2T0        ,cc2T0         ,nx2T0        ,ny2T0        ,nz2T0        ,Term2             &
+	     ,aa1rT        ,bb1rT        ,cc1rT         ,nx1rT        ,ny1rT        ,nz1rT        ,Term3             &
+	     ,aa2rT        ,bb2rT        ,cc2rT         ,nx2rT        ,ny2rT        ,nz2rT        ,theta             &
+             ,B1r0T        ,B2r0T        ,C1r0T         ,C2r0T        ,no1T0        ,ne1T0        ,ne2T0             &
+             ,no1rT        ,ne1rT        ,ne2rT                                                                      &
+                                                          
+	     ,aa1r0T       ,bb1r0T       ,cc1r0T        ,nx1r0T       ,ny1r0T       ,nz1r0T       ,dnx1dT            &
+	     ,aa2r0T       ,bb2r0T       ,cc2r0T        ,nx2r0T       ,ny2r0T       ,nz2r0T       ,dnx2dT            &
+             ,dny1dT       ,dny2dT       ,dnz1dT        ,dnz2dT       ,no1r0T       ,ne1r0T       ,ne2r0T            &   
 
-	     ,B1rT       ,B2rT       ,B1r0T       ,B2r0T       ,nx1r0T       ,nx2r0T                        &
-             ,C1rT       ,C2rT       ,C1r0T       ,C2r0T       ,ny1r0T       ,ny2r0T                        &
-	     ,theta      ,nz1r0T     ,nz2r0T                                                                &
+             ,lambda1      ,lambda2                                                                                  &
+             ,Phasemin                                                                                               &
 
-             ,nx1T0      ,nx2T0      ,no1T0       ,nx1rT       ,dnx1dT       ,dnx2dT                        &
-	     ,ny1T0      ,ny2T0      ,ne1T0       ,ny1rT       ,dny1dT       ,dny2dT                        &
-	     ,nz1T0      ,nz2T0      ,ne2T0       ,nz1rT       ,dnz1dT       ,dnz2dT                        &
+	     ,deltano1rT   ,deltane1rT   ,deltane2rT                                                                 &   
+	     ,deltano1r0T  ,deltane1r0T  ,deltane2r0T                                                               
 
-	     ,Term1      ,aa1rT      ,aa2rT       ,no1rT       ,no1r0T                                      &
-	     ,Term2      ,bb1rT      ,bb2rT       ,ne1rT       ,ne1r0T       ,lambda1                       &
-             ,Term3      ,cc1rT      ,cc2rT       ,ne2rT       ,ne2r0T       ,lambda2                       &                           
-             
-	     ,nx2rT      ,deltano1r0T             ,deltano1rT                                               &
-             ,ny2rT      ,deltane1r0T             ,deltane1rT                                               &
-	     ,nz2rT      ,deltane2r0T             ,deltane2rT                                 
- 
- complex*8    deltaphase[allocatable](:,:)
+complex*8     deltaphase[allocatable](:,:)                                                                           
 
-character*30  filenamePt   ,filenamePr  ,filenamePz                                                                   
+character*35  filenamePt   ,filenamePr   ,filenamePz                                                                 
 
 !**********************************************************************************************************************
 !                                    Giving Zero to variables
 !**********************************************************************************************************************
 
 !------------------------------------------------ Giving Zero to Thermal Variables
- 
-                    i = 0           ;j = 0           ;k = 0          ;l = 0            
-                   nt = 0          ;nr = 0          ;nz = 0         ;Np = 0
+            i = 0          ;j = 0          ;k = 0          ;l = 0  
+           nt = 0         ;nr = 0         ;nz = 0         ;Np = 0                                   
 
-                    t = 0.          ;z = 0.          ;E = 0.         ;h = 0.         ;r = 0.         ;G = 0.        ;P = 0.                                                                                                               
-                   T0 = 0.         ;pi = 0.         ;Cp = 0.        ;tp = 0.        ;Q0 = 0.                                     
-	          roh = 0.        ;aa1 = 0.        ;aa2 = 0.       ;aa3 = 0.       ;aa4 = 0.       ;aa5 = 0.                                                                        
-                 Tinf = 0.       ;Tamb = 0.       ;freq = 0.      ;gama = 0.
-	          KT0 = 0.      ;timet = 0.      ;sigma = 0.                                                                       
-	       omegaf = 0.     ;length = 0.     ;deltar = 0.    ;deltaz = 0.    ;deltat = 0.                                           
-	       radius = 0.
- 	     epsilong = 0.   ;tbetween = 0.                                   
-	    stability = 0.   
+            t = 0.         ;z = 0.         ;E = 0.         ;h = 0.         ;r = 0.        ;G = 0.       ;P = 0.
+           T0 = 0.        ;pi = 0.        ;cp = 0.        ;tp = 0.        ;Q0 = 0.
+          roh = 0.       ;KT0 = 0.       ;aa1 = 0.       ;aa2 = 0.       ;aa3 = 0.      ;aa4 = 0.     ;aa5 = 0.
+         freq = 0.      ;gama = 0.      ;Tinf = 0.      ;Tamb = 0.       
+        timet = 0.     ;sigma = 0.
+       omegaf = 0.    ;length = 0.    ;deltar = 0.    ;deltaz = 0.    ;deltat = 0.   ;radius = 0.
+     epsilong = 0.  ;tbetween = 0.
+    stability = 0.                                                             
 
 !------------------------------------------------ Giving Zero to Phase Variables
-             phi = 0.                        ;aa1T0 = 0.       ;aa2T0 = 0.       ;aa1r0T = 0.       ;aa2r0T = 0.                        
-            B1T0 = 0.       ;B2T0 = 0.       ;bb1T0 = 0.       ;bb2T0 = 0.       ;bb1r0T = 0.       ;bb2r0T = 0.                        
-	    C1T0 = 0.       ;C2T0 = 0.       ;cc1T0 = 0.       ;cc2T0 = 0.       ;cc1r0T = 0.       ;cc2r0T = 0.                                                        
+          phi = 0.                                                                                         
 
-	    B1rT = 0.       ;B2rT = 0.       ;B1r0T = 0.       ;B2r0T = 0.       ;nx1r0T = 0.       ;nx2r0T = 0.                        
-            C1rT = 0.       ;C2rT = 0.       ;C1r0T = 0.       ;C2r0T = 0.       ;ny1r0T = 0.       ;ny2r0T = 0.                        
-	  ;theta = 0.     ;nz1r0T = 0.      ;nz2r0T = 0.                        
+         B1T0 = 0.        ;B2T0 = 0.        ;C1T0 = 0.    ;C2T0 = 0.     ;B1rT = 0.    ;B2rT = 0.    ;C1rT = 0.
+	 C2rT = 0.                                                                                        
 
-           nx1T0 = 0.      ;nx2T0 = 0.       ;no1T0 = 0.       ;nx1rT = 0.       ;dnx1dT = 0.       ;dnx2dT = 0.                        
-	   ny1T0 = 0.      ;ny2T0 = 0.       ;ne1T0 = 0.       ;ny1rT = 0.       ;dny1dT = 0.       ;dny2dT = 0.                        
-	   nz1T0 = 0.      ;nz2T0 = 0.       ;ne2T0 = 0.       ;nz1rT = 0.       ;dnz1dT = 0.       ;dnz2dT = 0.                        
+        Phase = 0.                                                                                       
+	aa1T0 = 0.       ;bb1T0 = 0.       ;cc1T0 = 0.   ;nx1T0 = 0.    ;ny1T0 = 0.   ;nz1T0 = 0.   ;Term1 = 0.
+	aa2T0 = 0.       ;bb2T0 = 0.       ;cc2T0 = 0.   ;nx2T0 = 0.    ;ny2T0 = 0.   ;nz2T0 = 0.   ;Term2 = 0.
+        aa1rT = 0.       ;bb1rT = 0.       ;cc1rT = 0.   ;nx1rT = 0.    ;ny1rT = 0.   ;nz1rT = 0.   ;Term3 = 0.
+	aa2rT = 0.       ;bb2rT = 0.       ;cc2rT = 0.   ;nx2rT = 0.    ;ny2rT = 0.   ;nz2rT = 0.   ;theta = 0.   
+	B1r0T = 0.       ;B2r0T = 0.       ;C1r0T = 0.   ;C2r0T = 0.    ;no1T0 = 0    ;ne1T0 = 0    ;ne2T0 = 0.
+        no1rT = 0.       ;ne1rT = 0.       ;ne2rT = 0.                                                              
 
-	   Term1 = 0.      ;aa1rT = 0.       ;aa2rT = 0.       ;no1rT = 0.       ;no1r0T = 0.                                      
-	   Term2 = 0.      ;bb1rT = 0.       ;bb2rT = 0.       ;ne1rT = 0.       ;ne1r0T = 0.       ;lambda1 = 0.                       
-           Term3 = 0.      ;cc1rT = 0.       ;cc2rT = 0.       ;ne2rT = 0.       ;ne2r0T = 0.       ;lambda2 = 0.                                                 
-             
-           nx2rT = 0.      ;deltano1r0T = 0.              ;deltano1rT = 0.                                               
-           ny2rT = 0.      ;deltane1r0T = 0.              ;deltane1rT = 0.                                               
-	   nz2rT = 0.      ;deltane2r0T = 0.              ;deltane2rT = 0.                                 
+       aa1r0T = 0.      ;bb1r0T = 0.      ;cc1r0T = 0.   ;nx1r0T = 0.  ;ny1r0T = 0.  ;nz1r0T = 0.  ;dnx1dT = 0.  
+       aa2r0T = 0.      ;bb2r0T = 0.      ;cc2r0T = 0.   ;nx2r0T = 0.  ;ny2r0T = 0.  ;nz2r0T = 0.  ;dnx2dT = 0.  
+       dny1dT = 0.      ;dny2dT = 0.      ;dnz1dT = 0.   ;dnz2dT = 0.  ;no1r0T = 0.  ;ne1r0T = 0.  ;ne2r0T = 0.   
+
+      lambda1 = 0.     ;lambda2 = 0.             
+     Phasemin = 0.                                                                                     
+
+   deltano1rT = 0.  ;deltane1rT = 0.  ;deltane2rT = 0.                                                 
+  deltano1r0T = 0. ;deltane1r0T = 0. ;deltane2r0T = 0.                                               
 
 !**********************************************************************************************************************
 !                                             Inputs		  
 !**********************************************************************************************************************
-
 write(*,'(/,2x,a,\)') '            Enter the Energy value  : '
 !read(*,*) E
-E = 0.09          !????????????????????????????????????????????????????  
+E = 0.09     
 write(*,'(/,2x,a,\)') '                             Again  : '
 !read(*,*) EE
 EE = '0.09'            
@@ -202,13 +203,10 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
        T0 = 300.                !initial temperature                                      K
        pi = 4*atan(1.)                                                                   !dimensionless
        Cp = 728.016             !heat capacity at constant pressure                       J/(kg.K)
-    !  Cp = 590.             !heat capacity at constant pressure                       J/(kg.K)
-
-!      KT0 = 2.75                !thermal conductivity of KTP crystal                      W/(m.K)
 
       KT0 = 13.                !thermal conductivity of KTP crystal                      W/(m.K)
       roh = 2945.               !mass density                                             kg/m^3
-!     roh = 560.               !mass density                                             kg/m^3
+
      gama = 4.                 !absorption coefficient                                   1/m
      Tinf = 300.
      Tamb = 300.
@@ -219,7 +217,7 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
    deltat = tp / 10                                                                      !s     
        nt = int(tbetween/deltat)                                                         !dimensionless
 
-       nz = 150 !200                                                                          !dimensionless
+       nz = 58 !150 !200                                                                          !dimensionless
    length = 0.02                !length of crystal                                        m 
    deltaz = length/nz                                                                    !m
 
@@ -233,7 +231,6 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
 stability = ( (2*KT0*deltat)/(roh*Cp) ) * ( (deltar**2+deltaz**2)/(deltar**2*deltaz**2) ) !stability coefficient  
 
 !------------------------------------------------ Phase properties
-    !  phi = 0.4324341714      !????????????????????????????????????????????????????????????????????????????????????????
       phi = 24.77*pi/180
     theta =    90*pi/180
 
@@ -293,10 +290,10 @@ stability = ( (2*KT0*deltat)/(roh*Cp) ) * ( (deltar**2+deltaz**2)/(deltar**2*del
 !**********************************************************************************************************************
 !                                        Arrays Allocattion 
 !**********************************************************************************************************************
-
 !----------------------------------- Allocate Arrays Thermal
 allocate(temperature(1:2,0:nr,0:nz))     
 allocate(KT(0:nr,0:nz))
+
 !----------------------------------- Allocate Arrays phase
 allocate(deltaphase(0:nr,0:nz))
 
@@ -537,6 +534,7 @@ do l=1,Np !Runing program for Np pulses
 
 	    aa5 = ( deltat/(roh*Cp) ) * (1/4)
             !------------------
+
             !------------------------------------ Boundary conditions
 	    temperature(1,0 ,k)  = temperature(1,1,k)                !Thermal insulation condition for crystal axis
             
@@ -700,19 +698,14 @@ do l=1,Np !Runing program for Np pulses
    !--------------------------------------------- End of run for each deltat 
 
    !============================================= Print Results for each deltat
-   
-   !--------------------------------------------- For Heat Equation
-   t=(l-1)*nt*deltat + i*deltat 
-   write(1,'(2x,f25.10,5x,f25.10)')  t , temperature(1,0,0)
+   t=(l-1)*nt*deltat + i*deltat  
+      !--------------------------------------------- For Heat Equation
+      write(1,'(2x,f25.10,5x,f25.10)')  t , temperature(1,0,0)
 
-   !--------------------------------------------- For Phase Equation
-   t=(l-1)*nt*deltat + i*deltat 
-   write(4,'(2x,f25.10,5x,2f25.10)') t , deltaphase(1,1) 
+      !--------------------------------------------- For Phase Equation
+      write(4,'(2x,f25.10,5x,2f25.10)') t , deltaphase(1,1) 
    
    !=============================================
-    
-	 !write(*,*)'j,deltaphase(1,j,2)',j,deltaphase(1,j,2) 
-     !read(*,*)
 
    !--------------------------------------------- End-temprature of each deltat  ==> Initial temperature for next deltat
    do j=1,nr-1
@@ -738,7 +731,6 @@ do l=1,Np !Runing program for Np pulses
 
 
 end do !l
-
 
 !**********************************************************************************************************************
 !                                        Printing Results     

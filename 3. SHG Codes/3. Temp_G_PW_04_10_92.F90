@@ -1,5 +1,3 @@
-
-
 !            ********************************************************************************
      
 !            * Dr.Mohammad Sabaeian    , Department of Physics, Shahid Chamran University   * 
@@ -28,9 +26,9 @@
 
 !            *                                                                              * 
 
-!            *             originally Written : 30-Des-2011   by MM  &  AM  &  FS           *
+!            *             originally Written : 30-Des-2011   by Ms & MM  &  AM  &  FS      *
 
-!            *                   last revised : 23-Aug-2013   by MM  &  AM  &  FS           *
+!            *                   last revised : 24-jun-2013   by Ms & MM  &  AM  &  FS      *
 
 !            ********************************************************************************
 
@@ -45,7 +43,7 @@ implicit none
 integer       i          ,j          ,k          ,l                                                                   &
              ,nt         ,nr         ,nz         ,Np                                                                       
 
-real*8        t          ,z          ,E          ,h          ,r          ,G           ,P                              &                                                                                    
+real        t          ,z          ,E          ,h          ,r          ,G           ,P                              &                                                                                    
              ,T0         ,pi         ,Cp         ,tp                     ,Q0                                          &
 	     ,roh        ,kT0        ,aa1        ,aa2        ,aa3        ,aa4         ,aa5                            &
              ,freq       ,gama       ,Tinf       ,Tamb                                                                & 
@@ -166,11 +164,11 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
    deltat = tp / 10                                                                      !s     
        nt = int(tbetween/deltat)                                                         !dimensionless
 
-       nz = 150                                                                          !dimensionless
+       nz = 58 !150                                                                          !dimensionless
    length = 0.02                !length of crystal                                        m 
    deltaz = length/nz                                                                    !m
 
-   radius = 0.005               !radius of crystal                                       !m
+   radius = 5e-3               !radius of crystal                                       !m
    omegaf = 100.e-6              !spot size                                               !m
    deltar = omegaf/10                                                                    !m
        nr = int(radius/deltar)                                                           !dimensionless 
@@ -183,7 +181,6 @@ stability = ( (2*kT0*deltat)/(roh*Cp) ) * ( (deltar**2+deltaz**2)/(deltar**2*del
 !**********************************************************************************************************************
 !                                        Arrays Allocattion 
 !**********************************************************************************************************************
-
 allocate(temperature(1:2,0:nr,0:nz))     
 
 allocate( kT(0:nr,0:nz) )     
@@ -230,7 +227,8 @@ write(*,'(A13,I5    ,/,      &
 		  A13,F15.10,/,      &
 
 		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
+		  A13,F15.10,//      &
+
 		  A13,F15.10,/,      &
 		  A13,F15.10,/,      &
 		  A13,F15.10,//,     &
@@ -265,6 +263,7 @@ write(*,'(A13,I5    ,/,      &
   
 '    omegaf = ',omegaf     ,     &
 '    length = ',length     ,     &
+
 '    deltat = ',deltat     ,     &
 '    deltar = ',deltar     ,     &
 '    deltaz = ',deltaz     ,     &       
@@ -294,20 +293,20 @@ write(*,'(A,\)')' Press Enter to continue '
  
 
 !-------- 
- G = 1.703409099e-10 * pi * tp                         
+G = 1.703409099e-10 * pi * tp     
 
 Q0 = sqrt(pi) * tp / G              !Normalization      m^-3
 
  p = E / (tp * sqrt(pi))            !total power of the pulse
-!--------------------------------------------------------
 
+!--------------------------------------------------------
 do j=0,nr
    do k=0,nz
 	  
       temperature(1,j,k) = T0
 	  
 	         kT(j,k) = kT0 
-   
+!if (j==1 .and. k==1) write(*,*)kT(j,k)  
    end do !k
 end do !j	     
 
@@ -326,7 +325,7 @@ do l=1,Np !Running the program for Np pulses
 
             !------------------  
             aa1 = (h*deltaz)/(kT(j,k))
-            
+
 	    aa2 = (epsilong*sigma*deltaz)/(kT(j,k))
             
 	    aa3 = ( deltat/(roh*Cp) ) * kT(j,k)          
@@ -334,49 +333,53 @@ do l=1,Np !Running the program for Np pulses
 	    aa4 = ( deltat/(roh*Cp) ) * p * Q0
 
 	    aa5 = ( deltat/(roh*Cp) ) * (1/4)
+
             !------------------
             !------------------------------------ Boundary conditions
-	    temperature(1,0 ,k)  = temperature(1,1,k)                !Thermal insulation condition for crystal axis
-            
-	    temperature(1,nr,k)  = T0                                !Temperature-fixed condition for lateral surface
-            
+	    temperature(1,0 ,k)  = temperature(1,1,k)                    !Thermal insulation condition for crystal axis
+
+	    temperature(1,nr,k)  = T0                                  !Temperature-fixed condition for lateral surface
+           
 	    temperature(1,j ,0)  = temperature(1,j,1) - aa1*( temperature(1,j,1) - Tinf )             &
 			                              - aa2*( temperature(1,j,1)**4 - Tamb**4 )
-			                                                         !Convection & Radiation condition for input  surface
+			                                           !Convection & Radiation condition for input  surface
+
             temperature(1,j,nz)  = temperature(1,j,nz-1) - aa1*( temperature(1,j,nz-1) - Tinf )       &
 			                                 - aa2*( temperature(1,j,nz-1)**4 - Tamb**4 )
-			                                                         !Convection & Radiation condition for output surface
+			                                           !Convection & Radiation condition for output surface
+
             !---------------------
 	    temperature(1,0 ,0 ) = temperature(1,0,1) - aa1*( temperature(1,0,1) - Tinf )             &
 			                              - aa2*( temperature(1,0,1)**4 - Tamb**4 ) 
-			                                                         !Convection & Radiation condition for ( 0,0 )
+			                                                  !Convection & Radiation condition for ( 0,0 )
+
 	    temperature(1,0 ,nz) = temperature(1,0,nz-1) - aa1*( temperature(1,0,nz-1) - Tinf )       &
 			                                 - aa2*( temperature(1,0,nz-1)**4 - Tamb**4 ) 
-			                                                         !Convection & Radiation condition for ( 0,nz)
-            temperature(1,nr,0 ) = T0                                !Temperature-fixed condition for (nr,0 )
+			                                                  !Convection & Radiation condition for ( 0,nz)
+
+            temperature(1,nr,0 ) = T0                                          !Temperature-fixed condition for (nr,0 )
 		    
-	    temperature(1,nr,nz) = T0                                !Temperature-fixed condition for (nr,nz)
+	    temperature(1,nr,nz) = T0                                          !Temperature-fixed condition for (nr,nz)
 	    !------------------------------------ Ending of Boundary conditions
 
             !------------------------------------ Heat Equation
-	    temperature(2,j,k) = temperature(1,j,k)                                                                                  &
+	    temperature(2,j,k) = temperature(1,j,k)                                                                   &
 		                      
-        		         + aa3 * ( (temperature(1,j+1,k) -  temperature(1,j-1,k))/(2*r*deltar)                               &
+        		 + aa3 * ( (temperature(1,j+1,k) -  temperature(1,j-1,k))/(2*r*deltar)                        &
 								 
-				          +(temperature(1,j+1,k) -2*temperature(1,j,k) + temperature(1,j-1,k))/(deltar**2) )         & 
+		                  +(temperature(1,j+1,k) -2*temperature(1,j,k) + temperature(1,j-1,k))/(deltar**2) )  & 
  
-                                 + aa3 * ( (temperature(1,j,k-1) -2*temperature(1,j,k) + temperature(1,j,k+1))/(deltaz**2) )         &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+                         + aa3 * ( (temperature(1,j,k-1) -2*temperature(1,j,k) + temperature(1,j,k+1))/(deltaz**2) ) &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
-	        		 + aa4 * exp( (-2*r**2)/(omegaf**2) ) * exp(-gama*z) * exp(-( (t-2*tp)/tp )**2 )                     &
+	                 + aa4 * exp( (-2*r**2)/(omegaf**2) ) * exp(-gama*z) * exp(-( (t-2*tp)/tp )**2 )               &
 
-				 + aa5 * ( ( kT(j+1,k)-kT(j-1,k) ) * ( temperature(1,j+1,k)-temperature(1,j-1,k) ) / (deltar**2)     &
+		         + aa5 * ( ( kT(j+1,k)-kT(j-1,k) ) * ( temperature(1,j+1,k)-temperature(1,j-1,k) ) / (deltar**2)&
 
-					  +( kT(j,k+1)-kT(j,k-1) ) * ( temperature(1,j,k+1)-temperature(1,j,k-1) ) / (deltaz**2) )
-                                          
+			          +( kT(j,k+1)-kT(j,k-1) ) * ( temperature(1,j,k+1)-temperature(1,j,k-1) ) / (deltaz**2) )
+                      
           end do !k
       end do !j
    !--------------------------------------------- End of running for each deltat 
-
    !============================================= Printing Results for each deltat
    t=(l-1)*nt*deltat + i*deltat 
    write(1,'(2x,f25.10,5x,f25.10)') t , temperature(1,0,0)
