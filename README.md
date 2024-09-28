@@ -181,7 +181,7 @@ The crystal axis represents the hottest region, and no heat flows along or acros
 In conclusion, the boundary condition for the crystal axis is insulation, as no heat transfer occurs along or across it. With this, all boundary conditions for the crystal are defined: insulation along the axis, constant temperature at the lateral surfaces, and convection and radiation at the faces. These boundary conditions are essential for accurately modeling the heat distribution and optimizing SHG performance.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image08.png" alt="Image 8" width="75%">
+  <img src="./Archive/images/3.%20Readme_images/image08.png" alt="Image 8" width="85%">
 </p>
 
 <p align="center"> <strong>Figure 8.</strong> 
@@ -191,14 +191,13 @@ Boundary conditions for heat transfer in SHG crystals: The lateral surfaces are 
 ## 6.1. Our Contribution (1)
 The thermal behavior in SHG can be accurately described by the heat equation: 
 
-$$
-+\rho c \frac{\partial T}{\partial t}-\vec{\nabla} \cdot (K(T) \vec{\nabla} T) = S \hspace{2cm} \text{(Heat Equation)}
-$$
-
+<p align="center">
+  <img src="./Archive/images/3.%20Readme_images/0. Heat_Equation.png" alt="Equation 1" width="50%">
+</p>
 
 In our next three publications, we investigate different configurations of key parameters in the model: 
-- The heat source **$(S)$** can be either continuous or pulsed, representing different energy input conditions. 
-- The thermal conductivity **$(K)$** may be constant or vary with temperature, reflecting more realistic material behavior. 
+- The **heat source $(S)$** can be either continuous or pulsed, representing different energy input conditions. 
+- The **thermal conductivity $(K)$** may be constant or vary with temperature, reflecting more realistic material behavior. 
 - **Boundary conditions** can be either approximations or set with higher accuracy, depending on the system's constraints. 
 - Lastly, the **solution method** is either analytical, offering simpler closed-form solutions, or computational, providing more detailed results for complex conditions.
 
@@ -229,15 +228,9 @@ Phase is a function of temperature and it is clear that due to the presence of t
 ## 7.1. Our Contribution (2)
 The heat equation enables us to calculate the Spatial-temporal temperature distribution within the crystal. This temperature profile directly influences the phase mismatch, which can be described by the following equation:
 
-$$
-\left\{
-\begin{aligned}
-& +\rho c \frac{\partial T}{\partial t}-\vec{\nabla} \cdot (K(T) \vec{\nabla} T) = S & \text{(Heat Equation)} \\[6mm]
-
-& \Delta \varphi = \int_0^z \Delta k(T) d z^{\prime} & \text{(Phase Mismatch Equation)} 
-\end{aligned}
-\right.
-$$
+<p align="center">
+  <img src="./Archive/images/3.%20Readme_images/0. Heat_Phase_Eq.png" alt="Equation 2" width="60%">
+</p>
 
 By solving the heat equation, we obtain the temperature-dependent phase mismatch $(\Delta \varphi)$  across the crystal. This relationship enables us to predict the phase mismatch spatially and temporally, which is crucial for optimizing nonlinear optical processes such as Second Harmonic Generation (SHG). Our contributions in this area are detailed in the following publication:
 
@@ -257,19 +250,9 @@ In ideal conditions where there is no heat dissipation or phase mismatch, all of
 ## 8.1. Our Contribution (3)
 In the following articles, we solve the field equations under idealized conditions, meaning no heat dissipation and no phase mismatch. This allows us to focus solely on the optical field dynamics.  The equations are coupled because each field ($\psi_1$), ($\psi_2$), and ($\psi_3$) interacts through nonlinear terms like $(\psi_2 \psi_3)$ and $(\psi_1 \psi_3)$, representing energy exchange between the fields. As we see in the formula, to calculate each $(\psi)$, we need to know the values of the other two $(\psi)$ fields. These interactions drive the coupling, which is essential for describing processes like Second Harmonic Generation (SHG). 
 
-$$
-\left\{
-\begin{aligned}
-
-& \frac{n_1}{c} \frac{d \color{red}{\psi_1}}{d t} + \frac{d \color{red}{\psi_1}}{d z} - \frac{i c}{2 n_1 \omega} \frac{1}{r} \frac{d \color{red}{\psi_1}}{d r} - \frac{i c}{2 n_1 \omega} \frac{d^2 \color{red}{\psi_1}}{d^2 r} + \frac{\gamma_1}{2} \color{red}{\psi_1} \color{black} = \frac{i}{L_T} \color{blue}{\psi_2} \color{green}{\psi_3} \color{black}{e^{-i \Delta \phi}} \\[4mm]
-
-& \frac{n_2}{c} \frac{d \color{blue}{\psi_2}}{d t} + \frac{d \color{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \color{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \color{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \color{blue}{\psi_2} \color{black} = \frac{i}{L_T} \color{red}{\psi_1} \color{green}{\psi_3} \color{black}{e^{-i \Delta \phi}} & \text{(Coupled Wave Equations)} \\[4mm]
-
-& \frac{n_3}{c} \frac{d \color{green}{\psi_3}}{d t} + \frac{d \color{green}{\psi_3}}{d z} - \frac{i c}{4 n_3 \omega} \frac{1}{r} \frac{d \color{green}{\psi_3}}{d r} - \frac{i c}{4 n_3 \omega} \frac{d^2 \color{green}{\psi_3}}{d^2 r} + \frac{\gamma_3}{2} \color{green}{\psi_3} \color{black} = \frac{i}{L_T} \color{red}{\psi_1} \color{blue}{\psi_2} \color{black}{e^{i \Delta \phi}} 
-\end{aligned}
-\right.
-$$
-
+<p align="center">
+  <img src="./Archive/images/3.%20Readme_images/0. Field_Eq.png" alt="Equation 3" width="90%">
+</p>
 
 We used different wave sources in each article: one uses a Continuous Wave Gaussian source, while the other employs a Pulsed Wave Bessel-Gaussian source. These variations in wave sources provide further insight into how different beam profiles affect the system's behavior.
 
@@ -290,22 +273,9 @@ Because of this tightly coupled nature, solving these equations independently wo
 ## 9.1. Our Contribution (4)
 In the following articles, we solve the coupled equations of heat, phase, and field dynamics. This approach provides the most accurate model for Second Harmonic Generation (SHG), as it captures the interdependence between thermal effects, phase mismatch, and field propagation. By treating these elements as a unified system, we achieve a model that is much closer to real-world behavior.
 
-$$
-\left\{
-\begin{aligned}
-& +\rho c \frac{\partial T}{\partial t}-\vec{\nabla} \cdot (K(T) \vec{\nabla} T) = \gamma_1 \color{red}{\psi_1} \color{black} + \gamma_2 \color{blue}{\psi_2} \color{black} + \gamma_3 \color{green}{\psi_3}
- & \text{(Heat Equation)} \\[6mm]
-
-& \Delta \varphi = \int_0^z \Delta k(T) d z^{\prime} & \text{(Phase Mismatch Equation)} \\[6mm]
-
-& \frac{n_1}{c} \frac{d \color{red}{\psi_1}}{d t} + \frac{d \color{red}{\psi_1}}{d z} - \frac{i c}{2 n_1 \omega} \frac{1}{r} \frac{d \color{red}{\psi_1}}{d r} - \frac{i c}{2 n_1 \omega} \frac{d^2 \color{red}{\psi_1}}{d^2 r} + \frac{\gamma_1}{2} \color{red}{\psi_1} \color{black} = \frac{i}{L_T} \color{blue}{\psi_2} \color{green}{\psi_3} \color{black}{e^{-i \Delta \phi}} \\[4mm]
-
-& \frac{n_2}{c} \frac{d \color{blue}{\psi_2}}{d t} + \frac{d \color{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \color{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \color{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \color{blue}{\psi_2} \color{black} = \frac{i}{L_T} \color{red}{\psi_1} \color{green}{\psi_3} \color{black}{e^{-i \Delta \phi}} & \text{(Coupled Wave Equations)} \\[4mm]
-
-& \frac{n_3}{c} \frac{d \color{green}{\psi_3}}{d t} + \frac{d \color{green}{\psi_3}}{d z} - \frac{i c}{4 n_3 \omega} \frac{1}{r} \frac{d \color{green}{\psi_3}}{d r} - \frac{i c}{4 n_3 \omega} \frac{d^2 \color{green}{\psi_3}}{d^2 r} + \frac{\gamma_3}{2} \color{green}{\psi_3} \color{black} = \frac{i}{L_T} \color{red}{\psi_1} \color{blue}{\psi_2} \color{black}{e^{i \Delta \phi}} 
-\end{aligned}
-\right.
-$$
+<p align="center">
+  <img src="./Archive/images/3.%20Readme_images/0. Five_Eq.png" alt="Equation 4" width="85%">
+</p>
 
 The key difference between the two articles lies in the level of accuracy. One article presents an approximate model, which simplifies certain factors such as boundary conditions and material properties. The other article incorporates more realistic conditions, including temperature-dependent thermal conductivity and more precise boundary conditions, resulting in a highly accurate model that better reflects the complexities of SHG in practical systems.
 
@@ -652,3 +622,53 @@ Analytical solution of these equations requires simplifying assumptions that dev
 
 ## 10. Our Contribution
 Our study introduces a novel computational model utilizing the FDM to examine heat dissipation dynamics within a crystal and their consequential impacts during SHG. This model is more accurate, easier to use, and provides a more comprehensive and detailed understanding of the thermal effects in SHG.
+
+# 11. Equations
+
+$$
++\rho c \frac{\partial T}{\partial t} - \vec{\nabla} \cdot (K(T) \vec{\nabla} T) = S \quad \text{(Heat Equation)}
+$$
+
+
+$$
+\left\{
+\begin{aligned}
+& +\rho c \frac{\partial T}{\partial t}-\vec{\nabla} \cdot (K(T) \vec{\nabla} T) = S & \text{(Heat Equation)} \\[6mm]
+
+& \Delta \varphi = \int_0^z \Delta k(T) d z^{\prime} & \text{(Phase Mismatch Equation)} 
+\end{aligned}
+\right.
+$$
+
+
+$$
+\left\{
+\begin{aligned}
+
+& \frac{n_1}{c} \frac{d \color{red}{\psi_1}}{d t} + \frac{d \color{red}{\psi_1}}{d z} - \frac{i c}{2 n_1 \omega} \frac{1}{r} \frac{d \color{red}{\psi_1}}{d r} - \frac{i c}{2 n_1 \omega} \frac{d^2 \color{red}{\psi_1}}{d^2 r} + \frac{\gamma_1}{2} \color{red}{\psi_1} \color{black} = \frac{i}{L_T} \color{blue}{\psi_2} \color{green}{\psi_3} \color{black}{e^{-i \Delta \phi}} \\[4mm]
+
+& \frac{n_2}{c} \frac{d \color{blue}{\psi_2}}{d t} + \frac{d \color{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \color{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \color{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \color{blue}{\psi_2} \color{black} = \frac{i}{L_T} \color{red}{\psi_1} \color{green}{\psi_3} \color{black}{e^{-i \Delta \phi}} & \text{(Coupled Wave Equations)} \\[4mm]
+
+& \frac{n_3}{c} \frac{d \color{green}{\psi_3}}{d t} + \frac{d \color{green}{\psi_3}}{d z} - \frac{i c}{4 n_3 \omega} \frac{1}{r} \frac{d \color{green}{\psi_3}}{d r} - \frac{i c}{4 n_3 \omega} \frac{d^2 \color{green}{\psi_3}}{d^2 r} + \frac{\gamma_3}{2} \color{green}{\psi_3} \color{black} = \frac{i}{L_T} \color{red}{\psi_1} \color{blue}{\psi_2} \color{black}{e^{i \Delta \phi}} 
+\end{aligned}
+\right.
+$$
+
+
+
+$$
+\left\{
+\begin{aligned}
+& +\rho c \frac{\partial T}{\partial t}-\vec{\nabla} \cdot (K(T) \vec{\nabla} T) = \gamma_1 \color{red}{\psi_1} \color{black} + \gamma_2 \color{blue}{\psi_2} \color{black} + \gamma_3 \color{green}{\psi_3}
+ & \text{(Heat Equation)} \\[6mm]
+
+& \Delta \varphi = \int_0^z \Delta k(T) d z^{\prime} & \text{(Phase Mismatch Equation)} \\[6mm]
+
+& \frac{n_1}{c} \frac{d \color{red}{\psi_1}}{d t} + \frac{d \color{red}{\psi_1}}{d z} - \frac{i c}{2 n_1 \omega} \frac{1}{r} \frac{d \color{red}{\psi_1}}{d r} - \frac{i c}{2 n_1 \omega} \frac{d^2 \color{red}{\psi_1}}{d^2 r} + \frac{\gamma_1}{2} \color{red}{\psi_1} \color{black} = \frac{i}{L_T} \color{blue}{\psi_2} \color{green}{\psi_3} \color{black}{e^{-i \Delta \phi}} \\[4mm]
+
+& \frac{n_2}{c} \frac{d \color{blue}{\psi_2}}{d t} + \frac{d \color{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \color{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \color{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \color{blue}{\psi_2} \color{black} = \frac{i}{L_T} \color{red}{\psi_1} \color{green}{\psi_3} \color{black}{e^{-i \Delta \phi}} & \text{(Coupled Wave Equations)} \\[4mm]
+
+& \frac{n_3}{c} \frac{d \color{green}{\psi_3}}{d t} + \frac{d \color{green}{\psi_3}}{d z} - \frac{i c}{4 n_3 \omega} \frac{1}{r} \frac{d \color{green}{\psi_3}}{d r} - \frac{i c}{4 n_3 \omega} \frac{d^2 \color{green}{\psi_3}}{d^2 r} + \frac{\gamma_3}{2} \color{green}{\psi_3} \color{black} = \frac{i}{L_T} \color{red}{\psi_1} \color{blue}{\psi_2} \color{black}{e^{i \Delta \phi}} 
+\end{aligned}
+\right.
+$$
