@@ -259,7 +259,7 @@ $$
 $$
 
 $$
-\frac{n_2}{c} \frac{d \textcolor{blue}{\psi_2}}{d t} + \frac{d \textcolor{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \textcolor{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \textcolor{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \textcolor{blue}{\psi_2} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}} \quad \text{(Coupled Wave Equations)}
+\frac{n_2}{c} \frac{d \textcolor{blue}{\psi_2}}{d t} + \frac{d \textcolor{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \textcolor{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \textcolor{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \textcolor{blue}{\psi_2} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}} \quad \text{(Coupled Electromagnetic Field Equations)}
 $$
 
 $$
@@ -293,13 +293,15 @@ $$
 \textcolor{purple}{\Delta \varphi} = \int_0^z \Delta k(\textcolor{orange}{T}) d z^{\prime} \quad \text{(Phase Mismatch Equation)}
 $$
 
+$\quad$
+
 $$
 \frac{n_1}{c} \frac{d \textcolor{red}{\psi_1}}{d t} + \frac{d \textcolor{red}{\psi_1}}{d z} - \frac{i c}{2 n_1 \omega} \frac{1}{r} \frac{d \textcolor{red}{\psi_1}}{d r} - \frac{i c}{2 n_1 \omega} \frac{d^2 \textcolor{red}{\psi_1}}{d^2 r} + \frac{\gamma_1}{2} \textcolor{red}{\psi_1} = \frac{i}{L_T} \textcolor{blue}{\psi_2} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}}
 $$
 
 
 $$
-\frac{n_2}{c} \frac{d \textcolor{blue}{\psi_2}}{d t} + \frac{d \textcolor{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \textcolor{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \textcolor{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \textcolor{blue}{\psi_2} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}} \quad \text{(Coupled Wave Equations)} 
+\frac{n_2}{c} \frac{d \textcolor{blue}{\psi_2}}{d t} + \frac{d \textcolor{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \textcolor{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \textcolor{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \textcolor{blue}{\psi_2} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}} \quad \text{(Coupled Electromagnetic Field Equations)} 
 $$
 
 $$
