@@ -233,7 +233,7 @@ $$
 $$
 
 $$
-\textcolor{purple}{\Delta \varphi} = \int_0^z \Delta k(\textcolor{orange}{T}) d z^{\prime} \quad \text{(Phase Mismatch Equation)}
+\textcolor{purple}{\boldsymbol{\Delta \varphi}} = \int_0^z \Delta k(\textcolor{orange}{T}) d z^{\prime} \quad \text{(Phase Mismatch Equation)}
 $$
 
 By solving the heat equation, we obtain the temperature-dependent phase mismatch $(\Delta \varphi)$  across the crystal. This relationship enables us to predict the phase mismatch spatially and temporally, which is crucial for optimizing nonlinear optical processes such as Second Harmonic Generation (SHG). Our contributions in this area are detailed in the following publication:
