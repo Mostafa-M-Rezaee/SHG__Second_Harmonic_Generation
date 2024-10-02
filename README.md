@@ -171,7 +171,7 @@ Just as a ball rolls downhill due to the force of gravity, heat flows from a hot
 The crystal axis represents the hottest region, and no heat flows across it, meaning there is no conduction, convection, or radiation in this direction. Due to the temperature gradient, heat is transferred solely outward from the axis toward the cooler lateral surfaces.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image07.png" alt="Image 7" width="100%">
+  <img src="./Archive/images/3.%20Readme_images/image07.png" alt="Image 7" width="35%">
 </p>
 
 <p align="center"> <strong>Figure 7.</strong> Heat only flows radially outward from the hottest crystal axis to the cooler lateral surfaces, with no heat transfer across the axis.
@@ -230,7 +230,9 @@ The heat equation enables us to calculate the Spatial-temporal temperature distr
 
 $$
 +\rho c \frac{\partial T}{\partial t}-\vec{\nabla} \cdot (K(T) \vec{\nabla} T) = S \quad \text{(Heat Equation)} \\[6mm]
+$$
 
+$$
 \Delta \varphi = \int_0^z \Delta k(T) \, d z^{\prime} \quad \text{(Phase Mismatch Equation)}
 $$
 
