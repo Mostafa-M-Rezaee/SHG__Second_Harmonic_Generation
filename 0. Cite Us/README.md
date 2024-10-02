@@ -8,8 +8,6 @@
 - [5. Ideal _ Continuous Wave Gaussian _ Computational](#5-ideal-_-continuous-wave-gaussian-_-computational) 
 - [6. Ideal _ Pulsed Wave Bessel Gaussian _ Computational](#6-ideal-_-pulsed-wave-bessel-gaussian-_-computational) 
 - [7. Coupled _ Continuous Wave Gaussian _ Computational](#7-coupled-_-continuous-wave-gaussian-_-computational) 
-- [8. SHG _ Continuous Wave Gaussian _ Computational _ Approximate Model](#8-shg-_-continuous-wave-gaussian-_-computational-_-approximate-model) 
-
 
 
 # 1. Heat Equation _ Continuous Wave Gaussian _ Analytical
@@ -183,31 +181,6 @@ Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M. and Motazedian, A., 2014. Heat cou
   year={2014},
   publisher={Optica Publishing Group},
   abstract={A model describing the thermal effects in type II second harmonic generation (SHG) of Gaussian continuous-wave (CW) in a double-pass cavity is presented. The thermally induced phase mismatching (TIPM) along with thermal lensing was included in the classical SHG formalism through the interposing the heat and TIPM equations. To this end, eight equations were coupled together and solved simultaneously to reveal how the SHG is affected in time when heat is generated in the crystal. The model showed an excellent agreement with experimental data [Opt. Laser Tech.34, 333–336 (2002)]. Furthermore, a numerical procedure, which was developed in this work, is introduced for simultaneously solving the SHG, heat, and TIPM equations with home-used computing machines.}
-}
-```
-
-
-# 8. SHG _ Continuous Wave Gaussian _ Computational _ Approximate model 
-
-2010: Investigation of thermally-induced phase mismatching in continuous-wave Second Harmonic Generation: A theoretical model
-
-**Harvard style**  
-```
-Sabaeian, M., Mousave, L. and Nadgaran, H., 2010. Investigation of thermally-induced phase mismatching in continuous-wave second harmonic generation: A theoretical model. Optics express, 18(18), pp.18732-18743.
-```
-
-**BibTeX** 
-```
-@article{sabaeian2010investigation,
-  title={Investigation of thermally-induced phase mismatching in continuous-wave second harmonic generation: A theoretical model},
-  author={Sabaeian, Mohammad and Mousave, Laleh and Nadgaran, Hamid},
-  journal={Optics express},
-  volume={18},
-  number={18},
-  pages={18732--18743},
-  year={2010},
-  publisher={Optica Publishing Group},
-  abstract={A fraction of the fundamental beam energy deposited into nonlinear crystals to generate second harmonic waves (SHW) causes a temperature gradient within the crystal. This temperature inhomogeneity can alter the refractive index of the medium leading to a well-known effect called thermal dispersion. Therefore, the generated SHW suffers from thermal lensing and a longitudinal thermal phase mismatching. In this work by coupling the heat equation with second harmonic generation (SHG) formalism applied to type-II configuration along with walk-off effect, we investigate the continuous wave (CW) SHW beam profile and conversion efficiency when a non-linear KTP crystal is under induced thermal load. We have demonstrated for average and high powers, the thermal de-phasing lead to considerable reduction in SHG compared to an ideal case in which induced heat is neglected.}
 }
 ```
 

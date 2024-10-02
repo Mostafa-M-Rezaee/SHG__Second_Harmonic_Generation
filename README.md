@@ -14,9 +14,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;[6.1. Our Contribution (1)](#61-our-contribution-1-journal-article-code)     
 [7. Phase Mismatch](#7-phase-mismatch)      
 &nbsp;&nbsp;&nbsp;&nbsp;[7.1. Our Contribution (2)](#71-our-contribution-2)        
-[8. Field](#8-field)        
+[8. Electromagnetic Field](#8-electromagnetic_field)        
 &nbsp;&nbsp;&nbsp;&nbsp;[8.1. Our Contribution (3)](#81-our-contribution-2)        
-[9. Interdependency of Heat, Phase, and Field](#9-interdependency-of-heat-phase-and-field)        
+[9. Interdependency of Heat, Phase, and Electromagnetic Field](#9-interdependency-of-heat-phase-and-electromagnetic_field)        
 &nbsp;&nbsp;&nbsp;&nbsp;[9.1. Our Contribution (4)](#91-our-contribution-4)        
 [10. Methodology](#10-methodology)        
 &nbsp;&nbsp;&nbsp;&nbsp;[10.1. Computational Approach using Finite Difference Method (FDM)](#101-computational-approach-using-finite-difference-method-fdm)        
@@ -168,17 +168,17 @@ Just as a ball rolls downhill due to the force of gravity, heat flows from a hot
 <p align="center"> <strong>Figure 6.</strong> Just like a ball that only rolls downhill and not uphill due to gravity, heat flows from the hottest regions to the cooler ones, illustrating the natural direction of heat transfer within the crystal.
 </p>
 
-The crystal axis represents the hottest region, and no heat flows along or across it, meaning there is no conduction, convection, or radiation in this direction. Due to the temperature gradient, heat is transferred solely outward from the axis toward the cooler lateral surfaces.
+The crystal axis represents the hottest region, and no heat flows across it, meaning there is no conduction, convection, or radiation in this direction. Due to the temperature gradient, heat is transferred solely outward from the axis toward the cooler lateral surfaces.
 
 <p align="center">
   <img src="./Archive/images/3.%20Readme_images/image07.png" alt="Image 7" width="100%">
 </p>
 
-<p align="center"> <strong>Figure 7.</strong> Heat only flows radially outward from the hottest crystal axis to the cooler lateral surfaces, with no heat transfer along or across the axis.
+<p align="center"> <strong>Figure 7.</strong> Heat only flows radially outward from the hottest crystal axis to the cooler lateral surfaces, with no heat transfer across the axis.
 </p>
 
 
-In conclusion, the boundary condition for the crystal axis is insulation, as no heat transfer occurs along or across it. With this, all boundary conditions for the crystal are defined: insulation along the axis, constant temperature at the lateral surfaces, and convection and radiation at the faces. These boundary conditions are essential for accurately modeling the heat distribution and optimizing SHG performance.
+In conclusion, the boundary condition for the crystal axis is insulation, as no heat transfer occurs across it. With this, all boundary conditions for the crystal are defined: insulation for the axis, constant temperature at the lateral surfaces, and convection and radiation at the faces. These boundary conditions are essential for accurately modeling the heat distribution and optimizing SHG performance.
 
 <p align="center">
   <img src="./Archive/images/3.%20Readme_images/image08.png" alt="Image 8" width="85%">
@@ -191,9 +191,9 @@ Boundary conditions for heat transfer in SHG crystals: The lateral surfaces are 
 ## 6.1. Our Contribution (1)
 The thermal behavior in SHG can be accurately described by the heat equation: 
 
-<p align="center">
-  <img src="./Archive/images/3.%20Readme_images/0. Heat_Equation.png" alt="Equation 1" width="50%">
-</p>
+$$
++\rho c \frac{\partial T}{\partial t} - \vec{\nabla} \cdot (K(T) \vec{\nabla} T) = S \quad \text{(Heat Equation)}
+$$
 
 In our next three publications, we investigate different configurations of key parameters in the model: 
 - The **heat source $(S)$** can be either continuous or pulsed, representing different energy input conditions. 
@@ -223,21 +223,24 @@ During SHG, a crystal is subjected to laser radiation, the temperature at variou
 
 <p align="center"> <strong>Figure 9.</strong> Schematic of the phase mismatch due to temprature gradient within the crystal. In different crystals the wavefronts may be convex or concave. This figure shows a concave wavefront.</p>
 
-Phase is a function of temperature and it is clear that due to the presence of the phase difference in the field equations, this quantity is very effective in determining the efficiency of the SHG. In this way, heat and electromagnetic waves are related indirectly. We can effectively integrate heat considerations into electromagnetic equations, thereby advancing our comprehension of how thermal effects impact the efficiency of nonlinear optical phenomena.
+Phase is a function of temperature and it is clear that due to the presence of the phase difference in the electromagnetic field equations, this quantity is very effective in determining the efficiency of the SHG. In this way, heat and electromagnetic waves are related indirectly. We can effectively integrate heat considerations into electromagnetic equations, thereby advancing our comprehension of how thermal effects impact the efficiency of nonlinear optical phenomena.
 
 ## 7.1. Our Contribution (2)
 The heat equation enables us to calculate the Spatial-temporal temperature distribution within the crystal. This temperature profile directly influences the phase mismatch, which can be described by the following equation:
 
-<p align="center">
-  <img src="./Archive/images/3.%20Readme_images/0. Heat_Phase_Eq.png" alt="Equation 2" width="60%">
-</p>
+$$
++\rho c \frac{\partial T}{\partial t}-\vec{\nabla} \cdot (K(T) \vec{\nabla} T) = S \quad \text{(Heat Equation)} \\[6mm]
+
+\Delta \varphi = \int_0^z \Delta k(T) \, d z^{\prime} \quad \text{(Phase Mismatch Equation)}
+$$
+
 
 By solving the heat equation, we obtain the temperature-dependent phase mismatch $(\Delta \varphi)$  across the crystal. This relationship enables us to predict the phase mismatch spatially and temporally, which is crucial for optimizing nonlinear optical processes such as Second Harmonic Generation (SHG). Our contributions in this area are detailed in the following publication:
 
 - **Phase Mismatch _ Pulsed Wave Gaussian _ Computational** [(Journal)](https://www.researchgate.net/publication/267926440_Thermally_induced_phase_mismatching_in_a_repetitively_Gaussian_pulsed_pumping_KTP_crystal_A_spatiotemporal_treatment), [(Article)](https://drive.google.com/file/d/18VvRk22iipi_4PUVVhzVp16BRNN4TfbN/view?usp=sharing), [(Code)](https://drive.google.com/file/d/187EVqfSZcoRPltZ4EDr1mcYrmCOvVek8/view?usp=sharing)     
 This work addresses the issue of Thermally Induced Phase Mismatching (TIPM) in KTP crystals under Pulsed Wave Gaussian conditions. The study developed a spatiotemporal model to examine how temperature rise influences nonlinear conversion efficiency, highlighting the critical need to manage TIPM to optimize SHG performance in pulsed laser applications. The findings emphasize the importance of precise thermal management strategies to reduce phase mismatches and improve overall system efficiency.
 
-# 8. Field
+# 8. Electromagnetic Field
 In ideal conditions where there is no heat dissipation or phase mismatch, all of the fundamental wave is perfectly converted into the Second Harmonic Wave, demonstrating the maximum possible efficiency in nonlinear crystals. 
 
 <p align="center">
@@ -248,11 +251,15 @@ In ideal conditions where there is no heat dissipation or phase mismatch, all of
 </p>
 
 ## 8.1. Our Contribution (3)
-In the following articles, we solve the field equations under idealized conditions, meaning no heat dissipation and no phase mismatch. This allows us to focus solely on the optical field dynamics.  The equations are coupled because each field ($\psi_1$), ($\psi_2$), and ($\psi_3$) interacts through nonlinear terms like $(\psi_2 \psi_3)$ and $(\psi_1 \psi_3)$, representing energy exchange between the fields. As we see in the formula, to calculate each $(\psi)$, we need to know the values of the other two $(\psi)$ fields. These interactions drive the coupling, which is essential for describing processes like Second Harmonic Generation (SHG). 
+In the following articles, we solve the electromagnetic field equations under idealized conditions, meaning no heat dissipation and no phase mismatch. This allows us to focus solely on the optical electromagnetic field.  The equations are coupled because each electromagnetic field ($\psi_1$), ($\psi_2$), and ($\psi_3$) interacts through nonlinear terms like $(\psi_2 \psi_3)$ and $(\psi_1 \psi_3)$, representing energy exchange between the electromagnetic fields. As we see in the formula, to calculate each $(\psi)$, we need to know the values of the other two $(\psi)$ electromagnetic fields. These interactions drive the coupling, which is essential for describing processes like Second Harmonic Generation (SHG). 
 
-<p align="center">
-  <img src="./Archive/images/3.%20Readme_images/0. Field_Eq.png" alt="Equation 3" width="90%">
-</p>
+$$
+\frac{n_1}{c} \frac{d \textcolor{red}{\psi_1}}{d t} + \frac{d \textcolor{red}{\psi_1}}{d z} - \frac{i c}{2 n_1 \omega} \frac{1}{r} \frac{d \textcolor{red}{\psi_1}}{d r} - \frac{i c}{2 n_1 \omega} \frac{d^2 \textcolor{red}{\psi_1}}{d^2 r} + \frac{\gamma_1}{2} \textcolor{red}{\psi_1} = \frac{i}{L_T} \textcolor{blue}{\psi_2} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}} \\[4mm]
+
+\frac{n_2}{c} \frac{d \textcolor{blue}{\psi_2}}{d t} + \frac{d \textcolor{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \textcolor{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \textcolor{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \textcolor{blue}{\psi_2} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}} \quad \text{(Coupled Wave Equations)} \\[4mm]
+
+\frac{n_3}{c} \frac{d \textcolor{green}{\psi_3}}{d t} + \frac{d \textcolor{green}{\psi_3}}{d z} - \frac{i c}{4 n_3 \omega} \frac{1}{r} \frac{d \textcolor{green}{\psi_3}}{d r} - \frac{i c}{4 n_3 \omega} \frac{d^2 \textcolor{green}{\psi_3}}{d^2 r} + \frac{\gamma_3}{2} \textcolor{green}{\psi_3} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{blue}{\psi_2} e^{i \textcolor{purple}{\Delta \varphi}}
+$$
 
 We used different wave sources in each article: one uses a Continuous Wave Gaussian source, while the other employs a Pulsed Wave Bessel-Gaussian source. These variations in wave sources provide further insight into how different beam profiles affect the system's behavior.
 
@@ -263,33 +270,37 @@ This study explored SHG efficiency under Continuous Wave Gaussian conditions, hi
 This research introduced a model using Pulsed Bessel-Gauss beams, challenging traditional assumptions like the nondepleted wave approximation. This study provided a more accurate framework for SHG by considering wave depletion effects, demonstrating the impact of beam profile on heat and SHG efficiency under pulsed conditions.
 
 
-# 9. Interdependency of Heat, Phase, and Field
-To accurately model SHG, it is essential to recognize that heat, phase, and the field are interconnected and must be treated as a coupled system. 
+# 9. Interdependency of Heat, Phase, and electromagnetic field
+To accurately model SHG, it is essential to recognize that heat, phase, and the electromagnetic field are interconnected and must be treated as a coupled system. 
 
-The **heat** governs the temperature distribution within the crystal, which directly influences the refractive index through temperature-dependent material properties. This, in turn, affects the phase mismatch between the interacting waves. The **phase mismatch** modifies the interaction conditions for the fundamental and second harmonic waves, directly impacting their efficiency and the field dynamics. The **field** itself defines how the energy is transferred between the waves, how the phase evolves, and how the power distribution affects local heating within the crystal. This heating further alters the temperature profile, creating a feedback loop that perpetuates continuously.
+The **heat** governs the temperature distribution within the crystal, which directly influences the refractive index through temperature-dependent material properties. This, in turn, affects the phase mismatch between the interacting waves. The **phase mismatch** modifies the interaction conditions for the fundamental and second harmonic waves, directly impacting their efficiency and the electromagnetic field. The **electromagnetic field** itself defines how the energy is transferred between the waves, how the phase evolves, and how the power distribution affects local heating within the crystal. This heating further alters the temperature profile, creating a feedback loop that perpetuates continuously.
 
 Because of this tightly coupled nature, solving these equations independently would fail to capture the dynamic interactions and feedback mechanisms that occur in real-world conditions. A proper approach is necessary to account for these interdependencies, ensuring a comprehensive and accurate representation of SHG performance under varying thermal and optical conditions.
 
 ## 9.1. Our Contribution (4)
-In the following articles, we solve the coupled equations of heat, phase, and field dynamics. This approach provides the most accurate model for Second Harmonic Generation (SHG), as it captures the interdependence between thermal effects, phase mismatch, and field propagation. By treating these elements as a unified system, we achieve a model that is much closer to real-world behavior.
+In the following article, we solve the coupled equations of heat, phase, and electromagnetic field. This approach provides the most accurate model for Second Harmonic Generation (SHG), as it captures the interdependence between thermal effects, phase mismatch, and electromagnetic field propagation. By treating these elements as a unified system, we achieve a model that is much closer to real-world behavior.
 
-<p align="center">
-  <img src="./Archive/images/3.%20Readme_images/0. Five_Eq.png" alt="Equation 4" width="85%">
-</p>
+$$
++\rho c \frac{\partial \textcolor{orange}{T}}{\partial t}-\vec{\nabla} \cdot (K(\textcolor{orange}{T}) \vec{\nabla} \textcolor{orange}{T}) = \gamma_1 \textcolor{red}{\psi_1} + \gamma_2 \textcolor{blue}{\psi_2} + \gamma_3 \textcolor{green}{\psi_3} \quad \text{(Heat Equation)} \\[6mm]
 
-The key difference between the two articles lies in the level of accuracy. One article presents an approximate model, which simplifies certain factors such as boundary conditions and material properties. The other article incorporates more realistic conditions, including temperature-dependent thermal conductivity and more precise boundary conditions, resulting in a highly accurate model that better reflects the complexities of SHG in practical systems.
+\textcolor{purple}{\Delta \varphi} = \int_0^z \Delta k(\textcolor{orange}{T}) d z^{\prime} \quad \text{(Phase Mismatch Equation)} \\[6mm]
+
+\frac{n_1}{c} \frac{d \textcolor{red}{\psi_1}}{d t} + \frac{d \textcolor{red}{\psi_1}}{d z} - \frac{i c}{2 n_1 \omega} \frac{1}{r} \frac{d \textcolor{red}{\psi_1}}{d r} - \frac{i c}{2 n_1 \omega} \frac{d^2 \textcolor{red}{\psi_1}}{d^2 r} + \frac{\gamma_1}{2} \textcolor{red}{\psi_1} = \frac{i}{L_T} \textcolor{blue}{\psi_2} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}} \\[4mm]
+
+\frac{n_2}{c} \frac{d \textcolor{blue}{\psi_2}}{d t} + \frac{d \textcolor{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \textcolor{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \textcolor{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \textcolor{blue}{\psi_2} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}} \quad \text{(Coupled Wave Equations)} \\[4mm]
+
+\frac{n_3}{c} \frac{d \textcolor{green}{\psi_3}}{d t} + \frac{d \textcolor{green}{\psi_3}}{d z} - \frac{i c}{4 n_3 \omega} \frac{1}{r} \frac{d \textcolor{green}{\psi_3}}{d r} - \frac{i c}{4 n_3 \omega} \frac{d^2 \textcolor{green}{\psi_3}}{d^2 r} + \frac{\gamma_3}{2} \textcolor{green}{\psi_3} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{blue}{\psi_2} e^{i \textcolor{purple}{\Delta \varphi}}
+$$
+
 
 - **Coupled _ Continuous Wave Gaussian _ Computational** [(Journal)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-21-25615&id=302163), [(Article)](https://drive.google.com/file/d/18HWrgN8duMyRQpjSpjvIApGhuVh5ti_A/view?usp=sharing)     
 This study advanced our understanding by incorporating both Thermally Induced Phase Mismatching (TIPM) and thermal lensing into SHG models using a Continuous Wave Gaussian source. By coupling eight different equations, the model captured the dynamic interactions between heat and SHG efficiency over time. This comprehensive approach provided a realistic simulation that closely matched experimental results, significantly enhancing our understanding of thermal effects in Continuous Wave Gaussian SHG systems.
-
-- **SHG _ Continuous Wave Gaussian _ Computational _ Approximate Model** [(Journal)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-18-18-18732&id=205211), [(Article)](https://drive.google.com/file/d/18cbozPX_ZK6n1jw3oQ2zyt2WvJgyIk51/view?usp=sharing)    
-This article introduced a simplified theoretical model to study TIPM in Continuous Wave Gaussian SHG systems. By coupling heat dissipation and SHG equations, it demonstrated how temperature gradients and thermal dispersion negatively impact conversion efficiency. The study highlighted the importance of managing thermal effects, especially at higher power levels, to maintain optimal SHG performance.
 
 
 # 10. Methodology
 Direct measurement of internal temperature in a nonlinear crystal during Second Harmonic Generation (SHG) is not feasible due to the lack of instrumentation capable of probing the localized, transient thermal effects within the crystal. Conventional techniques are insufficient to resolve the rapid, spatially confined temperature changes, making experimental assessment impractical.
 
-Analytical approaches are similarly challenging due to the complexity of the coupled equations of heat, phase, and field  governing SHG. Analytical solution of these equations requires simplifying assumptions that deviate the model from reality. For example, even the fundamental heat equation which plays a crucial role in this domain, relies on such simplifications. 
+Analytical approaches are similarly challenging due to the complexity of the coupled equations of heat, phase, and electromagnetic field  governing SHG. Analytical solution of these equations requires simplifying assumptions that deviate the model from reality. For example, even the fundamental heat equation which plays a crucial role in this domain, relies on such simplifications. 
 
 However, through computational approaches, we've pushed the boundaries, avoiding any simplifying assumptions to offer a more precise model. For instance, we no longer assume the thermal conductivity coefficient to be constant; instead, it dynamically varies with temperature throughout time. This shift from traditional analytical models, which rely on simplifying assumptions, enables a more accurate study of nonlinear optics phenomena.
 
@@ -597,7 +608,7 @@ $$
 
 ## Phase Mismatch
 
-Phase is a function of temperature and it is clear that due to the presence of the phase difference in the field equations, this quantity is very effective in determining the efficiency of the SHG. In this way, heat and electromagnetic waves are related indirectly. The below formula is the correlation between phase ($φ$) and temperature ($T$):
+Phase is a function of temperature and it is clear that due to the presence of the phase difference in the electromagnetic field equations, this quantity is very effective in determining the efficiency of the SHG. In this way, heat and electromagnetic waves are related indirectly. The below formula is the correlation between phase ($φ$) and temperature ($T$):
 
 $$
 \Delta \varphi=\int_0^z \Delta k(T) d z^{\prime}
@@ -606,7 +617,7 @@ $$
 we can effectively integrate heat considerations into electromagnetic equations, thereby advancing our comprehension of how thermal effects impact the efficiency of nonlinear optical phenomena.
 
 ## 10.1. Methodology - Analytical
-Analytical approaches are similarly challenging due to the complexity of the coupled field, heat, and phase equations governing SHG, as shown below: 
+Analytical approaches are similarly challenging due to the complexity of the coupled electromagnetic field, heat, and phase equations governing SHG, as shown below: 
 
 $$
 \begin{aligned}
