@@ -174,7 +174,7 @@ Just as a ball rolls downhill due to the force of gravity, heat flows from a hot
 The crystal axis represents the hottest region, and no heat flows across it, meaning there is no conduction, convection, or radiation in this direction. Due to the temperature gradient, heat is transferred solely outward from the axis toward the cooler lateral surfaces.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image07.png" alt="Image 7" width="40%">
+  <img src="./Archive/images/3.%20Readme_images/image07.png" alt="Image 7" width="30%">
 </p>
 
 <p align="center"> <strong>Figure 7.</strong> Heat only flows radially outward from the hottest crystal axis to the cooler lateral surfaces, with no heat transfer across the axis.
@@ -238,7 +238,7 @@ Phase is a function of temperature and it is clear that due to the presence of t
 ## 7.1. Our Contribution (2)
 The heat equation enables us to calculate the Spatial-temporal temperature distribution within the crystal. This temperature profile directly influences the phase mismatch, which can be described by the following equation:
 
-Note: The equations, represented in different colors for $\textcolor{orange}{T}$, and $\textcolor{purple}{\Delta \varphi}$, illustrate they are couplled equations which means changes in one variable influence the entire system simultaneously.
+Note: The equations, represented in different colors for $\textcolor{orange}{T}$, and $\textcolor{purple}{\Delta \varphi}$, illustrate they are coupled equations which means changes in one variable influence the entire system simultaneously.
 
 <table style="width: 100%; border-collapse: collapse; border: none;">
   <tr>
@@ -277,7 +277,7 @@ In ideal conditions where there is no heat dissipation or phase mismatch, all of
 ## 8.1. Our Contribution (3)
 In the following articles, we solve the electromagnetic field equations under idealized conditions, meaning no heat dissipation and no phase mismatch. This allows us to focus solely on the optical electromagnetic field.  The equations are coupled because each electromagnetic field ($\psi_1$), ($\psi_2$), and ($\psi_3$) interacts through nonlinear terms like $(\psi_2 \psi_3)$ and $(\psi_1 \psi_3)$, representing energy exchange between the electromagnetic fields. As we see in the formula, to calculate each $(\psi)$, we need to know the values of the other two $(\psi)$ electromagnetic fields. These interactions drive the coupling, which is essential for describing processes like Second Harmonic Generation (SHG). 
 
-Note: The equations, represented in different colors for $\textcolor{red}{\psi_1}$, $\textcolor{blue}{\psi_2}$, and $\textcolor{green}{\psi_3}$, illustrate they are couplled equations which means changes in one variable influence the entire system simultaneously.
+Note: The equations, represented in different colors for $\textcolor{purple}{\Delta \varphi}$, $\textcolor{red}{\psi_1}$, $\textcolor{blue}{\psi_2}$, and $\textcolor{green}{\psi_3}$, illustrate they are coupled equations which means changes in one variable influence the entire system simultaneously.
 
 <table style="width: 100%; border-collapse: collapse; border: none;">
     <tr>
@@ -325,7 +325,7 @@ Because of this tightly coupled nature, solving these equations independently wo
 ## 9.1. Our Contribution (4)
 In the following article, we solve the coupled equations of heat, phase, and electromagnetic field. This approach provides the most accurate model for Second Harmonic Generation (SHG), as it captures the interdependence between thermal effects, phase mismatch, and electromagnetic field propagation. By treating these elements as a unified system, we achieve a model that is much closer to real-world behavior.
 
-Note: The equations, represented in different colors for $\textcolor{orange}{T}$, $\textcolor{purple}{\Delta \varphi}$, $\textcolor{red}{\psi_1}$, $\textcolor{blue}{\psi_2}$, and $\textcolor{green}{\psi_3}$, illustrate they are couplled equations which means changes in one variable influence the entire system simultaneously.
+Note: The equations, represented in different colors for $\textcolor{orange}{T}$, $\textcolor{purple}{\Delta \varphi}$, $\textcolor{red}{\psi_1}$, $\textcolor{blue}{\psi_2}$, and $\textcolor{green}{\psi_3}$, illustrate they are coupled equations which means changes in one variable influence the entire system simultaneously.
 
 
 <table style="width: 100%; border-collapse: collapse; border: none;">
@@ -384,13 +384,13 @@ Analytical approaches are similarly challenging due to the complexity of the cou
 However, through computational approaches, we've pushed the boundaries, avoiding any simplifying assumptions to offer a more precise model. For instance, we no longer assume the thermal conductivity coefficient to be constant; instead, it dynamically varies with temperature throughout time. This shift from traditional analytical models, which rely on simplifying assumptions, enables a more accurate study of nonlinear optics phenomena.
 
 ## 10.1. Computational Approach using Finite Difference Method (FDM)
-We use the FDM as the computational method to model thermal effects in SHG due to its low computational cost and user-friendly nature. FDM offers simplicity in both learning and application. Since heat operates on a macroscopic scale and doesn't vary drastically, FDM provides accurate results without the need for using other complex methods. Its straightforward approach that efficiently captures the thermal dynamics involved in SHG without unnecessary complexity. 
-
 Every physical phenomenon is mathematically represented by differential equations, from which we typically derive simplified formulas to make them more practical for use. However, this approach doesn't always lead to a straightforward solution. For instance, in solving SHG computationally, it is often more efficient to work with the differential equations directly by applying their derivatives definition, rather than relying on a derived formula.
+
+We use the FDM as the computational method to model thermal effects in SHG due to its low computational cost and user-friendly nature. FDM offers simplicity in both learning and application. Since heat operates on a macroscopic scale and doesn't vary drastically, FDM provides accurate results without the need for using other complex methods. Its straightforward approach that efficiently captures the thermal dynamics involved in SHG without unnecessary complexity. 
 
 The FDM approximates derivatives in differential equations through discretization of the domain into a grid and replacing derivatives with finite difference expressions. This transforms the equation into a system of algebraic equations solvable with numerical techniques. FDM's accuracy and stability rely on discretization, approximation schemes, and solution methods chosen, offering a versatile and efficient approach for solving complex differential equations when analytical solutions are impractical. By employing FDM, we achieve cost-effective and accurate simulations, making it an ideal choice for modelling thermal effects in SHG processes.
 
-**Finite Difference Approximation**: In FDM, we approximate the derivative by choosing a small but finite value of $( \Delta x $). This turns the derivative into a simple difference equation:
+In FDM, we approximate the derivative by choosing a small but finite value of $( \Delta x $). This turns the derivative into a simple difference equation:
 
 $$
 f'(x) \approx \frac{f(x + \Delta x) - f(x)}{\Delta x}
