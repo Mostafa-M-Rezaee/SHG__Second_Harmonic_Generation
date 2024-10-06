@@ -191,9 +191,16 @@ Boundary conditions for heat transfer in SHG crystals: The lateral surfaces are 
 ## 6.1. Our Contribution (1)
 The thermal behavior in SHG can be accurately described by the heat equation: 
 
-$$
-+\rho c \frac{\partial \textcolor{orange}{T}}{\partial t}-\vec{\nabla} \cdot (K(\textcolor{orange}{T}) \vec{\nabla} \textcolor{orange}{T}) = S \quad \text{(Heat Equation)}
-$$
+<table style="width: 100%; border-collapse: collapse; border: none;">
+  <tr>
+    <td style="text-align: left; vertical-align: middle; border: none;">
+      $\large +\rho c \frac{\partial \textcolor{orange}{T}}{\partial t}-\vec{\nabla} \cdot (K(\textcolor{orange}{T}) \vec{\nabla} \textcolor{orange}{T}) = \gamma_1 \textcolor{red}{\psi_1} + \gamma_2 \textcolor{blue}{\psi_2} + \gamma_3 \textcolor{green}{\psi_3}$
+    </td>
+    <td style="text-align: right; vertical-align: middle; border: none;">
+      Heat Equation
+    </td>
+  </tr>
+</table>
 
 In our next three publications, we investigate different configurations of key parameters in the model: 
 - The **heat source $(S)$** can be either continuous or pulsed, representing different energy input conditions. 
@@ -228,13 +235,24 @@ Phase is a function of temperature and it is clear that due to the presence of t
 ## 7.1. Our Contribution (2)
 The heat equation enables us to calculate the Spatial-temporal temperature distribution within the crystal. This temperature profile directly influences the phase mismatch, which can be described by the following equation:
 
-$$
-+\rho c \frac{\partial \textcolor{orange}{T}}{\partial t}-\vec{\nabla} \cdot (K(\textcolor{orange}{T}) \vec{\nabla} \textcolor{orange}{T}) = S \quad \text{(Heat Equation)}
-$$
-
-$$
-\textcolor{purple}{\boldsymbol{\Delta \varphi}} = \int_0^z \Delta k(\textcolor{orange}{T}) d z^{\prime} \quad \text{(Phase Mismatch Equation)}
-$$
+<table style="width: 100%; border-collapse: collapse; border: none;">
+  <tr>
+    <td style="text-align: left; vertical-align: middle; border: none;">
+      $\large +\rho c \frac{\partial \textcolor{orange}{T}}{\partial t}-\vec{\nabla} \cdot (K(\textcolor{orange}{T}) \vec{\nabla} \textcolor{orange}{T}) = \gamma_1 \textcolor{red}{\psi_1} + \gamma_2 \textcolor{blue}{\psi_2} + \gamma_3 \textcolor{green}{\psi_3}$
+    </td>
+    <td style="text-align: right; vertical-align: middle; border: none;">
+      Heat Equation
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: left; vertical-align: middle; border: none;">
+      $\large \textcolor{purple}{\Delta \varphi} = \int_0^z \Delta k(\textcolor{orange}{T}) d z^{\prime}$
+    </td>
+    <td style="text-align: right; vertical-align: middle; border: none;">
+      Phase Mismatch Equation
+    </td>
+  </tr>
+</table>
 
 By solving the heat equation, we obtain the temperature-dependent phase mismatch $(\Delta \varphi)$  across the crystal. This relationship enables us to predict the phase mismatch spatially and temporally, which is crucial for optimizing nonlinear optical processes such as Second Harmonic Generation (SHG). Our contributions in this area are detailed in the following publication:
 
@@ -254,17 +272,32 @@ In ideal conditions where there is no heat dissipation or phase mismatch, all of
 ## 8.1. Our Contribution (3)
 In the following articles, we solve the electromagnetic field equations under idealized conditions, meaning no heat dissipation and no phase mismatch. This allows us to focus solely on the optical electromagnetic field.  The equations are coupled because each electromagnetic field ($\psi_1$), ($\psi_2$), and ($\psi_3$) interacts through nonlinear terms like $(\psi_2 \psi_3)$ and $(\psi_1 \psi_3)$, representing energy exchange between the electromagnetic fields. As we see in the formula, to calculate each $(\psi)$, we need to know the values of the other two $(\psi)$ electromagnetic fields. These interactions drive the coupling, which is essential for describing processes like Second Harmonic Generation (SHG). 
 
-$$
-\frac{n_1}{c} \frac{d \textcolor{red}{\psi_1}}{d t} + \frac{d \textcolor{red}{\psi_1}}{d z} - \frac{i c}{2 n_1 \omega} \frac{1}{r} \frac{d \textcolor{red}{\psi_1}}{d r} - \frac{i c}{2 n_1 \omega} \frac{d^2 \textcolor{red}{\psi_1}}{d^2 r} + \frac{\gamma_1}{2} \textcolor{red}{\psi_1} = \frac{i}{L_T} \textcolor{blue}{\psi_2} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}}
-$$
-
-$$
-\frac{n_2}{c} \frac{d \textcolor{blue}{\psi_2}}{d t} + \frac{d \textcolor{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \textcolor{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \textcolor{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \textcolor{blue}{\psi_2} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}} \quad \text{(Coupled Electromagnetic Field Equations)}
-$$
-
-$$
-\frac{n_3}{c} \frac{d \textcolor{green}{\psi_3}}{d t} + \frac{d \textcolor{green}{\psi_3}}{d z} - \frac{i c}{4 n_3 \omega} \frac{1}{r} \frac{d \textcolor{green}{\psi_3}}{d r} - \frac{i c}{4 n_3 \omega} \frac{d^2 \textcolor{green}{\psi_3}}{d^2 r} + \frac{\gamma_3}{2} \textcolor{green}{\psi_3} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{blue}{\psi_2} e^{i \textcolor{purple}{\Delta \varphi}}
-$$
+<table style="width: 100%; border-collapse: collapse; border: none;">
+    <tr>
+    <td style="text-align: left; vertical-align: middle; border: none;">
+      $\large \frac{n_1}{c} \frac{d \textcolor{red}{\psi_1}}{d t} + \frac{d \textcolor{red}{\psi_1}}{d z} - \frac{i c}{2 n_1 \omega} \frac{1}{r} \frac{d \textcolor{red}{\psi_1}}{d r} - \frac{i c}{2 n_1 \omega} \frac{d^2 \textcolor{red}{\psi_1}}{d^2 r} + \frac{\gamma_1}{2} \textcolor{red}{\psi_1} = \frac{i}{L_T} \textcolor{blue}{\psi_2} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}}$
+    </td>
+    <td style="text-align: right; vertical-align: middle; border: none;">
+      First Fundamental Wave Equation
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: left; vertical-align: middle; border: none;">
+      $\large \frac{n_2}{c} \frac{d \textcolor{blue}{\psi_2}}{d t} + \frac{d \textcolor{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \textcolor{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \textcolor{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \textcolor{blue}{\psi_2} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}}$
+    </td>
+    <td style="text-align: right; vertical-align: middle; border: none;">
+      Second Fundamental Wave Equation
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: left; vertical-align: middle; border: none;">
+      $\large \frac{n_3}{c} \frac{d \textcolor{green}{\psi_3}}{d t} + \frac{d \textcolor{green}{\psi_3}}{d z} - \frac{i c}{4 n_3 \omega} \frac{1}{r} \frac{d \textcolor{green}{\psi_3}}{d r} - \frac{i c}{4 n_3 \omega} \frac{d^2 \textcolor{green}{\psi_3}}{d^2 r} + \frac{\gamma_3}{2} \textcolor{green}{\psi_3} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{blue}{\psi_2} e^{i \textcolor{purple}{\Delta \varphi}}$
+    </td>
+    <td style="text-align: right; vertical-align: middle; border: none;">
+      Second Harmonic Wave Equation
+    </td>
+  </tr>
+</table>
 
 We used different wave sources in each article: one uses a Continuous Wave Gaussian source, while the other employs a Pulsed Wave Bessel-Gaussian source. These variations in wave sources provide further insight into how different beam profiles affect the system's behavior.
 
@@ -275,7 +308,7 @@ This study explored SHG efficiency under Continuous Wave Gaussian conditions, hi
 This research introduced a model using Pulsed Bessel-Gauss beams, challenging traditional assumptions like the nondepleted wave approximation. This study provided a more accurate framework for SHG by considering wave depletion effects, demonstrating the impact of beam profile on heat and SHG efficiency under pulsed conditions.
 
 
-# 9. Interdependency of Heat, Phase, and electromagnetic field
+# 9. Interdependency of Heat, Phase, and Electromagnetic Field
 To accurately model SHG, it is essential to recognize that heat, phase, and the electromagnetic field are interconnected and must be treated as a coupled system. 
 
 The **heat** governs the temperature distribution within the crystal, which directly influences the refractive index through temperature-dependent material properties. This, in turn, affects the phase mismatch between the interacting waves. The **phase mismatch** modifies the interaction conditions for the fundamental and second harmonic waves, directly impacting their efficiency and the electromagnetic field. The **electromagnetic field** itself defines how the energy is transferred between the waves, how the phase evolves, and how the power distribution affects local heating within the crystal. This heating further alters the temperature profile, creating a feedback loop that perpetuates continuously.
@@ -285,26 +318,48 @@ Because of this tightly coupled nature, solving these equations independently wo
 ## 9.1. Our Contribution (4)
 In the following article, we solve the coupled equations of heat, phase, and electromagnetic field. This approach provides the most accurate model for Second Harmonic Generation (SHG), as it captures the interdependence between thermal effects, phase mismatch, and electromagnetic field propagation. By treating these elements as a unified system, we achieve a model that is much closer to real-world behavior.
 
-$$
-+\rho c \frac{\partial \textcolor{orange}{T}}{\partial t}-\vec{\nabla} \cdot (K(\textcolor{orange}{T}) \vec{\nabla} \textcolor{orange}{T}) = \gamma_1 \textcolor{red}{\psi_1} + \gamma_2 \textcolor{blue}{\psi_2} + \gamma_3 \textcolor{green}{\psi_3} \quad \text{(Heat Equation)} 
-$$
-
-$$
-\textcolor{purple}{\Delta \varphi} = \int_0^z \Delta k(\textcolor{orange}{T}) d z^{\prime} \quad \text{(Phase Mismatch Equation)}
-$$
-
-$$
-\frac{n_1}{c} \frac{d \textcolor{red}{\psi_1}}{d t} + \frac{d \textcolor{red}{\psi_1}}{d z} - \frac{i c}{2 n_1 \omega} \frac{1}{r} \frac{d \textcolor{red}{\psi_1}}{d r} - \frac{i c}{2 n_1 \omega} \frac{d^2 \textcolor{red}{\psi_1}}{d^2 r} + \frac{\gamma_1}{2} \textcolor{red}{\psi_1} = \frac{i}{L_T} \textcolor{blue}{\psi_2} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}}
-$$
-
-
-$$
-\frac{n_2}{c} \frac{d \textcolor{blue}{\psi_2}}{d t} + \frac{d \textcolor{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \textcolor{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \textcolor{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \textcolor{blue}{\psi_2} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}} \quad \text{(Coupled Electromagnetic Field Equations)} 
-$$
-
-$$
-\frac{n_3}{c} \frac{d \textcolor{green}{\psi_3}}{d t} + \frac{d \textcolor{green}{\psi_3}}{d z} - \frac{i c}{4 n_3 \omega} \frac{1}{r} \frac{d \textcolor{green}{\psi_3}}{d r} - \frac{i c}{4 n_3 \omega} \frac{d^2 \textcolor{green}{\psi_3}}{d^2 r} + \frac{\gamma_3}{2} \textcolor{green}{\psi_3} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{blue}{\psi_2} e^{i \textcolor{purple}{\Delta \varphi}}
-$$
+<table style="width: 100%; border-collapse: collapse; border: none;">
+  <tr>
+    <td style="text-align: left; vertical-align: middle; border: none;">
+      $\large +\rho c \frac{\partial \textcolor{orange}{T}}{\partial t}-\vec{\nabla} \cdot (K(\textcolor{orange}{T}) \vec{\nabla} \textcolor{orange}{T}) = \gamma_1 \textcolor{red}{\psi_1} + \gamma_2 \textcolor{blue}{\psi_2} + \gamma_3 \textcolor{green}{\psi_3}$
+    </td>
+    <td style="text-align: right; vertical-align: middle; border: none;">
+      Heat Equation
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: left; vertical-align: middle; border: none;">
+      $\large \textcolor{purple}{\Delta \varphi} = \int_0^z \Delta k(\textcolor{orange}{T}) d z^{\prime}$
+    </td>
+    <td style="text-align: right; vertical-align: middle; border: none;">
+      Phase Mismatch Equation
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: left; vertical-align: middle; border: none;">
+      $\large \frac{n_1}{c} \frac{d \textcolor{red}{\psi_1}}{d t} + \frac{d \textcolor{red}{\psi_1}}{d z} - \frac{i c}{2 n_1 \omega} \frac{1}{r} \frac{d \textcolor{red}{\psi_1}}{d r} - \frac{i c}{2 n_1 \omega} \frac{d^2 \textcolor{red}{\psi_1}}{d^2 r} + \frac{\gamma_1}{2} \textcolor{red}{\psi_1} = \frac{i}{L_T} \textcolor{blue}{\psi_2} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}}$
+    </td>
+    <td style="text-align: right; vertical-align: middle; border: none;">
+      First Fundamental Wave Equation
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: left; vertical-align: middle; border: none;">
+      $\large \frac{n_2}{c} \frac{d \textcolor{blue}{\psi_2}}{d t} + \frac{d \textcolor{blue}{\psi_2}}{d z} - \frac{i c}{2 n_2 \omega} \frac{1}{r} \frac{d \textcolor{blue}{\psi_2}}{d r} - \frac{i c}{2 n_2 \omega} \frac{d^2 \textcolor{blue}{\psi_2}}{d^2 r} + \frac{\gamma_2}{2} \textcolor{blue}{\psi_2} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{green}{\psi_3} e^{-i \textcolor{purple}{\Delta \varphi}}$
+    </td>
+    <td style="text-align: right; vertical-align: middle; border: none;">
+      Second Fundamental Wave Equation
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: left; vertical-align: middle; border: none;">
+      $\large \frac{n_3}{c} \frac{d \textcolor{green}{\psi_3}}{d t} + \frac{d \textcolor{green}{\psi_3}}{d z} - \frac{i c}{4 n_3 \omega} \frac{1}{r} \frac{d \textcolor{green}{\psi_3}}{d r} - \frac{i c}{4 n_3 \omega} \frac{d^2 \textcolor{green}{\psi_3}}{d^2 r} + \frac{\gamma_3}{2} \textcolor{green}{\psi_3} = \frac{i}{L_T} \textcolor{red}{\psi_1} \textcolor{blue}{\psi_2} e^{i \textcolor{purple}{\Delta \varphi}}$
+    </td>
+    <td style="text-align: right; vertical-align: middle; border: none;">
+      Second Harmonic Wave Equation
+    </td>
+  </tr>
+</table>
 
 
 - **Coupled _ Continuous Wave Gaussian _ Computational** [(Journal)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-21-25615&id=302163), [(Article)](https://drive.google.com/file/d/18HWrgN8duMyRQpjSpjvIApGhuVh5ti_A/view?usp=sharing)     
