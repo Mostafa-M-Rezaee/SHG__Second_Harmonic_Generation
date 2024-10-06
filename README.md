@@ -63,7 +63,6 @@ Folder PATH listing
 |       5. Ideal _ Continuous Wave Gaussian _ Computational.pdf
 |       6. Ideal _ Pulsed Wave Bessel Gaussian _ Computational.pdf
 |       7. Coupled _ Continuous Wave Gaussian _ Computational.pdf
-|       8. SHG _ Continuous Wave Gaussian _ Computational _ Approximate Model.pdf
 |       README.md
 |       
 +---1. ifort Installation Guide
@@ -88,8 +87,11 @@ Folder PATH listing
 |           4. Fortran - Framework.pdf
 |           
 +---3. SHG Codes
-|       Temp_G_PW_01_06_92.F90
-|       Temp_Phase_G_Pw_08_06_92.F90
+|       2. Heat Equation _ Continuous Wave Gaussian _ Computational.f90
+|       3. Heat Equation _ Pulsed Wave Gaussian _ Computational.F90
+|       4. Phase Mismatch _ Pulsed Wave Gaussian _ Computational.F90
+|       6. Ideal _ Pulsed Wave Bessel Gaussian _ Computational.F90
+|       7. Coupled _ Continuous Wave Gaussian _ Computational.F90      
 ```         
 
 
@@ -214,7 +216,7 @@ Each study builds on the last, incorporating increasingly realistic factors to i
 - **Heat Equation _ Continuous Wave Gaussian _ Analytical** [(Journal)](https://opg.optica.org/ao/abstract.cfm?uri=ao-47-13-2317), [(Article)](https://drive.google.com/file/d/18ttMkf2prKUyNsPEq9cskoHHzzX8SAL3/view?usp=sharing)  
 This work focuses on predicting temperature distributions in laser crystals using a Continuous Wave Gaussian source. The analytical model provided insights into the basic thermal behavior in solid-state lasers, a critical step toward designing more efficient systems by accurately modeling heat within complex crystal structures.
 
-- **Heat Equation _ Continuous Wave Gaussian _ Computational** [(Journal)](https://link.springer.com/article/10.1007/s13538-014-0291-x), [(Article)](https://drive.google.com/file/d/18F3k_iJ07qBrluaiskguTS4543vvu_ql/view?usp=sharing)   
+- **Heat Equation _ Continuous Wave Gaussian _ Computational** [(Journal)](https://link.springer.com/article/10.1007/s13538-014-0291-x), [(Article)](https://drive.google.com/file/d/18F3k_iJ07qBrluaiskguTS4543vvu_ql/view?usp=sharing), [(Code)](https://drive.google.com/file/d/1--Hsa3ocLXiDJh8-MxRnv_FoY7PjAeAN/view?usp=sharing)   
 Building upon the analytical work, this computational study incorporated more realistic factors, such as temperature-dependent thermal conductivity and radiation effects. The model demonstrated the significant impact of these often-overlooked factors on heat distribution in KTP crystals, enhancing the thermal modeling of laser systems.
 
 - **Heat Equation _ Pulsed Wave Gaussian _ Computational** [(Journal)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-6-1241), [(Article)](https://drive.google.com/file/d/18HvFuUr76KRqqbIswoLgJYoMV1vD1Y0i/view?usp=sharing), [(Code)](https://drive.google.com/file/d/1869rFDZYDVdxf0IQZsiWlPkwTt2pMyuQ/view?usp=sharing)       
@@ -369,7 +371,7 @@ Note: The equations, represented in different colors for $\textcolor{orange}{T}$
 </table>
 
 
-- **Coupled _ Continuous Wave Gaussian _ Computational** [(Journal)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-21-25615&id=302163), [(Article)](https://drive.google.com/file/d/18HWrgN8duMyRQpjSpjvIApGhuVh5ti_A/view?usp=sharing)     
+- **Coupled _ Continuous Wave Gaussian _ Computational** [(Journal)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-21-25615&id=302163), [(Article)](https://drive.google.com/file/d/18HWrgN8duMyRQpjSpjvIApGhuVh5ti_A/view?usp=sharing), [(Code)](https://drive.google.com/file/d/19pzmvRrSx8Jd_GG4mM_kG2LLiE5d-4fX/view?usp=sharing)     
 This study advanced our understanding by incorporating both Thermally Induced Phase Mismatching (TIPM) and thermal lensing into SHG models using a Continuous Wave Gaussian source. By coupling eight different equations, the model captured the dynamic interactions between heat and SHG efficiency over time. This comprehensive approach provided a realistic simulation that closely matched experimental results, significantly enhancing our understanding of thermal effects in Continuous Wave Gaussian SHG systems.
 
 
