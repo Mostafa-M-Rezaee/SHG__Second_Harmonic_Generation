@@ -235,6 +235,8 @@ Phase is a function of temperature and it is clear that due to the presence of t
 ## 7.1. Our Contribution (2)
 The heat equation enables us to calculate the Spatial-temporal temperature distribution within the crystal. This temperature profile directly influences the phase mismatch, which can be described by the following equation:
 
+Note: The equations, represented in different colors for $\textcolor{orange}{T}$, and $\textcolor{purple}{\Delta \varphi}$, illustrate they are couplled equations which means changes in one variable influence the entire system simultaneously.
+
 <table style="width: 100%; border-collapse: collapse; border: none;">
   <tr>
     <td style="text-align: left; vertical-align: middle; border: none;">
@@ -271,6 +273,8 @@ In ideal conditions where there is no heat dissipation or phase mismatch, all of
 
 ## 8.1. Our Contribution (3)
 In the following articles, we solve the electromagnetic field equations under idealized conditions, meaning no heat dissipation and no phase mismatch. This allows us to focus solely on the optical electromagnetic field.  The equations are coupled because each electromagnetic field ($\psi_1$), ($\psi_2$), and ($\psi_3$) interacts through nonlinear terms like $(\psi_2 \psi_3)$ and $(\psi_1 \psi_3)$, representing energy exchange between the electromagnetic fields. As we see in the formula, to calculate each $(\psi)$, we need to know the values of the other two $(\psi)$ electromagnetic fields. These interactions drive the coupling, which is essential for describing processes like Second Harmonic Generation (SHG). 
+
+Note: The equations, represented in different colors for $\textcolor{red}{\psi_1}$, $\textcolor{blue}{\psi_2}$, and $\textcolor{green}{\psi_3}$, illustrate they are couplled equations which means changes in one variable influence the entire system simultaneously.
 
 <table style="width: 100%; border-collapse: collapse; border: none;">
     <tr>
@@ -317,6 +321,9 @@ Because of this tightly coupled nature, solving these equations independently wo
 
 ## 9.1. Our Contribution (4)
 In the following article, we solve the coupled equations of heat, phase, and electromagnetic field. This approach provides the most accurate model for Second Harmonic Generation (SHG), as it captures the interdependence between thermal effects, phase mismatch, and electromagnetic field propagation. By treating these elements as a unified system, we achieve a model that is much closer to real-world behavior.
+
+Note: The equations, represented in different colors for $\textcolor{orange}{T}$, $\textcolor{purple}{\Delta \varphi}$, $\textcolor{red}{\psi_1}$, $\textcolor{blue}{\psi_2}$, and $\textcolor{green}{\psi_3}$, illustrate they are couplled equations which means changes in one variable influence the entire system simultaneously.
+
 
 <table style="width: 100%; border-collapse: collapse; border: none;">
   <tr>
