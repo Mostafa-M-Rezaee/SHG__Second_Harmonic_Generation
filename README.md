@@ -150,7 +150,7 @@ To efficiently analyze Second Harmonic Generation (SHG) in a KTP crystal modeled
 
 
 # 6. Boundry Conditions  
-In the KTP crystal, the input and output faces undergo convective and radiative cooling, allowing heat to dissipate efficiently from these surfaces. Meanwhile, the lateral surfaces are maintained at a constant temperature through a cooling system, typically using a coolant such as water or liquid nitrogen. Additionally, we need to carefully determine the boundary conditions of the crystal's axis for accurate modeling.
+In the KTP crystal, the input and output faces undergo convective and radiative cooling, allowing heat to dissipate efficiently from these surfaces. Since the lateral surfaces are in contact with a cooling system, only conductive heat transfer occurs at these boundaries, maintaining a constant temperature. As a result, there are no mathematical complexities associated with lateral surface boundary conditions. Heat transfer within crystal occurs exclusively through conduction, since it is a solid. Additionally, we need to carefully determine the boundary conditions of the crystal's axis for accurate modeling.
 
 <p align="center">
   <img src="./Archive/images/3.%20Readme_images/image05.png" alt="Image 5" width="85%">
@@ -328,7 +328,7 @@ Note: The equations, represented in different colors for $\textcolor{orange}{T}$
 <table style="width: 100%; border-collapse: collapse; border: none;">
   <tr>
     <td style="text-align: left; vertical-align: middle; border: none;">
-      $\large +\rho c \frac{\partial \textcolor{orange}{T}}{\partial t}-\vec{\nabla} \cdot (K(\textcolor{orange}{T}) \vec{\nabla} \textcolor{orange}{T}) = \gamma_1 \textcolor{red}{\psi_1} + \gamma_2 \textcolor{blue}{\psi_2} + \gamma_3 \textcolor{green}{\psi_3}$
+      $\large +\rho c \frac{\partial \textcolor{orange}{T}}{\partial t}-\vec{\nabla} \cdot (K(\textcolor{orange}{T}) \vec{\nabla} \textcolor{orange}{T}) = S = \gamma_1 \textcolor{red}{\psi_1} + \gamma_2 \textcolor{blue}{\psi_2} + \gamma_3 \textcolor{green}{\psi_3}$
     </td>
     <td style="text-align: right; vertical-align: middle; border: none;">
       Heat Equation
