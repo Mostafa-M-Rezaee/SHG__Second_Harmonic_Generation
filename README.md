@@ -194,7 +194,7 @@ The thermal behavior in SHG can be accurately described by the heat equation:
 <table style="width: 100%; border-collapse: collapse; border: none;">
   <tr>
     <td style="text-align: left; vertical-align: middle; border: none;">
-      $\large +\rho c \frac{\partial \textcolor{orange}{T}}{\partial t}-\vec{\nabla} \cdot (K(\textcolor{orange}{T}) \vec{\nabla} \textcolor{orange}{T}) = \gamma_1 \textcolor{red}{\psi_1} + \gamma_2 \textcolor{blue}{\psi_2} + \gamma_3 \textcolor{green}{\psi_3}$
+      $\large +\rho c \frac{\partial \textcolor{orange}{T}}{\partial t}-\vec{\nabla} \cdot (K(\textcolor{orange}{T}) \vec{\nabla} \textcolor{orange}{T}) = S$
     </td>
     <td style="text-align: right; vertical-align: middle; border: none;">
       Heat Equation
@@ -240,7 +240,7 @@ Note: The equations, represented in different colors for $\textcolor{orange}{T}$
 <table style="width: 100%; border-collapse: collapse; border: none;">
   <tr>
     <td style="text-align: left; vertical-align: middle; border: none;">
-      $\large +\rho c \frac{\partial \textcolor{orange}{T}}{\partial t}-\vec{\nabla} \cdot (K(\textcolor{orange}{T}) \vec{\nabla} \textcolor{orange}{T}) = \gamma_1 \textcolor{red}{\psi_1} + \gamma_2 \textcolor{blue}{\psi_2} + \gamma_3 \textcolor{green}{\psi_3}$
+      $\large +\rho c \frac{\partial \textcolor{orange}{T}}{\partial t}-\vec{\nabla} \cdot (K(\textcolor{orange}{T}) \vec{\nabla} \textcolor{orange}{T}) = S$
     </td>
     <td style="text-align: right; vertical-align: middle; border: none;">
       Heat Equation
