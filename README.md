@@ -90,8 +90,9 @@ Folder PATH listing
 |       2. Heat Equation _ Continuous Wave Gaussian _ Computational.f90
 |       3. Heat Equation _ Pulsed Wave Gaussian _ Computational.F90
 |       4. Phase Mismatch _ Pulsed Wave Gaussian _ Computational.F90
+|       5. Ideal _ Continuous Wave Gaussian _ Computational.f90
 |       6. Ideal _ Pulsed Wave Bessel Gaussian _ Computational.F90
-|       7. Coupled _ Continuous Wave Gaussian _ Computational.F90      
+|       7. Coupled _ Continuous Wave Gaussian _ Computational.F90    
 ```         
 
 
@@ -307,7 +308,7 @@ Note: The equations, represented in different colors for $\textcolor{red}{\psi_1
 
 We used different wave sources in each article: one uses a Continuous Wave Gaussian source, while the other employs a Pulsed Wave Bessel-Gaussian source. These variations in wave sources provide further insight into how different beam profiles affect the system's behavior.
 
-- **Ideal _ Continuous Wave Gaussian _ Computational** [(Journal)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-4-869), [(Article)](https://drive.google.com/file/d/18AKCzgJj9XeXfkdSd-pU1j5JNYf84JRb/view?usp=sharing)    
+- **Ideal _ Continuous Wave Gaussian _ Computational** [(Journal)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-4-869), [(Article)](https://drive.google.com/file/d/18AKCzgJj9XeXfkdSd-pU1j5JNYf84JRb/view?usp=sharing), [(Code)](https://drive.google.com/file/d/1-7aDrrYysfBXYARvQ0oIZB3fcOuU5Xv8/view?usp=sharing)    
 This study explored SHG efficiency under Continuous Wave Gaussian conditions, highlighting how temperature fluctuations can prevent achieving ideal conversion efficiency. The study found that even minor temperature increases could drastically reduce SHG efficiency due to beam depletion and refractive index changes, highlighting the importance of temperature control in optimizing SHG processes.
  
 - **Ideal _ Pulsed Wave Bessel Gaussian _ Computational** [(Journal)](https://opg.optica.org/ao/abstract.cfm?uri=ao-53-32-7691), [(Article)](https://drive.google.com/file/d/18J0wFsrO8zeXkY09Jodgmx6Rkr28w-Ez/view?usp=sharing), [(Code)](https://drive.google.com/file/d/188vCILgTUQ6PXVRmlbOGgAzHyrxp4kAU/view?usp=sharing)    
