@@ -1,35 +1,22 @@
 
 
 !            ********************************************************************************
-     
-!            * Dr.Mohammad Sabaeian    , Department of Physics, Shahid Chamran University   * 
-
-!            * Mostafa Mohammad-Rezaee , Department of Physics, Shahid Chamran University   *
-
-!            * Fatemeh Sedaghat        , Department of Physics, Shahid Chamran University   *
-
-!            * Alireza Motazedian      , Department of Physics, Shahid Chamran University   *
-
-!            *                                                                              * 
-
-!            * m_sabaeian@yahoo.com                                                         *
-
-!            * f.sedaghat2010@yahoo.com                                                     *
-
-!            * mostafa_mohammadrezaee@yahoo.com                                             *
-
-!            * alireza.motazedian@yahoo.com                                                 *
-
-!            *                                                                              * 
-
-!            * "Temp_G_CW.F90" is a program to solve Heat-equation FDM.                     * 
-
-!            *                          with animation                                      * 
-
-!            *             originally Written : 30-DES-2011   by MM  &  AM  &  FS           *
-
-!            *                   last revised : 22-JUN-2012   by MM  &  AM  &  FS           *
-
+!            * File: "2. Heat Equation _ Continuous Wave Gaussian _ Computational.F90"      *
+!            *                                                                              *
+!            * Note: This Fortran code is developed specifically for the article titled:    *
+!            * "Temperature Distribution in a Gaussian End-Pumped Nonlinear KTP Crystal:    *
+!            * the Temperature Dependence of Thermal Conductivity and Radiation Boundary    *
+!            * Condition"                                                                   *
+!            *                                                                              *
+!            * Authors: Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M., Motazedian, A.       *
+!            * and Shahzadeh, M.                                                            *
+!            *                                                                              *
+!            * Harvard style:                                                               *
+!            * Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M., Motazedian, A. and Shahzadeh, *
+!            * M., 2015. Temperature distribution in a Gaussian end-pumped nonlinear KTP    *
+!            * crystal: the temperature dependence of thermal conductivity and radiation    *
+!            * boundary condition. Brazilian Journal of Physics, 45, pp.1-9.                *
+!            *                                                                              *
 !            ********************************************************************************
 
 program Temp_G_CW
@@ -48,30 +35,30 @@ real*8        t          ,z          ,p          ,h           ,r                
              ,aa1        ,aa2        ,aa3        ,aa4         ,aa5                                                     &
 			 ,KT0        ,Tinf       ,Tamb                                                                             & 
 			 ,gama       ,timet      ,sigma                                                                            &
-			 ,omegaf     ,length     ,deltar     ,deltaz     ,deltat                                                   &
+			 ,omegaf     ,length     ,deltar     ,deltaz      ,deltat                                                  &
 			 ,radius                                                                                                   &
 			 ,epsilong   ,stability  ,Fidegree   ,Firadian                                                             &
 			  
-    		 ,temperature[allocatable](:,:,:)         , KT[allocatable] (:,:)
+    		 ,temperature[allocatable](:,:,:)    , KT[allocatable] (:,:)
 			 
 complex*16    Ii  
 
-character*30  filenamet  ,filenamer  ,filenamez  ,stabilityf ,timetf , pp   , omegafch
+character*30  filenamet  ,filenamer  ,filenamez  ,stabilityf ,timetf ,pp   ,omegafch
 
 !**********************************************************************************************************************
 !                                         Zero to variables
 !**********************************************************************************************************************
  
-                    i = 0.          ;j = 0.           ;k = 0.             ;f = 0.
-                   nt = 0.         ;nr = 0.          ;nz = 0.
+                    i = 0.          ;j = 0.            ;k = 0.             ;f = 0.
+                   nt = 0.         ;nr = 0.           ;nz = 0.
 
                     t = 0.          ;z = 0.            ;p = 0.             ;h = 0.           ;r = 0.                                                                                                  
                     G = 0.         ;T0 = 0.           ;pi = 0.            ;Cp = 0.         ;roh = 0.                       
 			      aa1 = 0.        ;aa2 = 0.          ;aa3 = 0.           ;aa4 = 0.         ;aa5 = 0. 
 				  KT0 = 0.       ;Tinf = 0.         ;Tamb = 0.                                                     
 			     gama = 0.      ;timet = 0.        ;sigma = 0.                                                                           
-			   omegaf = 0.     ;length = 0.       ;deltat = 0.       ;deltar = 0.      ;deltaz = 0.                               
-			   radius = 0.   ;epsilong = 0.     ;Fidegree = 0.     ;Firadian = 0.                                                                                    
+			   omegaf = 0.     ;length = 0.       ;deltat = 0.        ;deltar = 0.      ;deltaz = 0.                               
+			   radius = 0.   ;epsilong = 0.     ;Fidegree = 0.      ;Firadian = 0.                                                                                    
 	        stability = 0.    
 
 !**********************************************************************************************************************
@@ -122,34 +109,33 @@ write(*,*) filenamet  ,filenamer  ,filenamez
 !                                        Determine  Constants
 !*********************************************************************************************************************
       
-	    p = 80.                ! power of laser                                           W
-	    h = 10.                !heat transfer coefficient (convection - cylinder)         W/(m^2.K) 
-  	!	G = 2.910714020e-9     ! normalization constant(from maple program)
+	    p = 80.                 ! power of laser                                         W
+	    h = 10.                 !heat transfer coefficient (convection - cylinder)       W/(m^2.K) 
+  	!	G = 2.910714020e-9      ! normalization constant(from maple program)
         G = 4.805e-11
-       pi = 4*atan(1.)                                                                   !dimensionless
-      KT0 = 13.                !thermal conductivity of KTP crystal                      W/(m.K)
+       pi = 4*atan(1.)                                                                  !dimensionless
+      KT0 = 13.                 !thermal conductivity of KTP crystal                     W/(m.K)
 	  	                            ! k1=2 , k2=3 , k3=3.3 
-       Cp = 728.016             !heat capacity at constant pressure                       J/(kg.K)
-       T0 = 300.                 !initial temperature                                      K
-      roh = 2945.               !mass density                                             kg/m^3
-     Tamb = 300.                 !K
-	 Tinf = 300.                 !K              
-     gama = 4.                 !absorption coefficient                                   1/m
-    sigma = 5.669e-8            !Stephan-Bultzman constant                                W/(m^2.K^4) 
-   radius = 0.002               !radius of crystal                                       !m
+       Cp = 728.016             !heat capacity at constant pressure                      J/(kg.K)
+       T0 = 300.                !initial temperature                                     K
+      roh = 2945.               !mass density                                            kg/m^3
+     Tamb = 300.                !K
+	 Tinf = 300.                !K              
+     gama = 4.                  !absorption coefficient                                  1/m
+    sigma = 5.669e-8            !Stephan-Bultzman constant                               W/(m^2.K^4) 
+   radius = 0.002               !radius of crystal                                      !m
    
- !  omegaf = 0.001               !spot size                                               !m 
-    omegaf = 0.0001
+   omegaf = 0.0001              !spot size                                              !m 
    deltar = omegaf/10                                                                   !m
-       nr = int(radius/deltar)                                                           !dimensionless
+       nr = int(radius/deltar)                                                          !dimensionless
   
-       nz = 150.                                                                         !dimensionless
+       nz = 150.                                                                        !dimensionless
    length = 0.02                !length of crystal                                       m 
-   deltaz = length/nz                                                                    !m 
-   deltat = (stability*roh*Cp*0.5/KT0)*(deltar**2*deltaz**2/(deltar**2+deltaz**2))        !s     
+   deltaz = length/nz                                                                   !m 
+   deltat = (stability*roh*Cp*0.5/KT0)*(deltar**2*deltaz**2/(deltar**2+deltaz**2))      !s     
    ! deltat = .00001 
-	   nt = int(timet/deltat)                                                            !dimensionless 
- epsilong = 0.9                 !surface emissivity                                       !dimensionless
+	   nt = int(timet/deltat)                                                           !dimensionless 
+ epsilong = 0.9                 !surface emissivity                                     !dimensionless
 
      Ii = (0,1)
       

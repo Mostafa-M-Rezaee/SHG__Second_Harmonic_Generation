@@ -1,25 +1,21 @@
 
 				  
 !            ********************************************************************************
-     
-!            * Dr.Mohammad Sabaeian   , Departmant of Physics, Shahid Chamran University    * 
-
-!            * Fateme Sedaghat        , Departmant of Physics, Shahid Chamran University    *
-
-!            * Mostafa Mohammad Rezaee, Departmant of Physics, Shahid Chamran University    *
-
-!            * f.sedaghat2010@yahoo.com                                                     *
-
-!            * mostafa_mohammadrezaee@yahoo.com                                             *
-
-!            * "couplied elec-temp-phase.F90" is aprogram to                                * 
-
-!            *                                                                              * 
-
-!            *             originally Written : 21/10/2011  by FS  ,MM                      *
-
-!            *                   last revised : ---------                                   *
-
+!            * File: 5. Ideal _ Continuous Wave Gaussian _ Computational.f90                *
+!            *                                                                              *
+!            * Note: This Fortran code is developed specifically for the article titled:    *
+!            * Temperature increase effects on a double-pass cavity type II second harmonic *
+!            * generation: a model for depleted Gaussian continuous-waves                   *
+!            *                                                                              *
+!            * Authors: Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M., Motazedian, A.       *
+!            * and Shahzadeh, M.                                                            *
+!            *                                                                              *
+!            * Harvard style:                                                               *
+!            * Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M., Motazedian, A. and Shahzadeh, *
+!            * M., 2015. Temperature increase effects on a double-pass cavity type II       *
+!            * second-harmonic generation: a model for depleted Gaussian continuous waves.  *
+!            * Applied Optics, 54(4), pp.869-875.                                           *
+!            *                                                                              *
 !            ********************************************************************************
 
 program coupliedelectempphase
@@ -30,7 +26,7 @@ implicit none
 !                                       Determine variables
 !**********************************************************************************************************************
 
-integer        i                   ,j                     ,k                      ,f                      ,nz                 
+integer        i                   ,j                     ,k                       ,f                      ,nz                 
                                                                                            
 real*8         l                   ,p                     ,z                       ,c                      ,d               &                                                      		
               ,pi                  ,n1                    ,n2                      ,n3                     ,r1f             &                    
@@ -40,19 +36,19 @@ real*8         l                   ,p                     ,z                    
 			  ,landa1              ,lenght                                                                                  &                                                                                     
                                                                                                                         
 
-              ,elecp1[allocatable](:)                             ,elecm1[allocatable](:)                                   &    
-			  ,elecp2[allocatable](:)                             ,elecm2[allocatable](:)                                   &    
-              ,elecp3[allocatable](:)                             ,elecm3[allocatable](:)                                                                      
+              ,elecp1[allocatable](:)                     ,elecm1[allocatable](:)                                           &    
+			  ,elecp2[allocatable](:)                     ,elecm2[allocatable](:)                                           &    
+              ,elecp3[allocatable](:)                     ,elecm3[allocatable](:)                                                                      
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 
     																											    
-complex*16    Ii                                                                                                            &                                                                                            
-              ,psip1[allocatable](:)                              ,psim1[allocatable](:)                                    &                                                                                                                                                     
-              ,psip2[allocatable](:)                              ,psim2[allocatable](:)                                    &                                                                                      
-              ,psip3[allocatable](:)                              ,psim3[allocatable](:)                                                                                                                             
+complex*16     Ii                                                                                                           &                                                                                            
+              ,psip1[allocatable](:)                      ,psim1[allocatable](:)                                            &                                                                                                                                                     
+              ,psip2[allocatable](:)                      ,psim2[allocatable](:)                                            &                                                                                      
+              ,psip3[allocatable](:)                      ,psim3[allocatable](:)                                                                                                                             
                  
 
-character*30       filenamez
+character*30   filenamez
 
 !**********************************************************************************************************************
 !                                         Zero to variables
@@ -130,16 +126,16 @@ open(7,file=filenamez)
        n3 = 1.7881  
        nz = 1000
        Ii = (0,1) 
-       gama1 = 0.5
-       gama2 = 0.5
-       gama3 = 4.
-       landa1 = 1.064     !micro meter 
-       lenght = 0.02
-	   omegaf = 0.0001
-       epsilon = 8.85e-12                        
- 	         d = 7.3e-12*epsilon
-       omega1 = 2*pi*c*1000000/landa1            ;l = (epsilon**3*c**3*pi*omegaf**2/((4*p)*omega1**2*d**2))**.5     
-       deltaz = lenght/nz  
+    gama1 = 0.5
+    gama2 = 0.5
+    gama3 = 4.
+   landa1 = 1.064     !micro meter 
+   lenght = 0.02
+   omegaf = 0.0001
+  epsilon = 8.85e-12                        
+		d = 7.3e-12*epsilon
+   omega1 = 2*pi*c*1000000/landa1            ;l = (epsilon**3*c**3*pi*omegaf**2/((4*p)*omega1**2*d**2))**.5     
+   deltaz = lenght/nz  
     
       	 
 !**********************************************************************************************************************
@@ -232,9 +228,9 @@ end do!k
 do k=0,nz
    z=k*deltaz
 
-   write(1,'(f13.8 ,5X, F20.12)' ) z, elecp1(k)*100
+   write(1,'(f13.8 ,5X, F20.12)' ) z , elecp1(k)*100
    write(2,'(f13.8 ,5x, f20.12)' ) z , elecp2(k)*100 
-   write(3,'(f13.8 ,5x, f20.12)' ) z, elecp3(k)*100
+   write(3,'(f13.8 ,5x, f20.12)' ) z , elecp3(k)*100
    
    write(5,'(F13.8 ,5X ,f20.12)' ) z ,  elecm1(k)*100 
    write(6,'(f13.8 ,5x,f20.12)' )  z ,  elecm2(k)*100 

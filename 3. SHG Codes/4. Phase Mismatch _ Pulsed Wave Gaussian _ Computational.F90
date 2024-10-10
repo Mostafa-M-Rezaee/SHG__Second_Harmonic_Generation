@@ -1,34 +1,21 @@
 
+
 !            ********************************************************************************
-     
-!            * Dr.Mohammad Sabaeian    , Department of Physics, Shahid Chamran University   * 
-
-!            * Mostafa Mohammad-Rezaee , Department of Physics, Shahid Chamran University   *
-
-!            * Alireza Motazedian      , Department of Physics, Shahid Chamran University   *
-
-!            * Fatemeh Sedaghat        , Department of Physics, Shahid Chamran University   *
-
-!            *                                                                              * 
-
-!            * m_sabaeian@yahoo.com                                                         *
-
-!            * mostafa_mohammadrezaee@yahoo.com                                             *
-
-!            * alireza.motazedian@yahoo.com                                                 *
-
-!            * f.sedaghat2010@yahoo.com                                                     *
-
-!            *                                                                              * 
-
-!            * "Temp_Phase_PW.F90" is a program to solve Heat-equation & Phase by FDM.      * 
-
-!            *                                                                              * 
-
-!            *             originally Written : 30-DES-2011   by MM  &  AM  &  FS           *
-
-!            *                   last revised : 25-Jan-2014   by MM  &  AM  &  FS           *
-
+!            * File: 4. Phase Mismatch _ Pulsed Wave Gaussian _ Computational.F90           *
+!            *                                                                              *
+!            * Note: This Fortran code is developed specifically for the article titled:    *
+!            * Thermally Induced Phase Mismatching in a Repetitively Gaussian Pulsed        *
+!            * Pumping KTP Crystal: A Spatio-Temporal Treatment                             *
+!            *                                                                              *
+!            * Authors: Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S.,      *
+!            * Askari, H. and Khazrk, I.                                                    *
+!            *                                                                              *
+!            * Harvard style:                                                               *
+!            * Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S., Askari, H.    *
+!            * and Khazrk, I., 2015. Thermally induced phase mismatching in a repetitively  *
+!            * Gaussian pulsed pumping KTP crystal: a spatiotemporal treatment. Applied     *
+!            * Optics, 54(15), pp.4781-4788.                                                *
+!            *                                                                              *
 !            ********************************************************************************
 
 program Temp_Phase_PW
@@ -44,17 +31,17 @@ integer       i          ,j          ,k          ,l                             
              ,nt         ,nr         ,nz         ,Np                                                                       
 
 
-real*8        t          ,z          ,E          ,h        ,r            ,G          ,P                               &
+real*8        t          ,z          ,E          ,h          ,r          ,G          ,P                               &
              ,T0         ,pi         ,Cp         ,tp         ,Q0                                                      &
              ,roh        ,aa1        ,aa2        ,aa3        ,aa4        ,aa5                                         &
              ,KT0        ,freq       ,gama       ,Tinf       ,Tamb                                                    & 
              ,timet      ,sigma                                                                                       &
-	     ,omegaf     ,length     ,deltar     ,deltaz     ,deltat                                                  &
-	     ,radius                                                                                                  &
-	     ,epsilong   ,tbetween                                                                                    &
-	     ,stability                                                                                               &
-			  
-	    ,temperature[allocatable](:,:,:)          ,KT[allocatable](:,:)  
+			 ,omegaf     ,length     ,deltar     ,deltaz     ,deltat                                                  &
+			 ,radius                                                                                                  &
+			 ,epsilong   ,tbetween                                                                                    &
+			 ,stability                                                                                               &
+				  
+			,temperature[allocatable](:,:,:)          ,KT[allocatable](:,:)  
 
 
 character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,tpf       ,EE
@@ -62,24 +49,24 @@ character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,
 !-------------------------------------- Phase Variables
 real*8        phi                                                                                                    &
              ,B1T0         ,B2T0         ,C1T0          ,C2T0         ,B1rT         ,B2rT         ,C1rT              &
-	     ,C2rT                                                                                                   &		 
+			 ,C2rT                                                                                                   &		 
              ,Phase                                                                                                  &
-	     ,aa1T0        ,bb1T0        ,cc1T0         ,nx1T0        ,ny1T0        ,nz1T0        ,Term1             &
-	     ,aa2T0        ,bb2T0        ,cc2T0         ,nx2T0        ,ny2T0        ,nz2T0        ,Term2             &
-	     ,aa1rT        ,bb1rT        ,cc1rT         ,nx1rT        ,ny1rT        ,nz1rT        ,Term3             &
-	     ,aa2rT        ,bb2rT        ,cc2rT         ,nx2rT        ,ny2rT        ,nz2rT        ,theta             &
+			 ,aa1T0        ,bb1T0        ,cc1T0         ,nx1T0        ,ny1T0        ,nz1T0        ,Term1             &
+			 ,aa2T0        ,bb2T0        ,cc2T0         ,nx2T0        ,ny2T0        ,nz2T0        ,Term2             &
+			 ,aa1rT        ,bb1rT        ,cc1rT         ,nx1rT        ,ny1rT        ,nz1rT        ,Term3             &
+			 ,aa2rT        ,bb2rT        ,cc2rT         ,nx2rT        ,ny2rT        ,nz2rT        ,theta             &
              ,B1r0T        ,B2r0T        ,C1r0T         ,C2r0T        ,no1T0        ,ne1T0        ,ne2T0             &
              ,no1rT        ,ne1rT        ,ne2rT                                                                      &
                                                           
-	     ,aa1r0T       ,bb1r0T       ,cc1r0T        ,nx1r0T       ,ny1r0T       ,nz1r0T       ,dnx1dT            &
-	     ,aa2r0T       ,bb2r0T       ,cc2r0T        ,nx2r0T       ,ny2r0T       ,nz2r0T       ,dnx2dT            &
+			 ,aa1r0T       ,bb1r0T       ,cc1r0T        ,nx1r0T       ,ny1r0T       ,nz1r0T       ,dnx1dT            &
+			 ,aa2r0T       ,bb2r0T       ,cc2r0T        ,nx2r0T       ,ny2r0T       ,nz2r0T       ,dnx2dT            &
              ,dny1dT       ,dny2dT       ,dnz1dT        ,dnz2dT       ,no1r0T       ,ne1r0T       ,ne2r0T            &   
 
              ,lambda1      ,lambda2                                                                                  &
              ,Phasemin                                                                                               &
 
-	     ,deltano1rT   ,deltane1rT   ,deltane2rT                                                                 &   
-	     ,deltano1r0T  ,deltane1r0T  ,deltane2r0T                                                               
+			 ,deltano1rT   ,deltane1rT   ,deltane2rT                                                                 &   
+			 ,deltano1r0T  ,deltane1r0T  ,deltane2r0T                                                               
 
 complex*8     deltaphase[allocatable](:,:)                                                                           
 
@@ -106,14 +93,14 @@ character*35  filenamePt   ,filenamePr   ,filenamePz
           phi = 0.                                                                                         
 
          B1T0 = 0.        ;B2T0 = 0.        ;C1T0 = 0.    ;C2T0 = 0.     ;B1rT = 0.    ;B2rT = 0.    ;C1rT = 0.
-	 C2rT = 0.                                                                                        
+		 C2rT = 0.                                                                                        
 
         Phase = 0.                                                                                       
-	aa1T0 = 0.       ;bb1T0 = 0.       ;cc1T0 = 0.   ;nx1T0 = 0.    ;ny1T0 = 0.   ;nz1T0 = 0.   ;Term1 = 0.
-	aa2T0 = 0.       ;bb2T0 = 0.       ;cc2T0 = 0.   ;nx2T0 = 0.    ;ny2T0 = 0.   ;nz2T0 = 0.   ;Term2 = 0.
+		aa1T0 = 0.       ;bb1T0 = 0.       ;cc1T0 = 0.   ;nx1T0 = 0.    ;ny1T0 = 0.   ;nz1T0 = 0.   ;Term1 = 0.
+		aa2T0 = 0.       ;bb2T0 = 0.       ;cc2T0 = 0.   ;nx2T0 = 0.    ;ny2T0 = 0.   ;nz2T0 = 0.   ;Term2 = 0.
         aa1rT = 0.       ;bb1rT = 0.       ;cc1rT = 0.   ;nx1rT = 0.    ;ny1rT = 0.   ;nz1rT = 0.   ;Term3 = 0.
-	aa2rT = 0.       ;bb2rT = 0.       ;cc2rT = 0.   ;nx2rT = 0.    ;ny2rT = 0.   ;nz2rT = 0.   ;theta = 0.   
-	B1r0T = 0.       ;B2r0T = 0.       ;C1r0T = 0.   ;C2r0T = 0.    ;no1T0 = 0    ;ne1T0 = 0    ;ne2T0 = 0.
+		aa2rT = 0.       ;bb2rT = 0.       ;cc2rT = 0.   ;nx2rT = 0.    ;ny2rT = 0.   ;nz2rT = 0.   ;theta = 0.   
+		B1r0T = 0.       ;B2r0T = 0.       ;C1r0T = 0.   ;C2r0T = 0.    ;no1T0 = 0    ;ne1T0 = 0    ;ne2T0 = 0.
         no1rT = 0.       ;ne1rT = 0.       ;ne2rT = 0.                                                              
 
        aa1r0T = 0.      ;bb1r0T = 0.      ;cc1r0T = 0.   ;nx1r0T = 0.  ;ny1r0T = 0.  ;nz1r0T = 0.  ;dnx1dT = 0.  
@@ -199,40 +186,40 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
 !**********************************************************************************************************************
 
 !------------------------------------------------ Thermal properties
-        h = 10                  !heat transfer coefficient (convection - cylinder)        W/(m^2.K)
-       T0 = 300.                !initial temperature                                      K
-       pi = 4*atan(1.)                                                                   !dimensionless
-       Cp = 728.016             !heat capacity at constant pressure                       J/(kg.K)
+        h = 10                  !heat transfer coefficient (convection - cylinder)          W/(m^2.K)
+       T0 = 300.                !initial temperature                                        K
+       pi = 4*atan(1.)                                                                     !dimensionless
+       Cp = 728.016             !heat capacity at constant pressure                         J/(kg.K)
 
-      KT0 = 13.                !thermal conductivity of KTP crystal                      W/(m.K)
-      roh = 2945.               !mass density                                             kg/m^3
+      KT0 = 13.                !thermal conductivity of KTP crystal                         W/(m.K)
+      roh = 2945.               !mass density                                               kg/m^3
 
-     gama = 4.                 !absorption coefficient                                   1/m
+     gama = 4.                 !absorption coefficient                                      1/m
      Tinf = 300.
      Tamb = 300.
-    sigma = 5.669e-8            !Stephan-Bultzman constant                                W/(m^2.K^4) 
+    sigma = 5.669e-8            !Stephan-Bultzman constant                                  W/(m^2.K^4) 
 
- tbetween = 1/freq !1/(5*freq)                                                                       !s
-    timet = Np*tbetween                                                                  !s
-   deltat = tp / 10                                                                      !s     
-       nt = int(tbetween/deltat)                                                         !dimensionless
+ tbetween = 1/freq !1/(5*freq)                                                             !s
+    timet = Np*tbetween                                                                    !s
+   deltat = tp / 10                                                                        !s     
+       nt = int(tbetween/deltat)                                                           !dimensionless
 
-       nz = 58 !150 !200                                                                          !dimensionless
-   length = 0.02                !length of crystal                                        m 
-   deltaz = length/nz                                                                    !m
+       nz = 58 !150 !200                                                                   !dimensionless
+   length = 0.02                !length of crystal                                          m 
+   deltaz = length/nz                                                                      !m
 
-   radius = 0.005               !radius of crystal                                       !m
+   radius = 0.005               !radius of crystal                                         !m
    omegaf = 100.e-6               !spot size                                               !m
-   deltar = omegaf/10                                                                    !m
-       nr = int(radius/deltar)                                                           !dimensionless 
+   deltar = omegaf/10                                                                      !m
+       nr = int(radius/deltar)                                                             !dimensionless 
 
- epsilong = 0.9                 !surface emissivity                                      !dimensionless
+ epsilong = 0.9                 !surface emissivity                                        !dimensionless
 
-stability = ( (2*KT0*deltat)/(roh*Cp) ) * ( (deltar**2+deltaz**2)/(deltar**2*deltaz**2) ) !stability coefficient  
+stability = ( (2*KT0*deltat)/(roh*Cp) ) * ( (deltar**2+deltaz**2)/(deltar**2*deltaz**2) )  !stability coefficient  
 
 !------------------------------------------------ Phase properties
-      phi = 24.77*pi/180
-    theta =    90*pi/180
+       phi = 24.77*pi/180
+     theta =    90*pi/180
 
    lambda1 = 1064e-9  
    lambda2 =  532e-9
@@ -252,13 +239,13 @@ stability = ( (2*KT0*deltat)/(roh*Cp) ) * ( (deltar**2+deltaz**2)/(deltar**2*del
      ny2T0 = sqrt(3.0333+0.04154/((lambda2*1e6)**2-0.04547)-0.01408*(lambda2*1e6)**2) 
      nz2T0 = sqrt(3.3134+0.05694/((lambda2*1e6)**2-0.05658)-0.01682*(lambda2*1e6)**2) 
 
-      aa1T0 = 1 / nx1T0 ** 2
-      bb1T0 = 1 / ny1T0 ** 2
-      cc1T0 = 1 / nz1T0 ** 2
+     aa1T0 = 1 / nx1T0 ** 2
+     bb1T0 = 1 / ny1T0 ** 2
+     cc1T0 = 1 / nz1T0 ** 2
 
-      aa2T0 = 1 / nx2T0 ** 2
-      bb2T0 = 1 / ny2T0 ** 2 
-      cc2T0 = 1 / nz2T0 ** 2
+     aa2T0 = 1 / nx2T0 ** 2
+     bb2T0 = 1 / ny2T0 ** 2 
+     cc2T0 = 1 / nz2T0 ** 2
 
      Term1 = sin(theta)**2 * cos(phi)**2
      Term2 = sin(theta)**2 * sin(phi)**2

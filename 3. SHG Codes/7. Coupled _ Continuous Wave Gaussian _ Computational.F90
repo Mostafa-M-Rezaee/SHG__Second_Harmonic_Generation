@@ -1,34 +1,21 @@
 
+
 !            ********************************************************************************
-     
-!            * Dr.Mohammad Sabaeian    , Departmant of Physics, Shahid Chamran University   * 
-
-!            * Mostafa Mohammad-Rezaee , Departmant of Physics, Shahid Chamran University   *
-
-!            * Alireza Motazedian      , Departmant of Physics, Shahid Chamran University   *
-
-!            * Fatemeh Sedaghat Jalilabadi,Departmant of Physics, Shahid Chamran University *
-
-!            *                                                                              * 
-
-!            * m_sabaeian@yahoo.com                                                         *
-
-!            * mostafa_mohammadrezaee@yahoo.com                                             *
-
-!            * alireza.motazedian@yahoo.com                                                 *
-
-!            * f.sedaghat2010@yahoo.com                                                     *
-
-!            *                                                                              * 
-
-!            * "Elec_temp_phase_CW" is a program to solve 8 coupled Equation by FDM.        * 
-
-!            *                                                                              * 
-
-!            *             originally Written : 19-Des-2012   by  MS & MM & AM & FS         *
-
-!            *                   last revised : 08-Jun-2013   by  MS & MM & AM & FS         *
-
+!            * File: 7. Coupled _ Continuous Wave Gaussian _ Computational.F90              *
+!            *                                                                              *
+!            * Note: This Fortran code is developed specifically for the article titled:    *
+!            * Heat coupled Gaussian continuous-wave double-pass type-II second harmonic    *
+!            * generation: inclusion of thermally induced phase mismatching and thermal     *
+!            * lensing                                                                      *
+!            *                                                                              *
+!            * Authors: Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M. and Motazedian, A.    *
+!            *                                                                              *
+!            * Harvard style:                                                               *
+!            * Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M. and Motazedian, A., 2014.      *
+!            * Heat coupled Gaussian continuous-wave double-pass type-II second harmonic    *
+!            * generation: inclusion of thermally induced phase mismatching and thermal     *
+!            * lensing. Optics Express, 22(21), pp.25615-25628.                             *
+!            *                                                                              *
 !            ********************************************************************************
 
 program Elec_temp_phase_CW
@@ -311,12 +298,12 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
 
 !----------------- The constants of Common
 
-        p = 40.                !power of laser                                            W
-       nz = 200                                                                           !dimensionless
-       pi = 4.*atan(1.)                                                                   !dimensionless	   	   	   	   	
-    gama1 = 0.5                   !the absorption coefficient of fundomental wave           1/m
-    gama2 = 0.5                   !the absorption coefficient of fundomental wave           1/m
-    gama3 = 4.                  !the absorption coefficient of SHW                        1/m 
+        p = 40.                 !power of laser                                           W
+       nz = 200                                                                         !dimensionless
+       pi = 4.*atan(1.)                                                                 !dimensionless	   	   	   	   	
+    gama1 = 0.5                 !the absorption coefficient of fundomental wave          1/m
+    gama2 = 0.5                 !the absorption coefficient of fundomental wave          1/m
+    gama3 = 4.                  !the absorption coefficient of SHW                       1/m 
    radius = 0.002               !radius of crystal                                       !m
    omegaf = 200e-6              !spot size                                               !m
    length = 0.01                !length of crystal                                        m       
@@ -334,11 +321,11 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
      Tamb = 300.
      Tinf = 300.	  
     sigma = 5.669e-8            !Stephan-Bultzman constant                                W/(m^2.K^4) 
- epsilong = 0.9                 !surface emissivity                                       !dimensionless
+ epsilong = 0.9                 !surface emissivity                                      !dimensionless
        Ii = (0.,1.)  
-   deltat = (stability*roh*Cp*0.5/KT0)*(deltar**2.*deltaz**2./(deltar**2.+deltaz**2.))    !s       
-       nt = int(timet/deltat)                                                             !dimensionless
- 	   	    
+   deltat = (stability*roh*Cp*0.5/KT0)*(deltar**2.*deltaz**2./(deltar**2.+deltaz**2.))   !s       
+       nt = int(timet/deltat)                                                            !dimensionless
+ 	   	   
 !------------------ The constants of phase equation
  
    !  phi = 0.4324341714
@@ -581,7 +568,7 @@ write(*,'(A13,f25.20,//)')  '  ePsilon0 = ',ePsilon0
    fmax= 1
  ! S = 100000000.
  ! A = 0.
-!do while (S>0.0001)
+ !do while (S>0.0001)
 
 do f=1,fmax
 
@@ -602,13 +589,13 @@ write(*,*)   'start of field equation' ,f
 
 !----------------------------------------- psi1p
 
-             if(k==0 )    psi1p(j ,1 ) = exp(-r**2. / omegaf**2.)         !for input  surface
+             if(k==0 )    psi1p(j ,1 ) = exp(-r**2. / omegaf**2.)     !for input  surface
 
 	     if(k==0 )    psi1p(nr,1 ) = (0.,0.)                          !for (nr,0)
 
 	     if(k==0 )    psi1p(0 ,1 ) = (1.,0.)                          !for (0,0)			 
 
-             if(k==nz)    psi1p(nr,1 ) = (0.,0.)                          !for (nr,nz)
+             if(k==nz)    psi1p(nr,1 ) = (0.,0.)                      !for (nr,nz)
 
 	     if(k==nz)    psi1p(0 ,1 ) = psi1p(1,1 )                      !for (0,nz)
 		
@@ -618,15 +605,15 @@ write(*,*)   'start of field equation' ,f
  
 !---------------------------------------- psi2p
 
-              if(k==0 )    psi2p(j ,1 ) = exp(-r**2. / omegaf**2.)         !for input  surface
+              if(k==0 )    psi2p(j ,1 ) = exp(-r**2. / omegaf**2.)    !for input  surface
 
-	      if(k==0 )    psi2p(nr,1 ) = (0.,0.)                          !for (nr,0)
+	      if(k==0 )    psi2p(nr,1 ) = (0.,0.)                         !for (nr,0)
 
-	      if(k==0 )    psi2p(0 ,1 ) = (1.,0.)                          !for (0,0)			 
+	      if(k==0 )    psi2p(0 ,1 ) = (1.,0.)                         !for (0,0)			 
 
-              if(k==nz)    psi2p(nr,1 ) = (0.,0.)                          !for (nr,nz)
+              if(k==nz)    psi2p(nr,1 ) = (0.,0.)                     !for (nr,nz)
 
-	      if(k==nz)    psi2p(0 ,1 ) = psi2p(1,1 )                      !for (0,nz)
+	      if(k==nz)    psi2p(0 ,1 ) = psi2p(1,1 )                     !for (0,nz)
 		
 	                  psi2p(0 ,1 ) = psi2p(1 ,1 )                     !for crystal axis
 					      
@@ -634,7 +621,7 @@ write(*,*)   'start of field equation' ,f
 
 !----------------------------------------- psi3p
 		    
-             if(k==0 )    psi3p(j ,1 ) = (0.,0.)                          !for input  surface
+             if(k==0 )    psi3p(j ,1 ) = (0.,0.)                      !for input  surface
            
 	     if(k==0 )    psi3p(0 ,1 ) = (0.,0.)                          !for (0 ,0 )
            
@@ -680,12 +667,12 @@ write(*,*)   'start of field equation' ,f
 
 				      + cc2 * ( (psi1p(j+1,1) - psi1p(j-1,1))/(2*r*deltar) )                                         &
 
-			              - cc3 * psi1p(j,1)                                                                             &
+			              - cc3 * psi1p(j,1)                                                                         &
 
 				      + cc4 * conjg(psi2p(j,1)) * psi3p(j,1) * exp(-Ii*deltaphase(j,k) )                                                                                              
            
 		   !---------------------------------
-	     psi2p(j,2) =  psi2p(j ,1)                                                                                 &
+	     psi2p(j,2) =  psi2p(j ,1)                                                                                   &
 
 				       + dd2 * ( (psi2p(j+1,1) - 2 * psi2p(j,1) + psi2p(j-1,1))/(deltar**2) )                        &
 
@@ -696,7 +683,7 @@ write(*,*)   'start of field equation' ,f
 				       + dd4 * conjg(psi1p(j,1)) * psi3p(j,1) * exp(-Ii*deltaphase(j,k) )                                                                                               
 		   
 		   !---------------------------------			
-	     psi3p(j,2 ) =  psi3p(j  ,1)                                                                                &
+	     psi3p(j,2 ) =  psi3p(j  ,1)                                                                                 &
 					      
 			          + ee2 * ( (psi3p(j+1,1) - 2 * psi3p(j,1) + psi3p(j-1,1))/(deltar**2) )                         &
 
@@ -762,13 +749,13 @@ write(*,*)   'start of field equation' ,f
 
          if(k==nz)    psi2m(j ,2 ) = r2f * psi2p(j,1)
 
-         if(k==nz)    psi2m(0 ,2) = psi2m(1 ,2)
+         if(k==nz)     psi2m(0 ,2) = psi2m(1 ,2)
 	
-         if(k==nz)    psi2m(nr,2) = (0.,0.)
+         if(k==nz)     psi2m(nr,2) = (0.,0.)
 
-	              psi2m(0 ,2 ) = psi2m(1 ,2 )
+				      psi2m(0 ,2 ) = psi2m(1 ,2 )
 
-	              psi2m(nr,2 ) = (0.,0.)
+	                  psi2m(nr,2 ) = (0.,0.)
 
 
 !-------------------------------------psi3m
@@ -788,7 +775,7 @@ write(*,*)   'start of field equation' ,f
 
 !------------------------------------ End of Bounday conditions   
 
-         psi1m(j,1 ) =  psi1m(j  ,2)                                                                                             &
+         psi1m(j,1 ) =  psi1m(j  ,2)                                                                                 &
 					       
 			          + cc2 * ( (psi1m(j+1,2) - 2 * psi1m(j,2) + psi1m(j-1,2))/(deltar**2) )                         &
 
@@ -799,18 +786,18 @@ write(*,*)   'start of field equation' ,f
 		              + cc4 * conjg(psi2m(j,2)) * psi3m(j,2) * exp(Ii*deltaphase(j,k))                                                                                              
     
 !---------------------------------
-         psi2m(j,1 )=  psi2m(j  ,2)                                                                                              &
+         psi2m(j,1 )=  psi2m(j  ,2)                                                                                  &
 
 			          + dd2 * ( (psi2m(j+1,2) - 2 * psi2m(j,2) + psi2m(j-1,2))/(deltar**2) )                         &
 
 			          + dd2 * ( (psi2m(j+1,2) - psi2m(j-1,2))/(2*r*deltar) )                                         &
 
-		    	          - dd3 * psi2m(j,2)                                                                             &
+		    	          - dd3 * psi2m(j,2)                                                                         &
 
 			          + dd4 * conjg(psi1m(j,2)) * psi3m(j,2) * exp(Ii*deltaphase(j,k) )                                                                                               
 		   
 !---------------------------------			
-         psi3m(j,1 ) =  psi3m(j  ,2)                                                                                             &
+         psi3m(j,1 ) =  psi3m(j  ,2)                                                                                 &
 					      
 			          + ee2 * ( (psi3m(j+1,2) - 2 * psi3m(j,2) + psi3m(j-1,2))/(deltar**2) )                         &
 
@@ -1018,7 +1005,7 @@ write(*,*) 'start of temperature ' , f
 			            -Term3 * ( aa2r0T + bb2r0T )
              
 	 	       C2r0T  =  Term1 * bb2r0T * cc2r0T                                                                     &
-			            +Term2 * aa2r0T * cc2r0T                                                                          &
+			            +Term2 * aa2r0T * cc2r0T                                                                     &
 			            +Term3 * aa2r0T * bb2r0T 
 
              

@@ -1,35 +1,21 @@
+
+
 !            ********************************************************************************
-     
-!            * Dr.Mohammad Sabaeian    , Department of Physics, Shahid Chamran University   * 
-
-!            * Mostafa Mohammad-Rezaee , Department of Physics, Shahid Chamran University   *
-
-!            * Alireza Motazedian      , Department of Physics, Shahid Chamran University   *
-
-!            * Fatemeh Sedaghat        , Department of Physics, Shahid Chamran University   *
-
-!            *                                                                              * 
-
-!            * m_sabaeian@yahoo.com                                                         *
-
-!            * mostafa_mohammadrezaee@yahoo.com                                             *
-
-!            * alireza.motazedian@yahoo.com                                                 *
-
-!            * f.sedaghat2010@yahoo.com                                                     *
-
-!            *                                                                              * 
-
-!            * The "Temp_G_PW.F90" is a program solving time-dependent Heat-equation with a *
-
-!            *                     repatatively pulsed-source by  FDM.                      * 
-
-!            *                                                                              * 
-
-!            *             originally Written : 30-Des-2011   by Ms & MM  &  AM  &  FS      *
-
-!            *                   last revised : 24-jun-2013   by Ms & MM  &  AM  &  FS      *
-
+!            * File: 3. Heat Equation _ Pulsed Wave Gaussian _ Computational.F90            *
+!            *                                                                              *
+!            * Note: This Fortran code is developed specifically for the article titled:    *
+!            * Complete Anisotropic Time-Dependent Heat Equation in KTP Crystal under       *
+!            * Repetitively Pulsed Gaussian Beams: A Numerical Approach                     *
+!            *                                                                              *
+!            * Authors: Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S.,      *
+!            * and Khaldi-Nasab, A.                                                         *
+!            *                                                                              *
+!            * Harvard style:                                                               *
+!            * Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S. and Khaldi-    *
+!            * Nasab, A., 2015. Complete anisotropic time-dependent heat equation in KTP    *
+!            * crystal under repetitively pulsed Gaussian beams: a numerical approach.      *
+!            * Applied Optics, 54(6), pp.1241-1249.                                         *
+!            *                                                                              *
 !            ********************************************************************************
 
 program Temp_G_PW
@@ -40,22 +26,22 @@ implicit none
 !                                       Variables Definition
 !**********************************************************************************************************************
 
-integer       i          ,j          ,k          ,l                                                                   &
-             ,nt         ,nr         ,nz         ,Np                                                                       
+integer     i          ,j          ,k          ,l                                                                   &
+           ,nt         ,nr         ,nz         ,Np                                                                       
 
 real        t          ,z          ,E          ,h          ,r          ,G           ,P                              &                                                                                    
-             ,T0         ,pi         ,Cp         ,tp                     ,Q0                                          &
-	     ,roh        ,kT0        ,aa1        ,aa2        ,aa3        ,aa4         ,aa5                            &
-             ,freq       ,gama       ,Tinf       ,Tamb                                                                & 
-	     ,timet      ,sigma                                                                                       &
-	     ,omegaf     ,length     ,deltar     ,deltaz     ,deltat                                                  &
-	     ,radius                                                                                                  &
-	     ,epsilong   ,tbetween                                                                                    &
-	     ,stability                                                                                               &
+           ,T0         ,pi         ,Cp         ,tp                     ,Q0                                          &
+	       ,roh        ,kT0        ,aa1        ,aa2        ,aa3        ,aa4         ,aa5                            &
+           ,freq       ,gama       ,Tinf       ,Tamb                                                                & 
+	       ,timet      ,sigma                                                                                       &
+	       ,omegaf     ,length     ,deltar     ,deltaz     ,deltat                                                  &
+	       ,radius                                                                                                  &
+	       ,epsilong   ,tbetween                                                                                    &
+	       ,stability                                                                                               &
 			  
-	     ,temperature[allocatable](:,:,:)    ,kT[allocatable](:,:)
+	       ,temperature[allocatable](:,:,:)    ,kT[allocatable](:,:)
 
-character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,tpf       ,EE                         &
+character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,tpf       ,EE                       &
              ,filenameKt   ,filenameKr   ,filenameKz 
                                                      
 
@@ -68,13 +54,13 @@ character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,
 
                     t = 0.          ;z = 0.          ;E = 0.         ;h = 0.       ;r = 0.    ;G = 0.    ;p = 0.                                                                                                             
                    T0 = 0.         ;pi = 0.         ;Cp = 0.        ;tp = 0.                 ;Q0 = 0.                              
-		  roh = 0.        ;kT0 = 0.        ;aa1 = 0.       ;aa2 = 0.     ;aa3 = 0.  ;aa4 = 0.  ;aa5 = 0.                                                                    
+		          roh = 0.        ;kT0 = 0.        ;aa1 = 0.       ;aa2 = 0.     ;aa3 = 0.  ;aa4 = 0.  ;aa5 = 0.                                                                    
                  freq = 0.       ;gama = 0.       ;Tinf = 0.      ;Tamb = 0.
-		timet = 0.      ;sigma = 0.                                                                       
-	       omegaf = 0.     ;length = 0.     ;deltar = 0.    ;deltaz = 0.  ;deltat = 0.                                           
-	       radius = 0.
-	     epsilong = 0.   ;tbetween = 0.                                   
-	    stability = 0.   
+				timet = 0.      ;sigma = 0.                                                                       
+			   omegaf = 0.     ;length = 0.     ;deltar = 0.    ;deltaz = 0.  ;deltat = 0.                                           
+			   radius = 0.
+			 epsilong = 0.   ;tbetween = 0.                                   
+			stability = 0.   
 
 !**********************************************************************************************************************
 !                                             Inputs		  
@@ -164,12 +150,12 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
    deltat = tp / 10                                                                      !s     
        nt = int(tbetween/deltat)                                                         !dimensionless
 
-       nz = 58 !150                                                                          !dimensionless
+       nz = 58 !150                                                                      !dimensionless
    length = 0.02                !length of crystal                                        m 
    deltaz = length/nz                                                                    !m
 
-   radius = 5e-3               !radius of crystal                                       !m
-   omegaf = 100.e-6              !spot size                                               !m
+   radius = 5e-3               !radius of crystal                                        !m
+   omegaf = 100.e-6              !spot size                                              !m
    deltar = omegaf/10                                                                    !m
        nr = int(radius/deltar)                                                           !dimensionless 
 
