@@ -79,12 +79,6 @@ Folder PATH listing
 |   |   8. open file.F90
 |   |   9. Array.F90
 |   |   README.md
-|   |   
-|   \---Persian materials
-|           1. Recommended  Textbooks .ppsx
-|           2. Scan - Book - Safari .pdf
-|           3. Fortran.pptx
-|           4. Fortran - Framework.pdf
 |           
 +---3. SHG Codes
 |       2. Heat Equation _ Continuous Wave Gaussian _ Computational.f90
