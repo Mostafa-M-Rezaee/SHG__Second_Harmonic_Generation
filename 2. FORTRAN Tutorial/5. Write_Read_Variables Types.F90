@@ -1,19 +1,8 @@
 
-!            ********************************************************************************
-
-!            * Mostafa Mohammad Rezaee, Department of Physics, Shahid Chamran University    *
-
-!            * mostafa.mohammadrezaee@gmail.com                                             *
-
-!            * "Write & Read & type Variables .F90" is a little program for teaching write  * 
-
-!            *   and read commands and the way to determine the type of the variables.      * 
-
-!            *             originally Written : 17/02/2011  by MM                           *
-
-!            *                   last revised : ----------                                  *
-
-!            ********************************************************************************
+!            *********************************************************************************
+!            * "Write & Read & Variables Types .F90" is a little program for learning write  * 
+!            *  and read commands and the way to determine the type of the variables.        * 
+!            *********************************************************************************
 
 
 program writeread

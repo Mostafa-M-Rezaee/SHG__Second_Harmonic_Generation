@@ -1,17 +1,7 @@
 
-!            ********************************************************************************
-
-!            * Mostafa Mohammad Rezaee, Department of Physics, Shahid Chamran University    *
-
-!            * mostafa_mohammadrezaee@yahoo.com                                             *
-
-!            * "General Structure .F90" is a suggested structure to write a Fortran program.* 
-
-!            *             originally Written : 15/02/2011  by MM                           *
-
-!            *                   last revised : ----------                                  *
-
-!            ********************************************************************************
+!            **********************************************************************
+!            * "Array .F90" is an example of using arrays in a Fortran program.   * 
+!            **********************************************************************
 
 program Array
 

@@ -1,18 +1,7 @@
 
 !            ********************************************************************************
-
-!            * Mostafa Mohammad Rezaee, Department of Physics, Shahid Chamran University    *
-
-!            * mostafa_mohammadrezaee@yahoo.com                                             *
-
 !            * "open file .F90" is a little program for teaching the way of open a file     * 
-
-!            *   and save the results of the program in it.                                 * 
-
-!            *             originally Written : 19/02/2011  by MM                           *
-
-!            *                   last revised : ----------                                  *
-
+!            *  and save the results of the program in it.                                  * 
 !            ********************************************************************************
 
 

@@ -1,17 +1,7 @@
 
-!            ********************************************************************************
-
-!            * Mostafa Mohammad Rezaee, Department of Physics, Shahid Chamran University    *
-
-!            * mostafa.mohammadrezaee@gmail.com                                             *
-
-!            * "General Structure .F90" is a suggested structure to write a Fortran program.* 
-
-!            *             originally Written : 15/02/2011  by MM                           *
-
-!            *                   last revised : ----------                                  *
-
-!            ********************************************************************************
+!            *****************************************************************************************
+!            * "FORTRAN Coding Tempalte .F90" is a suggested structure to write a Fortran program.   * 
+!            *****************************************************************************************
 
 
 program name????
@@ -91,17 +81,7 @@ end program name????
 
 
 !            ********************************************************************************
-
-!            * Mostafa Mohammad Rezaee, Department of Physics, Shahid Chamran University    *
-
-!            * mostafa_mohammadrezaee@yahoo.com                                             *
-
 !            * "subroutine name????( ,  ,  ,  )" is a                                       * 
-
-!            *             originally Written : 15/02/2011  by MM                           *
-
-!            *                   last revised : ----------                                  *
-
 !            ********************************************************************************
 
 !NOTE:  INPUTS

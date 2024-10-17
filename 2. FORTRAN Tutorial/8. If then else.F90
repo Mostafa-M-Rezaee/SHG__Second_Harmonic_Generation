@@ -1,17 +1,7 @@
 
-!            ********************************************************************************
-
-!            * Mostafa Mohammad Rezaee, Department of Physics, Shahid Chamran University    *
-
-!            * mostafa_mohammadrezaee@yahoo.com                                             *
-
-!            * "If then else .F90" is a little program for teaching "if" command.           * 
-
-!            *             originally Written : 03/03/2011  by MM                           *
-
-!            *                   last revised : ----------                                  *
-
-!            ********************************************************************************
+!            **************************************************************************
+!            * "If then else .F90" is a little program for learning "if" command.     * 
+!            **************************************************************************
 
 
 program ifthenelse

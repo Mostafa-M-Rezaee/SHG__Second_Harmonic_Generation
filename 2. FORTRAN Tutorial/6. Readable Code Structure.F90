@@ -1,26 +1,6 @@
 
 !            ********************************************************************************
-     
-!            * Mostafa Mohammad-Rezaee , Department of Physics, Shahid Chamran University   *
-
-!            * Alireza Motazedian      , Department of Physics, Shahid Chamran University   *
-
-!            *                                                                              * 
-
-!            * mostafa.mohammadrezaee@gmail.com                                             *
-
-!            * alireza.motazedian@yahoo.com                                                 *
-
-!            *                                                                              * 
-
-!            * "Temp_G_PW.F90" is a program to solve Heat-equation FDM.                     * 
-
-!            *                                                                              * 
-
-!            *             originally Written : 30-DES-2011   by MM  &  AM                  *
-
-!            *                   last revised : 22-JUN-2012   by MM  &  AM                  *
-
+!            * "Readable Code Structure .F90" is an example of a readable Fortran program.  * 
 !            ********************************************************************************
 
 program Temp_G_PW

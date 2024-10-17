@@ -1,17 +1,7 @@
 
-!            ********************************************************************************
-
-!            * Mostafa Mohammad Rezaee, Department of Physics, Shahid Chamran University    *
-
-!            * mostafa_mohammadrezaee@yahoo.com                                             *
-
-!            * "do loop .F90" is a little program for teaching "do" command.                * 
-
-!            *             originally Written : 03/03/2011  by MM                           *
-
-!            *                   last revised : ----------                                  *
-
-!            ********************************************************************************
+!            ***********************************************************************
+!            * "do loop .F90" is a little program for learning "do" command.       * 
+!            ***********************************************************************
 
 
 program doloop
