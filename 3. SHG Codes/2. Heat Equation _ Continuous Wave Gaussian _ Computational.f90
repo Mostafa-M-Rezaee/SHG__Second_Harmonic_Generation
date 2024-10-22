@@ -389,6 +389,15 @@ close(2)
 close(3)
 close(11)
 close(21)
+
+write(*,*) 
+write(*,*) '---- The results are stored in `.plt` format. &
+	        If a different format is required, users can  &
+			rename the file and open it with their preferred software. ----!'
+			
+write(*,*) 	
+write(*,*) '---- Program Completed ----!'
+
 end program Temp_G_CW
                     
 !======================================================================================================================

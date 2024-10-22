@@ -163,6 +163,7 @@ open(3,file=filenameTz)
 write(3,'(/,a,/)')    !' variables=         "z"                             "temperature"' 
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameTt,filenameTr,filenameTz
+ write(*,'(A,\)')' Press Enter to continue '
  read(*,*)
 
 !------------------------------------------------ Phase Equation Files
@@ -179,6 +180,7 @@ open(6,file=filenamePz)
 write(6,'(/,a,/)')    !' variables=         "z"           "deltaphase_real"      "deltaphase_imaginary"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePt,filenamePr,filenamePz
+ write(*,'(A,\)')' Press Enter to continue '
  read(*,*)
 
 !**********************************************************************************************************************
@@ -759,6 +761,14 @@ close(3)
 close(4)
 close(5)
 close(6)
+
+write(*,*) 
+write(*,*) '---- The results are stored in `.plt` format. &
+	        If a different format is required, users can  &
+			rename the file and open it with their preferred software. ----!'
+			
+write(*,*) 	
+write(*,*) '---- Program Completed ----!'
 
 end program Temp_Phase_pw                     
 

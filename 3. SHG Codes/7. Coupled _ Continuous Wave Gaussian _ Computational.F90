@@ -223,6 +223,7 @@ open(8,file=filenamePsi12pz)
 !write(8,'(/,a,/)')    ' variables =       "z"                               "Psi1p ** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi12pr,filenamePsi12pz
+ write(*,'(A,\)')' Press Enter to continue '
  read(*,*)
 
 !------------------
@@ -236,6 +237,7 @@ open(10,file=filenamePsi22pz)
 !write(10,'(/,a,/)')    ' variables =       "z"                               "Psi2p ** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi22pr,filenamePsi22pz
+ write(*,'(A,\)')' Press Enter to continue '
  read(*,*)
 
 !------------------
@@ -249,6 +251,7 @@ open(12,file=filenamePsi32pz)
 !write(12,'(/,a,/)')    ' variables =       "z"                               "Psi3p** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi32pr,filenamePsi32pz
+ write(*,'(A,\)')' Press Enter to continue '
  read(*,*)
 
 !--------------------------------------------------------------------------------------------
@@ -262,6 +265,7 @@ open(14,file=filenamePsi12mz)
 !write(14,'(/,a,/)')    ' variables =       "z"                               "Psi1m ** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi12mr,filenamePsi12mz
+ write(*,'(A,\)')' Press Enter to continue '
  read(*,*)
 
 !------------------
@@ -275,6 +279,7 @@ open(16,file=filenamePsi22mz)
 !write(16,'(/,a,/)')    ' variables =       "z"                               "Psi2m ** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi22mr,filenamePsi22mz
+ write(*,'(A,\)')' Press Enter to continue '
  read(*,*)
 
 !------------------
@@ -288,6 +293,7 @@ open(18,file=filenamePsi32mz)
 !write(18,'(/,a,/)')    ' variables =       "z"                               "Psi3m** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi32mr,filenamePsi32mz
+ write(*,'(A,\)')' Press Enter to continue '
  read(*,*)
 !--------------------------------------------------------------------------
 
@@ -1263,5 +1269,14 @@ close(17)
 close(18)
 
 !----------------------
+
+write(*,*) 
+write(*,*) '---- The results are stored in `.plt` format. &
+	        If a different format is required, users can  &
+			rename the file and open it with their preferred software. ----!'
+			
+write(*,*) 	
+write(*,*) '---- Program Completed ----!'
+
 end program Elec_temp_phase_CW                     
 

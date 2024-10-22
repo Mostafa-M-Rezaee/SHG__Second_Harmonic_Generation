@@ -164,6 +164,7 @@ open(9,file=filenameElec12z)
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameElec12t  &
                                                                                     ,filenameElec12r  &
                                                                                     ,filenameElec12z
+ write(*,'(A,\)')' Press Enter to continue '
  read(*,*)
 
 !------------------
@@ -182,6 +183,7 @@ open(12,file=filenameElec22z)
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameElec22t  &
                                                                                     ,filenameElec22r  &
 										    ,filenameElec22z
+ write(*,'(A,\)')' Press Enter to continue '
  read(*,*)
 
 !------------------
@@ -200,6 +202,7 @@ open(15,file=filenameElec32z)
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameElec32t  &
                                                                                     ,filenameElec32r  &
 										    ,filenameElec32z
+ write(*,'(A,\)')' Press Enter to continue '
  read(*,*)
 
 !------------------
@@ -958,6 +961,14 @@ close(18)
 close(19)
 close(20)
 close(21)
+
+write(*,*) 
+write(*,*) '---- The results are stored in `.plt` format. &
+	        If a different format is required, users can  &
+			rename the file and open it with their preferred software. ----!'
+			
+write(*,*) 	
+write(*,*) '---- Program Completed ----!'
 
 end program Elec_BG_PW                     
 

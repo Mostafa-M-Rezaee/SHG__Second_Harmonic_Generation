@@ -93,25 +93,25 @@ write(*,'(/,2x,a,\)') 'Enter the deltak value  : '
 !                                 Determination of Filenames & Open files
 !**********************************************************************************************************************
 
-filenamez='elec1p-z.txt'
+filenamez='elec1p-z.plt'
 open(1,file=filenamez)
 
-filenamez='elec2p-z.txt'
+filenamez='elec2p-z.plt'
 open(2,file=filenamez)
 
-filenamez='elec3p-z.txt'
+filenamez='elec3p-z.plt'
 open(3,file=filenamez)
 
-filenamez='elec1,2,3.txt'  
+filenamez='elec1,2,3.plt'  
 open(4,file=filenamez) 
 
-filenamez='elec1m-z.txt'
+filenamez='elec1m-z.plt'
 open(5,file=filenamez)
 
-filenamez='elec2m-z.txt'
+filenamez='elec2m-z.plt'
 open(6,file=filenamez)
 
-filenamez='elec3m-z.txt'
+filenamez='elec3m-z.plt'
 open(7,file=filenamez)
 
 
@@ -261,6 +261,15 @@ end do !k
 !**********************************************************************************************************************
 
 close(1)
+
+write(*,*) 
+write(*,*) '---- The results are stored in `.plt` format. &
+	        If a different format is required, users can  &
+			rename the file and open it with their preferred software. ----!'
+			
+write(*,*) 	
+write(*,*) '---- Program Completed ----!'
+
 end program coupliedelectempphase 
                  
 !======================================================================================================================
