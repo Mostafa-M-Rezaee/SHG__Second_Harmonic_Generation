@@ -1,20 +1,20 @@
 
 
-!            ********************************************************************************
-!            * File: 6. Ideal _ Pulsed Wave Bessel Gaussian _ Computational.F90             *
-!            *                                                                              *
-!            * Note: This Fortran code is developed specifically for the article titled:    *
-!            * Pulsed Bessel-Gauss beams: A depleted wave model for type II second harmonic *
-!            * generation                                                                   *
-!            *                                                                              *
-!            * Authors: Sabaeian, M., Motazedian, A., Rezaee, M.M. and Jalil-Abadi, F.S.    *
-!            *                                                                              *
-!            * Harvard style:                                                               *
-!            * Sabaeian, M., Motazedian, A., Rezaee, M.M. and Jalil-Abadi, F.S., 2014.      *
-!            * Pulsed Bessel–Gauss beams: a depleted wave model for type II second-harmonic *
-!            * generation. Applied Optics, 53(32), pp.7691-7696.                            *
-!            *                                                                              *
-!            ********************************************************************************
+!            *************************************************************************************
+!            *                                                                                   *
+!            * File name:                                                                        *
+!            *     6. Ideal _ Pulsed Wave Bessel Gaussian _ Computational.F90                    *
+!            *                                                                                   *
+!            * This Fortran code is developed specifically for the article titled:               *
+!            *     Pulsed Bessel-Gauss beams: A depleted wave model for type II second harmonic  *
+!            *     generation                                                                    *
+!            *                                                                                   *
+!            * Cite Us:                                                                          *
+!            *     Sabaeian, M., Motazedian, A., Rezaee, M.M. and Jalil-Abadi, F.S., 2014.       *
+!            *     Pulsed Bessel–Gauss beams: a depleted wave model for type II second-harmonic  *
+!            *     generation. Applied Optics, 53(32), pp.7691-7696.                             *
+!            *                                                                                   *
+!            *************************************************************************************
 
 program Elec_BG_PW
 
@@ -72,7 +72,8 @@ character*35  filenameibestl                                                    
              ,filenameElec22t      ,filenameElec22r       ,filenameElec22z                                           &         
 			 ,filenameElec32t      ,filenameElec32r       ,filenameElec32z                                           &
 
-			 ,filenamePsi3picksl   ,filenamePsi2picksl    ,filenameLscalemaxl
+			 ,filenamePsi3picksl   ,filenamePsi2picksl    ,filenameLscalemaxl                                        & 
+			 ,plot_extention 
 
 !**********************************************************************************************************************
 !                                       Giving Zero to variables
@@ -115,48 +116,53 @@ character*35  filenameibestl                                                    
 !**********************************************************************************************************************
 !                                             Inputs		  
 !**********************************************************************************************************************
-write(*,'(/,2x,a,\)') '            Enter the Energy value  : '
-!read(*,*) E
-E = 0.8        
-write(*,'(/,2x,a,\)') '                             Again  : '
-!read(*,*) EE
-EE = '0.08'            
 
-write(*,'(/,2x,a,\)') '         Enter the frequency value  : '
-!read(*,*) freq
+!write(*,'(/,2x,a,\)') '            Enter the Energy value  : '
+ !read(*,*) E    
+!write(*,'(/,2x,a,\)') '                             Again  : '
+ !read(*,*) EE
+            
+!write(*,'(/,2x,a,\)') '         Enter the frequency value  : '
+ !read(*,*) freq
+!write(*,'(/,2x,a,\)') '                             Again  : '
+ !read(*,*) freqf
+
+!write(*,'(/,2x,a,\)') '        Enter the Number of Pulses  : '
+ !read(*,*) Np
+!write(*,'(/,2x,a,\)') '                             Again  : '
+ !read(*,*) Npf
+
+!write(*,'(/,2x,a,\)') '                      Enter the tp  : '
+ !read(*,*) tp
+!write(*,'(/,2x,a,\)') '                             Again  : '
+ !read(*,*) tpf
+
+E = 0.8  
 freq = 4000
-write(*,'(/,2x,a,\)') '                             Again  : '
-!read(*,*) freqf
-freqf = '4000'
-
-write(*,'(/,2x,a,\)') '        Enter the Number of Pulses  : '
-!read(*,*) Np
 Np=1
-write(*,'(/,2x,a,\)') '                             Again  : '
-!read(*,*) Npf
-Npf='1'
-
-write(*,'(/,2x,a,\)') '                      Enter the tp  : '
-!read(*,*) tp
 tp = 50e-6
-write(*,'(/,2x,a,\)') '                             Again  : '
-!read(*,*) tpf
+
+EE = '0.08'
+freqf = '4000'
+Npf='1'
 tpf = '50'
 
 !**********************************************************************************************************************
 !                          Determination of Filenames and Opening files
 !**********************************************************************************************************************
 
+plot_extention = '.plt'
+
 !------------------------------------------------ Field Equations Files
-filenameElec12t = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Elec12t.plt'
+filenameElec12t = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec12_t'//plot_extention
 open(7,file=filenameElec12t)
 !write(7,'(/,a,/)')    ' variables =     "t"                              "Elec1 ** 2"'
 
-filenameElec12r = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Elec12r.plt'
+filenameElec12r = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec12_r'//plot_extention
 open(8,file=filenameElec12r)
 !write(8,'(/,a,/)')    ' variables =     "r"                              "Elec1 ** 2"'
 
-filenameElec12z = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Elec12z.plt'
+filenameElec12z = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec12_z'//plot_extention
 open(9,file=filenameElec12z)
 !write(9,'(/,a,/)')    ' variables =     "z"                              "Elec1 ** 2"'
 
@@ -164,64 +170,64 @@ open(9,file=filenameElec12z)
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameElec12t  &
                                                                                     ,filenameElec12r  &
                                                                                     ,filenameElec12z
- write(*,'(A,\)')' Press Enter to continue '
+ write(*,'(A,\)')' Press any key to continue '
  read(*,*)
 
 !------------------
-filenameElec22t = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Elec22t.plt'
+filenameElec22t = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec22_t'//plot_extention
 open(10,file=filenameElec22t)
 !write(10,'(/,a,/)')    ' variables =     "t"                              "Elec2 ** 2"'
 
-filenameElec22r = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Elec22r.plt'
+filenameElec22r = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec22_r'//plot_extention
 open(11,file=filenameElec22r)
 !write(11,'(/,a,/)')    ' variables =     "r"                              "Elec2 ** 2"'
 
-filenameElec22z = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Elec22z.plt'
+filenameElec22z = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec22_z'//plot_extention
 open(12,file=filenameElec22z)
 !write(12,'(/,a,/)')    ' variables =     "z"                              "Elec2 ** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameElec22t  &
                                                                                     ,filenameElec22r  &
 										    ,filenameElec22z
- write(*,'(A,\)')' Press Enter to continue '
+ write(*,'(A,\)')' Press any key to continue '
  read(*,*)
 
 !------------------
-filenameElec32t = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Elec32t.plt'
+filenameElec32t = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec32_t'//plot_extention
 open(13,file=filenameElec32t)
 !write(13,'(/,a,/)')    ' variables =     "t"                              "Elec3 ** 2"'
 
-filenameElec32r = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Elec32r.plt'
+filenameElec32r = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//' tp_'//trim(tpf)//'_Elec32_r'//plot_extention
 open(14,file=filenameElec32r)
 !write(14,'(/,a,/)')    ' variables =     "r"                              "Elec3 ** 2"'
 
-filenameElec32z = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Elec32z.plt'
+filenameElec32z = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec32_z'//plot_extention
 open(15,file=filenameElec32z)
 !write(15,'(/,a,/)')    ' variables =     "z"                             "Elec3 ** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameElec32t  &
                                                                                     ,filenameElec32r  &
 										    ,filenameElec32z
- write(*,'(A,\)')' Press Enter to continue '
+ write(*,'(A,\)')' Press any key to continue '
  read(*,*)
 
 !------------------
-filenamePsi3picksl = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Psi3picks l.plt'
+filenamePsi3picksl = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Psi3picks_l'//plot_extention
 open(16,file=filenamePsi3picksl)
 !write(16,'(/,a,/)')    ' variables =     "l"                              "Psi3 picks ** 2"'
 
 !------------------
-filenamePsi2picksl = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Psi2picks l.plt'
+filenamePsi2picksl = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Psi2picks_l'//plot_extention
 open(17,file=filenamePsi2picksl)
 !write(16,'(/,a,/)')    ' variables =     "l"                              "Psi2 picks ** 2"'
 
 !------------------
-filenameLscalemaxl= 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Lscalemax l.plt'
+filenameLscalemaxl= 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Lscalemax_l'//plot_extention
 open(20,file=filenameLscalemaxl)
 !write(19,'(/,a,/)')    ' variables =     "l"                              "Lscalemax"'
 
 !------------------
-filenameibestl = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' ibest l.plt'
+filenameibestl = 'E'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_ibest l'//plot_extention
 open(21,file=filenameibestl)
 !write(16,'(/,a,/)')    ' variables =     "l"                              "ibest"'
 
@@ -240,69 +246,69 @@ open(21,file=filenameibestl)
 !omegaf=100.e-6
 
 !------------------------------------------------ Common
-           pi = 4*atan(1.)                                                              !dimensionless
+           pi = 4*atan(1.)                                                                   !dimensionless
            Ii = (0.,1.)
 
-     tbetween = 1./freq              !4.*tp                                             !s
-        timet = Np*tbetween                                                             !s
-          !nt = 1600                 !int(1600./20.) !80   int(tbetween/deltat)         !dimensionless 
-      !deltat = tbetween / nt                                                           !s     
+     tbetween = 1./freq                    !4.*tp                                            !s
+        timet = Np*tbetween                                                                  !s
+          !nt = 1600                       !int(1600./20.) !80   int(tbetween/deltat)        !dimensionless 
+      !deltat = tbetween / nt                                                                !s     
           !inn = 20
 
-           nz = 5000 !20000@@@@@@@@@@                                                   !dimensionless
-       length = 20.e-3                !length of crystal                                !m 
-       deltaz = length/nz                                                               !m
-           kn = 100 !10@@@@@@@@@@@@@@@
+           nz = 5000                                                                         !dimensionless
+       length = 20.e-3                     !length of crystal                                !m 
+       deltaz = length/nz                                                                    !m
+           kn = 100 
 
-           nr = 50 !300@@@@@@@@
-       radius = 0.002                !radius of crystal                                 !m
-       omegaf = 80.e-6              !spot size                                          !m
+           nr = 50 
+       radius = 0.002                      !radius of crystal                                !m
+       omegaf = 80.e-6                     !spot size                                        !m
       nomegaf = 5 
         nnrom = 9./10.
-      !deltar = omegaf/10.                                                              !m
+      !deltar = omegaf/10.                                                                   !m
       deltar1 = (nomegaf*omegaf)/(int(nnrom*nr))
       deltar2 = (radius-(nomegaf*omegaf))/(int((1-nnrom)*nr))
      !deltar1 = deltar
      !deltar2 = deltar1
-          !nr = int(radius/deltar)                                                      !dimensionless 
+          !nr = int(radius/deltar)                                                           !dimensionless 
  
-           Cp = 728.016              !heat capacity at constant pressure                !J/(kg.K)
+           Cp = 728.016                    !heat capacity at constant pressure               !J/(kg.K)
  
-          KT0 = 13.                  !thermal conductivity of KTP crystal               !W/(m.K)
-          roh = 2945.                !mass density                                      !kg/m^3
+          KT0 = 13.                        !thermal conductivity of KTP crystal              !W/(m.K)
+          roh = 2945.                      !mass density                                     !kg/m^3
 
     stability = 0.5
        deltat = stability * ( (roh*Cp)/(2.*KT0) ) * ( (deltar1**2.*deltaz**2.)/(deltar1**2.+deltaz**2.) ) !s   
-          nt1 = int(tbetween/deltat)                                                    !dimensionless 
+          nt1 = int(tbetween/deltat)                                                         !dimensionless 
           inn = int(nt1/80)
            nt = nt1 - mod(nt1,inn)
 
-        power = E/(sqrt(pi)*tp)                                                         !wat 
+        power = E/(sqrt(pi)*tp)                                                              !wat 
 
-        gama1 = 0. !0.5                  !the absorption coefficient of fundomental wave    !1/m
-        gama2 = 0. !0.5                  !the absorption coefficient of fundomental wave    !1/m
-        gama3 = 0. !4.                   !the absorption coefficient of fundomental SHW     !1/m        
+        gama1 = 0. !0.5                    !the absorption coefficient of fundomental wave   !1/m
+        gama2 = 0. !0.5                    !the absorption coefficient of fundomental wave   !1/m
+        gama3 = 0. !4.                     !the absorption coefficient of fundomental SHW    !1/m        
 
         no1T0 = 1.8296
         ne1T0 = 1.7466   
         ne2T0 = 1.7881   
 
-      lambda1 = 1064.e-9             !wavelength fundamental                            !m
-      lambda2 =  532.e-9             !wavelength second harmonic                        !m
+      lambda1 = 1064.e-9                   !wavelength fundamental                           !m
+      lambda2 =  532.e-9                   !wavelength second harmonic                       !m
 
-         beta = 1.*pi/180.               !Axicon Angle
-        alpha = 2.*pi/lambda1 *sin(beta) !wave vector                                   !1/m 
+         beta = 1.*pi/180.                 !Axicon Angle
+        alpha = 2.*pi/lambda1 *sin(beta)   !wave vector                                      !1/m 
 
  dteta_bessel = pi/200.
 
 !------------------------------------------------ Fields properties
-       c = 3.e8                                                                         !m/s
+       c = 3.e8                                                                              !m/s
 
-   omega = 2.*pi*c/lambda1                                                              !rad/s 
+   omega = 2.*pi*c/lambda1                                                                   !rad/s 
 
-epsilon0 = 8.85e-12                                                                     !C**2/N*m**2  or F(farad)/m
+epsilon0 = 8.85e-12                                                                          !C**2/N*m**2  or F(farad)/m
 
-    deff = 7.3e-12           !nonlinear  effective coefficient                          !m/v       
+    deff = 7.3e-12           !nonlinear  effective coefficient                               !m/v       
 	           
 !**********************************************************************************************************************
 !                                        Arrays Allocattion 
@@ -342,11 +348,11 @@ write(*,*)
 write(*,'(A15,F15.10,//)')  '            E = ',E                
 
 write(*,'(A15,2F15.10,/)')  '           Ii = ',Ii                  
-write(*,'(A15,I5    ,/ )')  '           Nt = ',Nt
-write(*,'(A15,I5    ,/ )')  '          inn = ',inn              
-write(*,'(A15,I5    ,/ )')  '           Nr = ',Nr                
-write(*,'(A15,I5    ,/ )')  '           Nz = ',Nz
-write(*,'(A15,I5    ,/ )')  '           kn = ',kn 
+write(*,'(A15,I9    ,/ )')  '           Nt = ',Nt
+write(*,'(A15,I9    ,/ )')  '          inn = ',inn              
+write(*,'(A15,I9    ,/ )')  '           Nr = ',Nr                
+write(*,'(A15,I9    ,/ )')  '           Nz = ',Nz
+write(*,'(A15,I9    ,/ )')  '           kn = ',kn 
 
 write(*,'(A15,F15.10,/ )')  '           pi = ',pi
 write(*,'(A15,F15.10,//)')  '           Cp = ',Cp              
@@ -379,7 +385,7 @@ write(*,'(A15,F15.10,//)')  '     tbetween = ',tbetween
 write(*,'(A15,F15.10,//)')  '    stability = ',stability                                                                
 
 write(*,*)'----------------------------------------------------------------------------'
-write(*,'(A,\)')' Press Enter to continue '
+write(*,'(A,\)')' Press any key to continue '
 !read(*,*)
 
 !------------------------------------------------ For fields Equation 
@@ -395,7 +401,7 @@ write(*,'(A15,f25.5 ,/ )')  '        omega = ',omega
 write(*,'(A15,f25.20,//)')  '     epsilon0 = ',epsilon0           
 
 write(*,*)'----------------------------------------------------------------------------'
-write(*,'(A,\)')' Press Enter to continue '
+write(*,'(A,\)')' Press any key to continue '
 !read(*,*)
   
 !**********************************************************************************************************************
@@ -963,9 +969,10 @@ close(20)
 close(21)
 
 write(*,*) 
-write(*,*) '---- The results are stored in `.plt` format. &
-	        If a different format is required, users can  &
-			rename the file and open it with their preferred software. ----!'
+write(*,*) '---- The results are stored in `.plt` format.                               &
+	        If a different format is required, users can set the desried extension in   &
+			"Determine  Filenames & Open files" section of the code or rename the file  & 
+			manually and open it with their preferred software. ----!'	
 			
 write(*,*) 	
 write(*,*) '---- Program Completed ----!'

@@ -1,22 +1,21 @@
 
 
-!            ********************************************************************************
-!            * File: 3. Heat Equation _ Pulsed Wave Gaussian _ Computational.F90            *
-!            *                                                                              *
-!            * Note: This Fortran code is developed specifically for the article titled:    *
-!            * Complete Anisotropic Time-Dependent Heat Equation in KTP Crystal under       *
-!            * Repetitively Pulsed Gaussian Beams: A Numerical Approach                     *
-!            *                                                                              *
-!            * Authors: Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S.,      *
-!            * and Khaldi-Nasab, A.                                                         *
-!            *                                                                              *
-!            * Harvard style:                                                               *
-!            * Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S. and Khaldi-    *
-!            * Nasab, A., 2015. Complete anisotropic time-dependent heat equation in KTP    *
-!            * crystal under repetitively pulsed Gaussian beams: a numerical approach.      *
-!            * Applied Optics, 54(6), pp.1241-1249.                                         *
-!            *                                                                              *
-!            ********************************************************************************
+!            **********************************************************************************
+!            *                                                                                *
+!            * File name:                                                                     *
+!            *     3. Heat Equation _ Pulsed Wave Gaussian _ Computational.F90                *
+!            *                                                                                *
+!            * This Fortran code is developed specifically for the article titled:            *
+!            *     Complete Anisotropic Time-Dependent Heat Equation in KTP Crystal under     *
+!            *     Repetitively Pulsed Gaussian Beams: A Numerical Approach                   *
+!            *                                                                                *
+!            * Cite Us:                                                                       *
+!            *     Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S. and Khaldi-  *
+!            *     Nasab, A., 2015. Complete anisotropic time-dependent heat equation in KTP  *
+!            *     crystal under repetitively pulsed Gaussian beams: a numerical approach.    *
+!            *     Applied Optics, 54(6), pp.1241-1249.                                       *
+!            *                                                                                *
+!            **********************************************************************************
 
 program Temp_G_PW
 
@@ -26,24 +25,25 @@ implicit none
 !                                       Variables Definition
 !**********************************************************************************************************************
 
-integer     i          ,j          ,k          ,l                                                                   &
-           ,nt         ,nr         ,nz         ,Np                                                                       
+integer       i          ,j          ,k          ,l                                                  &
+             ,nt         ,nr         ,nz         ,Np                                                                       
 
-real        t          ,z          ,E          ,h          ,r          ,G           ,P                              &                                                                                    
-           ,T0         ,pi         ,Cp         ,tp                     ,Q0                                          &
-	       ,roh        ,kT0        ,aa1        ,aa2        ,aa3        ,aa4         ,aa5                            &
-           ,freq       ,gama       ,Tinf       ,Tamb                                                                & 
-	       ,timet      ,sigma                                                                                       &
-	       ,omegaf     ,length     ,deltar     ,deltaz     ,deltat                                                  &
-	       ,radius                                                                                                  &
-	       ,epsilong   ,tbetween                                                                                    &
-	       ,stability                                                                                               &
+real          t          ,z          ,E          ,h          ,r          ,G           ,P             &                                                                                    
+             ,T0         ,pi         ,Cp         ,tp         ,Q0                                     &
+	         ,roh        ,kT0        ,aa1        ,aa2        ,aa3        ,aa4         ,aa5           &
+             ,freq       ,gama       ,Tinf       ,Tamb                                               & 
+	         ,timet      ,sigma                                                                      &
+	         ,omegaf     ,length     ,deltar     ,deltaz     ,deltat                                 &
+	         ,radius                                                                                 &
+	         ,epsilong   ,tbetween                                                                   &
+	         ,stability                                                                              
 			  
-	       ,temperature[allocatable](:,:,:)    ,kT[allocatable](:,:)
+	         ,temperature[allocatable](:,:,:)    ,kT[allocatable](:,:)
 
-character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,tpf       ,EE                       &
-             ,filenameKt   ,filenameKr   ,filenameKz 
-                                                     
+character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,tpf       ,EE        &
+             ,filenameKt   ,filenameKr   ,filenameKz                                                 &
+			 ,plot_extention
+                                                  
 
 !**********************************************************************************************************************
 !                                    Giving Zero to variables
@@ -66,47 +66,58 @@ character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,
 !                                             Inputs		  
 !**********************************************************************************************************************
 
-write(*,'(/,2x,a,\)') '            Enter the Energy value  : '
+! Note: 
+!     A 
+
+!write(*,'(/,2x,a,\)') '            Enter the Energy value  : '
 !read(*,*) E
-E = 0.09           
-write(*,'(/,2x,a,\)') '                             Again  : '
-!read(*,*) EE
-EE = '009'            
+           
+!write(*,'(/,2x,a,\)') '                             Again  : '
+!read(*,*) EE           
 
-write(*,'(/,2x,a,\)') '         Enter the frequency value  : '
+!write(*,'(/,2x,a,\)') '         Enter the frequency value  : '
 !read(*,*) freq
-freq = 500
-write(*,'(/,2x,a,\)') '                             Again  : '
+
+!write(*,'(/,2x,a,\)') '                             Again  : '
 !read(*,*) freqf
-freqf = '500'
 
-write(*,'(/,2x,a,\)') '        Enter the Number of Pulses  : '
+!write(*,'(/,2x,a,\)') '        Enter the Number of Pulses  : '
 !read(*,*) Np
-Np=1
-write(*,'(/,2x,a,\)') '                             Again  : '
-!read(*,*) Npf
-Npf='1'
 
-write(*,'(/,2x,a,\)') '                      Enter the tp  : '
+!write(*,'(/,2x,a,\)') '                             Again  : '
+!read(*,*) Npf
+
+!write(*,'(/,2x,a,\)') '                      Enter the tp  : '
 !read(*,*) tp
-tp = 50e-6
-write(*,'(/,2x,a,\)') '                             Again  : '
+
+!write(*,'(/,2x,a,\)') '                             Again  : '
 !read(*,*) tpf
+
+E = 0.09
+freq = 500
+Np = 1
+tp = 50e-6
+
+EE = '009' 
+freqf = '500'
+Npf = '1'
 tpf = '50'
 
 !**********************************************************************************************************************
 !                          Determination of Filenames and Opening files
 !**********************************************************************************************************************
 
-filenameTt = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Tt.plt'
+plot_extention = '.plt'
+
+filenameTt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'T_t'//plot_extention 
 open(1,file=filenameTt)
 !write(1,'(/,a,/)')    '                     t                               temperature'
 
-filenameTr = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Tr.plt'
+filenameTr = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_r'//plot_extention 
 open(2,file=filenameTr)
 !write(2,'(/,a,/)')    '                     r                               temperature'
 
-filenameTz = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Tz.plt'
+filenameTz = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_z'//plot_extention 
 open(3,file=filenameTz)
 !write(3,'(/,a,/)')    '                     z                               temperature'
 
@@ -114,19 +125,19 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
 ! read(*,*)
 
 !-----------------------
-filenameKt = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Kt.plt'
+filenameKt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_K_t'//plot_extention 
 open(4,file=filenameKt)
 !write(1,'(/,a,/)')    '                     t                               K(T)'
 
-filenameKr = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Kr.plt'
+filenameKr = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_K_r'//plot_extention 
 open(5,file=filenameKr)
 !write(2,'(/,a,/)')    '                     r                               K(T)'
 
-filenameKz = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Kz.plt'
+filenameKz = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Kz_'//plot_extention 
 open(6,file=filenameKz)
 !write(3,'(/,a,/)')    '                     z                               K(T)'
 
-write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameKt,filenameKr,filenameKz
+write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :', filenameKt, filenameKr, filenameKz
 ! read(*,*)
 !**********************************************************************************************************************
 !                                           Constants
@@ -150,12 +161,12 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
    deltat = tp / 10                                                                      !s     
        nt = int(tbetween/deltat)                                                         !dimensionless
 
-       nz = 58 !150                                                                      !dimensionless
+       nz = 58                                                                           !dimensionless
    length = 0.02                !length of crystal                                        m 
    deltaz = length/nz                                                                    !m
 
-   radius = 5e-3               !radius of crystal                                        !m
-   omegaf = 100.e-6              !spot size                                              !m
+   radius = 5e-3                !radius of crystal                                       !m
+   omegaf = 100.e-6             !spot size                                               !m
    deltar = omegaf/10                                                                    !m
        nr = int(radius/deltar)                                                           !dimensionless 
 
@@ -185,84 +196,49 @@ forall (j=0:nr,k=0:nz)
 end forall 
 
 !**********************************************************************************************************************
-!                                       Printing Constants     
+!                                       Print Constants     
 !**********************************************************************************************************************
 
 write(*,*)
 write(*,*)'------- Heat Equation Constants --------------------------------------------'
 write(*,*)
-write(*,'(A13,I5    ,/,      &
-          A13,I5    ,/,      &
-		  A13,I5    ,//,     &
+write(*,'(A13,I9    ,/ )') '        Nt = ',Nt
+write(*,'(A13,I9    ,/ )') '        Nr = ',Nr
+write(*,'(A13,I9    ,//)') '        Nz = ',Nz
 		  
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
+write(*,'(A13,F15.10,/ )') '         h = ',h
+write(*,'(A13,F15.10,/ )') '         E = ',E
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10,/ )') '        T0 = ',T0
+write(*,'(A13,F15.10,/ )') '        pi = ',pi
+write(*,'(A13,F15.10,//)') '        Cp = ',Cp
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10,/ )') '       kT0 = ',kT0
+write(*,'(A13,F15.10,//)') '       roh = ',roh
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10,/ )') '      gama = ',gama
+write(*,'(A13,F15.10,/ )') '      Tinf = ',Tinf 
+write(*,'(A13,F15.10,//)') '      Tamb = ',Tamb
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
+write(*,'(A13,F15.10,/ )') '     timet = ',timet
+write(*,'(A13,F15.10,/ )') '     sigma = ',sigma
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,//      &
+write(*,'(A13,F15.10,/ )') '    omegaf = ',omegaf
+write(*,'(A13,F15.10,//)') '    length = ',length
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10,/ )') '    deltat = ',deltat
+write(*,'(A13,F15.10,/ )') '    deltar = ',deltar
+write(*,'(A13,F15.10,//)') '    deltaz = ',deltaz
 
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10,//)') '    radius = ',radius
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10,/ )') '  epsilong = ',epsilong
+write(*,'(A13,F15.10,//)') '  tbetween = ',tbetween
 
-		  A13,F15.10,//)')   &
-          
-'        Nt = ',Nt         ,     &
-'        Nr = ',Nr         ,     &
-'        Nz = ',Nz         ,     &
-
-'         h = ',h          ,     &
-'         E = ',E          ,     & 
-
-'        T0 = ',T0         ,     &
-'        pi = ',pi         ,     &
-'        Cp = ',Cp         ,     &
-
-'       kT0 = ',kT0        ,     &
-'       roh = ',roh        ,     &
-
-'      gama = ',gama       ,     &
-'      Tinf = ',Tinf       ,     &
-'      Tamb = ',Tamb       ,     &
-
-'     timet = ',timet      ,     &
-'     sigma = ',sigma      ,     &
-  
-'    omegaf = ',omegaf     ,     &
-'    length = ',length     ,     &
-
-'    deltat = ',deltat     ,     &
-'    deltar = ',deltar     ,     &
-'    deltaz = ',deltaz     ,     &       
-
-'    radius = ',radius     ,     &
-
-'  epsilong = ',epsilong   ,     &
-'  tbetween = ',tbetween   ,     &
-
-' stability = ',stability                                                                
-
+write(*,'(A13,F15.10,//)') ' stability = ',stability   
+                                                                 
 write(*,*)'----------------------------------------------------------------------------'
-write(*,'(A,\)')' Press Enter to continue '
+write(*,'(A,\)')' Press any key to continue '
 !read(*,*)
 
 
@@ -303,68 +279,69 @@ do l=1,Np !Running the program for Np pulses
    do i=0,nt
       t=i*deltat
       
-      do j=1,nr-1
-         r=j*deltar  
+		do j=1,nr-1
+		 r=j*deltar  
       
-	 do k=1,nz-1
-	    z=k*deltaz 
+			do k=1,nz-1
+			z=k*deltaz 
 
-            !------------------  
-            aa1 = (h*deltaz)/(kT(j,k))
+			!------------------  
+			aa1 = (h*deltaz)/(kT(j,k))
 
-	    aa2 = (epsilong*sigma*deltaz)/(kT(j,k))
-            
-	    aa3 = ( deltat/(roh*Cp) ) * kT(j,k)          
-            
-	    aa4 = ( deltat/(roh*Cp) ) * p * Q0
+			aa2 = (epsilong*sigma*deltaz)/(kT(j,k))
 
-	    aa5 = ( deltat/(roh*Cp) ) * (1/4)
+			aa3 = ( deltat/(roh*Cp) ) * kT(j,k)          
 
-            !------------------
-            !------------------------------------ Boundary conditions
-	    temperature(1,0 ,k)  = temperature(1,1,k)                    !Thermal insulation condition for crystal axis
+			aa4 = ( deltat/(roh*Cp) ) * p * Q0
 
-	    temperature(1,nr,k)  = T0                                  !Temperature-fixed condition for lateral surface
-           
-	    temperature(1,j ,0)  = temperature(1,j,1) - aa1*( temperature(1,j,1) - Tinf )             &
-			                              - aa2*( temperature(1,j,1)**4 - Tamb**4 )
-			                                           !Convection & Radiation condition for input  surface
+			aa5 = ( deltat/(roh*Cp) ) * (1/4)
 
-            temperature(1,j,nz)  = temperature(1,j,nz-1) - aa1*( temperature(1,j,nz-1) - Tinf )       &
-			                                 - aa2*( temperature(1,j,nz-1)**4 - Tamb**4 )
-			                                           !Convection & Radiation condition for output surface
+			!------------------
+			!------------------------------------ Boundary conditions
+			temperature(1,0 ,k)  = temperature(1,1,k)                    !Thermal insulation condition for crystal axis
 
-            !---------------------
-	    temperature(1,0 ,0 ) = temperature(1,0,1) - aa1*( temperature(1,0,1) - Tinf )             &
-			                              - aa2*( temperature(1,0,1)**4 - Tamb**4 ) 
-			                                                  !Convection & Radiation condition for ( 0,0 )
+			temperature(1,nr,k)  = T0                                    !Temperature-fixed condition for lateral surface
 
-	    temperature(1,0 ,nz) = temperature(1,0,nz-1) - aa1*( temperature(1,0,nz-1) - Tinf )       &
-			                                 - aa2*( temperature(1,0,nz-1)**4 - Tamb**4 ) 
-			                                                  !Convection & Radiation condition for ( 0,nz)
+			temperature(1,j ,0)  = temperature(1,j,1) - aa1*( temperature(1,j,1) - Tinf )             &
+										  - aa2*( temperature(1,j,1)**4 - Tamb**4 )
+													                     !Convection & Radiation condition for input  surface
 
-            temperature(1,nr,0 ) = T0                                          !Temperature-fixed condition for (nr,0 )
-		    
-	    temperature(1,nr,nz) = T0                                          !Temperature-fixed condition for (nr,nz)
-	    !------------------------------------ Ending of Boundary conditions
+			temperature(1,j,nz)  = temperature(1,j,nz-1) - aa1*( temperature(1,j,nz-1) - Tinf )       &
+											 - aa2*( temperature(1,j,nz-1)**4 - Tamb**4 )
+													                     !Convection & Radiation condition for output surface
 
-            !------------------------------------ Heat Equation
-	    temperature(2,j,k) = temperature(1,j,k)                                                                   &
-		                      
-        		 + aa3 * ( (temperature(1,j+1,k) -  temperature(1,j-1,k))/(2*r*deltar)                        &
+			!---------------------
+			temperature(1,0 ,0 ) = temperature(1,0,1) - aa1*( temperature(1,0,1) - Tinf )             &
+										  - aa2*( temperature(1,0,1)**4 - Tamb**4 ) 
+															             !Convection & Radiation condition for ( 0,0 )
+
+			temperature(1,0 ,nz) = temperature(1,0,nz-1) - aa1*( temperature(1,0,nz-1) - Tinf )       &
+											 - aa2*( temperature(1,0,nz-1)**4 - Tamb**4 ) 
+															             !Convection & Radiation condition for ( 0,nz)
+
+			temperature(1,nr,0 ) = T0                                    !Temperature-fixed condition for (nr,0 )
+
+			temperature(1,nr,nz) = T0                                    !Temperature-fixed condition for (nr,nz)
+
+			!------------------------------------ Ending of Boundary conditions
+
+			!------------------------------------ Heat Equation
+			temperature(2,j,k) = temperature(1,j,k)                                                                   &
+							  
+				 + aa3 * ( (temperature(1,j+1,k) -  temperature(1,j-1,k))/(2*r*deltar)                        &
 								 
-		                  +(temperature(1,j+1,k) -2*temperature(1,j,k) + temperature(1,j-1,k))/(deltar**2) )  & 
- 
-                         + aa3 * ( (temperature(1,j,k-1) -2*temperature(1,j,k) + temperature(1,j,k+1))/(deltaz**2) ) &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+						  +(temperature(1,j+1,k) -2*temperature(1,j,k) + temperature(1,j-1,k))/(deltar**2) )  & 
 
-	                 + aa4 * exp( (-2*r**2)/(omegaf**2) ) * exp(-gama*z) * exp(-( (t-2*tp)/tp )**2 )               &
+						 + aa3 * ( (temperature(1,j,k-1) -2*temperature(1,j,k) + temperature(1,j,k+1))/(deltaz**2) ) &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
-		         + aa5 * ( ( kT(j+1,k)-kT(j-1,k) ) * ( temperature(1,j+1,k)-temperature(1,j-1,k) ) / (deltar**2)&
+					 + aa4 * exp( (-2*r**2)/(omegaf**2) ) * exp(-gama*z) * exp(-( (t-2*tp)/tp )**2 )               &
 
-			          +( kT(j,k+1)-kT(j,k-1) ) * ( temperature(1,j,k+1)-temperature(1,j,k-1) ) / (deltaz**2) )
-                      
-          end do !k
-      end do !j
+				 + aa5 * ( ( kT(j+1,k)-kT(j-1,k) ) * ( temperature(1,j+1,k)-temperature(1,j-1,k) ) / (deltar**2)&
+
+					  +( kT(j,k+1)-kT(j,k-1) ) * ( temperature(1,j,k+1)-temperature(1,j,k-1) ) / (deltaz**2) )
+					  
+			end do !k
+		end do !j
    !--------------------------------------------- End of running for each deltat 
    !============================================= Printing Results for each deltat
    t=(l-1)*nt*deltat + i*deltat 
@@ -392,7 +369,7 @@ do l=1,Np !Running the program for Np pulses
    end do !j	      
    !---------------------------------------------
 
-   end do !i
+	end do !i
 end do !l
 
 
@@ -439,9 +416,10 @@ close(5)
 close(6)
 
 write(*,*) 
-write(*,*) '---- The results are stored in `.plt` format. &
-	        If a different format is required, users can  &
-			rename the file and open it with their preferred software. ----!'
+write(*,*) '---- The results are stored in `.plt` format.                               &
+	        If a different format is required, users can set the desried extension in   &
+			"Determine  Filenames & Open files" section of the code or rename the file  & 
+			manually and open it with their preferred software. ----!'	
 			
 write(*,*) 	
 write(*,*) '---- Program Completed ----!'

@@ -1,22 +1,21 @@
 
 
-!            ********************************************************************************
-!            * File: 4. Phase Mismatch _ Pulsed Wave Gaussian _ Computational.F90           *
-!            *                                                                              *
-!            * Note: This Fortran code is developed specifically for the article titled:    *
-!            * Thermally Induced Phase Mismatching in a Repetitively Gaussian Pulsed        *
-!            * Pumping KTP Crystal: A Spatio-Temporal Treatment                             *
-!            *                                                                              *
-!            * Authors: Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S.,      *
-!            * Askari, H. and Khazrk, I.                                                    *
-!            *                                                                              *
-!            * Harvard style:                                                               *
-!            * Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S., Askari, H.    *
-!            * and Khazrk, I., 2015. Thermally induced phase mismatching in a repetitively  *
-!            * Gaussian pulsed pumping KTP crystal: a spatiotemporal treatment. Applied     *
-!            * Optics, 54(15), pp.4781-4788.                                                *
-!            *                                                                              *
-!            ********************************************************************************
+!            ************************************************************************************
+!            *                                                                                  *
+!            * File name:                                                                       *
+!            *     4. Phase Mismatch _ Pulsed Wave Gaussian _ Computational.F90                 *
+!            *                                                                                  *
+!            * This Fortran code is developed specifically for the article titled:              *
+!            *     Thermally Induced Phase Mismatching in a Repetitively Gaussian Pulsed        *
+!            *     Pumping KTP Crystal: A Spatio-Temporal Treatment                             *
+!            *                                                                                  *
+!            * Cite Us:                                                                         *
+!            *     Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S., Askari, H.    *
+!            *     and Khazrk, I., 2015. Thermally induced phase mismatching in a repetitively  *
+!            *     Gaussian pulsed pumping KTP crystal: a spatiotemporal treatment. Applied     *
+!            *     Optics, 54(15), pp.4781-4788.                                                *
+!            *                                                                                  *
+!            ************************************************************************************
 
 program Temp_Phase_PW
 
@@ -40,8 +39,8 @@ real*8        t          ,z          ,E          ,h          ,r          ,G     
 			 ,radius                                                                                                  &
 			 ,epsilong   ,tbetween                                                                                    &
 			 ,stability                                                                                               &
-				  
-			,temperature[allocatable](:,:,:)          ,KT[allocatable](:,:)  
+			 
+             ,temperature[allocatable](:,:,:)            ,KT[allocatable](:,:)  
 
 
 character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,tpf       ,EE
@@ -66,11 +65,12 @@ real*8        phi                                                               
              ,Phasemin                                                                                               &
 
 			 ,deltano1rT   ,deltane1rT   ,deltane2rT                                                                 &   
-			 ,deltano1r0T  ,deltane1r0T  ,deltane2r0T                                                               
+			 ,deltano1r0T  ,deltane1r0T  ,deltane2r0T                                                                 	                                                                                      		 
 
 complex*8     deltaphase[allocatable](:,:)                                                                           
 
-character*35  filenamePt   ,filenamePr   ,filenamePz                                                                 
+character*35  filenamePt   ,filenamePr   ,filenamePz                                                                 &
+			 ,plot_extention                                                              
 
 !**********************************************************************************************************************
 !                                    Giving Zero to variables
@@ -116,32 +116,34 @@ character*35  filenamePt   ,filenamePr   ,filenamePz
 !**********************************************************************************************************************
 !                                             Inputs		  
 !**********************************************************************************************************************
-write(*,'(/,2x,a,\)') '            Enter the Energy value  : '
-!read(*,*) E
-E = 0.09     
-write(*,'(/,2x,a,\)') '                             Again  : '
-!read(*,*) EE
-EE = '0.09'            
+!write(*,'(/,2x,a,\)') '            Enter the Energy value  : '
+ !read(*,*) E
+!write(*,'(/,2x,a,\)') '                             Again  : '
+ !read(*,*) EE       
 
-write(*,'(/,2x,a,\)') '         Enter the frequency value  : '
-!read(*,*) freq
+!write(*,'(/,2x,a,\)') '         Enter the frequency value  : '
+ !read(*,*) freq
+!write(*,'(/,2x,a,\)') '                             Again  : '
+ !read(*,*) freqf
+
+!write(*,'(/,2x,a,\)') '        Enter the Number of Pulses  : '
+ !read(*,*) Np
+!write(*,'(/,2x,a,\)') '                             Again  : '
+ !read(*,*) Npf
+
+!write(*,'(/,2x,a,\)') '                      Enter the tp  : '
+ !read(*,*) tp
+!write(*,'(/,2x,a,\)') '                             Again  : '
+ !read(*,*) tpf
+
+E = 0.09  
 freq = 500
-write(*,'(/,2x,a,\)') '                             Again  : '
-!read(*,*) freqf
-freqf = '500'
-
-write(*,'(/,2x,a,\)') '        Enter the Number of Pulses  : '
-!read(*,*) Np
 Np=1
-write(*,'(/,2x,a,\)') '                             Again  : '
-!read(*,*) Npf
-Npf='1'
-
-write(*,'(/,2x,a,\)') '                      Enter the tp  : '
-!read(*,*) tp
 tp = 50e-6
-write(*,'(/,2x,a,\)') '                             Again  : '
-!read(*,*) tpf
+
+EE = '0.09'   
+freqf = '500'
+Npf='1'
 tpf = '50'
 
 
@@ -149,38 +151,40 @@ tpf = '50'
 !                          Determination of Filenames and Opening files
 !**********************************************************************************************************************
 
+plot_extention = '.plt'
+
 !------------------------------------------------ Heat Equation Files
-filenameTt = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Tt.plt'
+filenameTt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_t'//plot_extention
 open(1,file=filenameTt)
 write(1,'(/,a,/)')   ! ' variables=         "t"                             "temperature"'
 
-filenameTr = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Tr.plt'
+filenameTr = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_r'//plot_extention
 open(2,file=filenameTr)
 write(2,'(/,a,/)')    !' variables=         "r"                             "temperature"'
 
-filenameTz = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Tz.plt'
+filenameTz = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_z'//plot_extention
 open(3,file=filenameTz)
 write(3,'(/,a,/)')    !' variables=         "z"                             "temperature"' 
 
-write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameTt,filenameTr,filenameTz
- write(*,'(A,\)')' Press Enter to continue '
+write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :', filenameTt, filenameTr, filenameTz
+ write(*,'(A,\)')' Press any key to continue '
  read(*,*)
 
 !------------------------------------------------ Phase Equation Files
-filenamePt = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Pt.plt'
+filenamePt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Pt'//plot_extention
 open(4,file=filenamePt)
 write(4,'(/,a,/)')    !' variables=         "t"          "deltaphase_real"      "deltaphase_imaginary"'
 
-filenamePr = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Pr.plt'
+filenamePr = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_P_r'//plot_extention
 open(5,file=filenamePr)
 write(5,'(/,a,/)')    !' variables=         "r"          "deltaphase_real"      "deltaphase_imaginary"'
 
-filenamePz = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Pz.plt'
+filenamePz = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_P_z'//plot_extention
 open(6,file=filenamePz)
 write(6,'(/,a,/)')    !' variables=         "z"           "deltaphase_real"      "deltaphase_imaginary"'
 
-write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePt,filenamePr,filenamePz
- write(*,'(A,\)')' Press Enter to continue '
+write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :', filenamePt, filenamePr, filenamePz
+ write(*,'(A,\)')' Press any key to continue '
  read(*,*)
 
 !**********************************************************************************************************************
@@ -253,20 +257,20 @@ stability = ( (2*KT0*deltat)/(roh*Cp) ) * ( (deltar**2+deltaz**2)/(deltar**2*del
      Term2 = sin(theta)**2 * sin(phi)**2
      Term3 = cos(theta)**2
 
-      B1T0 = -Term1 * ( bb1T0 + cc1T0 )                                   &
+      B1T0 = -Term1 * ( bb1T0 + cc1T0 )                               &
 	     -Term2 * ( aa1T0 + cc1T0 )                                   &
 	     -Term3 * ( aa1T0 + bb1T0 ) 
      		 
-      C1T0 =  Term1 * bb1T0 * cc1T0                                       &
+      C1T0 =  Term1 * bb1T0 * cc1T0                                   &
 	     +Term2 * aa1T0 * cc1T0                                       &
 	     +Term3 * aa1T0 * bb1T0 
 
 
-      B2T0 = -Term1 * ( bb2T0 + cc2T0 )                                   &
+      B2T0 = -Term1 * ( bb2T0 + cc2T0 )                               &
 	     -Term2 * ( aa2T0 + cc2T0 )                                   &
 	     -Term3 * ( aa2T0 + bb2T0 )
              
-      C2T0 =  Term1 * bb2T0 * cc2T0                                       &
+      C2T0 =  Term1 * bb2T0 * cc2T0                                   &
 	     +Term2 * aa2T0 * cc2T0                                       &
 	     +Term3 * aa2T0 * bb2T0 
 
@@ -314,162 +318,91 @@ end forall !i
 write(*,*)
 write(*,*)'------- Heat Equation Constants --------------------------------------------'
 write(*,*)
-write(*,'(A13,I5    ,/,      &
-          A13,I5    ,/,      &
-		  A13,I5    ,//,     &
+write(*,'(A13,I9       )') '        Nt = ',Nt          &
+write(*,'(A13,I9       )') '        Nr = ',Nr          &
+write(*,'(A13,I9     ,/)') '        Nz = ',Nz          &
 		  
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
+write(*,'(A13,F15.10   )') '         h = ',h           &
+write(*,'(A13,F15.10   )') '         E = ',E           &
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10   )') '        T0 = ',T0          &
+write(*,'(A13,F15.10   )') '       KT0 = ',KT0         &
+write(*,'(A13,F15.10   )') '        pi = ',pi          &
+write(*,'(A13,F15.10 ,/)') '        Cp = ',Cp          &
 
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10 ,/)') '       roh = ',roh         &
 
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10 ,/)') '      gama = ',gama        &
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10   )') '     timet = ',timet       &
+write(*,'(A13,F15.10 ,/)') '     sigma = ',sigma       &
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10   )') '    omegaf = ',omegaf      &
+write(*,'(A13,F15.10   )') '    length = ',length      &
+write(*,'(A13,F15.10   )') '    deltat = ',deltat      &
+write(*,'(A13,F15.10   )') '    deltar = ',deltar      &
+write(*,'(A13,F15.10 ,/)') '    deltaz = ',deltaz      &
 
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10 ,/)') '    radius = ',radius      &
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10   )') '  epsilong = ',epsilong    &
+write(*,'(A13,F15.10 ,/)') '  tbetween = ',tbetween    &
 
-		  A13,F15.10,//)')   &
+write(*,'(A13,F15.10 ,/)') ' stability = ',stability   &
           
-'        Nt = ',Nt         ,     &
-'        Nr = ',Nr         ,     &
-'        Nz = ',Nz         ,     &
-
-'         h = ',h          ,     &
-'         E = ',E          ,     & 
-
-'        T0 = ',T0         ,     &
-'       KT0 = ',KT0        ,     &
-'        pi = ',pi         ,     &
-'        Cp = ',Cp         ,     &
-
-'       roh = ',roh        ,     &
-
-'      gama = ',gama       ,     &
-
-'     timet = ',timet      ,     &
-'     sigma = ',sigma      ,     &
-  
-'    omegaf = ',omegaf     ,     &
-'    length = ',length     ,     &
-'    deltat = ',deltat     ,     &
-'    deltar = ',deltar     ,     &
-'    deltaz = ',deltaz     ,     &       
-
-'    radius = ',radius     ,     &
-
-'  epsilong = ',epsilong   ,     &
-'  tbetween = ',tbetween   ,     &
-
-' stability = ',stability                                                                
-
+                                                               
 write(*,*)'----------------------------------------------------------------------------'
-write(*,'(A,\)')' Press Enter to continue '
+write(*,'(A,\)')' Press any key to continue '
 read(*,*)
 
 !------------------------------------------------ For Phase Equation 
 write(*,*)
 write(*,*)'------- Phase Equation Constants -------------------------------------------'
 write(*,*)
-write(*,'(A13,f15.10,//,     &
+write(*,'(A13,f15.10 ,/)') '       phi = ',phi       &
 
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,//,     &
+write(*,'(A13,f15.10   )') '      B1T0 = ',B1T0      &
+write(*,'(A13,f15.10   )') '      B2T0 = ',B2T0      &
+write(*,'(A13,f15.10   )') '      C1T0 = ',C1T0      &
+write(*,'(A13,f15.10 ,/)') '      C2T0 = ',C2T0      &
 
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,//,     &
+write(*,'(A13,f15.10   )') '     aa1T0 = ',aa1T0     &
+write(*,'(A13,f15.10   )') '     bb1T0 = ',bb1T0     &
+write(*,'(A13,f15.10   )') '     cc1T0 = ',cc1T0     &
+write(*,'(A13,f15.10   )') '     aa2T0 = ',aa2T0     &
+write(*,'(A13,f15.10   )') '     bb2T0 = ',bb2T0     &
+write(*,'(A13,f15.10 ,/)') '     cc2T0 = ',cc2T0     &
 
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,//,     &
+write(*,'(A13,f15.10   )') '     nx1T0 = ',nx1T0     &
+write(*,'(A13,f15.10   )') '     ny1T0 = ',ny1T0     &
+write(*,'(A13,f15.10   )') '     nz1T0 = ',nz1T0     &
+write(*,'(A13,f15.10   )') '     nx2T0 = ',nx2T0     &
+write(*,'(A13,f15.10   )') '     ny2T0 = ',ny2T0     &
+write(*,'(A13,f15.10 ,/)') '     nz2T0 = ',nz2T0     &
 
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,//,     &
+write(*,'(A13,f15.10   )') '     no1T0 = ',no1T0     &
+write(*,'(A13,f15.10   )') '     ne1T0 = ',ne1T0     &
+write(*,'(A13,f15.10 ,/)') '     ne2T0 = ',ne2T0     &
 
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,//,     &
+write(*,'(A13,f15.10   )') '    dnx1dT = ',dnx1dT    &
+write(*,'(A13,f15.10   )') '    dny1dT = ',dny1dT    &
+write(*,'(A13,f15.10   )') '    dnz1dT = ',dnz1dT    &
+write(*,'(A13,f15.10   )') '    dnx2dT = ',dnx2dT    &
+write(*,'(A13,f15.10   )') '    dny2dT = ',dny2dT    &
+write(*,'(A13,f15.10 ,/)') '    dnz2dT = ',dnz2dT    &
 
-		  A13,f15.10,/,      &
-		  A13,f15.10,/,      &
-		  A13,f15.10,//,     &
+write(*,'(A13,f15.10   )') '     Term1 = ',Term1     &
+write(*,'(A13,f15.10   )') '     Term2 = ',Term2     &
+write(*,'(A13,f15.10 ,/)') '     Term3 = ',Term3     &
 
-		  A13,f15.10,//,     &
+write(*,'(A13,f15.10 ,/)') '     theta = ',theta     &
 
-		  A13,f15.10,/,      &
-		  A13,f15.10,// )')  &
-
-'       phi = ',phi        ,     &
-
-'      B1T0 = ',B1T0       ,     &
-'      B2T0 = ',B2T0       ,     &
-'      C1T0 = ',C1T0       ,     &
-'      C2T0 = ',C2T0       ,     &
-
-'     aa1T0 = ',aa1T0      ,     &
-'     bb1T0 = ',bb1T0      ,     &
-'     cc1T0 = ',cc1T0      ,     &
-'     aa2T0 = ',aa2T0      ,     &
-'     bb2T0 = ',bb2T0      ,     &
-'     cc2T0 = ',cc2T0      ,     &
-
-'     nx1T0 = ',nx1T0      ,     &
-'     ny1T0 = ',ny1T0      ,     &
-'     nz1T0 = ',nz1T0      ,     &
-'     nx2T0 = ',nx2T0      ,     &
-'     ny2T0 = ',ny2T0      ,     &
-'     nz2T0 = ',nz2T0      ,     &
-
-'     no1T0 = ',no1T0      ,     &
-'     ne1T0 = ',ne1T0      ,     &
-'     ne2T0 = ',ne2T0      ,     &
-
-'    dnx1dT = ',dnx1dT     ,     &
-'    dny1dT = ',dny1dT     ,     &
-'    dnz1dT = ',dnz1dT     ,     &
-'    dnx2dT = ',dnx2dT     ,     &
-'    dny2dT = ',dny2dT     ,     &
-'    dnz2dT = ',dnz2dT     ,     &
-
-'     Term1 = ',Term1      ,     &
-'     Term2 = ',Term2      ,     &
-'     Term3 = ',Term3      ,     &
-
-'     theta = ',theta      ,     &
-
-'   lambda1 = ',lambda1    ,     &
-'   lambda2 = ',lambda2        
+write(*,'(A13,f15.10   )') '   lambda1 = ',lambda1   &
+write(*,'(A13,f15.10 ,/)') '   lambda2 = ',lambda2   &
+       
 
 write(*,*)'----------------------------------------------------------------------------'
-write(*,'(A,\)')' Press Enter to continue '
+write(*,'(A,\)')' Press any key to continue '
 read(*,*)
 
 !**********************************************************************************************************************
@@ -503,220 +436,220 @@ end do !j
 do l=1,Np !Runing program for Np pulses 
          
 !--------------------------------------------- Run program for one pulse 
-   do i=0,nt
-      t=deltat*i
-      
-      do j=1,nr-1
-         r=j*deltar  
+	do i=0,nt
+	  t=deltat*i
+	  
+		do j=1,nr-1
+		 r=j*deltar  
 
-	     do k=1,nz-1
-	        z=k*deltaz 
-            
-            !------------------  
-            aa1 = (h*deltaz)/(kT(j,k))
-            
-	    aa2 = (epsilong*sigma*deltaz)/(kT(j,k))
-            
-	    aa3 = ( deltat/(roh*Cp) ) * kT(j,k)          
-            
-	    aa4 = ( deltat/(roh*Cp) ) * p * Q0
+			do k=1,nz-1
+			z=k*deltaz 
 
-	    aa5 = ( deltat/(roh*Cp) ) * (1/4)
-            !------------------
+			!------------------  
+			aa1 = (h*deltaz)/(kT(j,k))
 
-            !------------------------------------ Boundary conditions
-	    temperature(1,0 ,k)  = temperature(1,1,k)                !Thermal insulation condition for crystal axis
-            
-	    temperature(1,nr,k)  = T0                                !Temperature-fixed condition for lateral surface
-            
-	    temperature(1,j ,0)  = temperature(1,j,1) - aa1*( temperature(1,j,1) - Tinf )             &
-			                              - aa2*( temperature(1,j,1)**4 - Tamb**4 )
-			                                                         !Convection & Radiation condition for input  surface
-            temperature(1,j,nz)  = temperature(1,j,nz-1) - aa1*( temperature(1,j,nz-1) - Tinf )       &
-			                                 - aa2*( temperature(1,j,nz-1)**4 - Tamb**4 )
-			                                                         !Convection & Radiation condition for output surface
-            !---------------------
-	    temperature(1,0 ,0 ) = temperature(1,0,1) - aa1*( temperature(1,0,1) - Tinf )             &
-			                              - aa2*( temperature(1,0,1)**4 - Tamb**4 ) 
-			                                                         !Convection & Radiation condition for ( 0,0 )
-	    temperature(1,0 ,nz) = temperature(1,0,nz-1) - aa1*( temperature(1,0,nz-1) - Tinf )       &
-			                                 - aa2*( temperature(1,0,nz-1)**4 - Tamb**4 ) 
-			                                                         !Convection & Radiation condition for ( 0,nz)
-            temperature(1,nr,0 ) = T0                                !Temperature-fixed condition for (nr,0 )
-		    
-	    temperature(1,nr,nz) = T0                                !Temperature-fixed condition for (nr,nz)
-	    !------------------------------------ Ending of Boundary conditions
+			aa2 = (epsilong*sigma*deltaz)/(kT(j,k))
 
-            !------------------------------------ Heat Equation
-	    temperature(2,j,k) = temperature(1,j,k)                                                                                  &
-		                      
-        		         + aa3 * ( (temperature(1,j+1,k) -  temperature(1,j-1,k))/(2*r*deltar)                               &
+			aa3 = ( deltat/(roh*Cp) ) * kT(j,k)          
+
+			aa4 = ( deltat/(roh*Cp) ) * p * Q0
+
+			aa5 = ( deltat/(roh*Cp) ) * (1/4)
+			!------------------
+
+			!------------------------------------ Boundary conditions
+			temperature(1,0 ,k)  = temperature(1,1,k)                !Thermal insulation condition for crystal axis
+
+			temperature(1,nr,k)  = T0                                !Temperature-fixed condition for lateral surface
+
+			temperature(1,j ,0)  = temperature(1,j,1) - aa1*( temperature(1,j,1) - Tinf )             &
+										  - aa2*( temperature(1,j,1)**4 - Tamb**4 )
+																	 !Convection & Radiation condition for input  surface
+			temperature(1,j,nz)  = temperature(1,j,nz-1) - aa1*( temperature(1,j,nz-1) - Tinf )       &
+											 - aa2*( temperature(1,j,nz-1)**4 - Tamb**4 )
+																	 !Convection & Radiation condition for output surface
+			!---------------------
+			temperature(1,0 ,0 ) = temperature(1,0,1) - aa1*( temperature(1,0,1) - Tinf )             &
+										  - aa2*( temperature(1,0,1)**4 - Tamb**4 ) 
+																	 !Convection & Radiation condition for ( 0,0 )
+			temperature(1,0 ,nz) = temperature(1,0,nz-1) - aa1*( temperature(1,0,nz-1) - Tinf )       &
+											 - aa2*( temperature(1,0,nz-1)**4 - Tamb**4 ) 
+																	 !Convection & Radiation condition for ( 0,nz)
+			temperature(1,nr,0 ) = T0                                !Temperature-fixed condition for (nr,0 )
+
+			temperature(1,nr,nz) = T0                                !Temperature-fixed condition for (nr,nz)
+			!------------------------------------ Ending of Boundary conditions
+
+			!------------------------------------ Heat Equation
+			temperature(2,j,k) = temperature(1,j,k)                                                                          &
+							  
+						 + aa3 * ( (temperature(1,j+1,k) -  temperature(1,j-1,k))/(2*r*deltar)                               &
 								 
-				          +(temperature(1,j+1,k) -2*temperature(1,j,k) + temperature(1,j-1,k))/(deltar**2) )         & 
- 
-                                 + aa3 * ( (temperature(1,j,k-1) -2*temperature(1,j,k) + temperature(1,j,k+1))/(deltaz**2) )         &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+						  +(temperature(1,j+1,k) -2*temperature(1,j,k) + temperature(1,j-1,k))/(deltar**2) )                 & 
 
-	        		 + aa4 * exp( (-2*r**2)/(omegaf**2) ) * exp(-gama*z) * exp(-( (t-2*tp)/tp )**2 )                     &
+								 + aa3 * ( (temperature(1,j,k-1) -2*temperature(1,j,k) + temperature(1,j,k+1))/(deltaz**2) ) &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
-				 + aa5 * ( ( kT(j+1,k)-kT(j-1,k) ) * ( temperature(1,j+1,k)-temperature(1,j-1,k) ) / (deltar**2)     &
+					 + aa4 * exp( (-2*r**2)/(omegaf**2) ) * exp(-gama*z) * exp(-( (t-2*tp)/tp )**2 )                         &
+
+				 + aa5 * ( ( kT(j+1,k)-kT(j-1,k) ) * ( temperature(1,j+1,k)-temperature(1,j-1,k) ) / (deltar**2)             &
 
 					  +( kT(j,k+1)-kT(j,k-1) ) * ( temperature(1,j,k+1)-temperature(1,j,k-1) ) / (deltaz**2) )
-                                          
+										  
 
-            !----------------------------------- Phase Equation constants
-  	    nx1r0T = nx1T0 + dnx1dT * ( temperature(1,0,k) - t0 )
-	    ny1r0T = ny1T0 + dny1dT * ( temperature(1,0,k) - t0 )
-	    nz1r0T = nz1T0 + dnz1dT * ( temperature(1,0,k) - t0 )
+			!----------------------------------- Phase Equation constants
+			nx1r0T = nx1T0 + dnx1dT * ( temperature(1,0,k) - t0 )
+			ny1r0T = ny1T0 + dny1dT * ( temperature(1,0,k) - t0 )
+			nz1r0T = nz1T0 + dnz1dT * ( temperature(1,0,k) - t0 )
 			 
-	    nx2r0T = nx2T0 + dnx2dT * ( temperature(1,0,k) - t0 )
-	    ny2r0T = ny2T0 + dny2dT * ( temperature(1,0,k) - t0 )
-	    nz2r0T = nz2T0 + dnz2dT * ( temperature(1,0,k) - t0 )
-          		   
-	    aa1r0T = 1 / ( nx1r0T )**2 
-            bb1r0T = 1 / ( ny1r0T )**2 
-            cc1r0T = 1 / ( nz1r0T )**2 
+			nx2r0T = nx2T0 + dnx2dT * ( temperature(1,0,k) - t0 )
+			ny2r0T = ny2T0 + dny2dT * ( temperature(1,0,k) - t0 )
+			nz2r0T = nz2T0 + dnz2dT * ( temperature(1,0,k) - t0 )
+				   
+			aa1r0T = 1 / ( nx1r0T )**2 
+			bb1r0T = 1 / ( ny1r0T )**2 
+			cc1r0T = 1 / ( nz1r0T )**2 
 
-            aa2r0T = 1 / ( nx2r0T )**2 
-            bb2r0T = 1 / ( ny2r0T )**2 
-            cc2r0T = 1 / ( nz2r0T )**2       
+			aa2r0T = 1 / ( nx2r0T )**2 
+			bb2r0T = 1 / ( ny2r0T )**2 
+			cc2r0T = 1 / ( nz2r0T )**2       
 
-	     B1r0T = -Term1 * ( bb1r0T + cc1r0T )                                   &
-		     -Term2 * ( aa1r0T + cc1r0T )                                   &
-		     -Term3 * ( aa1r0T + bb1r0T ) 
-     		 
-	     C1r0T =  Term1 * bb1r0T * cc1r0T                                       &
-		     +Term2 * aa1r0T * cc1r0T                                       &
-		     +Term3 * aa1r0T * bb1r0T 
-
-             B2r0T = -Term1 * ( bb2r0T + cc2r0T )                                   &
-		     -Term2 * ( aa2r0T + cc2r0T )                                   &
-		     -Term3 * ( aa2r0T + bb2r0T )
-             
-	     C2r0T = Term1 * bb2r0T * cc2r0T                                       &
-		    +Term2 * aa2r0T * cc2r0T                                       &
-		    +Term3 * aa2r0T * bb2r0T 
-
-             
- 	    no1r0T = (2**0.5) / sqrt( -B1r0T  - sqrt( B1r0T**2 - 4*C1r0T ) )  
-            ne1r0T = (2**0.5) / sqrt( -B1r0T  + sqrt( B1r0T**2 - 4*C1r0T ) )
-            ne2r0T = (2**0.5) / sqrt( -B2r0T  + sqrt( B2r0T**2 - 4*C2r0T ) ) 
+			B1r0T = -Term1 * ( bb1r0T + cc1r0T )            &
+			 -Term2 * ( aa1r0T + cc1r0T )                   &
+			 -Term3 * ( aa1r0T + bb1r0T ) 
 			 
-       deltano1r0T = no1r0T - no1T0
-       deltane1r0T = ne1r0T - ne1T0
-       deltane2r0T = ne2r0T - ne2T0
+			C1r0T =  Term1 * bb1r0T * cc1r0T                &
+			 +Term2 * aa1r0T * cc1r0T                       &
+			 +Term3 * aa1r0T * bb1r0T 
 
-	    !----------------------------------- Phase Equation constants
-  	    nx1rT = nx1T0 + dnx1dT * ( temperature(1,j,k) - t0 )
-	    ny1rT = ny1T0 + dny1dT * ( temperature(1,j,k) - t0 )
-	    nz1rT = nz1T0 + dnz1dT * ( temperature(1,j,k) - t0 )
+			 B2r0T = -Term1 * ( bb2r0T + cc2r0T )           &
+			 -Term2 * ( aa2r0T + cc2r0T )                   &
+			 -Term3 * ( aa2r0T + bb2r0T )
 			 
-	    nx2rT = nx2T0 + dnx2dT * ( temperature(1,j,k) - t0 )
-	    ny2rT = ny2T0 + dny2dT * ( temperature(1,j,k) - t0 )
-	    nz2rT = nz2T0 + dnz2dT * ( temperature(1,j,k) - t0 )
-          		   
-	    aa1rT = 1 / ( nx1rT )**2 
-            bb1rT = 1 / ( ny1rT )**2 
-            cc1rT = 1 / ( nz1rT )**2 
+			C2r0T = Term1 * bb2r0T * cc2r0T                 &
+			+Term2 * aa2r0T * cc2r0T                        &
+			+Term3 * aa2r0T * bb2r0T 
 
-            aa2rT = 1 / ( nx2rT )**2 
-            bb2rT = 1 / ( ny2rT )**2 
-            cc2rT = 1 / ( nz2rT )**2       
-
-	     B1rT = -Term1 * ( bb1rT + cc1rT )                                   &
-		    -Term2 * ( aa1rT + cc1rT )                                   &
-		    -Term3 * ( aa1rT + bb1rT ) 
-     		 
-	     C1rT =  Term1 * bb1rT * cc1rT                                       &
-		    +Term2 * aa1rT * cc1rT                                       &
-		    +Term3 * aa1rT * bb1rT 
-
-             B2rT = -Term1 * ( bb2rT + cc2rT )                                   &
-		    -Term2 * ( aa2rT + cc2rT )                                   &
-		    -Term3 * ( aa2rT + bb2rT )
-             
-	     C2rT =  Term1 * bb2rT * cc2rT                                       &
-		    +Term2 * aa2rT * cc2rT                                       &
-		    +Term3 * aa2rT * bb2rT 
-
-             
- 	    no1rT = (2**0.5) / sqrt( -B1rT  - sqrt( B1rT**2 - 4*C1rT ) )  
-            ne1rT = (2**0.5) / sqrt( -B1rT  + sqrt( B1rT**2 - 4*C1rT ) )
-            ne2rT = (2**0.5) / sqrt( -B2rT  + sqrt( B2rT**2 - 4*C2rT ) ) 
 			 
-       deltano1rT = no1rT - no1T0
-       deltane1rT = ne1rT - ne1T0
-      deltane2rT = ne2rT - ne2T0
-			
-            !------------------------------------ For Phase Equation
-            deltaphase(j ,0  ) = (0.,0.)                                                                            !for input surface
-            
-            deltaphase(nr,k  ) = (0.,0.)                                                                            !for lateral surface
+			no1r0T = (2**0.5) / sqrt( -B1r0T  - sqrt( B1r0T**2 - 4*C1r0T ) )  
+			ne1r0T = (2**0.5) / sqrt( -B1r0T  + sqrt( B1r0T**2 - 4*C1r0T ) )
+			ne2r0T = (2**0.5) / sqrt( -B2r0T  + sqrt( B2r0T**2 - 4*C2r0T ) ) 
+			 
+			deltano1r0T = no1r0T - no1T0
+			deltane1r0T = ne1r0T - ne1T0
+			deltane2r0T = ne2r0T - ne2T0
 
-	    deltaphase(j,nz  ) = deltaphase(j,nz-1)                                                   &           !for output surface
-				+ ( 2*pi*deltaz / lambda1 )                                           &
+			!----------------------------------- Phase Equation constants
+			nx1rT = nx1T0 + dnx1dT * ( temperature(1,j,k) - t0 )
+			ny1rT = ny1T0 + dny1dT * ( temperature(1,j,k) - t0 )
+			nz1rT = nz1T0 + dnz1dT * ( temperature(1,j,k) - t0 )
+			 
+			nx2rT = nx2T0 + dnx2dT * ( temperature(1,j,k) - t0 )
+			ny2rT = ny2T0 + dny2dT * ( temperature(1,j,k) - t0 )
+			nz2rT = nz2T0 + dnz2dT * ( temperature(1,j,k) - t0 )
+				   
+			aa1rT = 1 / ( nx1rT )**2 
+			bb1rT = 1 / ( ny1rT )**2 
+			cc1rT = 1 / ( nz1rT )**2 
+
+			aa2rT = 1 / ( nx2rT )**2 
+			bb2rT = 1 / ( ny2rT )**2 
+			cc2rT = 1 / ( nz2rT )**2       
+
+			B1rT = -Term1 * ( bb1rT + cc1rT )                &
+			-Term2 * ( aa1rT + cc1rT )                       &
+			-Term3 * ( aa1rT + bb1rT ) 
+			 
+			C1rT =  Term1 * bb1rT * cc1rT                    &
+			+Term2 * aa1rT * cc1rT                           &
+			+Term3 * aa1rT * bb1rT 
+
+			 B2rT = -Term1 * ( bb2rT + cc2rT )               &
+			-Term2 * ( aa2rT + cc2rT )                       &
+			-Term3 * ( aa2rT + bb2rT )
+			 
+			C2rT =  Term1 * bb2rT * cc2rT                    &
+			+Term2 * aa2rT * cc2rT                           &
+			+Term3 * aa2rT * bb2rT 
+
+			 
+			no1rT = (2**0.5) / sqrt( -B1rT  - sqrt( B1rT**2 - 4*C1rT ) )  
+			ne1rT = (2**0.5) / sqrt( -B1rT  + sqrt( B1rT**2 - 4*C1rT ) )
+			ne2rT = (2**0.5) / sqrt( -B2rT  + sqrt( B2rT**2 - 4*C2rT ) ) 
+			 
+			deltano1rT = no1rT - no1T0
+			deltane1rT = ne1rT - ne1T0
+			deltane2rT = ne2rT - ne2T0
+
+			!------------------------------------ For Phase Equation
+			deltaphase(j ,0  ) = (0.,0.)                                               !for input surface
+
+			deltaphase(nr,k  ) = (0.,0.)                                               !for lateral surface
+
+			deltaphase(j,nz  ) = deltaphase(j,nz-1)                             &      !for output surface
+				+ ( 2*pi*deltaz / lambda1 )                                     &
 				* ( deltano1rT + deltane1rT - 2*deltane2rT )                     
 
-            deltaphase(nr,0  ) = (0.,0.)                                                                            !for (nr,0 )
+			deltaphase(nr,0  ) = (0.,0.)                                               !for (nr,0 )
 
-	    deltaphase(nr,nz ) = (0.,0.)                                                                            !for (nr,nz)
+			deltaphase(nr,nz ) = (0.,0.)                                               !for (nr,nz)
 
-	    deltaphase(0 ,0  ) = (0.,0.)                                                                            !for ( 0,0 )
+			deltaphase(0 ,0  ) = (0.,0.)                                               !for ( 0,0 )
 
-	    !------
-	    deltaphase(0 ,k  ) = deltaphase(0,k-1)                                                    &           !for crystal axis
-				+ ( 2*pi*deltaz / lambda1 )                                           &
-			        * ( deltano1r0T  + deltane1r0T  - 2*deltane2r0T  )                                            
-
-
-            deltaphase(0 ,nz ) = deltaphase(0,nz-1)                                                   &           !for ( 0,nz)
-	                        + ( 2*pi*deltaz / lambda1 )                                           &
-			        * ( deltano1rT + deltane1rT - 2*deltane2rT )                     
-
-         
-             !----------------------------------- Phase Equation
-			                                                                       
-	     deltaphase(j,k) = deltaphase(j,k-1)                                                       &
-			      + ( 2*pi*deltaz / lambda1 )                                              &  
-			      * ( deltano1rT + deltane1rT  - 2*deltane2rT  )                                 
-
-	    !-----------------------------------
-         end do !k
-      end do !j
+			!------
+			deltaphase(0 ,k  ) = deltaphase(0,k-1)                               &     !for crystal axis
+				+ ( 2*pi*deltaz / lambda1 )                                      &
+					* ( deltano1r0T  + deltane1r0T  - 2*deltane2r0T  )                                            
 
 
-   !--------------------------------------------- End of run for each deltat 
+			deltaphase(0 ,nz ) = deltaphase(0,nz-1)                              &     !for ( 0,nz)
+							+ ( 2*pi*deltaz / lambda1 )                          &
+					* ( deltano1rT + deltane1rT - 2*deltane2rT )                     
 
-   !============================================= Print Results for each deltat
-   t=(l-1)*nt*deltat + i*deltat  
-      !--------------------------------------------- For Heat Equation
-      write(1,'(2x,f25.10,5x,f25.10)')  t , temperature(1,0,0)
 
-      !--------------------------------------------- For Phase Equation
-      write(4,'(2x,f25.10,5x,2f25.10)') t , deltaphase(1,1) 
-   
-   !=============================================
+			 !----------------------------------- Phase Equation
+																				   
+			deltaphase(j,k) = deltaphase(j,k-1)                                  &
+				  + ( 2*pi*deltaz / lambda1 )                                    &  
+				  * ( deltano1rT + deltane1rT  - 2*deltane2rT  )                                 
 
-   !--------------------------------------------- End-temprature of each deltat  ==> Initial temperature for next deltat
-   do j=1,nr-1
-      do k=1,nz-1
- 	  
-         temperature(1,j,k) = temperature(2,j,k)
+			!-----------------------------------
+			end do !k
+		end do !j
 
-      end do !k
-   end do !j
-   
-      !---------------
-   do j=0,nr
-      do k=0,nz
- 	  
-   		 KT(j,k) = KT0  * T0 / temperature(1,j,k)
 
-      end do !k
-   end do !j	     
- 
-   !---------------------------------------------
+	!--------------------------------------------- End of run for each deltat 
 
-   end do !i
+	!============================================= Print Results for each deltat
+	t=(l-1)*nt*deltat + i*deltat  
+	  !--------------------------------------------- For Heat Equation
+	  write(1,'(2x,f25.10,5x,f25.10)')  t , temperature(1,0,0)
+
+	  !--------------------------------------------- For Phase Equation
+	  write(4,'(2x,f25.10,5x,2f25.10)') t , deltaphase(1,1) 
+
+	!=============================================
+
+	!--------------------------------------------- End-temprature of each deltat  ==> Initial temperature for next deltat
+	do j=1,nr-1
+		do k=1,nz-1
+
+		 temperature(1,j,k) = temperature(2,j,k)
+
+		end do !k
+	end do !j
+
+	  !---------------
+	do j=0,nr
+		do k=0,nz
+
+		 KT(j,k) = KT0  * T0 / temperature(1,j,k)
+
+		end do !k
+	end do !j	     
+
+	!---------------------------------------------
+
+	end do !i
 
 
 end do !l
@@ -763,9 +696,10 @@ close(5)
 close(6)
 
 write(*,*) 
-write(*,*) '---- The results are stored in `.plt` format. &
-	        If a different format is required, users can  &
-			rename the file and open it with their preferred software. ----!'
+write(*,*) '---- The results are stored in `.plt` format.                               &
+	        If a different format is required, users can set the desried extension in   &
+			"Determine  Filenames & Open files" section of the code or rename the file  & 
+			manually and open it with their preferred software. ----!'	
 			
 write(*,*) 	
 write(*,*) '---- Program Completed ----!'

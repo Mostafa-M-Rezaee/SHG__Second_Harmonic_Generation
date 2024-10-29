@@ -1,29 +1,28 @@
 
 
-!            ********************************************************************************
-!            * File: 7. Coupled _ Continuous Wave Gaussian _ Computational.F90              *
-!            *                                                                              *
-!            * Note: This Fortran code is developed specifically for the article titled:    *
-!            * Heat coupled Gaussian continuous-wave double-pass type-II second harmonic    *
-!            * generation: inclusion of thermally induced phase mismatching and thermal     *
-!            * lensing                                                                      *
-!            *                                                                              *
-!            * Authors: Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M. and Motazedian, A.    *
-!            *                                                                              *
-!            * Harvard style:                                                               *
-!            * Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M. and Motazedian, A., 2014.      *
-!            * Heat coupled Gaussian continuous-wave double-pass type-II second harmonic    *
-!            * generation: inclusion of thermally induced phase mismatching and thermal     *
-!            * lensing. Optics Express, 22(21), pp.25615-25628.                             *
-!            *                                                                              *
-!            ********************************************************************************
+!            **********************************************************************************
+!            * File name:                                                                     *
+!            *     7. Coupled _ Continuous Wave Gaussian _ Computational.F90                  *
+!            *                                                                                *
+!            * This Fortran code is developed specifically for the article titled:            *
+!            *     Heat coupled Gaussian continuous-wave double-pass type-II second harmonic  *
+!            *     generation: inclusion of thermally induced phase mismatching and thermal   *
+!            *     lensing                                                                    *
+!            *                                                                                *
+!            * Cite Us:                                                                       *
+!            *     Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M. and Motazedian, A., 2014.    *
+!            *     Heat coupled Gaussian continuous-wave double-pass type-II second harmonic  *
+!            *     generation: inclusion of thermally induced phase mismatching and thermal   *
+!            *     lensing. Optics Express, 22(21), pp.25615-25628.                           *
+!            *                                                                                *
+!            **********************************************************************************
 
 program Elec_temp_phase_CW
 implicit none
 
-!********************************************************************************************************************************
+!*********************************************************************************************************************
 !                                       Variables Definition
-!********************************************************************************************************************************
+!*********************************************************************************************************************
 
 !--------------------------------- common variables
 
@@ -102,8 +101,8 @@ real*8        phi                                                               
 
  complex*8    deltaphase[allocatable](:,:)
 
-character*30  filenamePt   ,filenamePr  ,filenamePz                                                                   
-
+character*30  filenamePt   ,filenamePr  ,filenamePz                                                                  &
+             ,plot_extention                                                                    
      			              			                                      
 
 !**********************************************************************************************************************
@@ -188,112 +187,114 @@ timetch = '01'
 !                          Determination of Filenames and Opening files
 !**********************************************************************************************************************
 
+plot_extention = '.plt'
+
 !------------------------------------  temperature 
 
-filenamet = 'ST '//trim(stabilitych)//' Tim '//trim(timetch)//' T t .plt'
+filenamet = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_T_t'//plot_extention
 open(1,file=filenamet)
 
-filenamer = 'ST '//trim(stabilitych)//' Tim '//trim(timetch)//' T r .plt'
+filenamer = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_T_r'//plot_extention
 open(2,file=filenamer)
 
-filenamez = 'ST '//trim(stabilitych)//' Tim '//trim(timetch)//' T z .plt'
+filenamez = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_T_z'//plot_extention
 open(3,file=filenamez)
 
 !-----------------------------------  phase equation
 
-filenamet = 'ST '//trim(stabilitych)//' Tim '//trim(timetch)//' p t .plt'
+filenamet = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_p_t'//plot_extention
 open(4,file=filenamet)
 
-filenamer = 'ST '//trim(stabilitych)//' Tim '//trim(timetch)//' p r .plt'
+filenamer = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_p_r'//plot_extention
 open(5,file=filenamer)
 
-filenamez = 'ST '//trim(stabilitych)//' Tim '//trim(timetch)//' p z .plt'
+filenamez = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_p_z'//plot_extention
 open(6,file=filenamez)
 
 write(*,*) filenamet  ,filenamer  ,filenamez
 
 !-----------------------------------  field
  
-filenamePsi12pr = 'Psi12pr.plt'
+filenamePsi12pr = 'Psi_12_p_r'//plot_extention
 open(7,file=filenamePsi12pr)
 !write(7,'(/,a,/)')    ' variables =       "r"                               "Psi1p ** 2"'
 
-filenamePsi12pz = 'Psi12pz.plt'
+filenamePsi12pz = 'Psi_12_p_z'//plot_extention
 open(8,file=filenamePsi12pz)
 !write(8,'(/,a,/)')    ' variables =       "z"                               "Psi1p ** 2"'
 
-write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi12pr,filenamePsi12pz
- write(*,'(A,\)')' Press Enter to continue '
+write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi12pr ,filenamePsi12pz
+ write(*,'(A,\)')' Press any key to continue '
  read(*,*)
 
 !------------------
 
-filenamePsi22pr = ' Psi22pr.plt'
+filenamePsi22pr = ' Psi_22_p_r'//plot_extention
 open(9,file=filenamePsi22pr)
 !write(9,'(/,a,/)')    ' variables =        "r"                               "Psi2p ** 2"'
 
-filenamePsi22pz =' Psi22pz.plt'
+filenamePsi22pz =' Psi_22_p_z'//plot_extention
 open(10,file=filenamePsi22pz)
 !write(10,'(/,a,/)')    ' variables =       "z"                               "Psi2p ** 2"'
 
-write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi22pr,filenamePsi22pz
- write(*,'(A,\)')' Press Enter to continue '
+write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi22pr ,filenamePsi22pz
+ write(*,'(A,\)')' Press any key to continue '
  read(*,*)
 
 !------------------
 
-filenamePsi32pr = ' Psi32pr.plt'
+filenamePsi32pr = ' Psi_32_p_r'//plot_extention
 open(11,file=filenamePsi32pr)
 !write(11,'(/,a,/)')    ' variables =       "r"                               "Psi3p ** 2"'
 
-filenamePsi32pz = ' Psi32pz.plt'
+filenamePsi32pz = ' Psi_32_p_z'//plot_extention
 open(12,file=filenamePsi32pz)
 !write(12,'(/,a,/)')    ' variables =       "z"                               "Psi3p** 2"'
 
-write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi32pr,filenamePsi32pz
- write(*,'(A,\)')' Press Enter to continue '
+write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi32pr ,filenamePsi32pz
+ write(*,'(A,\)')' Press any key to continue '
  read(*,*)
 
 !--------------------------------------------------------------------------------------------
 
-filenamePsi12mr = 'Psi12mr.plt'
+filenamePsi12mr = 'Psi_12_m_r'//plot_extention
 open(13,file=filenamePsi12mr)
 !write(13,'(/,a,/)')    ' variables =       "r"                               "Psi1m ** 2"'
 
-filenamePsi12mz = 'Psi12mz.plt'
+filenamePsi12mz = 'Psi_12_m_z'//plot_extention
 open(14,file=filenamePsi12mz)
 !write(14,'(/,a,/)')    ' variables =       "z"                               "Psi1m ** 2"'
 
-write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi12mr,filenamePsi12mz
- write(*,'(A,\)')' Press Enter to continue '
+write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi12mr ,filenamePsi12mz
+ write(*,'(A,\)')' Press any key to continue '
  read(*,*)
 
 !------------------
 
-filenamePsi22mr = ' Psi22mr.plt'
+filenamePsi22mr = ' Psi_22_m_r'//plot_extention
 open(15,file=filenamePsi22mr)
 !write(15,'(/,a,/)')    ' variables =       "r"                               "Psi2m ** 2"'
 
-filenamePsi22mz =' Psi22mz.plt'
+filenamePsi22mz =' Psi_22_m_z'//plot_extention
 open(16,file=filenamePsi22mz)
 !write(16,'(/,a,/)')    ' variables =       "z"                               "Psi2m ** 2"'
 
-write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi22mr,filenamePsi22mz
- write(*,'(A,\)')' Press Enter to continue '
+write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi22mr ,filenamePsi22mz
+ write(*,'(A,\)')' Press any key to continue '
  read(*,*)
 
 !------------------
 
-filenamePsi32mr = ' Psi32mr.plt'
+filenamePsi32mr = ' Psi_32_m_r'//plot_extention
 open(17,file=filenamePsi32mr)
 !write(17,'(/,a,/)')    ' variables =       "r"                               "Psi3m ** 2"'
 
-filenamePsi32mz = ' Psi32mz.plt'
+filenamePsi32mz = ' Psi_32_m_z'//plot_extention
 open(18,file=filenamePsi32mz)
 !write(18,'(/,a,/)')    ' variables =       "z"                               "Psi3m** 2"'
 
-write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi32mr,filenamePsi32mz
- write(*,'(A,\)')' Press Enter to continue '
+write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi32mr ,filenamePsi32mz
+ write(*,'(A,\)')' Press any key to continue '
  read(*,*)
 !--------------------------------------------------------------------------
 
@@ -304,37 +305,36 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
 
 !----------------- The constants of Common
 
-        p = 40.                 !power of laser                                           W
+        p = 40.                 !power of laser                                          W
        nz = 200                                                                         !dimensionless
        pi = 4.*atan(1.)                                                                 !dimensionless	   	   	   	   	
     gama1 = 0.5                 !the absorption coefficient of fundomental wave          1/m
     gama2 = 0.5                 !the absorption coefficient of fundomental wave          1/m
     gama3 = 4.                  !the absorption coefficient of SHW                       1/m 
-   radius = 0.002               !radius of crystal                                       !m
-   omegaf = 200e-6              !spot size                                               !m
-   length = 0.01                !length of crystal                                        m       
-   deltaz = length/nz                                                                    !m
-   deltar = omegaf/10.                                                                   !m 
-       nr = int(radius/deltar)                                                           !dimensionless
+   radius = 0.002               !radius of crystal                                      !m
+   omegaf = 200e-6              !spot size                                              !m
+   length = 0.01                !length of crystal                                       m       
+   deltaz = length/nz                                                                   !m
+   deltar = omegaf/10.                                                                  !m 
+       nr = int(radius/deltar)                                                          !dimensionless
 
 !----------------- The constants of Temperature 
 
-        h = 10.                 !heat transfer coefficient (convection - cylinder)        W/(m^2.K)
-       T0 = 300.                !initial temperature                                      K
-       Cp = 728.016             !heat capacity at constant pressure                       J/(kg.K)                                                                    !dimensionless 
-      KT0 = 13.                 !thermal conductivity of KTP crystal                      W/(m.K)                 
-      roh = 2945.               !mass density                                             kg/m^3 	     
+        h = 10.                 !heat transfer coefficient (convection - cylinder)       W/(m^2.K)
+       T0 = 300.                !initial temperature                                     K
+       Cp = 728.016             !heat capacity at constant pressure                      J/(kg.K)                                                                    !dimensionless 
+      KT0 = 13.                 !thermal conductivity of KTP crystal                     W/(m.K)                 
+      roh = 2945.               !mass density                                            kg/m^3 	     
      Tamb = 300.
      Tinf = 300.	  
-    sigma = 5.669e-8            !Stephan-Bultzman constant                                W/(m^2.K^4) 
- epsilong = 0.9                 !surface emissivity                                      !dimensionless
+    sigma = 5.669e-8            !Stephan-Bultzman constant                               W/(m^2.K^4) 
+ epsilong = 0.9                 !surface emissivity                                     !dimensionless
        Ii = (0.,1.)  
-   deltat = (stability*roh*Cp*0.5/KT0)*(deltar**2.*deltaz**2./(deltar**2.+deltaz**2.))   !s       
-       nt = int(timet/deltat)                                                            !dimensionless
+   deltat = (stability*roh*Cp*0.5/KT0)*(deltar**2.*deltaz**2./(deltar**2.+deltaz**2.))  !s       
+       nt = int(timet/deltat)                                                           !dimensionless
  	   	   
 !------------------ The constants of phase equation
  
-   !  phi = 0.4324341714
       phi = 23.5*pi/180.
     theta = 90.*pi/180.
   lambda1 = 1064e-9  
@@ -368,20 +368,20 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
     Term2 = sin(theta)**2. * sin(phi)**2.
     Term3 = cos(theta)**2.
 
-     B1T0 = -Term1 * ( bb1T0 + cc1T0 )                                                                               &
-		    -Term2 * ( aa1T0 + cc1T0 )                                                                               &
+     B1T0 = -Term1 * ( bb1T0 + cc1T0 )                                                    &
+		    -Term2 * ( aa1T0 + cc1T0 )                                                    &
 		    -Term3 * ( aa1T0 + bb1T0 ) 
      		 
-     C1T0 =  Term1 * bb1T0 * cc1T0                                                                                   &
-	 	    +Term2 * aa1T0 * cc1T0                                                                                   &
+     C1T0 =  Term1 * bb1T0 * cc1T0                                                        &
+	 	    +Term2 * aa1T0 * cc1T0                                                        &
 		    +Term3 * aa1T0 * bb1T0 
 
-     B2T0 = -Term1 * ( bb2T0 + cc2T0 )                                                                               &
-		    -Term2 * ( aa2T0 + cc2T0 )                                                                               &
+     B2T0 = -Term1 * ( bb2T0 + cc2T0 )                                                    &
+		    -Term2 * ( aa2T0 + cc2T0 )                                                    &
 		    -Term3 * ( aa2T0 + bb2T0 )
              
-     C2T0 =  Term1 * bb2T0 * cc2T0                                                                                   &
-		    +Term2 * aa2T0 * cc2T0                                                                                   &
+     C2T0 =  Term1 * bb2T0 * cc2T0                                                        &
+		    +Term2 * aa2T0 * cc2T0                                                        &
 		    +Term3 * aa2T0 * bb2T0 
 
     no1T0 = (2**0.5) / sqrt( -B1T0 - sqrt( B1T0 ** 2. - 4. * C1T0 ) )  
@@ -390,7 +390,7 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
 
 !----------------- The field equations constants
 
-        c = 3.e8                                                                         !m/s
+        c = 3.e8                                                                          !m/s
       r1f = 0.99                !radiation constant (back mirror)
       r2f = 0.99                !radiation constant (back mirror)  
       r3f = 0.99                !radiation constant (back mirror)
@@ -412,7 +412,7 @@ allocate(KT(0:nr,0:nz))
 
 allocate(deltaphase(0:nr,0:nz))
 
-!----------------- Allocate Array field equations
+!------------------- Allocate Array field equations
 
 allocate(psi1p(0:nr,1:2))      ;allocate(psi1m(0:nr,1:2))               
 allocate(psi2p(0:nr,1:2))      ;allocate(psi2m(0:nr,1:2))          
@@ -439,7 +439,7 @@ forall (j=0:nr,k=0:nz)
                             deltaphase(j,k)=(0.,0.)        
 end forall 
 
-!------------------ Zero to Array field equations
+!--------------------- Zero to Array field equations
 
 forall (j=0:nr,k=1:2)
                             psi1p(j,k)=(0.,0.)     ;psi1m(j,k)=(0.,0.)      
@@ -500,7 +500,7 @@ write(*,'(A13,F15.10,//)')  '  ePsilong = ',ePsilong
 write(*,'(A13,F15.10,//)')  ' stability = ',stability                                                                
 
 write(*,*)'----------------------------------------------------------------------------'
-write(*,'(A,\)')' Press Enter to continue '
+write(*,'(A,\)')' Press any key to continue '
 read(*,*)
 
 !------------------------------------------------ For Phase Equation 
@@ -545,7 +545,7 @@ write(*,'(A13,F15.10,/ )')  '    dny2dT = ',dny2dT
 write(*,'(A13,F15.10,//)')  '    dnz2dT = ',dnz2dT          
 
 write(*,*)'----------------------------------------------------------------------------'
-write(*,'(A,\)')' Press Enter to continue '
+write(*,'(A,\)')' Press any key to continue '
 read(*,*)
 
 !------------------------------------------------ For fields Equation 
@@ -1271,9 +1271,10 @@ close(18)
 !----------------------
 
 write(*,*) 
-write(*,*) '---- The results are stored in `.plt` format. &
-	        If a different format is required, users can  &
-			rename the file and open it with their preferred software. ----!'
+write(*,*) '---- The results are stored in `.plt` format.                               &
+	        If a different format is required, users can set the desried extension in   &
+			"Determine  Filenames & Open files" section of the code or rename the file  & 
+			manually and open it with their preferred software. ----!'	
 			
 write(*,*) 	
 write(*,*) '---- Program Completed ----!'

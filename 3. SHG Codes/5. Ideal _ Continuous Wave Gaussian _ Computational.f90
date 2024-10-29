@@ -1,22 +1,21 @@
 
 				  
-!            ********************************************************************************
-!            * File: 5. Ideal _ Continuous Wave Gaussian _ Computational.f90                *
-!            *                                                                              *
-!            * Note: This Fortran code is developed specifically for the article titled:    *
-!            * Temperature increase effects on a double-pass cavity type II second harmonic *
-!            * generation: a model for depleted Gaussian continuous-waves                   *
-!            *                                                                              *
-!            * Authors: Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M., Motazedian, A.       *
-!            * and Shahzadeh, M.                                                            *
-!            *                                                                              *
-!            * Harvard style:                                                               *
-!            * Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M., Motazedian, A. and Shahzadeh, *
-!            * M., 2015. Temperature increase effects on a double-pass cavity type II       *
-!            * second-harmonic generation: a model for depleted Gaussian continuous waves.  *
-!            * Applied Optics, 54(4), pp.869-875.                                           *
-!            *                                                                              *
-!            ********************************************************************************
+!            *************************************************************************************
+!            *                                                                                   *
+!            * File name:                                                                        *
+!            *     5. Ideal _ Continuous Wave Gaussian _ Computational.f90                       *
+!            *                                                                                   *
+!            * This Fortran code is developed specifically for the article titled:               *
+!            *     Temperature increase effects on a double-pass cavity type II second harmonic  *
+!            *     generation: a model for depleted Gaussian continuous-waves                    *
+!            *                                                                                   *
+!            * Cite Us:                                                                          *
+!            *     Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M., Motazedian, A. and Shahzadeh,  *
+!            *     M., 2015. Temperature increase effects on a double-pass cavity type II        *
+!            *     second-harmonic generation: a model for depleted Gaussian continuous waves.   *
+!            *     Applied Optics, 54(4), pp.869-875.                                            *
+!            *                                                                                   *
+!            *************************************************************************************
 
 program coupliedelectempphase
 
@@ -48,7 +47,8 @@ complex*16     Ii                                                               
               ,psip3[allocatable](:)                      ,psim3[allocatable](:)                                                                                                                             
                  
 
-character*30   filenamez
+character*30   filenamez                                                                                                    &
+              ,plot_extention 
 
 !**********************************************************************************************************************
 !                                         Zero to variables
@@ -93,25 +93,27 @@ write(*,'(/,2x,a,\)') 'Enter the deltak value  : '
 !                                 Determination of Filenames & Open files
 !**********************************************************************************************************************
 
-filenamez='elec1p-z.plt'
+plot_extention = '.plt'
+
+filenamez = 'elec1p-z'//plot_extention
 open(1,file=filenamez)
 
-filenamez='elec2p-z.plt'
+filenamez = 'elec2p-z'//plot_extention
 open(2,file=filenamez)
 
-filenamez='elec3p-z.plt'
+filenamez = 'elec3p-z'//plot_extention
 open(3,file=filenamez)
 
-filenamez='elec1,2,3.plt'  
+filenamez = 'elec1,2,3'//plot_extention 
 open(4,file=filenamez) 
 
-filenamez='elec1m-z.plt'
+filenamez = 'elec1m-z'//plot_extention
 open(5,file=filenamez)
 
-filenamez='elec2m-z.plt'
+filenamez = 'elec2m-z'//plot_extention
 open(6,file=filenamez)
 
-filenamez='elec3m-z.plt'
+filenamez = 'elec3m-z'//plot_extention
 open(7,file=filenamez)
 
 
@@ -142,7 +144,37 @@ open(7,file=filenamez)
 !                                        printe Constants     
 !**********************************************************************************************************************
 
+write(*,*)'------- Constants ----------------------------------------------------------'
+write(*,*)
+write(*,'(A13,I9       )') '         p = ',p
+write(*,'(A13,I9     ,/)') '        Nz = ',Nz
 
+write(*,'(A13,F15.10   )') '         c = ',c
+write(*,'(A13,F15.10 ,/)') '         d = ',d
+write(*,'(A13,F15.10   )') '         l = ',l
+
+write(*,'(A13,F15.10   )') '        pi = ',pi
+write(*,'(A13,F15.10   )') '        n1 = ',n1
+write(*,'(A13,F15.10   )') '        n2 = ',n2
+write(*,'(A13,F15.10   )') '        n3 = ',n3
+write(*,'(A13,2F15.10,/)') '        Ii = ',Ii   
+
+write(*,'(A13,F15.10   )') '     gama1 = ',gama1
+write(*,'(A13,F15.10   )') '     gama2 = ',gama2
+write(*,'(A13,F15.10 ,/)') '     gama3 = ',gama3   
+
+write(*,'(A13,F15.10   )') '     landa1 = ',landa1
+write(*,'(A13,F15.10 ,/)') '     lenght = ',lenght    
+
+write(*,'(A13,F15.10   )') '    omega1 = ',omega1
+write(*,'(A13,F15.10   )') '    omegaf = ',omegaf
+write(*,'(A13,F15.10 ,/)') '    deltaz = ',deltaz
+
+write(*,'(A13,F15.10 ,/)') '    epsilon = ',epsilon   
+                                                                        
+write(*,*)'----------------------------------------------------------------------------'
+   write(*,'(A,\)')' Press any key to continue '
+   read(*,*)
 
 !**********************************************************************************************************************
 !                                         Allocate Arrys
@@ -181,6 +213,7 @@ end forall !k
 !psip1(0)=(p/(2*pi*n1*c*epsilon*(omegaf**2)))**0.5
 !psip2(0)=(p/(2*pi*n2*c*epsilon*(omegaf**2)))**0.5
 !psip3(0)=0.
+
 psip1(0)=1
 psip2(0)=1
 psip3(0)=0	 		       		 
@@ -251,10 +284,8 @@ write(4,'(f13.8 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12 ,5x,
  
 
 
-end do !k
+end do !k						   
 
-
-   						   
 
 !**********************************************************************************************************************
 !                                      Close files & end program 
@@ -263,9 +294,10 @@ end do !k
 close(1)
 
 write(*,*) 
-write(*,*) '---- The results are stored in `.plt` format. &
-	        If a different format is required, users can  &
-			rename the file and open it with their preferred software. ----!'
+write(*,*) '---- The results are stored in `.plt` format.                               &
+	        If a different format is required, users can set the desried extension in   &
+			"Determine  Filenames & Open files" section of the code or rename the file  & 
+			manually and open it with their preferred software. ----!'	
 			
 write(*,*) 	
 write(*,*) '---- Program Completed ----!'
