@@ -117,34 +117,40 @@ character*35  filenameibestl                                                    
 !                                             Inputs		  
 !**********************************************************************************************************************
 
-!write(*,'(/,2x,a,\)') '            Enter the Energy value  : '
+! Note: 
+!     This code lets the user enter values twice: once numerically (for calculations) 
+!     and once as a string (for filenames or labels).  
+!     For example, `E` is number,while `EE` store the same values as strings.  
+!     This dual input ensures accurate calculations and meaningful file naming.
+
+!write(*,'(/,2x,a,\)') '                      Enter the Energy value : '
  !read(*,*) E    
-!write(*,'(/,2x,a,\)') '                             Again  : '
+!write(*,'(/,2x,a,\)') 'Enter the Energy value without decimal point : '
  !read(*,*) EE
             
-!write(*,'(/,2x,a,\)') '         Enter the frequency value  : '
+!write(*,'(/,2x,a,\)') '                      Enter the frequency value : '
  !read(*,*) freq
-!write(*,'(/,2x,a,\)') '                             Again  : '
+!write(*,'(/,2x,a,\)') 'Enter the frequency value without decimal point : '
  !read(*,*) freqf
 
-!write(*,'(/,2x,a,\)') '        Enter the Number of Pulses  : '
+!write(*,'(/,2x,a,\)') '                   Enter the Number of Pulses : '
  !read(*,*) Np
-!write(*,'(/,2x,a,\)') '                             Again  : '
+!write(*,'(/,2x,a,\)') 'Enter the Pulses' value without decimal point : '
  !read(*,*) Npf
 
-!write(*,'(/,2x,a,\)') '                      Enter the tp  : '
+!write(*,'(/,2x,a,\)') '                            Enter the tp : '
  !read(*,*) tp
-!write(*,'(/,2x,a,\)') '                             Again  : '
+!write(*,'(/,2x,a,\)') 'Enter the tp value without decimal point : '
  !read(*,*) tpf
 
 E = 0.8  
 freq = 4000
-Np=1
+Np = 1
 tp = 50e-6
 
 EE = '0.08'
 freqf = '4000'
-Npf='1'
+Npf = '1'
 tpf = '50'
 
 !**********************************************************************************************************************
@@ -152,6 +158,9 @@ tpf = '50'
 !**********************************************************************************************************************
 
 plot_extention = '.plt'
+
+! By constructing filenames based on input information, 
+! you can achieve both efficiency and clarity in managing output data.
 
 !------------------------------------------------ Field Equations Files
 filenameElec12t = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec12_t'//plot_extention
@@ -170,7 +179,7 @@ open(9,file=filenameElec12z)
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameElec12t  &
                                                                                     ,filenameElec12r  &
                                                                                     ,filenameElec12z
- write(*,'(A,\)')' Press any key to continue '
+ write(*,'(A,\)')' Please press any key to continue '
  read(*,*)
 
 !------------------
@@ -189,7 +198,7 @@ open(12,file=filenameElec22z)
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameElec22t  &
                                                                                     ,filenameElec22r  &
 										    ,filenameElec22z
- write(*,'(A,\)')' Press any key to continue '
+ write(*,'(A,\)')' Please press any key to continue '
  read(*,*)
 
 !------------------
@@ -208,7 +217,7 @@ open(15,file=filenameElec32z)
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameElec32t  &
                                                                                     ,filenameElec32r  &
 										    ,filenameElec32z
- write(*,'(A,\)')' Press any key to continue '
+ write(*,'(A,\)')' Please press any key to continue '
  read(*,*)
 
 !------------------
@@ -234,16 +243,6 @@ open(21,file=filenameibestl)
 !**********************************************************************************************************************
 !                                           Constants
 !**********************************************************************************************************************
-!-------------------------Optimization
-!do E=0.1,0.5,0.1
-!do freq=4000.,6000.,1000.
-!do length=0.010,0.025,0.001 
-!do omegaf=190.e-6,200.e-6,10.e-6
-
-!E=2.
-!freq=100.
-!length=0.02	
-!omegaf=100.e-6
 
 !------------------------------------------------ Common
            pi = 4*atan(1.)                                                                   !dimensionless
@@ -345,74 +344,82 @@ end forall !i
 write(*,*)
 write(*,*)'------- Common Constants ---------------------------------------------------'
 write(*,*) 
-write(*,'(A15,F15.10,//)')  '            E = ',E                
+write(*,'(A15,F15.10 ,/)') '            E = ',E                
 
-write(*,'(A15,2F15.10,/)')  '           Ii = ',Ii                  
-write(*,'(A15,I9    ,/ )')  '           Nt = ',Nt
-write(*,'(A15,I9    ,/ )')  '          inn = ',inn              
-write(*,'(A15,I9    ,/ )')  '           Nr = ',Nr                
-write(*,'(A15,I9    ,/ )')  '           Nz = ',Nz
-write(*,'(A15,I9    ,/ )')  '           kn = ',kn 
+write(*,'(A15,2F15.10,/)') '           Ii = ',Ii                  
 
-write(*,'(A15,F15.10,/ )')  '           pi = ',pi
-write(*,'(A15,F15.10,//)')  '           Cp = ',Cp              
+write(*,'(A13,I9       )') '           tp = ',tp
+write(*,'(A15,I9       )') '           Nt = ',Nt
+write(*,'(A15,I9       )') '          inn = ',inn              
+write(*,'(A15,I9       )') '           Nr = ',Nr                
+write(*,'(A15,I9       )') '           Nz = ',Nz
+write(*,'(A13,I9       )') '           Np = ',Np
+write(*,'(A15,I9     ,/)') '           kn = ',kn 
 
-write(*,'(A15,F15.10,/ )')  '          KT0 = ',KT0             
-write(*,'(A15,F15.10,//)')  '          roh = ',roh              
+write(*,'(A15,F15.10   )') '           pi = ',pi
+write(*,'(A15,F15.10 ,/)') '           Cp = ',Cp              
 
-write(*,'(A15,f15.10,/ )')  '        gama1 = ',gama1               
-write(*,'(A15,f15.10,/ )')  '        gama2 = ',gama2               
-write(*,'(A15,f15.10,//)')  '        gama3 = ',gama3              
+write(*,'(A15,F15.10   )') '          KT0 = ',KT0             
+write(*,'(A15,F15.10 ,/)') '          roh = ',roh              
 
-write(*,'(A15,F15.10,/ )')  '        timet = ',timet           
-write(*,'(A15,f15.10,/ )')  '        power = ',power              
-write(*,'(A15,f15.5 ,//)')  '        alpha = ',alpha              
+write(*,'(A13,F15.10   )') '         freq = ',freq
+write(*,'(A15,f15.10   )') '        gama1 = ',gama1               
+write(*,'(A15,f15.10   )') '        gama2 = ',gama2               
+write(*,'(A15,f15.10 ,/)') '        gama3 = ',gama3              
 
-write(*,'(A15,F15.10,/ )')  '       omegaf = ',omegaf          
-write(*,'(A15,F15.10,/ )')  '       length = ',length          
-write(*,'(A15,F15.10,/ )')  '       deltat = ',deltat          
-write(*,'(A15,F15.10,/ )')  '       deltaz = ',deltaz          
-write(*,'(A15,F15.10,/ )')  '      deltar1 = ',deltar1          
-write(*,'(A15,F15.10,//)')  '      deltar2 = ',deltar2          
+write(*,'(A15,F15.10   )') '        timet = ',timet           
+write(*,'(A15,f15.10   )') '        power = ',power              
+write(*,'(A15,f15.5  ,/)') '        alpha = ',alpha              
 
-write(*,'(A15,F15.10,//)')  '       radius = ',radius           
+write(*,'(A15,F15.10   )') '       omegaf = ',omegaf          
+write(*,'(A15,F15.10   )') '       length = ',length          
+write(*,'(A15,F15.10   )') '       deltat = ',deltat          
+write(*,'(A15,F15.10   )') '       deltaz = ',deltaz          
+write(*,'(A15,F15.10   )') '      deltar1 = ',deltar1          
+write(*,'(A15,F15.10 ,/)') '      deltar2 = ',deltar2          
 
-write(*,'(A15,F15.10,/ )')  '      lambda1 = ',lambda1         
-write(*,'(A15,f15.10,//)')  '      lambda2 = ',lambda2        
+write(*,'(A15,F15.10 ,/)') '       radius = ',radius           
 
-write(*,'(A15,F15.10,//)')  '     tbetween = ',tbetween                                        
+write(*,'(A15,F15.10   )') '      lambda1 = ',lambda1         
+write(*,'(A15,f15.10 ,/)') '      lambda2 = ',lambda2        
 
-write(*,'(A15,F15.10,//)')  '    stability = ',stability                                                                
+write(*,'(A15,F15.10 ,/)') '     tbetween = ',tbetween                                        
+
+write(*,'(A15,F15.10 ,/)') '    stability = ',stability                                                                
 
 write(*,*)'----------------------------------------------------------------------------'
-write(*,'(A,\)')' Press any key to continue '
+write(*,'(A,\)')' Please press any key to continue '
 !read(*,*)
 
 !------------------------------------------------ For fields Equation 
 write(*,*)
 write(*,*)'------- Field Equations Constants ------------------------------------------'
 write(*,*)
-write(*,'(A15,f15.3 ,/ )')  '            c = ',c                  
+write(*,'(A15,f15.3  ,/)') '            c = ',c                  
 
-write(*,'(A15,f35.30,/ )')  '         deff = ',deff                
+write(*,'(A15,f35.30 ,/)') '         deff = ',deff                
 
-write(*,'(A15,f25.5 ,/ )')  '        omega = ',omega               
+write(*,'(A15,f25.5  ,/)') '        omega = ',omega               
 
-write(*,'(A15,f25.20,//)')  '     epsilon0 = ',epsilon0           
+write(*,'(A15,f25.20 ,/)') '     epsilon0 = ',epsilon0           
 
 write(*,*)'----------------------------------------------------------------------------'
-write(*,'(A,\)')' Press any key to continue '
+write(*,'(A,\)')' Please press any key to continue '
 !read(*,*)
   
 !**********************************************************************************************************************
 !                                   Main Block of the Program     
 !**********************************************************************************************************************
+
+! Display estimated execution time information
+write(*,*)
+write(*,*) '--- This code takes approximately 1 minute to execute on &
+	        a medium-performance      laptop. Execution time may vary depending on &
+			the system''s CPU, RAM, and        background tasks. ---!'	
+
+write(*,*) 
+
 !----------- Optimization
-!write(*,*)
-
-!run=run+1
-
-!write(*,*) 'Run = ',run
 
 no1rT = no1T0 
 ne1rT = ne1T0 
@@ -561,9 +568,9 @@ do l=1,Np
 														
 		    	       + cc2  * ( Psi1(i/inn,j+1,1) - 2*Psi1(i/inn,j,1) + Psi1(i/inn,j-1,1) ) / deltar**2     &
 														
-			       - cc3  *   Psi1(i/inn,j,1)                                                                 &
+			           - cc3  *   Psi1(i/inn,j,1)                                                             &
 
-			       + cc4  * conjg(Psi2(i/inn,j,1)) * Psi3(i/inn,j,1) !* exp(-Ii*phasechange(i/inn,j,k) )   
+			           + cc4  * conjg(Psi2(i/inn,j,1)) * Psi3(i/inn,j,1) !* exp(-Ii*phasechange(i/inn,j,k) )   
 
  	       !-------------
 	       Psi2(i/inn,j,2) =  Psi2(i/inn,j,1)                                                                 &
@@ -587,11 +594,11 @@ do l=1,Np
 														
 		               + ee2 * ( Psi3(i/inn,j+1,1) - 2*Psi3(i/inn,j,1) + Psi3(i/inn,j-1,1) ) / deltar**2      &
 														
-			       - ee3 *   Psi3(i/inn,j,1)                                                                  &
+			           - ee3 *   Psi3(i/inn,j,1)                                                              &
 														
-			       + ee4 *   Psi1(i/inn,j,1) * Psi2(i/inn,j,1) !* exp(Ii*phasechange(i/inn,j,k) )          
+			           + ee4 *   Psi1(i/inn,j,1) * Psi2(i/inn,j,1) !* exp(Ii*phasechange(i/inn,j,k) )          
 
-               !------------- Maximom 
+               !------------- Maximum 
 	       if (k==nz) then
 			      
 	          Psi22 = Psi2(i/inn,j,2) * conjg(Psi2(i/inn,j,2)) * 100
@@ -872,53 +879,6 @@ do i=0,nt
    end if !i  
 
 end do !i      						   
-
-!================== Transverse profile
-!do j=0,nr
-
-   !if (j<=int(4.*nr/5.)) then
-      !r=j*deltar1
-      !deltar=deltar1
-     !else
-      !r=5*omegaf+(j-int(4.*nr/5.))*deltar2
-      !deltar=deltar2
-   !end if  
-
-   !do f=0,360,6
-      !fi=f*pi/180.
- 
-      !Psi32 = Psi3(nt,j,nz) * conjg(Psi3(nt,j,nz))      
-      !write(100,'(2x,f25.20,5x,f25.20,5x,f25.20)') r , fi , Psi32
-   
-  !end do !f
-
-!end do !j      						   
-
-!================== Transverse profile
-  
-!do j=0,nr
-
-!   if (j<=int(4.*nr/5.)) then
-!      r=j*deltar1
-!      deltar=deltar1
-!     else
-!      r=5*omegaf+(j-int(4.*nr/5.))*deltar2
-!      deltar=deltar2
-!   end if  
-
-   
-!   do f=-200,+200
-!      x=f*(r/200.)
-
-!      y=sqrt(r**2-x**2)
-!      y1 = y  ; y2 = -y
-
-!      Psi32 = Psi3(nt,j,nz) * conjg(Psi3(nt,j,nz))      
-!      write(200,'(2x,f25.20,5x,f25.20,5x,f25.20)') x , y1 , Psi32
-!      write(200,'(2x,f25.20,5x,f25.20,5x,f25.20)') x , y2 , Psi32
- 
-!   end do !i
-!end do !j
 
 !------------------
 do i=0,nt 

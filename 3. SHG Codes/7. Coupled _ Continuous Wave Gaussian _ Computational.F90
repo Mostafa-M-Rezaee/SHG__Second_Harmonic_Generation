@@ -169,25 +169,36 @@ character*30  filenamePt   ,filenamePr  ,filenamePz                             
 !                                             Inputs		  
 !**********************************************************************************************************************
 
-!write(*,'(/,2x,a,\)') 'Enter the stability value  : '
+! Note: 
+!     This code lets the user enter values twice: once numerically (for calculations) 
+!     and once as a string (for filenames or labels).  
+!     For example, `stability` is number,while `stabilitych` store the same values as strings.  
+!     This dual input ensures accurate calculations and meaningful file naming.
+
+!write(*,'(/,2x,a,\)') '                      Enter the stability value : '
 !read(*,*)stability
-!write(*,'(/,2x,a,\)') '                    Again  : '
+!write(*,'(/,2x,a,\)') 'Enter the stability value without decimal point : '
 !read(*,*)stabilitych
 
-!write(*,'(/,2x,a,\)') 'Enter the total time value : '
+!write(*,'(/,2x,a,\)') '                      Enter the total time value : '
 !read(*,*)timet
-!write(*,'(/,2x,a,\)') '                     Again : '
+!write(*,'(/,2x,a,\)') 'Enter the total time value without decimal point : '
 !read(*,*)timetch
 
 stability = 0.85
 timet = 0.0001
+
 stabilitych = '85'
 timetch = '01'
+
 !**********************************************************************************************************************
 !                          Determination of Filenames and Opening files
 !**********************************************************************************************************************
 
 plot_extention = '.plt'
+
+! By constructing filenames based on input information, 
+! you can achieve both efficiency and clarity in managing output data.
 
 !------------------------------------  temperature 
 
@@ -224,7 +235,7 @@ open(8,file=filenamePsi12pz)
 !write(8,'(/,a,/)')    ' variables =       "z"                               "Psi1p ** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi12pr ,filenamePsi12pz
- write(*,'(A,\)')' Press any key to continue '
+ write(*,'(A,\)')' Please press any key to continue '
  read(*,*)
 
 !------------------
@@ -238,7 +249,7 @@ open(10,file=filenamePsi22pz)
 !write(10,'(/,a,/)')    ' variables =       "z"                               "Psi2p ** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi22pr ,filenamePsi22pz
- write(*,'(A,\)')' Press any key to continue '
+ write(*,'(A,\)')' Please press any key to continue '
  read(*,*)
 
 !------------------
@@ -252,7 +263,7 @@ open(12,file=filenamePsi32pz)
 !write(12,'(/,a,/)')    ' variables =       "z"                               "Psi3p** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi32pr ,filenamePsi32pz
- write(*,'(A,\)')' Press any key to continue '
+ write(*,'(A,\)')' Please press any key to continue '
  read(*,*)
 
 !--------------------------------------------------------------------------------------------
@@ -266,7 +277,7 @@ open(14,file=filenamePsi12mz)
 !write(14,'(/,a,/)')    ' variables =       "z"                               "Psi1m ** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi12mr ,filenamePsi12mz
- write(*,'(A,\)')' Press any key to continue '
+ write(*,'(A,\)')' Please press any key to continue '
  read(*,*)
 
 !------------------
@@ -280,7 +291,7 @@ open(16,file=filenamePsi22mz)
 !write(16,'(/,a,/)')    ' variables =       "z"                               "Psi2m ** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi22mr ,filenamePsi22mz
- write(*,'(A,\)')' Press any key to continue '
+ write(*,'(A,\)')' Please press any key to continue '
  read(*,*)
 
 !------------------
@@ -294,7 +305,7 @@ open(18,file=filenamePsi32mz)
 !write(18,'(/,a,/)')    ' variables =       "z"                               "Psi3m** 2"'
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamePsi32mr ,filenamePsi32mz
- write(*,'(A,\)')' Press any key to continue '
+ write(*,'(A,\)')' Please press any key to continue '
  read(*,*)
 !--------------------------------------------------------------------------
 
@@ -455,115 +466,123 @@ end forall !i
 write(*,*)
 write(*,*)'------- Common Constants ---------------------------------------------------'
 write(*,*)
-write(*,'(A13,F15.10,//)') '      Power = ',P                
+write(*,'(A13,F15.10 ,/)')  '      Power = ',P                
 
-write(*,'(A13,2F15.10,/)')  '        Ii = ',Ii                  
-write(*,'(A13,I9    ,/ )')  '        Nt = ',Nt              
-write(*,'(A13,I5    ,/ )')  '        Nr = ',Nr                
-write(*,'(A13,I5    ,/ )')  '        Nz = ',Nz
-write(*,'(A13,F15.10,//)')  '        pi = ',pi
+write(*,'(A13,2F15.10  )')  '        Ii = ',Ii                  
+write(*,'(A13,I9       )')  '        Nt = ',Nt              
+write(*,'(A13,I5       )')  '        Nr = ',Nr                
+write(*,'(A13,I5       )')  '        Nz = ',Nz
+write(*,'(A13,F15.10 ,/)')  '        pi = ',pi
 
-write(*,'(A13,F15.10,//)')  '     timet = ',timet  
+write(*,'(A13,F15.10 ,/)')  '     timet = ',timet  
 
-write(*,'(A13,f15.10,/ )')  '     gama1 = ',gama1               
-write(*,'(A13,f15.10,/ )')  '     gama2 = ',gama2               
-write(*,'(A13,f15.10,//)')  '     gama3 = ',gama3                      
+write(*,'(A13,f15.10   )')  '     gama1 = ',gama1               
+write(*,'(A13,f15.10   )')  '     gama2 = ',gama2               
+write(*,'(A13,f15.10 ,/)')  '     gama3 = ',gama3                      
 
-write(*,'(A13,F15.10,/ )')  '    omegaf = ',omegaf          
-write(*,'(A13,F15.10,/ )')  '    length = ',length          
-write(*,'(A13,F15.10,/ )')  '    deltat = ',deltat          
-write(*,'(A13,F15.10,/ )')  '    deltar = ',deltar          
-write(*,'(A13,F15.10,//)')  '    deltaz = ',deltaz          
+write(*,'(A13,F15.10   )')  '    omegaf = ',omegaf          
+write(*,'(A13,F15.10   )')  '    length = ',length          
+write(*,'(A13,F15.10   )')  '    deltat = ',deltat          
+write(*,'(A13,F15.10   )')  '    deltar = ',deltar          
+write(*,'(A13,F15.10 ,/)')  '    deltaz = ',deltaz          
 
-write(*,'(A13,F15.10,//)')  '    radius = ',radius           
+write(*,'(A13,F15.10 ,/)')  '    radius = ',radius           
 
-write(*,'(A13,F15.10,/ )')  '   lambda1 = ',lambda1         
-write(*,'(A13,f15.10,//)')  '   lambda2 = ',lambda2        
+write(*,'(A13,F15.10   )')  '   lambda1 = ',lambda1         
+write(*,'(A13,f15.10 ,/)')  '   lambda2 = ',lambda2        
                                    
 
 !------------------------------------------------ For Heat Equation 
 write(*,*)
 write(*,*)'------- Heat Equation Constants --------------------------------------------'
 write(*,*)
-write(*,'(A13,F15.10,/ )')  '         h = ',h               
+write(*,'(A13,F15.10   )')  '         h = ',h               
 
-write(*,'(A13,F15.10,/ )')  '        T0 = ',T0              
-write(*,'(A13,F15.10,//)')  '        Cp = ',Cp              
+write(*,'(A13,F15.10   )')  '        T0 = ',T0              
+write(*,'(A13,F15.10 ,/)')  '        Cp = ',Cp              
 
-write(*,'(A13,F15.10,/ )')  '       KT0 = ',KT0             
-write(*,'(A13,F15.10,//)')  '       roh = ',roh              
+write(*,'(A13,F15.10   )')  '       KT0 = ',KT0             
+write(*,'(A13,F15.10 ,/)')  '       roh = ',roh              
 
-write(*,'(A13,F15.10,//)')  '     sigma = ',sigma           
+write(*,'(A13,F15.10 ,/)')  '     sigma = ',sigma           
 
-write(*,'(A13,F15.10,//)')  '  ePsilong = ',ePsilong        
+write(*,'(A13,F15.10 ,/)')  '  ePsilong = ',ePsilong        
 
-write(*,'(A13,F15.10,//)')  ' stability = ',stability                                                                
+write(*,'(A13,F15.10 ,/)')  ' stability = ',stability                                                                
 
 write(*,*)'----------------------------------------------------------------------------'
-write(*,'(A,\)')' Press any key to continue '
+write(*,'(A,\)')' Please press any key to continue '
 read(*,*)
 
 !------------------------------------------------ For Phase Equation 
 write(*,*)
 write(*,*)'------- Phase Equation Constants -------------------------------------------'
 write(*,*)
-write(*,'(A13,F15.10,//)')  '       phi = ',phi             
+write(*,'(A13,F15.10 ,/)')  '       phi = ',phi             
 
-write(*,'(A13,f15.10,/ )')  '      B1T0 = ',B1T0                  
-write(*,'(A13,F15.10,/ )')  '      B2T0 = ',B2T0            
-write(*,'(A13,F15.10,/ )')  '      C1T0 = ',C1T0            
-write(*,'(A13,F15.10,//)')  '      C2T0 = ',C2T0            
+write(*,'(A13,f15.10   )')  '      B1T0 = ',B1T0                  
+write(*,'(A13,F15.10   )')  '      B2T0 = ',B2T0            
+write(*,'(A13,F15.10   )')  '      C1T0 = ',C1T0            
+write(*,'(A13,F15.10 ,/)')  '      C2T0 = ',C2T0            
 
-write(*,'(A13,F15.10,//)')  '     theta = ',theta           
+write(*,'(A13,F15.10 ,/)')  '     theta = ',theta           
 
-write(*,'(A13,F15.10,/ )')  '     aa1T0 = ',aa1T0           
-write(*,'(A13,F15.10,/ )')  '     bb1T0 = ',bb1T0           
-write(*,'(A13,F15.10,/ )')  '     cc1T0 = ',cc1T0           
-write(*,'(A13,F15.10,/ )')  '     aa2T0 = ',aa2T0           
-write(*,'(A13,F15.10,/ )')  '     bb2T0 = ',bb2T0           
-write(*,'(A13,F15.10,/ )')  '     cc2T0 = ',cc2T0           
-write(*,'(A13,F15.10,/ )')  '     nx1T0 = ',nx1T0           
-write(*,'(A13,F15.10,/ )')  '     ny1T0 = ',ny1T0           
-write(*,'(A13,F15.10,/ )')  '     nz1T0 = ',nz1T0           
-write(*,'(A13,F15.10,/ )')  '     nx2T0 = ',nx2T0           
-write(*,'(A13,F15.10,/ )')  '     ny2T0 = ',ny2T0           
-write(*,'(A13,F15.10,//)')  '     nz2T0 = ',nz2T0           
+write(*,'(A13,F15.10   )')  '     aa1T0 = ',aa1T0           
+write(*,'(A13,F15.10   )')  '     bb1T0 = ',bb1T0           
+write(*,'(A13,F15.10   )')  '     cc1T0 = ',cc1T0           
+write(*,'(A13,F15.10   )')  '     aa2T0 = ',aa2T0           
+write(*,'(A13,F15.10   )')  '     bb2T0 = ',bb2T0           
+write(*,'(A13,F15.10   )')  '     cc2T0 = ',cc2T0           
+write(*,'(A13,F15.10   )')  '     nx1T0 = ',nx1T0           
+write(*,'(A13,F15.10   )')  '     ny1T0 = ',ny1T0           
+write(*,'(A13,F15.10   )')  '     nz1T0 = ',nz1T0           
+write(*,'(A13,F15.10   )')  '     nx2T0 = ',nx2T0           
+write(*,'(A13,F15.10   )')  '     ny2T0 = ',ny2T0           
+write(*,'(A13,F15.10 ,/)')  '     nz2T0 = ',nz2T0           
 
-write(*,'(A13,F15.10,/ )')  '     no1T0 = ',no1T0           
-write(*,'(A13,F15.10,/ )')  '     ne1T0 = ',ne1T0           
-write(*,'(A13,F15.10,//)')  '     ne2T0 = ',ne2T0           
+write(*,'(A13,F15.10   )')  '     no1T0 = ',no1T0           
+write(*,'(A13,F15.10   )')  '     ne1T0 = ',ne1T0           
+write(*,'(A13,F15.10 ,/)')  '     ne2T0 = ',ne2T0           
 
-write(*,'(A13,F15.10,/ )')  '     Term1 = ',Term1           
-write(*,'(A13,F15.10,/ )')  '     Term2 = ',Term2           
-write(*,'(A13,F15.10,//)')  '     Term3 = ',Term3           
+write(*,'(A13,F15.10   )')  '     Term1 = ',Term1           
+write(*,'(A13,F15.10   )')  '     Term2 = ',Term2           
+write(*,'(A13,F15.10 ,/)')  '     Term3 = ',Term3           
 
-write(*,'(A13,F15.10,/ )')  '    dnx1dT = ',dnx1dT          
-write(*,'(A13,F15.10,/ )')  '    dny1dT = ',dny1dT          
-write(*,'(A13,F15.10,/ )')  '    dnz1dT = ',dnz1dT          
-write(*,'(A13,F15.10,/ )')  '    dnx2dT = ',dnx2dT          
-write(*,'(A13,F15.10,/ )')  '    dny2dT = ',dny2dT          
-write(*,'(A13,F15.10,//)')  '    dnz2dT = ',dnz2dT          
+write(*,'(A13,F15.10   )')  '    dnx1dT = ',dnx1dT          
+write(*,'(A13,F15.10   )')  '    dny1dT = ',dny1dT          
+write(*,'(A13,F15.10   )')  '    dnz1dT = ',dnz1dT          
+write(*,'(A13,F15.10   )')  '    dnx2dT = ',dnx2dT          
+write(*,'(A13,F15.10   )')  '    dny2dT = ',dny2dT          
+write(*,'(A13,F15.10 ,/)')  '    dnz2dT = ',dnz2dT          
 
 write(*,*)'----------------------------------------------------------------------------'
-write(*,'(A,\)')' Press any key to continue '
+write(*,'(A,\)')' Please press any key to continue '
 read(*,*)
 
 !------------------------------------------------ For fields Equation 
 write(*,*)
 write(*,*)'------- Field Equations Constants ------------------------------------------'
 write(*,*)
-write(*,'(A13,f15.3 ,//)')  '         c = ',c 
-write(*,'(A13,f35.30,/ )')  '         L = ',L                 
+write(*,'(A13,f15.3    )')  '         c = ',c 
+write(*,'(A13,f35.30 ,/)')  '         L = ',L                 
 
-write(*,'(A13,f35.30,/ )')  '      deff = ',deff                
-write(*,'(A13,f25.5 ,/ )')  '     omega = ',omega                            
+write(*,'(A13,f35.30   )')  '      deff = ',deff                
+write(*,'(A13,f25.5  ,/)')  '     omega = ',omega                            
 
-write(*,'(A13,f25.20,//)')  '  ePsilon0 = ',ePsilon0           
+write(*,'(A13,f25.20 ,/)')  '  ePsilon0 = ',ePsilon0           
 
   
 !**********************************************************************************************************************
 !                                   Main Block of the Program     
 !**********************************************************************************************************************
+
+! Display estimated execution time information
+write(*,*)
+write(*,*) '--- This code takes approximately 1 minute to execute on &
+	        a medium-performance      laptop. Execution time may vary depending on &
+			the system''s CPU, RAM, and        background tasks. ---!'	
+
+write(*,*) 
 
 !------------------------------------------------ Field equations
     no1rT = no1T0 
@@ -571,7 +590,7 @@ write(*,'(A13,f25.20,//)')  '  ePsilon0 = ',ePsilon0
     ne2rT = ne2T0 
 !--------------------------------------------- Run program for double passed 
 
-   fmax= 1
+  fmax = 1
  ! S = 100000000.
  ! A = 0.
  !do while (S>0.0001)
@@ -673,7 +692,7 @@ write(*,*)   'start of field equation' ,f
 
 				      + cc2 * ( (psi1p(j+1,1) - psi1p(j-1,1))/(2*r*deltar) )                                         &
 
-			              - cc3 * psi1p(j,1)                                                                         &
+			          - cc3 * psi1p(j,1)                                                                             &
 
 				      + cc4 * conjg(psi2p(j,1)) * psi3p(j,1) * exp(-Ii*deltaphase(j,k) )                                                                                              
            
@@ -798,7 +817,7 @@ write(*,*)   'start of field equation' ,f
 
 			          + dd2 * ( (psi2m(j+1,2) - psi2m(j-1,2))/(2*r*deltar) )                                         &
 
-		    	          - dd3 * psi2m(j,2)                                                                         &
+		    	      - dd3 * psi2m(j,2)                                                                             &
 
 			          + dd4 * conjg(psi1m(j,2)) * psi3m(j,2) * exp(Ii*deltaphase(j,k) )                                                                                               
 		   
@@ -839,13 +858,6 @@ write(*,*)   'start of field equation' ,f
    end do !k
 !-------------------------------
          
-   !B = psi3p(0,nz)*conjg(psi3p(0,nz))
-
-   !S = (abs(A-B))/B
-
-   !write(*,*) S  ,  A  , B
-   !A = B
-
    write(*,*) 'end of field equation'  ,f       						   
 !============================== heat equation 
     do j=0,nr
@@ -863,45 +875,7 @@ write(*,*) 'start of temperature ' , f
 !-----------------------------
    do i=0,nt
       t = deltat*i  
-
-    !if (mod(i,100)==0) then
-    
-     !     f=f+1
-	   !------------------------------------ contour Temp step 2   
-    !    write(11,'(a,i5,a)')  'ZONE T= "',f,'"'   
-       !------------------------------------
-     !   write(21,'(a,i5,a)')  'ZONE T= "',f,'"' 
-       !------------------------------------ contor Temp step 3
-
-	   !------------------------------------ contour phase step 2   
- !       write(31,'(a,i5,a)')  'ZONE T= "',f,'"'   
-       !------------------------------------
- !       write(41,'(a,i5,a)')  'ZONE T= "',f,'"' 
-       !------------------------------------ contor phase step 3
-!	    do j = 0,nr
-!           r = j * deltar
-	   
- !          do k= 0,nz
-!	          z = k * deltaz
-	   !----------------------------------  temperature 
-!		      write(11,'(2x,f25.4,2x,f25.4,2x,f25.4)')  z,r,temperature(1,j,k) 
-	   !---------------------------------- phase		   
-!		      write(31,'(2x,f25.4,2x,f25.4,2x,f25.4)')  z,r,deltaphase(1,j,k)
-
-!	          do  Fidegree = 6,360,6
-!			      Firadian = Fidegree * pi/180
- !
-      !----------------------------------  temperature 
-  ! 			      write(21,'(2x,f25.4,2x,f25.4,2x,f25.4)') z,r,Firadian,temperature(1,j,k)
-	  !----------------------------------  phase 			   
-!	  		      write(41,'(2x,f25.4,2x,f25.4,2x,f25.4)') z,r,Firadian,deltaphase(1,j,k)
-         
-!	        end do !Fi 
-
- !      end do !k
- !    end do !j
-   
-!  end if	    	  
+    	  
 !--------------------------------------
  
          do j=1,nr-1
@@ -913,19 +887,19 @@ write(*,*) 'start of temperature ' , f
 
                aa1 = (h*deltaz)/(KT(j,k))
             
-	       aa2 = (epsilong*sigma*deltaz)/(KT(j,k))
+	           aa2 = (epsilong*sigma*deltaz)/(KT(j,k))
             
-	       aa3 = ( deltat/(roh*Cp) ) * KT(j,k)           
+	           aa3 = ( deltat/(roh*Cp) ) * KT(j,k)           
 
                aa4 = ( (deltat)/(roh * Cp) ) * ( ( p)/( pi * omegaf**2.) )
 
-	       aa5 = deltat /(4. * roh * Cp  )
+	           aa5 = deltat /(4. * roh * Cp  )
 
 !----------------------------------------------------------boundry condition
 
 !-------------------------------- boundry condition for head equation
 		 
-	       temperature(1,0 ,k)  = temperature(1,1,k)                  !Thermal insulation condition for crystal axis
+	           temperature(1,0 ,k)  = temperature(1,1,k)                  !Thermal insulation condition for crystal axis
 
                temperature(1,nr,k)  = T0                                  !Temperature-fixed condition for lateral surface
 
@@ -1143,8 +1117,6 @@ write(*,*) 'start of temperature ' , f
       end do !k
    end do !j	     
    !---------------------------------------------
-
-
 
    end do !i
    write(*,*) 'end of temperature ' , f

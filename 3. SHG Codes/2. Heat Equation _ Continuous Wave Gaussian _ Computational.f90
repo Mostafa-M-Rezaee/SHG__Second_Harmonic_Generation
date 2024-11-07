@@ -69,27 +69,36 @@ character*30  pp                                                                
 !                                             Inputs		  
 !**********************************************************************************************************************
 
-!write(*,'(/,2x,a,\)') 'Enter the stability value  : '
+! Note: 
+!     This code lets the user enter values twice: once numerically (for calculations) 
+!     and once as a string (for filenames or labels).  
+!     For example, `stability` is number,while `stabilityf` store the same values as strings.  
+!     This dual input ensures accurate calculations and meaningful file naming.
+
+!write(*,'(/,2x,a,\)') '                     Enter the stability value  : '
  !read(*,*)stability
-!write(*,'(/,2x,a,\)') '                    Again  : '
+!write(*,'(/,2x,a,\)') 'Enter the stability value without decimal point : '
  !read(*,*)stabilityf
 
-!write(*,'(/,2x,a,\)') 'Enter the total time value : '
+!write(*,'(/,2x,a,\)') '                      Enter the total time value : '
  !read(*,*)timet
-!write(*,'(/,2x,a,\)') '                     Again : '
+!write(*,'(/,2x,a,\)') 'Enter the total time value without decimal point : '
  !read(*,*)timetf 
 
-stability = 0.85
 timet = 1
+stability = 0.85
 
-stabilityf = '85'
 timetf = '1'
+stabilityf = '85'
 
 !**********************************************************************************************************************
 !                                 Determine  Filenames & Open files
 !**********************************************************************************************************************
 
 plot_extention = '.plt'
+
+! By constructing filenames based on input information, 
+! you can achieve both efficiency and clarity in managing output data.
 
 filenamet = 'ST_'//trim(stabilityf)//'_time_'//trim(timetf)//'_T_t'//plot_extention
 open(1,file=filenamet)
@@ -212,14 +221,26 @@ write(*,'(A13,F15.10   )') '    deltar = ',deltar
 write(*,'(A13,F15.10 ,/)') '    deltaz = ',deltaz
 
 write(*,'(A13,F15.10 ,/)') '    radius = ',radius   
+
+write(*,'(A13,F15.10 ,/)') ' stability = ',stability   
+
                                                                         
 write(*,*)'----------------------------------------------------------------------------'
-   write(*,'(A,\)')' Press any key to continue '
+   write(*,'(A,\)')' Please press any key to continue '
    read(*,*)
 
 !**********************************************************************************************************************
 !                                   The Main Block of the Program     
 !**********************************************************************************************************************
+
+! Display estimated execution time information
+write(*,*)
+write(*,*) '--- This code takes approximately 20 minutes to execute on &
+	        a medium-performance    laptop. Execution time may vary depending on &
+			the system''s CPU, RAM, and        background tasks. ---!'	
+
+write(*,*) 	
+
 
 do j=0,nr
   do k=0,nz
@@ -274,19 +295,19 @@ do i = 0,nt
             !------------------------------------ Heat Equation 
 		    
 							  
-			temperature(2,j,k) = temperature(1,j,k)                                                                                                   &
+			temperature(2,j,k) = temperature(1,j,k)                                                                            &
 		                       
-        			 		     + aa3 * (   (temperature(1,j-1,k) - 2 * temperature(1,j,k) + temperature(1,j+1,k))/(deltar ** 2)                     &
+        			+ aa3 * (   (temperature(1,j-1,k) - 2 * temperature(1,j,k) + temperature(1,j+1,k))/(deltar ** 2)           &
 								 
-								           + (temperature(1,j+1,k) - temperature(1,j-1,k)) /(r * 2 * deltar)                                          & 					            
+					+ (temperature(1,j+1,k) - temperature(1,j-1,k)) /(r * 2 * deltar)                                          & 					            
 
-							               + (temperature(1,j,k-1) - 2 * temperature(1,j,k) + temperature(1,j,k+1))/deltaz**2   )                     &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+					+ (temperature(1,j,k-1) - 2 * temperature(1,j,k) + temperature(1,j,k+1))/deltaz**2   )                     &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
-	        				               + aa4 * exp( (-2 * r ** 2)/(omegaf ** 2) ) * exp(- gama * z)                                               &
+	        		+ aa4 * exp( (-2 * r ** 2)/(omegaf ** 2) ) * exp(- gama * z)                                               &
 
-                                           + aa5 * ( (temperature(1,j+1,k) - temperature(1,j-1,k)) * ( KT(j+1,k) - KT(j-1,k)) / deltar**2  )          &
+                    + aa5 * ( (temperature(1,j+1,k) - temperature(1,j-1,k)) * ( KT(j+1,k) - KT(j-1,k)) / deltar**2  )          &
 										   
-										   + aa5 * ( (temperature(1,j,k+1) - temperature(1,j,k-1)) * ( KT(j,k+1) - KT(j,k-1)) / deltaz**2  )  
+					+ aa5 * ( (temperature(1,j,k+1) - temperature(1,j,k-1)) * ( KT(j,k+1) - KT(j,k-1)) / deltaz**2  )  
                                           
 	    end do !k
  

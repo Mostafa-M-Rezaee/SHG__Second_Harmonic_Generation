@@ -95,6 +95,9 @@ write(*,'(/,2x,a,\)') 'Enter the deltak value  : '
 
 plot_extention = '.plt'
 
+! By constructing filenames based on input information, 
+! you can achieve both efficiency and clarity in managing output data.
+
 filenamez = 'elec1p-z'//plot_extention
 open(1,file=filenamez)
 
@@ -146,34 +149,35 @@ open(7,file=filenamez)
 
 write(*,*)'------- Constants ----------------------------------------------------------'
 write(*,*)
-write(*,'(A13,I9       )') '         p = ',p
-write(*,'(A13,I9     ,/)') '        Nz = ',Nz
+write(*,'(A13,I9        )') '         p = ',p
+write(*,'(A13,I9      ,/)') '        Nz = ',Nz
 
-write(*,'(A13,F15.10   )') '         c = ',c
-write(*,'(A13,F15.10 ,/)') '         d = ',d
-write(*,'(A13,F15.10   )') '         l = ',l
+write(*,'(A13,F15.10    )') '         c = ',c
+write(*,'(A13,F15.10  ,/)') '         d = ',d
+write(*,'(A13,F15.10    )') '         l = ',l
 
-write(*,'(A13,F15.10   )') '        pi = ',pi
-write(*,'(A13,F15.10   )') '        n1 = ',n1
-write(*,'(A13,F15.10   )') '        n2 = ',n2
-write(*,'(A13,F15.10   )') '        n3 = ',n3
-write(*,'(A13,2F15.10,/)') '        Ii = ',Ii   
+write(*,'(A13,F15.10    )') '        pi = ',pi
+write(*,'(A13,F15.10    )') '        n1 = ',n1
+write(*,'(A13,F15.10    )') '        n2 = ',n2
+write(*,'(A13,F15.10    )') '        n3 = ',n3
+write(*,'(A13,2F15.10 ,/)') '        Ii = ',Ii   
 
-write(*,'(A13,F15.10   )') '     gama1 = ',gama1
-write(*,'(A13,F15.10   )') '     gama2 = ',gama2
-write(*,'(A13,F15.10 ,/)') '     gama3 = ',gama3   
+write(*,'(A13,F15.10    )') '     gama1 = ',gama1
+write(*,'(A13,F15.10    )') '     gama2 = ',gama2
+write(*,'(A13,F15.10  ,/)') '     gama3 = ',gama3   
 
-write(*,'(A13,F15.10   )') '     landa1 = ',landa1
-write(*,'(A13,F15.10 ,/)') '     lenght = ',lenght    
+write(*,'(A13,F15.10    )') '     landa1 = ',landa1
+write(*,'(A13,F15.10  ,/)') '     lenght = ',lenght    
 
-write(*,'(A13,F15.10   )') '    omega1 = ',omega1
-write(*,'(A13,F15.10   )') '    omegaf = ',omegaf
-write(*,'(A13,F15.10 ,/)') '    deltaz = ',deltaz
+write(*,'(A13,F15.10    )') '    omega1 = ',omega1
+write(*,'(A13,F15.10    )') '    omegaf = ',omegaf
+write(*,'(A13,F15.10    )') '    deltak = ',deltak
+write(*,'(A13,F15.10  ,/)') '    deltaz = ',deltaz
 
-write(*,'(A13,F15.10 ,/)') '    epsilon = ',epsilon   
+write(*,'(A13,F15.10  ,/)') '    epsilon = ',epsilon   
                                                                         
 write(*,*)'----------------------------------------------------------------------------'
-   write(*,'(A,\)')' Press any key to continue '
+   write(*,'(A,\)')' Please press any key to continue '
    read(*,*)
 
 !**********************************************************************************************************************
@@ -207,8 +211,16 @@ end forall !k
                                                                                 
 
 !**********************************************************************************************************************
-!                                              Main     
+!                                              The Main Block of the Program     
 !**********************************************************************************************************************
+
+! Display estimated execution time information
+write(*,*)
+write(*,*) '--- This code takes approximately 1 minute to execute on &
+	        a medium-performance      laptop. Execution time may vary depending on &
+			the system''s CPU, RAM, and        background tasks. ---!'	
+
+write(*,*) 
 
 !psip1(0)=(p/(2*pi*n1*c*epsilon*(omegaf**2)))**0.5
 !psip2(0)=(p/(2*pi*n2*c*epsilon*(omegaf**2)))**0.5
@@ -269,13 +281,13 @@ do k=0,nz
    write(6,'(f13.8 ,5x,f20.12)' )  z ,  elecm2(k)*100 
    write(7,'(f13.8 ,5x,f20.12)' )  z ,  elecm3(k)*100
 
- !  write(1,'(F20.12)' )  elecp1(k)*100
+  ! write(1,'(F20.12)' )  elecp1(k)*100
   ! write(2,'(f20.12)' )  elecp2(k)*100 
- !  write(3,'( f20.12)' )  elecp3(k)*100
+  ! write(3,'(f20.12)' )  elecp3(k)*100
    
   ! write(5,'(f20.12)' )  elecm1(k)*100 
-  ! write(6,'(f20.12)' )   elecm2(k)*100 
-  ! write(7,'(f20.12)' )   elecm3(k)*100
+  ! write(6,'(f20.12)' )  elecm2(k)*100 
+  ! write(7,'(f20.12)' )  elecm3(k)*100
 
 
 write(4,'(f13.8 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12)')                             &

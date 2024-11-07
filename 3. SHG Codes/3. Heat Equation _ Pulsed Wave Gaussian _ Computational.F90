@@ -36,7 +36,7 @@ real          t          ,z          ,E          ,h          ,r          ,G     
 	         ,omegaf     ,length     ,deltar     ,deltaz     ,deltat                                 &
 	         ,radius                                                                                 &
 	         ,epsilong   ,tbetween                                                                   &
-	         ,stability                                                                              
+	         ,stability                                                                              &                                                                             
 			  
 	         ,temperature[allocatable](:,:,:)    ,kT[allocatable](:,:)
 
@@ -67,47 +67,51 @@ character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,
 !**********************************************************************************************************************
 
 ! Note: 
-!     A 
+!     This code lets the user enter values twice: once numerically (for calculations) 
+!     and once as a string (for filenames or labels).  
+!     For example, `E` is number,while `EE` store the same values as strings.  
+!     This dual input ensures accurate calculations and meaningful file naming.
 
-!write(*,'(/,2x,a,\)') '            Enter the Energy value  : '
-!read(*,*) E
-           
-!write(*,'(/,2x,a,\)') '                             Again  : '
+!write(*,'(/,2x,a,\)') '                      Enter the Energy value : '
+!read(*,*) E          
+!write(*,'(/,2x,a,\)') 'Enter the Energy value without decimal point : '
 !read(*,*) EE           
 
-!write(*,'(/,2x,a,\)') '         Enter the frequency value  : '
+!write(*,'(/,2x,a,\)') '                      Enter the frequency value : '
 !read(*,*) freq
-
-!write(*,'(/,2x,a,\)') '                             Again  : '
+!write(*,'(/,2x,a,\)') 'Enter the frequency value without decimal point : '
 !read(*,*) freqf
 
-!write(*,'(/,2x,a,\)') '        Enter the Number of Pulses  : '
+!write(*,'(/,2x,a,\)') '                   Enter the Number of Pulses : '
 !read(*,*) Np
-
-!write(*,'(/,2x,a,\)') '                             Again  : '
+!write(*,'(/,2x,a,\)') 'Enter the Pulses' value without decimal point : '
 !read(*,*) Npf
 
-!write(*,'(/,2x,a,\)') '                      Enter the tp  : '
+!write(*,'(/,2x,a,\)') '                            Enter the tp : '
 !read(*,*) tp
-
-!write(*,'(/,2x,a,\)') '                             Again  : '
+!write(*,'(/,2x,a,\)') 'Enter the tp value without decimal point : '
 !read(*,*) tpf
 
-E = 0.09
-freq = 500
-Np = 1
-tp = 50e-6
 
-EE = '009' 
+    E = 0.09
+   Np = 1
+   tp = 50e-6
+ freq = 500
+
+   EE = '009' 
+  Npf = '1'
+  tpf = '50'
 freqf = '500'
-Npf = '1'
-tpf = '50'
+
 
 !**********************************************************************************************************************
 !                          Determination of Filenames and Opening files
 !**********************************************************************************************************************
 
 plot_extention = '.plt'
+
+! By constructing filenames based on input information, 
+! you can achieve both efficiency and clarity in managing output data.
 
 filenameTt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'T_t'//plot_extention 
 open(1,file=filenameTt)
@@ -202,49 +206,61 @@ end forall
 write(*,*)
 write(*,*)'------- Heat Equation Constants --------------------------------------------'
 write(*,*)
-write(*,'(A13,I9    ,/ )') '        Nt = ',Nt
-write(*,'(A13,I9    ,/ )') '        Nr = ',Nr
-write(*,'(A13,I9    ,//)') '        Nz = ',Nz
+write(*,'(A13,I9       )') '        tp = ',tp
+write(*,'(A13,I9       )') '        Nt = ',Nt
+write(*,'(A13,I9       )') '        Nr = ',Nr
+write(*,'(A13,I9       )') '        Np = ',Np
+write(*,'(A13,I9     ,/)') '        Nz = ',Nz
+
 		  
-write(*,'(A13,F15.10,/ )') '         h = ',h
-write(*,'(A13,F15.10,/ )') '         E = ',E
+write(*,'(A13,F15.10   )') '         h = ',h
+write(*,'(A13,F15.10   )') '         E = ',E
 
-write(*,'(A13,F15.10,/ )') '        T0 = ',T0
-write(*,'(A13,F15.10,/ )') '        pi = ',pi
-write(*,'(A13,F15.10,//)') '        Cp = ',Cp
+write(*,'(A13,F15.10   )') '        T0 = ',T0
+write(*,'(A13,F15.10   )') '        pi = ',pi
+write(*,'(A13,F15.10 ,/)') '        Cp = ',Cp
 
-write(*,'(A13,F15.10,/ )') '       kT0 = ',kT0
-write(*,'(A13,F15.10,//)') '       roh = ',roh
+write(*,'(A13,F15.10   )') '       kT0 = ',kT0
+write(*,'(A13,F15.10 ,/)') '       roh = ',roh
 
-write(*,'(A13,F15.10,/ )') '      gama = ',gama
-write(*,'(A13,F15.10,/ )') '      Tinf = ',Tinf 
-write(*,'(A13,F15.10,//)') '      Tamb = ',Tamb
+write(*,'(A13,F15.10   )') '      freq = ',freq
+write(*,'(A13,F15.10   )') '      gama = ',gama
+write(*,'(A13,F15.10   )') '      Tinf = ',Tinf 
+write(*,'(A13,F15.10 ,/)') '      Tamb = ',Tamb
 
-write(*,'(A13,F15.10,/ )') '     timet = ',timet
-write(*,'(A13,F15.10,/ )') '     sigma = ',sigma
+write(*,'(A13,F15.10   )') '     timet = ',timet
+write(*,'(A13,F15.10 ,/)') '     sigma = ',sigma
 
-write(*,'(A13,F15.10,/ )') '    omegaf = ',omegaf
-write(*,'(A13,F15.10,//)') '    length = ',length
+write(*,'(A13,F15.10   )') '    omegaf = ',omegaf
+write(*,'(A13,F15.10 ,/)') '    length = ',length
 
-write(*,'(A13,F15.10,/ )') '    deltat = ',deltat
-write(*,'(A13,F15.10,/ )') '    deltar = ',deltar
-write(*,'(A13,F15.10,//)') '    deltaz = ',deltaz
+write(*,'(A13,F15.10   )') '    deltat = ',deltat
+write(*,'(A13,F15.10   )') '    deltar = ',deltar
+write(*,'(A13,F15.10 ,/)') '    deltaz = ',deltaz
 
-write(*,'(A13,F15.10,//)') '    radius = ',radius
+write(*,'(A13,F15.10 ,/)') '    radius = ',radius
 
-write(*,'(A13,F15.10,/ )') '  epsilong = ',epsilong
-write(*,'(A13,F15.10,//)') '  tbetween = ',tbetween
+write(*,'(A13,F15.10   )') '  epsilong = ',epsilong
+write(*,'(A13,F15.10 ,/)') '  tbetween = ',tbetween
 
-write(*,'(A13,F15.10,//)') ' stability = ',stability   
+write(*,'(A13,F15.10 ,/)') ' stability = ',stability   
                                                                  
 write(*,*)'----------------------------------------------------------------------------'
-write(*,'(A,\)')' Press any key to continue '
+write(*,'(A,\)')' Please press any key to continue '
 !read(*,*)
 
 
 !**********************************************************************************************************************
 !                                   The Main Block of the Program     
 !**********************************************************************************************************************
+
+! Display estimated execution time information
+write(*,*)
+write(*,*) '--- This code takes approximately 1 minute to execute on &
+	        a medium-performance      laptop. Execution time may vary depending on &
+			the system''s CPU, RAM, and        background tasks. ---!'	
+
+write(*,*) 
 
 !-------------------------------------- control condition
  if ( (omegaf .NE. 100.e-6) .OR. (length .NE. 2e-2) .OR. (radius .NE. 5e-3) .OR. (gama .NE. 4.) ) then
@@ -255,7 +271,7 @@ write(*,'(A,\)')' Press any key to continue '
  
 
 !-------- 
-G = 1.703409099e-10 * pi * tp     
+ G = 1.703409099e-10 * pi * tp     
 
 Q0 = sqrt(pi) * tp / G              !Normalization      m^-3
 
@@ -326,19 +342,19 @@ do l=1,Np !Running the program for Np pulses
 			!------------------------------------ Ending of Boundary conditions
 
 			!------------------------------------ Heat Equation
-			temperature(2,j,k) = temperature(1,j,k)                                                                   &
+			temperature(2,j,k) = temperature(1,j,k)                                                                     &
 							  
-				 + aa3 * ( (temperature(1,j+1,k) -  temperature(1,j-1,k))/(2*r*deltar)                        &
+				        + aa3 * ( (temperature(1,j+1,k) -  temperature(1,j-1,k))/(2*r*deltar)                           &
 								 
-						  +(temperature(1,j+1,k) -2*temperature(1,j,k) + temperature(1,j-1,k))/(deltar**2) )  & 
+						+(temperature(1,j+1,k) -2*temperature(1,j,k) + temperature(1,j-1,k))/(deltar**2) )              & 
 
-						 + aa3 * ( (temperature(1,j,k-1) -2*temperature(1,j,k) + temperature(1,j,k+1))/(deltaz**2) ) &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+						+ aa3 * ( (temperature(1,j,k-1) -2*temperature(1,j,k) + temperature(1,j,k+1))/(deltaz**2) )     &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
-					 + aa4 * exp( (-2*r**2)/(omegaf**2) ) * exp(-gama*z) * exp(-( (t-2*tp)/tp )**2 )               &
+					    + aa4 * exp( (-2*r**2)/(omegaf**2) ) * exp(-gama*z) * exp(-( (t-2*tp)/tp )**2 )                 &
 
-				 + aa5 * ( ( kT(j+1,k)-kT(j-1,k) ) * ( temperature(1,j+1,k)-temperature(1,j-1,k) ) / (deltar**2)&
+				        + aa5 * ( ( kT(j+1,k)-kT(j-1,k) ) * ( temperature(1,j+1,k)-temperature(1,j-1,k) ) / (deltar**2) &
 
-					  +( kT(j,k+1)-kT(j,k-1) ) * ( temperature(1,j,k+1)-temperature(1,j,k-1) ) / (deltaz**2) )
+					    +( kT(j,k+1)-kT(j,k-1) ) * ( temperature(1,j,k+1)-temperature(1,j,k-1) ) / (deltaz**2) )
 					  
 			end do !k
 		end do !j
