@@ -95,10 +95,11 @@ stabilityf = '85'
 !                                 Determine  Filenames & Open files
 !**********************************************************************************************************************
 
-plot_extention = '.plt'
+! Note:
+!      To achieve both efficiency and clarity in managing output data,
+!      below, we generate filenames based on input information.
 
-! By constructing filenames based on input information, 
-! you can achieve both efficiency and clarity in managing output data.
+plot_extention = '.plt'
 
 filenamet = 'ST_'//trim(stabilityf)//'_time_'//trim(timetf)//'_T_t'//plot_extention
 open(1,file=filenamet)

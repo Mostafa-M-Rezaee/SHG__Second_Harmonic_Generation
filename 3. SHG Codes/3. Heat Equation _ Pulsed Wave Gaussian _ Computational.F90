@@ -108,10 +108,11 @@ freqf = '500'
 !                          Determination of Filenames and Opening files
 !**********************************************************************************************************************
 
-plot_extention = '.plt'
+! Note:
+!      To achieve both efficiency and clarity in managing output data,
+!      below, we generate filenames based on input information.
 
-! By constructing filenames based on input information, 
-! you can achieve both efficiency and clarity in managing output data.
+plot_extention = '.plt'
 
 filenameTt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'T_t'//plot_extention 
 open(1,file=filenameTt)

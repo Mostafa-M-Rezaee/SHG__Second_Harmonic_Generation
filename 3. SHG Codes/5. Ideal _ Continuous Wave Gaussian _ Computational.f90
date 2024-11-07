@@ -93,10 +93,11 @@ write(*,'(/,2x,a,\)') 'Enter the deltak value  : '
 !                                 Determination of Filenames & Open files
 !**********************************************************************************************************************
 
-plot_extention = '.plt'
+! Note:
+!      To achieve both efficiency and clarity in managing output data,
+!      below, we generate filenames based on input information.
 
-! By constructing filenames based on input information, 
-! you can achieve both efficiency and clarity in managing output data.
+plot_extention = '.plt'
 
 filenamez = 'elec1p-z'//plot_extention
 open(1,file=filenamez)
