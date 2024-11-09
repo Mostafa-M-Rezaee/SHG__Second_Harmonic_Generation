@@ -11,13 +11,13 @@ implicit none
 !                                       Variables Definition
 !**********************************************************************************************************************
 
-integer       i          ,j          ,k          ,l                                                                   &
+integer       i          ,j          ,k          ,l                                                       &
              ,nt         ,nr         ,nz         ,Np                                                                       
 
-real*8        t          ,z          ,E          ,h          ,r                                                       &                                                                                    
-             ,T0         ,ka         ,pi         ,Cp         ,tp                                                      &
+real*8        t          ,z          ,E          ,h          ,r                                           &                                                                                    
+             ,T0         ,ka         ,pi         ,Cp         ,tp                                          &
 			 ,roh        ,aa1        ,aa2        ,aa3        ,aa4                                         &
-             ,freq       ,gama                                                                                        & 
+             ,freq       ,gama                                                                            & 
 			 ,timet      ,sigma                                                                           &
 			 ,omegaf     ,length     ,deltar     ,deltaz     ,deltat                                      &
 			 ,radius                                                                                      &
@@ -26,7 +26,8 @@ real*8        t          ,z          ,E          ,h          ,r                 
 			  
 			 ,temperature[allocatable](:,:,:)  
 
-character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,tpf       ,EE
+character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,tpf       ,EE             &
+             ,plot_extention
 
                                                      
 
@@ -39,7 +40,7 @@ character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,
 
                     t = 0.          ;z = 0.          ;E = 0.         ;h = 0.                  ;r = 0.                                                                                                          
                    T0 = 0.         ;ka = 0.         ;pi = 0.        ;Cp = 0.                 ;tp = 0.                        
-                   roh = 0.        ;aa1 = 0.        ;aa2 = 0.       ;aa3 = 0.                ;aa4 = 0.                                                                        
+                  roh = 0.        ;aa1 = 0.        ;aa2 = 0.       ;aa3 = 0.                ;aa4 = 0.                                                                        
                  freq = 0.       ;gama = 0.
 			    timet = 0.      ;sigma = 0.                                                                       
 			   omegaf = 0.     ;length = 0.     ;deltar = 0.    ;deltaz = 0.             ;deltat = 0.                                           
@@ -50,6 +51,12 @@ character*30  filenameTt   ,filenameTr   ,filenameTz     ,Npf       ,freqf     ,
 !**********************************************************************************************************************
 !                                             Inputs		  
 !**********************************************************************************************************************
+
+! Note: 
+!     This code lets the user enter values twice: once numerically (for calculations) 
+!     and once as a string (for filenames or labels).  
+!     For example, `E` is number,while `EE` store the same values as strings.  
+!     This dual input ensures accurate calculations and meaningful file naming.
 
 write(*,'(/,2x,a,\)') '            Enter the Energy value  : '
 read(*,*) E
@@ -79,17 +86,26 @@ read(*,*) tpf
 !                          Determination of Filenames and Opening files
 !**********************************************************************************************************************
 
-filenameTt = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Tt.plt'
+! Note:
+!      To achieve both efficiency and clarity in managing output data,
+!      below, we generate filenames based on input information.
+
+plot_extention = '.plt'
+
+filenameTt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'T_t'//plot_extention 
 open(1,file=filenameTt)
+!write(1,'(/,a,/)')    '                     t                               temperature'
 
-filenameTr = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Tr.plt'
+filenameTr = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_r'//plot_extention 
 open(2,file=filenameTr)
+!write(2,'(/,a,/)')    '                     r                               temperature'
 
-filenameTz = 'E'//trim(EE)//' f'//trim(freqf)//' Np'//trim(Npf)//' tp'//trim(tpf)//' Tz.plt'
+filenameTz = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_z'//plot_extention 
 open(3,file=filenameTz)
+!write(3,'(/,a,/)')    '                     z                               temperature'
 
-write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameTt,filenameTr,filenameTz
- read(*,*)
+write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameTt, filenameTr, filenameTz
+! read(*,*)
 
 
 !**********************************************************************************************************************
@@ -147,71 +163,47 @@ end forall !i
 write(*,*)
 write(*,*)'------- Heat Equation Constants --------------------------------------------'
 write(*,*)
-write(*,'(A13,I5    ,/,      &
-          A13,I5    ,/,      &
-		  A13,I5    ,//,     &
+write(*,'(A13,I9       )') '        tp = ',tp
+write(*,'(A13,I9       )') '        Nt = ',Nt
+write(*,'(A13,I9       )') '        Nr = ',Nr
+write(*,'(A13,I9       )') '        Np = ',Np
+write(*,'(A13,I9     ,/)') '        Nz = ',Nz
+
 		  
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
+write(*,'(A13,F15.10   )') '         h = ',h
+write(*,'(A13,F15.10   )') '         E = ',E
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10   )') '        T0 = ',T0
+write(*,'(A13,F15.10   )') '        pi = ',pi
+write(*,'(A13,F15.10 ,/)') '        Cp = ',Cp
 
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10   )') '       kT0 = ',kT0
+write(*,'(A13,F15.10 ,/)') '       roh = ',roh
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10   )') '      freq = ',freq
+write(*,'(A13,F15.10   )') '      gama = ',gama
+write(*,'(A13,F15.10   )') '      Tinf = ',Tinf 
+write(*,'(A13,F15.10 ,/)') '      Tamb = ',Tamb
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,/,      &
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10   )') '     timet = ',timet
+write(*,'(A13,F15.10 ,/)') '     sigma = ',sigma
 
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10   )') '    omegaf = ',omegaf
+write(*,'(A13,F15.10 ,/)') '    length = ',length
 
-		  A13,F15.10,/,      &
-		  A13,F15.10,//,     &
+write(*,'(A13,F15.10   )') '    deltat = ',deltat
+write(*,'(A13,F15.10   )') '    deltar = ',deltar
+write(*,'(A13,F15.10 ,/)') '    deltaz = ',deltaz
 
-		  A13,F15.10,//)')   &
-          
-'        Nt = ',Nt         ,     &
-'        Nr = ',Nr         ,     &
-'        Nz = ',Nz         ,     &
+write(*,'(A13,F15.10 ,/)') '    radius = ',radius
 
-'         h = ',h          ,     &
-'         E = ',E          ,     & 
+write(*,'(A13,F15.10   )') '  epsilong = ',epsilong
+write(*,'(A13,F15.10 ,/)') '  tbetween = ',tbetween
 
-'        T0 = ',T0         ,     &
-'        ka = ',ka         ,     &
-'        pi = ',pi         ,     &
-'        Cp = ',Cp         ,     &
-
-'       roh = ',roh        ,     &
-
-'      gama = ',gama       ,     &
-
-'     timet = ',timet      ,     &
-'     sigma = ',sigma      ,     &
-  
-'    omegaf = ',omegaf     ,     &
-'    length = ',length     ,     &
-'    deltat = ',deltat     ,     &
-'    deltar = ',deltar     ,     &
-'    deltaz = ',deltaz     ,     &       
-
-'    radius = ',radius     ,     &
-
-'  epsilong = ',epsilong   ,     &
-'  tbetween = ',tbetween   ,     &
-
-' stability = ',stability                                                                
-
+write(*,'(A13,F15.10 ,/)') ' stability = ',stability   
+                                                                 
 write(*,*)'----------------------------------------------------------------------------'
-write(*,'(A,\)')' Press Enter to continue '
+write(*,'(A,\)')' Please press any key to continue '
 read(*,*)
 
 
@@ -220,11 +212,11 @@ read(*,*)
 !**********************************************************************************************************************
 
 do j=0,nr
-   do k=0,nz
+    do k=0,nz
 
-      temperature(i,j,k) = T0
+       temperature(i,j,k) = T0
 	   
-   end do !k
+    end do !k
 end do !j	     
 
 !------------------ for save time 
@@ -259,15 +251,15 @@ do l=1,Np !Run program for Np pulses
 			!------------------------------------ End of Boundary conditions
 
             !------------------------------------ Heat Equation
-			temperature(2,j,k) = temperature(1,j,k)                                                                         &
+			temperature(2,j,k) = temperature(1,j,k)                                                               &
 		                      
-        			 		     + aa3 * (   temperature(1,j+1,k) * (2*r+deltar)/(r * 2 * deltar**2)                        &
+        			 		     + aa3 * (   temperature(1,j+1,k) * (2*r+deltar)/(r * 2 * deltar**2)              &
 								 
-								           - temperature(1,j  ,k) * (    4*r   )/(r * 2 * deltar**2)                        & 
+								 - temperature(1,j  ,k) * (    4*r   )/(r * 2 * deltar**2)                        & 
  
- 							               + temperature(1,j-1,k) * (2*r-deltar)/(r * 2 * deltar**2)                        & 
+ 							     + temperature(1,j-1,k) * (2*r-deltar)/(r * 2 * deltar**2)                        & 
 
-							               +(temperature(1,j,k-1) - 2*temperature(1,j,k) + temperature(1,j,k+1))/deltaz**2) &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+							     +(temperature(1,j,k-1) - 2*temperature(1,j,k) + temperature(1,j,k+1))/deltaz**2) &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
 	        				     + aa4 * exp( (-2*r**2)/(omegaf**2) ) * exp(-gama*z) * exp(-( (t-2*tp)/tp )**2 ) 
               

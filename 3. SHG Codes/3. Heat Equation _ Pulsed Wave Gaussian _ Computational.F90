@@ -126,7 +126,7 @@ filenameTz = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim
 open(3,file=filenameTz)
 !write(3,'(/,a,/)')    '                     z                               temperature'
 
-write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameTt,filenameTr,filenameTz
+write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameTt, filenameTr, filenameTz
 ! read(*,*)
 
 !-----------------------
@@ -248,7 +248,7 @@ write(*,'(A13,F15.10 ,/)') ' stability = ',stability
                                                                  
 write(*,*)'----------------------------------------------------------------------------'
 write(*,'(A,\)')' Please press any key to continue '
-!read(*,*)
+read(*,*)
 
 
 !**********************************************************************************************************************
