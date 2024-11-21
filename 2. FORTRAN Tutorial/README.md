@@ -3,7 +3,7 @@
 ## The codes are set to introduce various applications of these commands.    
 
 1. **FORTRAN_Main Commands Tutorial**: A Comprehensive Guide to Key Commands and Functions
-2. **FORTRAN_Coding Template Tutorial**: 12 Essential Steps to Streamline Your Code
+2. **FORTRAN_Coding Template Tutorial**: 11 Essential Steps to Streamline Your Code
 3. **FORTRAN_Run a Code Tutorial**: 5 Steps to Run Your Code
 4. **FORTRAN_Coding Template**: A Template for Programming    
 5. **Write_Read_Variables Types**: Examples of the Types of Tasks that can be Done with these Commands 
