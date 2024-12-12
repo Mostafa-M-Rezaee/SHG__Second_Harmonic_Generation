@@ -154,7 +154,7 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
 
        Ii = (0,1)
 
-! To Calculate normalization constant (G)
+! To Calculate normalization constant (G) - Formula (3) in the Article
 do k = 0, nz
    z = k * deltaz 
  

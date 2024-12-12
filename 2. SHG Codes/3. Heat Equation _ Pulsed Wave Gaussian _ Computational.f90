@@ -274,7 +274,7 @@ write(*,*)
 !-------- 
  G = 1.703409099e-10 * pi * tp     
 
-Q0 = sqrt(pi) * tp / G              !Normalization      m^-3
+Q0 = sqrt(pi) * tp / G              !Normalization	m^-3	-	Formula (14) in the Article
 
  p = E / (tp * sqrt(pi))            !total power of the pulse
 
