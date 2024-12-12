@@ -29,21 +29,21 @@ implicit none
 integer       i          ,j          ,k          ,f                                 &
              ,nt         ,nr         ,nz                                                                               
 
-real*8        t          ,z          ,p          ,h           ,r           ,G       &                                                                                    
+real*8        t          ,z          ,p          ,h           ,r           ,G       &
              ,T0         ,pi 		 ,Cp         ,roh 					            &
 			 ,aa1        ,aa2        ,aa3        ,aa4         ,aa5                  &
-			 ,KT0        ,Tinf       ,Tamb                                          & 
+			 ,KT0        ,Tinf       ,Tamb                                          &
 			 ,gama       ,timet      ,sigma                                         &
 			 ,omegaf     ,length     ,deltar     ,deltaz      ,deltat               &
 			 ,radius     ,epsilong   ,Fidegree   ,Firadian                          &
 			 ,stability                                                             &
-			 ,r_integral ,z_integral                                                &		 
+			 ,r_integral ,z_integral                                                &
 		  
     		 ,temperature[allocatable](:,:,:)    , KT[allocatable] (:,:)
 			 
 complex*16    Ii  
 
-character*30  pp                                                                    &                                 
+character*30  pp                                                                    &
              ,timetf     ,omegafch                                                  &
 			 ,filenamet  ,filenamer  ,filenamez                                     &
              ,stabilityf                                                            &
@@ -56,13 +56,13 @@ character*30  pp                                                                
                     i = 0.          ;j = 0.            ;k = 0.             ;f = 0.
                    nt = 0.         ;nr = 0.           ;nz = 0.
 
-                    t = 0.          ;z = 0.            ;p = 0.             ;h = 0.           ;r = 0.                                                                                                  
-                    G = 0.         ;T0 = 0.           ;pi = 0.            ;Cp = 0.         ;roh = 0.           
-			      aa1 = 0.        ;aa2 = 0.          ;aa3 = 0.           ;aa4 = 0.         ;aa5 = 0.				  
-				  KT0 = 0.       ;Tinf = 0.         ;Tamb = 0.                                                     
-			     gama = 0.      ;timet = 0.        ;sigma = 0.                                                                           
-			   omegaf = 0.     ;length = 0.       ;deltar = 0.        ;deltaz = 0.      ;deltat = 0.                 
-			   radius = 0.   ;epsilong = 0.     ;Fidegree = 0.      ;Firadian = 0.                                                                                    
+                    t = 0.          ;z = 0.            ;p = 0.             ;h = 0.           ;r = 0.
+                    G = 0.         ;T0 = 0.           ;pi = 0.            ;Cp = 0.         ;roh = 0.
+			      aa1 = 0.        ;aa2 = 0.          ;aa3 = 0.           ;aa4 = 0.         ;aa5 = 0.
+				  KT0 = 0.       ;Tinf = 0.         ;Tamb = 0.
+			     gama = 0.      ;timet = 0.        ;sigma = 0.
+			   omegaf = 0.     ;length = 0.       ;deltar = 0.        ;deltaz = 0.      ;deltat = 0.
+			   radius = 0.   ;epsilong = 0.     ;Fidegree = 0.      ;Firadian = 0.
 	        stability = 0.    
 
 !**********************************************************************************************************************
@@ -300,9 +300,9 @@ do i = 0,nt
 		                       
         			+ aa3 * (   (temperature(1,j-1,k) - 2 * temperature(1,j,k) + temperature(1,j+1,k))/(deltar ** 2)           &
 								 
-					+ (temperature(1,j+1,k) - temperature(1,j-1,k)) /(r * 2 * deltar)                                          & 					            
+					+ (temperature(1,j+1,k) - temperature(1,j-1,k)) /(r * 2 * deltar)                                          &
 
-					+ (temperature(1,j,k-1) - 2 * temperature(1,j,k) + temperature(1,j,k+1))/deltaz**2   )                     &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+					+ (temperature(1,j,k-1) - 2 * temperature(1,j,k) + temperature(1,j,k+1))/deltaz**2   )                     &
 
 	        		+ aa4 * exp( (-2 * r ** 2)/(omegaf ** 2) ) * exp(- gama * z)                                               &
 
