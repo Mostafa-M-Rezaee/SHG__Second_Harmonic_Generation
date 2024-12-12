@@ -29,8 +29,8 @@ implicit none
 integer       i          ,j          ,k          ,f                                 &
              ,nt         ,nr         ,nz                                                                               
 
-real*8        t          ,z          ,p          ,h           ,r                    &                                                                                    
-             ,G          ,T0         ,pi 		 ,Cp          ,roh 					&
+real*8        t          ,z          ,p          ,h           ,r           ,G       &                                                                                    
+             ,T0         ,pi 		 ,Cp         ,roh 					            &
 			 ,aa1        ,aa2        ,aa3        ,aa4         ,aa5                  &
 			 ,KT0        ,Tinf       ,Tamb                                          & 
 			 ,gama       ,timet      ,sigma                                         &
