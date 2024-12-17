@@ -26,21 +26,21 @@ implicit none
 !-------------------------------------- Common Variables
 integer       i            ,j          ,k          ,l          ,m                                                    &
              ,nt           ,nr         ,nz         ,Np         ,inn         ,kn                                      &
-			 ,nt1          ,run                                                                                      &
-	         ,nomegaf                                                          
+			    ,nt1          ,run                                                                                      &
+	          ,nomegaf                                                          
 
 real*8        E            ,t          ,z          ,r          ,x          ,y                                        &                                 
              ,pi           ,tp         ,Cp         ,s1         ,s2         ,y1         ,y2                           &
              ,roh          ,KT0                                                                                      &
              ,freq         ,beta                                                                                     &
-			 ,sigma        ,timet      ,alpha      ,gama1      ,gama2      ,gama3      ,power      ,nnrom            &   
-			 ,no1T0        ,ne1T0      ,ne2T0      ,no1rT      ,ne2rT      ,ne1rT                                    &
-			 ,omegaf       ,length     ,deltar     ,deltaz     ,deltat     ,radius                                   &  
-			 ,lambda1      ,lambda2    ,deltar1    ,deltar2                                                          & 
-			 ,tbetween     ,Fidegree   ,Firadian   ,J0alphar                                                         &
-			 ,stability                                                                                              &
+			    ,sigma        ,timet      ,alpha      ,gama1      ,gama2      ,gama3      ,power      ,nnrom            &   
+			    ,no1T0        ,ne1T0      ,ne2T0      ,no1rT      ,ne2rT      ,ne1rT                                    &
+			    ,omegaf       ,length     ,deltar     ,deltaz     ,deltat     ,radius                                   &  
+			    ,lambda1      ,lambda2    ,deltar1    ,deltar2                                                          & 
+			    ,tbetween     ,Fidegree   ,Firadian   ,J0alphar                                                         &
+			    ,stability                                                                                              &
              ,teta_bessel                                                                                            &
-	         ,dteta_bessel                                                                                          
+	          ,dteta_bessel                                                                                          
 
 
 complex*16    Ii                                                                                                       
@@ -48,14 +48,14 @@ complex*16    Ii
 character*35  freqf      ,Npf        ,tpf        ,EE
 
 !-------------------------------------- Fields Variables
-integer       f            ,ibest
+integer       f          ,ibest
 
 real*8        c                                                                                                      &
              ,fi                                                                                                     &
-			 ,deff                                                                                                   &
+			    ,deff                                                                                                   &
              ,omega        ,Psi22        ,Psi32                                                                      &
              ,Lscale       ,Elec12       ,Elec22        ,Elec32                                                      &
-			 ,epsilon0     ,Psi2max      ,Psi3max                                                                    &                       
+			    ,epsilon0     ,Psi2max      ,Psi3max                                                                    &                       
              ,Lscalemax
 
 complex*16    cc1          ,cc2          ,cc3           ,cc4          ,cc5                                           &
@@ -63,17 +63,17 @@ complex*16    cc1          ,cc2          ,cc3           ,cc4          ,cc5      
              ,ee1          ,ee2          ,ee3           ,ee4          ,ee5                                           &
 
              ,Psi1[allocatable](:,:,:)   ,Elec1[allocatable](:,:,:)                                                  &
-			 ,Psi2[allocatable](:,:,:)   ,Elec2[allocatable](:,:,:)                                                  &  
-			 ,Psi3[allocatable](:,:,:)   ,Elec3[allocatable](:,:,:) 
+			    ,Psi2[allocatable](:,:,:)   ,Elec2[allocatable](:,:,:)                                                  &  
+			    ,Psi3[allocatable](:,:,:)   ,Elec3[allocatable](:,:,:) 
                      
 
 character*35  filenameibestl                                                                                         &
              ,filenameElec12t      ,filenameElec12r       ,filenameElec12z                                           &
              ,filenameElec22t      ,filenameElec22r       ,filenameElec22z                                           &         
-			 ,filenameElec32t      ,filenameElec32r       ,filenameElec32z                                           &
+			    ,filenameElec32t      ,filenameElec32r       ,filenameElec32z                                           &
 
-			 ,filenamePsi3picksl   ,filenamePsi2picksl    ,filenameLscalemaxl                                        & 
-			 ,plot_extention 
+			    ,filenamePsi3picksl   ,filenamePsi2picksl    ,filenameLscalemaxl                                        & 
+			    ,plot_extention 
 
 !**********************************************************************************************************************
 !                                       Giving Zero to variables
@@ -81,17 +81,17 @@ character*35  filenameibestl                                                    
 !-------------------------------------- Giving Zero to Common Variables
               i = 0             ;j = 0             ;k = 0         ;l = 0         ;m = 0          
              nt = 0            ;nr = 0            ;nz = 0        ;Np = 0       ;inn = 0         ;kn = 0.
-			nt1 = 0           ;run = 0                                                 
+			   nt1 = 0           ;run = 0                                                 
         nomegaf = 0
 
               E = 0.            ;t = 0.            ;z = 0.        ;r = 0.        ;x = 0.         ;y = 0.         
              pi = 0.           ;tp = 0.           ;Cp = 0.       ;s1 = 0.       ;s2 = 0.        ;y1 = 0.       ;y2 = 0.           
             roh = 0.          ;KT0 = 0. 
            freq = 0.         ;beta = 0.                                                                                     
-		  sigma = 0.        ;timet = 0.        ;alpha = 0.    ;gama1 = 0.    ;gama2 = 0.     ;gama3 = 0.    ;power = 0.   
+		    sigma = 0.        ;timet = 0.        ;alpha = 0.    ;gama1 = 0.    ;gama2 = 0.     ;gama3 = 0.    ;power = 0.   
           nnrom = 0.        ;no1T0 = 0.        ;ne1T0 = 0.    ;ne2T0 = 0.    ;no1rT = 0.     ;ne2rT = 0.    ;ne1rT = 0.
-		 omegaf = 0.       ;length = 0.       ;deltar = 0.   ;deltaz = 0.   ;deltat = 0.    ;radius = 0.                                               
-		lambda1 = 0.      ;lambda2 = 0.      ;deltar1 = 0.  ;deltar2 = 0.
+		   omegaf = 0.       ;length = 0.       ;deltar = 0.   ;deltaz = 0.   ;deltat = 0.    ;radius = 0.                                               
+		  lambda1 = 0.      ;lambda2 = 0.      ;deltar1 = 0.  ;deltar2 = 0.
        tbetween = 0.     ;Fidegree = 0.     ;Firadian = 0. ;J0alphar = 0.   
       stability = 0.
    dteta_bessel = 0. 
@@ -108,8 +108,8 @@ character*35  filenameibestl                                                    
             ee1 = 0.          ;ee2 = 0.          ;ee3 = 0.      ;ee4 = 0.      ;ee5 = 0.                                          
  
            deff = 0.                                        
-		  omega = 0.        ;Psi22 = 0.        ;Psi32 = 0.
-		 Lscale = 0.       ;Elec12 = 0.       ;Elec22 = 0.   ;Elec32 = 0.  
+		    omega = 0.        ;Psi22 = 0.        ;Psi32 = 0.
+		   Lscale = 0.       ;Elec12 = 0.       ;Elec22 = 0.   ;Elec32 = 0.  
        epsilon0 = 0.      ;Psi2max = 0.      ;Psi3max = 0.
       Lscalemax = 0.
 
@@ -148,7 +148,7 @@ freq = 4000
 Np = 1
 tp = 50e-6
 
-EE = '0.08'
+EE = '08'
 freqf = '4000'
 Npf = '1'
 tpf = '50'
@@ -207,7 +207,7 @@ filenameElec32t = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'/
 open(13,file=filenameElec32t)
 !write(13,'(/,a,/)')    ' variables =     "t"                              "Elec3 ** 2"'
 
-filenameElec32r = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//' tp_'//trim(tpf)//'_Elec32_r'//plot_extention
+filenameElec32r = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec32_r'//plot_extention
 open(14,file=filenameElec32r)
 !write(14,'(/,a,/)')    ' variables =     "r"                              "Elec3 ** 2"'
 
@@ -217,7 +217,7 @@ open(15,file=filenameElec32z)
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameElec32t  &
                                                                                     ,filenameElec32r  &
-										    ,filenameElec32z
+										                                                      ,filenameElec32z
  write(*,'(A,\)')' Please press any key to continue '
  read(*,*)
 
@@ -229,17 +229,17 @@ open(16,file=filenamePsi3picksl)
 !------------------
 filenamePsi2picksl = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Psi2picks_l'//plot_extention
 open(17,file=filenamePsi2picksl)
-!write(16,'(/,a,/)')    ' variables =     "l"                              "Psi2 picks ** 2"'
+!write(17,'(/,a,/)')    ' variables =     "l"                              "Psi2 picks ** 2"'
 
 !------------------
 filenameLscalemaxl= 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Lscalemax_l'//plot_extention
 open(20,file=filenameLscalemaxl)
-!write(19,'(/,a,/)')    ' variables =     "l"                              "Lscalemax"'
+!write(20,'(/,a,/)')    ' variables =     "l"                              "Lscalemax"'
 
 !------------------
-filenameibestl = 'E'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_ibest l'//plot_extention
+filenameibestl = 'E'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_ibest_l'//plot_extention
 open(21,file=filenameibestl)
-!write(16,'(/,a,/)')    ' variables =     "l"                              "ibest"'
+!write(21,'(/,a,/)')    ' variables =     "l"                              "ibest"'
 
 !**********************************************************************************************************************
 !                                           Constants
@@ -328,13 +328,13 @@ allocate(Elec3(0:nt/inn,0:nr,0:nz/kn))
 !----------------------------------- Giving Zero to Arrys Fields
 forall (i=0:nt/inn,j=0:nr,k=1:2)
                            Psi1(i,j,k) = (0.,0.)       
-	  	           Psi2(i,j,k) = (0.,0.)       
+	  	                     Psi2(i,j,k) = (0.,0.)       
                            Psi3(i,j,k) = (0.,0.)       
 end forall !i
 
 forall (i=0:nt/inn,j=0:nr,k=0:nz/kn)
                           Elec1(i,j,k) = (0.,0.)     
-		          Elec2(i,j,k) = (0.,0.)      
+		                    Elec2(i,j,k) = (0.,0.)      
                           Elec3(i,j,k) = (0.,0.)      
 end forall !i
 
@@ -479,9 +479,9 @@ do l=1,Np
                !--------------------------------- 
             
                !--------------------------------- interaction length
-               Lscale =  sqrt(no1rT*ne1rT*ne2rT)                                              &
+               Lscale =  sqrt(no1rT*ne1rT*ne2rT)                                                &
 			   
-		       * sqrt( (epsilon0*c**3.*pi*omegaf**2.) / (4.*omega**2.*deff**2.*power) ) 
+		                 * sqrt( (epsilon0*c**3.*pi*omegaf**2.) / (4.*omega**2.*deff**2.*power) ) 
 
                !------------- Maximom 
                if (Lscale .GE. Lscalemax) then
@@ -510,16 +510,16 @@ do l=1,Np
                !------------- Psi1
                if (k==0) Psi1(i/inn,j,1) = exp( (-(t-2.*tp)**2.)/(tp**2.) ) &
 
-                                         * J0alphar * exp(-r**2./omegaf**2.)              !for input surface
+                                         * J0alphar * exp(-r**2./omegaf**2.)             !for input surface
 
 	       Psi1(i/inn,0 ,1 ) = Psi1(i/inn,1,1 )                                           !for crystal axis
            
-               Psi1(i/inn,nr,1 ) = (0.,0.)                                                !for lateral surface 
+               Psi1(i/inn,nr,1 ) = (0.,0.)                                               !for lateral surface 
 			
 
 	       if (k==0 ) Psi1(i/inn,0 ,1 ) = Psi1(i/inn,1,1 )                                !for (0 ,0 )
            
-   	       if (k==0 ) Psi1(i/inn,nr,1 ) = (0.,0.)                                         !for (nr,0 ) 
+   	      if (k==0 ) Psi1(i/inn,nr,1 ) = (0.,0.)                                       !for (nr,0 ) 
 
 	       if (k==nz) Psi1(i/inn,nr,1 ) = (0.,0.)                                         !for (nr,nz) 
 
@@ -528,22 +528,22 @@ do l=1,Np
 	       !------------- Psi2
                if (k==0) Psi2(i/inn,j,1) = exp( (-(t-2.*tp)**2.)/(tp**2.) ) &        
 
-                                         * J0alphar * exp(-r**2./omegaf**2.)	          !for input  surface       
+                                         * J0alphar * exp(-r**2./omegaf**2.)	           !for input  surface       
 
-               Psi2(i/inn,0 ,1 ) = Psi2(i/inn,1,1 )                                       !for crystal axis
+               Psi2(i/inn,0 ,1 ) = Psi2(i/inn,1,1 )                                      !for crystal axis
            
-               Psi2(i/inn,nr,1 ) = (0.,0.)                                                !for lateral surface 
+               Psi2(i/inn,nr,1 ) = (0.,0.)                                               !for lateral surface 
           
 	       if (k==0 ) Psi2(i/inn,0 ,1 ) = Psi2(i/inn,1,1 )                                !for (0 ,0 )
            
 	       if (k==0 ) Psi2(i/inn,nr,1 ) = (0.,0.)                                         !for (nr,0 ) 
 
-               if (k==nz) Psi2(i/inn,nr,1) = (0.,0.)                                      !for (nr,nz) 
+               if (k==nz) Psi2(i/inn,nr,1) = (0.,0.)                                     !for (nr,nz) 
 
 	       if (k==nz) Psi2(i/inn,0 ,1) = Psi2(i/inn,1 ,1)                                 !for (0 ,nz) 
 
  	       !------------- Psi3 
-               if (k==0)Psi3(i/inn,j,1) = (0.,0.)                                         !for input  surface
+               if (k==0)Psi3(i/inn,j,1) = (0.,0.)                                        !for input  surface
             
 	       Psi3(i/inn,0  ,1) = Psi3(i/inn,1,1)                                            !for crystal axis
 					      
@@ -561,43 +561,43 @@ do l=1,Np
            
                !--------------------------------- Field Equations		   
 	       !-------------
-	       Psi1(i/inn,j,2) =  Psi1(i/inn,j,1)                                                                 &
+	       Psi1(i/inn,j,2) =  Psi1(i/inn,j,1)                                                                      &
 			
-		               - cc1  * ( Psi1(i/inn,j,1) - Psi1(i/inn-1,j,1) ) / deltat                              &
+		                     - cc1  * ( Psi1(i/inn,j,1) - Psi1(i/inn-1,j,1) ) / deltat                              &
 			
-		               + cc2  * ( Psi1(i/inn,j+1,1) - Psi1(i/inn,j-1,1) ) / (2*r*deltar)                      &
+		                     + cc2  * ( Psi1(i/inn,j+1,1) - Psi1(i/inn,j-1,1) ) / (2*r*deltar)                      &
 														
-		    	       + cc2  * ( Psi1(i/inn,j+1,1) - 2*Psi1(i/inn,j,1) + Psi1(i/inn,j-1,1) ) / deltar**2     &
+		    	               + cc2  * ( Psi1(i/inn,j+1,1) - 2*Psi1(i/inn,j,1) + Psi1(i/inn,j-1,1) ) / deltar**2     &
 														
-			           - cc3  *   Psi1(i/inn,j,1)                                                             &
+			                  - cc3  *   Psi1(i/inn,j,1)                                                             &
 
-			           + cc4  * conjg(Psi2(i/inn,j,1)) * Psi3(i/inn,j,1) !* exp(-Ii*phasechange(i/inn,j,k) )   
+			                  + cc4  * conjg(Psi2(i/inn,j,1)) * Psi3(i/inn,j,1) !* exp(-Ii*phasechange(i/inn,j,k) )   
 
  	       !-------------
-	       Psi2(i/inn,j,2) =  Psi2(i/inn,j,1)                                                                 &
+	       Psi2(i/inn,j,2) =  Psi2(i/inn,j,1)                                                                      &
 		
-		               - dd1 * ( Psi2(i/inn,j,1) - Psi2(i/inn-1,j,1) ) / deltat                               &
+		                     - dd1 * ( Psi2(i/inn,j,1) - Psi2(i/inn-1,j,1) ) / deltat                               &
 			
-		               + dd2 * ( Psi2(i/inn,j+1,1) - Psi2(i/inn,j-1,1) ) / (2*r*deltar)                       &
+		                     + dd2 * ( Psi2(i/inn,j+1,1) - Psi2(i/inn,j-1,1) ) / (2*r*deltar)                       &
 													
-		               + dd2 * ( Psi2(i/inn,j+1,1) - 2*Psi2(i/inn,j,1) + Psi2(i/inn,j-1,1) ) / deltar**2      &
+		                     + dd2 * ( Psi2(i/inn,j+1,1) - 2*Psi2(i/inn,j,1) + Psi2(i/inn,j-1,1) ) / deltar**2      &
 														
-		               - dd3 *   Psi2(i/inn,j,1)                                                              &
+		                     - dd3 *   Psi2(i/inn,j,1)                                                              &
 
-		               + dd4 * conjg(Psi1(i/inn,j,1)) * Psi3(i/inn,j,1) !* exp(-Ii*phasechange(i/inn,j,k) )     
+		                     + dd4 * conjg(Psi1(i/inn,j,1)) * Psi3(i/inn,j,1) !* exp(-Ii*phasechange(i/inn,j,k) )     
  
                !-------------			
-	       Psi3(i/inn,j,2) =  Psi3(i/inn,j,1)                                                                 &
+	       Psi3(i/inn,j,2) =  Psi3(i/inn,j,1)                                                                      &
 		
-		               - ee1 * ( Psi3(i/inn,j,1) - Psi3(i/inn-1,j,1) ) / deltat                               &
+		                     - ee1 * ( Psi3(i/inn,j,1) - Psi3(i/inn-1,j,1) ) / deltat                               &
 			
-		               + ee2 * ( Psi3(i/inn,j+1,1) -   Psi3(i/inn,j-1,1) ) / (2*r*deltar)                     &
+		                     + ee2 * ( Psi3(i/inn,j+1,1) -   Psi3(i/inn,j-1,1) ) / (2*r*deltar)                     &
 														
-		               + ee2 * ( Psi3(i/inn,j+1,1) - 2*Psi3(i/inn,j,1) + Psi3(i/inn,j-1,1) ) / deltar**2      &
+		                     + ee2 * ( Psi3(i/inn,j+1,1) - 2*Psi3(i/inn,j,1) + Psi3(i/inn,j-1,1) ) / deltar**2      &
 														
-			           - ee3 *   Psi3(i/inn,j,1)                                                              &
+			                  - ee3 *   Psi3(i/inn,j,1)                                                              &
 														
-			           + ee4 *   Psi1(i/inn,j,1) * Psi2(i/inn,j,1) !* exp(Ii*phasechange(i/inn,j,k) )          
+			                  + ee4 *   Psi1(i/inn,j,1) * Psi2(i/inn,j,1) !* exp(Ii*phasechange(i/inn,j,k) )          
 
                !------------- Maximum 
 	       if (k==nz) then
@@ -628,9 +628,9 @@ do l=1,Np
 	          !------------- Elec1
                   if (k==0) Elec1(i/inn,j,0) = Psi1(i/inn,j,1)       !for input  surface
  
-	          Elec1(i/inn,0 ,k/kn ) = Psi1(i/inn,0,1)                !for crystal axis
+	          Elec1(i/inn,0 ,k/kn ) = Psi1(i/inn,0,1)                 !for crystal axis
            
-	          Elec1(i/inn,nr,k/kn ) = (0.,0.)                        !for lateral surface 
+	          Elec1(i/inn,nr,k/kn ) = (0.,0.)                         !for lateral surface 
 
                   if (k==0) Elec1(i/inn,0,0) = Psi1(i/inn,0,1)       !for (0 ,0 )
            
@@ -643,9 +643,9 @@ do l=1,Np
 	          !------------- Elec2
                   if (k==0) Elec2(i/inn,j,0) = Psi2(i/inn,j,1)       !for input  surface
  
-	          Elec2(i/inn,0 ,k/kn ) = Psi2(i/inn,0,1)                !for crystal axis
+	          Elec2(i/inn,0 ,k/kn ) = Psi2(i/inn,0,1)                 !for crystal axis
            
-	          Elec2(i/inn,nr,k/kn ) = (0.,0.)                   	 !for lateral surface 
+	          Elec2(i/inn,nr,k/kn ) = (0.,0.)                   	   !for lateral surface 
 
                   if (k==0) Elec2(i/inn,0,0) = Psi2(i/inn,0,1)       !for (0 ,0 )
            
@@ -657,10 +657,10 @@ do l=1,Np
 
 	          !------------- Elec3 
                   Elec3(i/inn,j,0) = (0.,0.)                         !for input  surface
- 
-	          Elec3(i/inn,0 ,k/kn ) = Psi3(i/inn,1,1)           	 !for crystal axis
+  
+	          Elec3(i/inn,0 ,k/kn ) = Psi3(i/inn,1,1)           	   !for crystal axis
            
-	          Elec3(i/inn,nr,k/kn ) = (0.,0.)                  	     !for lateral surface 
+	          Elec3(i/inn,nr,k/kn ) = (0.,0.)                  	      !for lateral surface 
 
                   Elec3(i/inn,0,0) = (0.,0.)                         !for (0 ,0 )
            

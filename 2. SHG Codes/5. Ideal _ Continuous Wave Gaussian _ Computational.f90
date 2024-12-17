@@ -25,29 +25,29 @@ implicit none
 !                                       Determine variables
 !**********************************************************************************************************************
 
-integer        i                   ,j                     ,k                       ,f                      ,nz                 
+integer     i                   ,j                     ,k                       ,f                      ,nz                 
                                                                                            
-real*8         l                   ,p                     ,z                       ,c                      ,d               &                                                      		
-              ,pi                  ,n1                    ,n2                      ,n3                     ,r1f             &                    
-			  ,r2f                 ,r3f                                                                                     &                    
-			  ,gama1               ,gama2                 ,gama3                   ,omegaf                                  &
-			  ,deltaz              ,deltak                ,omega1                  ,epsilon                                 &
-			  ,landa1              ,lenght                                                                                  &                                                                                     
+real*8      l                   ,p                     ,z                       ,c                      ,d           &                                                      		
+           ,pi                  ,n1                    ,n2                      ,n3                                  &                    
+			  ,r1f                 ,r2f                   ,r3f                                                          &                    
+			  ,gama1               ,gama2                 ,gama3                   ,omegaf                              &
+			  ,deltaz              ,deltak                ,omega1                  ,epsilon                             &
+			  ,landa1              ,lenght                                                                              &                                                                                     
                                                                                                                         
 
-              ,elecp1[allocatable](:)                     ,elecm1[allocatable](:)                                           &    
-			  ,elecp2[allocatable](:)                     ,elecm2[allocatable](:)                                           &    
-              ,elecp3[allocatable](:)                     ,elecm3[allocatable](:)                                                                      
+           ,elecp1[allocatable](:)                     ,elecm1[allocatable](:)                                       &    
+			  ,elecp2[allocatable](:)                     ,elecm2[allocatable](:)                                       &    
+           ,elecp3[allocatable](:)                     ,elecm3[allocatable](:)                                                                      
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 
     																											    
-complex*16     Ii                                                                                                           &                                                                                            
-              ,psip1[allocatable](:)                      ,psim1[allocatable](:)                                            &                                                                                                                                                     
-              ,psip2[allocatable](:)                      ,psim2[allocatable](:)                                            &                                                                                      
+complex*16     Ii                                                                                                    &                                                                                            
+              ,psip1[allocatable](:)                      ,psim1[allocatable](:)                                     &                                                                                                                                                     
+              ,psip2[allocatable](:)                      ,psim2[allocatable](:)                                     &                                                                                      
               ,psip3[allocatable](:)                      ,psim3[allocatable](:)                                                                                                                             
                  
 
-character*30   filenamez                                                                                                    &
+character*30   filenamez                                                                                             &
               ,plot_extention 
 
 !**********************************************************************************************************************
@@ -55,11 +55,12 @@ character*30   filenamez                                                        
 !**********************************************************************************************************************
                         
                                                                              
-              ;l = 0                   ;p = 0                     ;z = 0                      ;c = 0                    ;d = 0                                                                                                              		
-              ;pi = 0                  ;n1 = 0                    ;n2 = 0                     ;n3 = 0                                   
-			  ;gama1 = 0               ;gama2 = 0                 ;gama3 = 0                  ;epsilon = 0                             
-			  ;deltaz = 0              ;deltak = 0                ;omega1 = 0                 ;omegaf = 0                              
-			  ;landa1 = 0 
+               l = 0                   ;p = 0                     ;z = 0                      ;c = 0                                                                                                                                  		
+               d = 0
+              pi = 0                  ;n1 = 0                    ;n2 = 0                     ;n3 = 0                                   
+			  gama1 = 0               ;gama2 = 0                 ;gama3 = 0                ;epsilon = 0                             
+			 deltaz = 0              ;deltak = 0                ;omega1 = 0                 ;omegaf = 0                              
+		    landa1 = 0 
                 
                    
 
@@ -135,11 +136,11 @@ open(7,file=filenamez)
     gama1 = 0.5
     gama2 = 0.5
     gama3 = 4.
-   landa1 = 1.064     !micro meter 
+   landa1 = 1.064      !micro meter 
    lenght = 0.02
    omegaf = 0.0001
   epsilon = 8.85e-12                        
-		d = 7.3e-12*epsilon
+	     d = 7.3e-12*epsilon
    omega1 = 2*pi*c*1000000/landa1            ;l = (epsilon**3*c**3*pi*omegaf**2/((4*p)*omega1**2*d**2))**.5     
    deltaz = lenght/nz  
     
@@ -201,12 +202,12 @@ allocate(psip3(0:nz))                   ;   allocate(psim3(0:nz))
 !**********************************************************************************************************************
 
 forall (k=0:nz)
-       elecp1(k) = 0                    ;   elecm1(k) = 0  
-	   elecp2(k) = 0                    ;   elecm2(k) = 0                
-	   elecp3(k) = 0                    ;   elecm3(k) = 0
-	   psip1(k)  = 0                    ;   psim1(k)  = 0
-	   psip2(k)  = 0                    ;   psim2(k)  = 0
-	   psip3(k)  = 0                    ;   psim3(k)  = 0
+        elecp1(k) = 0                    ;   elecm1(k) = 0  
+	     elecp2(k) = 0                    ;   elecm2(k) = 0                
+	     elecp3(k) = 0                    ;   elecm3(k) = 0
+	     psip1(k)  = 0                    ;   psim1(k)  = 0
+	     psip2(k)  = 0                    ;   psim2(k)  = 0
+	     psip3(k)  = 0                    ;   psim3(k)  = 0
      
 end forall !k     
                                                                                 
@@ -256,7 +257,8 @@ do k=nz,1,-1
    psim1(k-1) = psim1(k)*(1-gama1*deltaz/2) + deltaz/(l*(n1*n2*n3)**.5)*Ii*psim3(k)*conjg(psim2(k))*exp(Ii*deltak*z)
    psim2(k-1) = psim2(k)*(1-gama2*deltaz/2) + deltaz/(l*(n1*n2*n3)**.5)*Ii*psim3(k)*conjg(psim1(k))*exp(Ii*deltak*z)
    psim3(k-1) = psim3(k)*(1-gama3*deltaz/2) + deltaz/(l*(n1*n2*n3)**.5)*Ii*psim1(k)*psim2(k)*exp(-Ii*deltak*z)   	
-end do	  	  
+end do	
+
 !**************************************************************************************************************************
 !                                          printe results     
 !**************************************************************************************************************************
@@ -265,11 +267,13 @@ do k=0,nz
    elecp2(k)=psip2(k)*conjg(psip2(k))
    elecp3(k)=psip3(k)*conjg(psip3(k)) 
 end do
+
 do k=nz,0,-1
    elecm1(k)=psim1(k)*conjg(psim1(k))                     !*exp(0)=1
    elecm2(k)=psim2(k)*conjg(psim2(k))
    elecm3(k)=psim3(k)*conjg(psim3(k)) 
 end do!k
+
 !-------------------------------
 do k=0,nz
    z=k*deltaz
@@ -291,9 +295,9 @@ do k=0,nz
   ! write(7,'(f20.12)' )  elecm3(k)*100
 
 
-write(4,'(f13.8 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12)')                             &
+write(4,'(f13.8 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12 ,5x, f20.12)')                    &
  
-                 z ,  elecp1(k)*100 , elecp2(k)*100 , elecp3(k)*100 , elecm1(k)*100 , elecm2(k)*100 , elecm3(k)*100
+      z ,  elecp1(k)*100 , elecp2(k)*100 , elecp3(k)*100 , elecm1(k)*100 , elecm2(k)*100 , elecm3(k)*100
  
 
 

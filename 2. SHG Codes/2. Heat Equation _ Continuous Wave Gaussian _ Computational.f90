@@ -30,14 +30,14 @@ integer       i          ,j          ,k          ,f                             
              ,nt         ,nr         ,nz                                                                               
 
 real*8        t          ,z          ,p          ,h           ,r           ,G       &
-             ,T0         ,pi 		 ,Cp          					                &
-			 ,roh        ,aa1        ,aa2        ,aa3        ,aa4         ,aa5      &
-			 ,KT0        ,Tinf       ,Tamb                                          &
-			 ,gama       ,timet      ,sigma                                         &
-			 ,omegaf     ,length     ,deltar     ,deltaz      ,deltat               &
-			 ,radius     ,epsilong   ,Fidegree   ,Firadian                          &
-			 ,stability                                                             &
-			 ,r_integral ,z_integral                                                &
+             ,T0         ,pi 	   	 ,Cp          					                     &
+			    ,roh        ,aa1        ,aa2        ,aa3        ,aa4         ,aa5      &
+			    ,KT0        ,Tinf       ,Tamb       ,gama                              &
+			    ,timet      ,sigma                                                     &
+			    ,omegaf     ,length     ,deltar     ,deltaz      ,deltat               &
+			    ,radius     ,epsilong   ,Fidegree   ,Firadian                          &
+			    ,stability                                                             &
+			    ,r_integral ,z_integral                                                &
 		  
     		 ,temperature[allocatable](:,:,:)    , KT[allocatable] (:,:)
 			 
@@ -45,25 +45,26 @@ complex*16    Ii
 
 character*30  pp                                                                    &
              ,timetf     ,omegafch                                                  &
-			 ,filenamet  ,filenamer  ,filenamez                                     &
+		   	 ,filenamet  ,filenamer  ,filenamez                                     &
              ,stabilityf                                                            &
-			 ,plot_extention                                                          
+			    ,plot_extention                                                          
 			 
 !**********************************************************************************************************************
 !                                         Zero to variables
 !**********************************************************************************************************************
  
-                    i = 0.          ;j = 0.            ;k = 0.             ;f = 0.
-                   nt = 0.         ;nr = 0.           ;nz = 0.
+                 i = 0.          ;j = 0.            ;k = 0.             ;f = 0.
+                nt = 0.         ;nr = 0.           ;nz = 0.
 
-                    t = 0.          ;z = 0.            ;p = 0.             ;h = 0.           ;r = 0.
-                    G = 0.         ;T0 = 0.           ;pi = 0.            ;Cp = 0.         ;roh = 0.
-			      aa1 = 0.        ;aa2 = 0.          ;aa3 = 0.           ;aa4 = 0.         ;aa5 = 0.
-				  KT0 = 0.       ;Tinf = 0.         ;Tamb = 0.
-			     gama = 0.      ;timet = 0.        ;sigma = 0.
+                 t = 0.          ;z = 0.            ;p = 0.             ;h = 0.           ;r = 0.           ;G = 0.  
+                T0 = 0.         ;pi = 0.           ;Cp = 0.         
+			      roh = 0.        ;aa1 = 0.          ;aa2 = 0.           ;aa3 = 0.         ;aa4 = 0.         ;aa5 = 0.          
+				   KT0 = 0.
+              Tinf = 0.       ;Tamb = 0.         ;gama = 0.
+			    timet = 0.      ;sigma = 0.
 			   omegaf = 0.     ;length = 0.       ;deltar = 0.        ;deltaz = 0.      ;deltat = 0.
 			   radius = 0.   ;epsilong = 0.     ;Fidegree = 0.      ;Firadian = 0.
-	        stability = 0.    
+	      stability = 0.    
 
 !**********************************************************************************************************************
 !                                             Inputs		  
@@ -125,8 +126,8 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
 !                                        Determine  Constants
 !*********************************************************************************************************************
       
-	    p = 80.                 !power of laser                                          W
-	    h = 10.                 !heat transfer coefficient (convection - cylinder)       W/(m^2.K) 
+	     p = 80.                 !power of laser                                          W
+	     h = 10.                 !heat transfer coefficient (convection - cylinder)       W/(m^2.K) 
        pi = 4*atan(1.)                                                                  !dimensionless
       KT0 = 13.                 !thermal conductivity of KTP crystal                     W/(m.K)
 	  	                            ! k1=2 , k2=3 , k3=3.3 
@@ -134,7 +135,7 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
        T0 = 300.                !initial temperature                                     K
       roh = 2945.               !mass density                                            kg/m^3
      Tamb = 300.                !K
-	 Tinf = 300.                !K              
+	  Tinf = 300.                !K              
      gama = 1.                  !absorption coefficient                                  1/m
     sigma = 5.669e-8            !Stephan-Bultzman constant                               W/(m^2.K^4) 
 
@@ -148,7 +149,7 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
    deltaz = length/nz                                                                   !m 
 
    deltat = (stability*roh*Cp*0.5/KT0)*(deltar**2*deltaz**2/(deltar**2+deltaz**2))      !s     
-   	   nt = int(timet/deltat)                                                           !dimensionless 
+   	 nt = int(timet/deltat)                                                           !dimensionless 
 
  epsilong = 0.9                 !surface emissivity                                     !dimensionless
 
@@ -256,63 +257,63 @@ end do !j
 do i = 0,nt
    t = i*deltat
    
-    do j = 1,nr-1   
-        r = j * deltar
+   do j = 1,nr-1   
+      r = j * deltar
 	   
-	    do k = 1,nz-1
-	       z = k * deltaz 
-            aa1 = (h*deltaz)/(kT(j,k))
-            
-			aa2 = (epsilong*sigma*deltaz)/(kT(j,k))
-            
-			aa3 = ( deltat/(roh*Cp) ) * kT(j,k)           
- 
-            aa4 = ( (deltat)/(roh * Cp) ) * ( ( p)/(2 * pi * G) )
+	   do k = 1,nz-1
+	      z = k * deltaz 
+         aa1 = (h*deltaz)/(kT(j,k))
+         
+         aa2 = (epsilong*sigma*deltaz)/(kT(j,k))
+         
+         aa3 = ( deltat/(roh*Cp) ) * kT(j,k)           
 
-			aa5 = deltat /(4 * roh * Cp  )
+         aa4 = ( (deltat)/(roh * Cp) ) * ( ( p)/(2 * pi * G) )
 
-		    !------------------------------------ Boundary conditions		 
+         aa5 = deltat /(4 * roh * Cp  )
 
-		    temperature(1,0 ,k)  = temperature(1,1,k)                !Thermal insulation condition for crystal axis
-            temperature(1,nr,k)  = T0                                !Temperature-fixed condition for lateral surface
-            temperature(1,j ,0)  = temperature(1,j,1) - aa1*( temperature(1,j,1) - Tinf )             &
-			                                          - aa2*( temperature(1,j,1)**4 - Tamb**4 )
-			                                                         !Convection & Radiation condition for input  surface
-            temperature(1,j,nz)  = temperature(1,j,nz-1) - aa1*( temperature(1,j,nz-1) - Tinf )       &
-			                                             - aa2*( temperature(1,j,nz-1)**4 - Tamb**4 )
-			                                                         !Convection & Radiation condition for output surface
-            !---------------------
-	        temperature(1,0 ,0 ) = temperature(1,0,1) - aa1*( temperature(1,0,1) - Tinf )             &
-			                                          - aa2*( temperature(1,0,1)**4 - Tamb**4 ) 
-			                                                         !Convection & Radiation condition for ( 0,0 )
-		    temperature(1,0 ,nz) = temperature(1,0,nz-1) - aa1*( temperature(1,0,nz-1) - Tinf )       &
-			                                             - aa2*( temperature(1,0,nz-1)**4 - Tamb**4 ) 
-			                                                         !Convection & Radiation condition for ( 0,nz)
-            temperature(1,nr,0 ) = T0                                !Temperature-fixed condition for (nr,0 )
-		    temperature(1,nr,nz) = T0                                !Temperature-fixed condition for (nr,nz)
+         !------------------------------------ Boundary conditions		 
+
+         temperature(1,0 ,k)  = temperature(1,1,k)                !Thermal insulation condition for crystal axis
+         temperature(1,nr,k)  = T0                                !Temperature-fixed condition for lateral surface
+         temperature(1,j ,0)  = temperature(1,j,1) - aa1*( temperature(1,j,1) - Tinf )             &
+                                                   - aa2*( temperature(1,j,1)**4 - Tamb**4 )
+                                                                  !Convection & Radiation condition for input  surface
+         temperature(1,j,nz)  = temperature(1,j,nz-1) - aa1*( temperature(1,j,nz-1) - Tinf )       &
+                                                      - aa2*( temperature(1,j,nz-1)**4 - Tamb**4 )
+                                                                  !Convection & Radiation condition for output surface
+         !---------------------
+         temperature(1,0 ,0 ) = temperature(1,0,1) - aa1*( temperature(1,0,1) - Tinf )             &
+                                                   - aa2*( temperature(1,0,1)**4 - Tamb**4 ) 
+                                                                  !Convection & Radiation condition for ( 0,0 )
+         temperature(1,0 ,nz) = temperature(1,0,nz-1) - aa1*( temperature(1,0,nz-1) - Tinf )       &
+                                                      - aa2*( temperature(1,0,nz-1)**4 - Tamb**4 ) 
+                                                                  !Convection & Radiation condition for ( 0,nz)
+         temperature(1,nr,0 ) = T0                                !Temperature-fixed condition for (nr,0 )
+         temperature(1,nr,nz) = T0                                !Temperature-fixed condition for (nr,nz)
 			!------------------------------------ Ending of Boundary conditions
   
 
-            !------------------------------------ Heat Equation 
+         !------------------------------------ Heat Equation 
 		    
 							  
-			temperature(2,j,k) = temperature(1,j,k)                                                                            &
-		                       
-        			+ aa3 * (   (temperature(1,j-1,k) - 2 * temperature(1,j,k) + temperature(1,j+1,k))/(deltar ** 2)           &
-								 
-					+ (temperature(1,j+1,k) - temperature(1,j-1,k)) /(r * 2 * deltar)                                          &
+      temperature(2,j,k) = temperature(1,j,k)                                                                                         &
+                           
+                           + aa3 * (   (temperature(1,j-1,k) - 2 * temperature(1,j,k) + temperature(1,j+1,k))/(deltar ** 2)           &
+                        
+                           + (temperature(1,j+1,k) - temperature(1,j-1,k)) /(r * 2 * deltar)                                          &
 
-					+ (temperature(1,j,k-1) - 2 * temperature(1,j,k) + temperature(1,j,k+1))/deltaz**2   )                     &
+                           + (temperature(1,j,k-1) - 2 * temperature(1,j,k) + temperature(1,j,k+1))/deltaz**2   )                     &
 
-	        		+ aa4 * exp( (-2 * r ** 2)/(omegaf ** 2) ) * exp(- gama * z)                                               &
+                           + aa4 * exp( (-2 * r ** 2)/(omegaf ** 2) ) * exp(- gama * z)                                               &
 
-                    + aa5 * ( (temperature(1,j+1,k) - temperature(1,j-1,k)) * ( KT(j+1,k) - KT(j-1,k)) / deltar**2  )          &
-										   
-					+ aa5 * ( (temperature(1,j,k+1) - temperature(1,j,k-1)) * ( KT(j,k+1) - KT(j,k-1)) / deltaz**2  )  
+                           + aa5 * ( (temperature(1,j+1,k) - temperature(1,j-1,k)) * ( KT(j+1,k) - KT(j-1,k)) / deltar**2  )          &
+                              
+                           + aa5 * ( (temperature(1,j,k+1) - temperature(1,j,k-1)) * ( KT(j,k+1) - KT(j,k-1)) / deltaz**2  )  
                                           
-	    end do !k
+	   end do !k
  
-    end do !j
+   end do !j
 
 !--------------------------------------------- End of run for each deltat 
 
@@ -334,7 +335,7 @@ do i = 0,nt
 	 
 
    !----------------------------------------------
-    do j=0,nr
+   do j=0,nr
       do k=0,nz
  	  	
 		 kT(j,k) = kT0   * T0 / temperature(1,j,k)
@@ -383,4 +384,3 @@ end program Temp_G_CW
                     
 				
 !======================================================================================================================
-         

@@ -31,51 +31,51 @@ integer       i            ,j            ,k            ,f            ,m         
        	     ,fmax
 
 real*8        t            ,r            ,z            ,p            ,A            ,B            ,S                  &                                              
-		     ,pi                                                                                                     &
+		       ,pi                                                                                                     &
              ,gama1        ,gama2        ,gama3        ,timet                                                        &
              ,omegaf       ,length       ,deltar       ,deltaz       ,deltat       ,radius                           &		                                                                
-		     ,lambda1      ,lambda2 
+		       ,lambda1      ,lambda2 
 			 		    
 !--------------------------------- fields variables
   
 real*8        c            ,L                                                                                        &
              ,r1f          ,r2f         ,r3f           ,cc3          ,dd3          ,ee3                              &	 	                                           
              ,deff                                                                                                   & 
-	 	     ,omega                                                                                                  & 
-	 	     ,psi12pr      ,psi22pr      ,psi32pr      ,psi12pz      ,psi22pz      ,psi32pz                          &	 	                                    
-		     ,psi12mr      ,psi22mr      ,psi32mr      ,psi12mz      ,psi22mz      ,psi32mz                          &		                                         
-		     ,epsilon0                                                  
+	 	       ,omega                                                                                                  & 
+	 	       ,psi12pr      ,psi22pr      ,psi32pr      ,psi12pz      ,psi22pz      ,psi32pz                          &	 	                                    
+		       ,psi12mr      ,psi22mr      ,psi32mr      ,psi12mz      ,psi22mz      ,psi32mz                          &		                                         
+		       ,epsilon0                                                  
 		
 
 
 complex*16    Ii                                                                                                     &
 
              ,cc2          ,dd2          ,ee2          ,cc4          ,dd4          ,ee4                              &	                                          
-		     ,cc5          ,dd5          ,ee5                                                                        &  			
-		     ,psi1p[allocatable](:,:)    ,psi1m[allocatable](:,:)                                                    &
-		     ,psi2p[allocatable](:,:)    ,psi2m[allocatable](:,:)                                                    &
-		     ,psi3p[allocatable](:,:)    ,psi3m[allocatable](:,:) 			                                                                       
+		       ,cc5          ,dd5          ,ee5                                                                        &  			
+		       ,psi1p[allocatable](:,:)    ,psi1m[allocatable](:,:)                                                    &
+		       ,psi2p[allocatable](:,:)    ,psi2m[allocatable](:,:)                                                    &
+		       ,psi3p[allocatable](:,:)    ,psi3m[allocatable](:,:) 			                                                                       
 			                                                                                                    
 character*30  filenamepsi12pr            ,filenamepsi12pz                                                            & 
              ,filenamepsi22pr            ,filenamepsi22pz                                                            &
-			 ,filenamepsi32pr            ,filenamepsi32pz                                                            &
-	         ,filenamepsi12mr            ,filenamepsi12mz                                                            & 
+			    ,filenamepsi32pr            ,filenamepsi32pz                                                            &
+	          ,filenamepsi12mr            ,filenamepsi12mz                                                            & 
              ,filenamepsi22mr            ,filenamepsi22mz                                                            &
-			 ,filenamepsi32mr            ,filenamepsi32mz  		    
+			    ,filenamepsi32mr            ,filenamepsi32mz  		    
 			
 !--------------------------------- temperature variables
 
 real*8        h                                                                                                      &
-			 ,T0           ,Cp                                                                                       &
-	         ,aa1          ,aa2          ,aa3          ,aa4          ,aa5          ,roh                              &			                                  
-			 ,KT0                                                                                                    &      
-			 ,Tinf         ,Tamb                                                                                     &        
-		     ,sigma                                                                                                  &
-			 ,epsilong                                                                                               &
-			 ,fidegree     ,firadian                                                                                 & 
-		     ,stability                                                                                              &
+			    ,T0           ,Cp                                                                                       &
+	          ,aa1          ,aa2          ,aa3          ,aa4          ,aa5          ,roh                              &			                                  
+			    ,KT0                                                                                                    &      
+			    ,Tinf         ,Tamb                                                                                     &        
+		       ,sigma                                                                                                  &
+			    ,epsilong                                                                                               &
+			    ,fidegree     ,firadian                                                                                 & 
+		       ,stability                                                                                              &
 			
-	    	 ,Temperature[allocatable](:,:,:)          ,KT[allocatable](:,:)                         
+	    	    ,Temperature[allocatable](:,:,:)          ,KT[allocatable](:,:)                         
 			
 character*30  timetch      ,filenamet    ,filenamer    ,filenamez                                                    &
              ,stabilitych  
@@ -84,20 +84,20 @@ character*30  timetch      ,filenamet    ,filenamer    ,filenamez               
 
 real*8        phi                                                                                                    &
              ,B1T0         ,B2T0         ,C1T0         ,C2T0         ,B1rT         ,B2rT         ,C1rT               &
-	         ,C2rT                                                                                                   &		 
+	          ,C2rT                                                                                                   &		 
 
-			 ,aa1T0        ,bb1T0        ,cc1T0        ,nx1T0        ,ny1T0        ,nz1T0        ,no1T0              &
-			 ,aa2T0        ,bb2T0        ,cc2T0        ,nx2T0        ,ny2T0        ,nz2T0        ,ne1T0              &
-			 ,aa1rT        ,bb1rT        ,cc1rT        ,nx1rT        ,ny1rT        ,nz1rT        ,ne2T0              &
-			 ,aa2rT        ,bb2rT        ,cc2rT        ,nx2rT        ,ny2rT        ,nz2rT        ,no1rT              &
-			 ,B1r0T        ,B2r0T        ,C1r0T        ,C2r0T        ,theta        ,ne2rT        ,ne1rT              &                                
+			    ,aa1T0        ,bb1T0        ,cc1T0        ,nx1T0        ,ny1T0        ,nz1T0        ,no1T0              &
+			    ,aa2T0        ,bb2T0        ,cc2T0        ,nx2T0        ,ny2T0        ,nz2T0        ,ne1T0              &
+			    ,aa1rT        ,bb1rT        ,cc1rT        ,nx1rT        ,ny1rT        ,nz1rT        ,ne2T0              &
+			    ,aa2rT        ,bb2rT        ,cc2rT        ,nx2rT        ,ny2rT        ,nz2rT        ,no1rT              &
+			    ,B1r0T        ,B2r0T        ,C1r0T        ,C2r0T        ,theta        ,ne2rT        ,ne1rT              &                                
              ,Term1        ,Term2        ,Term3                                                                      &            
 
-			 ,aa1r0T       ,bb1r0T       ,cc1r0T       ,nx1r0T       ,ny1r0T       ,nz1r0T       ,dnx1dT             &
-			 ,aa2r0T       ,bb2r0T       ,cc2r0T       ,nx2r0T       ,ny2r0T       ,nz2r0T       ,dnx2dT             &
+			    ,aa1r0T       ,bb1r0T       ,cc1r0T       ,nx1r0T       ,ny1r0T       ,nz1r0T       ,dnx1dT             &
+			    ,aa2r0T       ,bb2r0T       ,cc2r0T       ,nx2r0T       ,ny2r0T       ,nz2r0T       ,dnx2dT             &
              ,dny1dT       ,dny2dT       ,dnz1dT       ,dnz2dT       ,no1r0T       ,ne1r0T       ,ne2r0T             &   
-			 ,deltano1rT   ,deltane1rT   ,deltane2rT                                                                 &                                                           
-			 ,deltano1r0T  ,deltane1r0T  ,deltane2r0T                                                     
+			    ,deltano1rT   ,deltane1rT   ,deltane2rT                                                                 &                                                           
+			    ,deltano1r0T  ,deltane1r0T  ,deltane2r0T                                                     
 
  complex*8    deltaphase[allocatable](:,:)
 
@@ -116,53 +116,54 @@ character*30  filenamePt   ,filenamePr  ,filenamePz                             
            fmax = 0
 
               p = 0.            ;A = 0.            ;B = 0.        ;S = 0.        ;t = 0.        ;r = 0.        ;z = 0.                                                                               
-		     pi = 0.                                                                
+		       pi = 0.                                                                
           gama1 = 0.        ;gama2 = 0.        ;gama3 = 0.    ;timet = 0.                                   
          omegaf = 0.       ;length = 0.       ;deltar = 0.   ;deltaz = 0.   ;deltat = 0.   ;radius = 0.                                                                	   
-	    lambda1 = 0.      ;lambda2 = 0.
+	     lambda1 = 0.      ;lambda2 = 0.
 
 !--------------------------------- Giving Zero to field equation variable
 		    
               c = 0.            ;L = 0.                                                       
             r1f = 0.          ;r2f = 0.          ;r3f = 0.      ;cc3 = 0.      ;dd3 = 0.      ;ee3 = 0.                                              
            deff = 0.                                                             
-	   	  omega = 0.                                                            
+	   	 omega = 0.                                                            
         psi12pr = 0.      ;psi22pr = 0       ;psi32pr = 0.  ;psi12pz = 0.  ;psi22pz = 0.  ;psi32pz = 0.                                                                          
         psi12mr = 0.      ;psi22mr = 0.      ;psi32mr = 0.  ;psi12mz = 0.  ;psi22mz = 0.  ;psi32mz = 0.                                                                        
        epsilon0 = 0.  	
 	   		                                                
-		     Ii = (0.,0.)                                                               
+		       Ii = (0.,0.)                                                               
             cc2 = (0.,0.)     ;dd2 = (0.,0.)     ;ee2 = (0.,0.) ;cc4 = (0.,0.) ;dd4 = (0.,0.) ;ee4 = (0.,0.)                                                                                
 	                                                  
 		                                                                                                    
 !-------------------------------- Giving Zero to temperature variable
 
               h = 0.                                                         
-	         T0 = 0.           ;Cp = 0.                                            
-	        aa1 = 0.          ;aa2 = 0.          ;aa3 = 0.      ;aa4 = 0.      ;aa5 = 0.      ;roh = 0.      ;KT0 = 0.                                                                
+	          T0 = 0.           ;Cp = 0.                                            
+	         aa1 = 0.          ;aa2 = 0.          ;aa3 = 0.      ;aa4 = 0.      ;aa5 = 0.      ;roh = 0.                                                                   
+            KT0 = 0.
            Tinf = 0.         ;Tamb = 0.                                                 
-	      sigma = 0.                                                     
+	       sigma = 0.                                                     
        epsilong = 0.     ;fidegree = 0.     ;firadian = 0.                                                                                    
       stability = 0.                           
 
                                                   
 !------------------------------- Giving Zero to phase variable
             phi = 0.                                                                                                    
-           B1T0 = 0.         ;B2T0 = 0.         ;C1T0 = 0.     ;C2T0 = 0.     ;B1rT = 0.     ;B2rT = 0.     ;C1rT = 0.        
-		   C2rT = 0.    
+           B1T0 = 0.         ;B2T0 = 0.         ;C1T0 = 0.     ;C2T0 = 0.     ;B1rT = 0.     ;B2rT = 0.             
+		     C1rT = 0.         ;C2rT = 0.    
 			 
-		  aa1T0 = 0.        ;bb1T0 = 0.        ;cc1T0 = 0.    ;nx1T0 = 0.    ;ny1T0 = 0.    ;nz1T0 = 0.    ;no1T0 = 0.         
-		  aa2T0 = 0.        ;bb2T0 = 0.        ;cc2T0 = 0.    ;nx2T0 = 0.    ;ny2T0 = 0.    ;nz2T0 = 0.    ;ne2T0 = 0.         
-		  aa1rT = 0.        ;bb1rT = 0.        ;cc1rT = 0.    ;nx1rT = 0.    ;ny1rT = 0.    ;nz1rT = 0.    ;ne1T0 = 0.               
-		  aa2rT = 0.        ;bb2rT = 0.        ;cc2rT = 0.    ;nx2rT = 0.    ;ny2rT = 0.    ;nz2rT = 0.    ;no1rT = 0.        
-	      B1r0T = 0.        ;B2r0T = 0.        ;C1r0T = 0.    ;C2r0T = 0.    ;theta = 0.    ;ne2rT = 0.    ;ne1rT = 0.                                                         
+		    aa1T0 = 0.        ;bb1T0 = 0.        ;cc1T0 = 0.    ;nx1T0 = 0.    ;ny1T0 = 0.    ;nz1T0 = 0.    ;no1T0 = 0.         
+		    aa2T0 = 0.        ;bb2T0 = 0.        ;cc2T0 = 0.    ;nx2T0 = 0.    ;ny2T0 = 0.    ;nz2T0 = 0.    ;ne2T0 = 0.         
+		    aa1rT = 0.        ;bb1rT = 0.        ;cc1rT = 0.    ;nx1rT = 0.    ;ny1rT = 0.    ;nz1rT = 0.    ;ne1T0 = 0.               
+		    aa2rT = 0.        ;bb2rT = 0.        ;cc2rT = 0.    ;nx2rT = 0.    ;ny2rT = 0.    ;nz2rT = 0.    ;no1rT = 0.        
+	       B1r0T = 0.        ;B2r0T = 0.        ;C1r0T = 0.    ;C2r0T = 0.    ;theta = 0.    ;ne2rT = 0.    ;ne1rT = 0.                                                         
           Term1 = 0.        ;Term2 = 0.        ;Term3 = 0.
             
-	     aa1r0T = 0.       ;bb1r0T = 0.       ;cc1r0T = 0.   ;nx1r0T = 0.   ;ny1r0T = 0.   ;nz1r0T = 0.   ;dnx1dT = 0.       
-		 aa2r0T = 0.       ;bb2r0T = 0.       ;cc2r0T = 0.   ;nx2r0T = 0.   ;ny2r0T = 0.   ;nz2r0T = 0.   ;dnx2dT = 0.     
+	      aa1r0T = 0.       ;bb1r0T = 0.       ;cc1r0T = 0.   ;nx1r0T = 0.   ;ny1r0T = 0.   ;nz1r0T = 0.   ;dnx1dT = 0.       
+		   aa2r0T = 0.       ;bb2r0T = 0.       ;cc2r0T = 0.   ;nx2r0T = 0.   ;ny2r0T = 0.   ;nz2r0T = 0.   ;dnx2dT = 0.     
          dny1dT = 0.       ;dny2dT = 0.       ;dnz1dT = 0.   ;dnz2dT = 0.   ;no1r0T = 0.   ;ne1r0T = 0.   ;ne2r0T = 0.                                             
 		     
-	 deltano1rT = 0.   ;deltane1rT = 0.   ;deltane2rT = 0.                                                                                                                           
+	  deltano1rT = 0.   ;deltane1rT = 0.   ;deltane2rT = 0.                                                                                                                           
     deltano1r0T = 0.  ;deltane1r0T = 0.  ;deltane2r0T = 0.                                                    
 
 !**********************************************************************************************************************
@@ -381,20 +382,20 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
     Term3 = cos(theta)**2.
 
      B1T0 = -Term1 * ( bb1T0 + cc1T0 )                                                    &
-		    -Term2 * ( aa1T0 + cc1T0 )                                                    &
-		    -Term3 * ( aa1T0 + bb1T0 ) 
+		      -Term2 * ( aa1T0 + cc1T0 )                                                    &
+		      -Term3 * ( aa1T0 + bb1T0 ) 
      		 
      C1T0 =  Term1 * bb1T0 * cc1T0                                                        &
-	 	    +Term2 * aa1T0 * cc1T0                                                        &
-		    +Term3 * aa1T0 * bb1T0 
+	 	      +Term2 * aa1T0 * cc1T0                                                        &
+		      +Term3 * aa1T0 * bb1T0 
 
      B2T0 = -Term1 * ( bb2T0 + cc2T0 )                                                    &
-		    -Term2 * ( aa2T0 + cc2T0 )                                                    &
-		    -Term3 * ( aa2T0 + bb2T0 )
+		      -Term2 * ( aa2T0 + cc2T0 )                                                    &
+		      -Term3 * ( aa2T0 + bb2T0 )
              
      C2T0 =  Term1 * bb2T0 * cc2T0                                                        &
-		    +Term2 * aa2T0 * cc2T0                                                        &
-		    +Term3 * aa2T0 * bb2T0 
+		      +Term2 * aa2T0 * cc2T0                                                        &
+		      +Term3 * aa2T0 * bb2T0 
 
     no1T0 = (2**0.5) / sqrt( -B1T0 - sqrt( B1T0 ** 2. - 4. * C1T0 ) )  
     ne1T0 = (2**0.5) / sqrt( -B1T0 + sqrt( B1T0 ** 2. - 4. * C1T0 ) ) 
@@ -617,49 +618,49 @@ write(*,*)   'start of field equation' ,f
 
              if(k==0 )    psi1p(j ,1 ) = exp(-r**2. / omegaf**2.)     !for input  surface
 
-	     if(k==0 )    psi1p(nr,1 ) = (0.,0.)                          !for (nr,0)
+	     if(k==0 )    psi1p(nr,1 ) = (0.,0.)                           !for (nr,0)
 
-	     if(k==0 )    psi1p(0 ,1 ) = (1.,0.)                          !for (0,0)			 
+	     if(k==0 )    psi1p(0 ,1 ) = (1.,0.)                           !for (0,0)			 
 
              if(k==nz)    psi1p(nr,1 ) = (0.,0.)                      !for (nr,nz)
 
-	     if(k==nz)    psi1p(0 ,1 ) = psi1p(1,1 )                      !for (0,nz)
+	     if(k==nz)    psi1p(0 ,1 ) = psi1p(1,1 )                       !for (0,nz)
 		
-	                  psi1p(0 ,1 ) = psi1p(1 ,1 )                     !for crystal axis
+	                  psi1p(0 ,1 ) = psi1p(1 ,1 )                      !for crystal axis
 					      
-	                  psi1p(nr,1 ) = (0.,0.)                          !for lateral surface 
+	                  psi1p(nr,1 ) = (0.,0.)                           !for lateral surface 
  
 !---------------------------------------- psi2p
 
               if(k==0 )    psi2p(j ,1 ) = exp(-r**2. / omegaf**2.)    !for input  surface
 
-	      if(k==0 )    psi2p(nr,1 ) = (0.,0.)                         !for (nr,0)
+	      if(k==0 )    psi2p(nr,1 ) = (0.,0.)                          !for (nr,0)
 
-	      if(k==0 )    psi2p(0 ,1 ) = (1.,0.)                         !for (0,0)			 
+	      if(k==0 )    psi2p(0 ,1 ) = (1.,0.)                          !for (0,0)			 
 
               if(k==nz)    psi2p(nr,1 ) = (0.,0.)                     !for (nr,nz)
 
-	      if(k==nz)    psi2p(0 ,1 ) = psi2p(1,1 )                     !for (0,nz)
+	      if(k==nz)    psi2p(0 ,1 ) = psi2p(1,1 )                      !for (0,nz)
 		
-	                  psi2p(0 ,1 ) = psi2p(1 ,1 )                     !for crystal axis
+	                  psi2p(0 ,1 ) = psi2p(1 ,1 )                      !for crystal axis
 					      
-	                  psi2p(nr,1 ) = (0.,0.)                          !for lateral surface                       
+	                  psi2p(nr,1 ) = (0.,0.)                           !for lateral surface                       
 
 !----------------------------------------- psi3p
 		    
              if(k==0 )    psi3p(j ,1 ) = (0.,0.)                      !for input  surface
            
-	     if(k==0 )    psi3p(0 ,1 ) = (0.,0.)                          !for (0 ,0 )
+	     if(k==0 )    psi3p(0 ,1 ) = (0.,0.)                           !for (0 ,0 )
            
-	     if(k==0 )    psi3p(nr,1 ) = (0.,0.)                          !for (nr,0 ) 
+	     if(k==0 )    psi3p(nr,1 ) = (0.,0.)                           !for (nr,0 ) 
 
-	     if(k==nz)    psi3p(nr,1 ) = (0.,0.)                          !for (nr,nr) 
+	     if(k==nz)    psi3p(nr,1 ) = (0.,0.)                           !for (nr,nr) 
 
-	     if(k==nz)    psi3p(0 ,1 ) = psi3p(1,1)                       !for (0 ,nz) 
+	     if(k==nz)    psi3p(0 ,1 ) = psi3p(1,1)                        !for (0 ,nz) 
 
-	                  psi3p(0 ,1 ) = psi3p(1 ,1 )                     !for crystal axis
+	                  psi3p(0 ,1 ) = psi3p(1 ,1 )                      !for crystal axis
 					      
-	                  psi3p(nr ,1) = (0.,0.)                          !for lateral surface 
+	                  psi3p(nr ,1) = (0.,0.)                           !for lateral surface 
 
 !------------------------------------ End of Bounday conditions
          	
@@ -687,37 +688,37 @@ write(*,*)   'start of field equation' ,f
    
                 ee4 = cc4     
 !--------------			 
-	     psi1p(j,2) =  psi1p(j  ,1)                                                                                  &
+	     psi1p(j,2) =  psi1p(j  ,1)                                                                             &
 					      
-				      + cc2 * ( (psi1p(j+1,1) - 2 * psi1p(j,1) + psi1p(j-1,1))/(deltar**2) )                         &
+				        + cc2 * ( (psi1p(j+1,1) - 2 * psi1p(j,1) + psi1p(j-1,1))/(deltar**2) )                     &
 
-				      + cc2 * ( (psi1p(j+1,1) - psi1p(j-1,1))/(2*r*deltar) )                                         &
+				        + cc2 * ( (psi1p(j+1,1) - psi1p(j-1,1))/(2*r*deltar) )                                     &
 
-			          - cc3 * psi1p(j,1)                                                                             &
+			           - cc3 * psi1p(j,1)                                                                         &
 
-				      + cc4 * conjg(psi2p(j,1)) * psi3p(j,1) * exp(-Ii*deltaphase(j,k) )                                                                                              
+				        + cc4 * conjg(psi2p(j,1)) * psi3p(j,1) * exp(-Ii*deltaphase(j,k) )                                                                                              
            
 		   !---------------------------------
-	     psi2p(j,2) =  psi2p(j ,1)                                                                                   &
+	     psi2p(j,2) =  psi2p(j ,1)                                                                              &
 
-				       + dd2 * ( (psi2p(j+1,1) - 2 * psi2p(j,1) + psi2p(j-1,1))/(deltar**2) )                        &
+				        + dd2 * ( (psi2p(j+1,1) - 2 * psi2p(j,1) + psi2p(j-1,1))/(deltar**2) )                     &
 
-				       + dd2 * ( (psi2p(j+1,1) - psi2p(j-1,1))/(2*r*deltar) )                                        &
+				        + dd2 * ( (psi2p(j+1,1) - psi2p(j-1,1))/(2*r*deltar) )                                     &
 
-				       - dd3 * psi2p(j,1)                                                                            &
+				        - dd3 * psi2p(j,1)                                                                         &
 
-				       + dd4 * conjg(psi1p(j,1)) * psi3p(j,1) * exp(-Ii*deltaphase(j,k) )                                                                                               
+				        + dd4 * conjg(psi1p(j,1)) * psi3p(j,1) * exp(-Ii*deltaphase(j,k) )                                                                                               
 		   
 		   !---------------------------------			
-	     psi3p(j,2 ) =  psi3p(j  ,1)                                                                                 &
+	     psi3p(j,2 ) =  psi3p(j  ,1)                                                                            &
 					      
-			          + ee2 * ( (psi3p(j+1,1) - 2 * psi3p(j,1) + psi3p(j-1,1))/(deltar**2) )                         &
+			            + ee2 * ( (psi3p(j+1,1) - 2 * psi3p(j,1) + psi3p(j-1,1))/(deltar**2) )                    &
 
-			          + ee2 * ( (psi3p(j+1,1) - psi3p(j-1,1))/(2*r*deltar) )                                         &
+			            + ee2 * ( (psi3p(j+1,1) - psi3p(j-1,1))/(2*r*deltar) )                                    &
 
-			 	      - ee3 * psi3p(j,1)                                                                             &
+			 	         - ee3 * psi3p(j,1)                                                                        &
 
-			          + ee4 * psi1p(j,1) * psi2p(j,1) * exp(Ii*deltaphase(j,k) )                                                                                               
+			            + ee4 * psi1p(j,1) * psi2p(j,1) * exp(Ii*deltaphase(j,k) )                                                                                               
 
 			 
  
@@ -801,37 +802,37 @@ write(*,*)   'start of field equation' ,f
 
 !------------------------------------ End of Bounday conditions   
 
-         psi1m(j,1 ) =  psi1m(j  ,2)                                                                                 &
+         psi1m(j,1 ) =  psi1m(j  ,2)                                                                           &
 					       
-			          + cc2 * ( (psi1m(j+1,2) - 2 * psi1m(j,2) + psi1m(j-1,2))/(deltar**2) )                         &
+			             + cc2 * ( (psi1m(j+1,2) - 2 * psi1m(j,2) + psi1m(j-1,2))/(deltar**2) )                   &
 
-			          + cc2 * ( (psi1m(j+1,2) - psi1m(j-1,2))/(2*r*deltar) )                                         &
+			             + cc2 * ( (psi1m(j+1,2) - psi1m(j-1,2))/(2*r*deltar) )                                   &
 
-			          - cc3 * psi1m(j,2)                                                                             & 
+			             - cc3 * psi1m(j,2)                                                                       & 
 
-		              + cc4 * conjg(psi2m(j,2)) * psi3m(j,2) * exp(Ii*deltaphase(j,k))                                                                                              
+		                + cc4 * conjg(psi2m(j,2)) * psi3m(j,2) * exp(Ii*deltaphase(j,k))                                                                                              
     
 !---------------------------------
-         psi2m(j,1 )=  psi2m(j  ,2)                                                                                  &
+         psi2m(j,1 )=  psi2m(j  ,2)                                                                            &
 
-			          + dd2 * ( (psi2m(j+1,2) - 2 * psi2m(j,2) + psi2m(j-1,2))/(deltar**2) )                         &
+			            + dd2 * ( (psi2m(j+1,2) - 2 * psi2m(j,2) + psi2m(j-1,2))/(deltar**2) )                    &
 
-			          + dd2 * ( (psi2m(j+1,2) - psi2m(j-1,2))/(2*r*deltar) )                                         &
+			            + dd2 * ( (psi2m(j+1,2) - psi2m(j-1,2))/(2*r*deltar) )                                    &
 
-		    	      - dd3 * psi2m(j,2)                                                                             &
+		    	         - dd3 * psi2m(j,2)                                                                        &
 
-			          + dd4 * conjg(psi1m(j,2)) * psi3m(j,2) * exp(Ii*deltaphase(j,k) )                                                                                               
+			            + dd4 * conjg(psi1m(j,2)) * psi3m(j,2) * exp(Ii*deltaphase(j,k) )                                                                                               
 		   
 !---------------------------------			
-         psi3m(j,1 ) =  psi3m(j  ,2)                                                                                 &
+         psi3m(j,1 ) =  psi3m(j  ,2)                                                                           &
 					      
-			          + ee2 * ( (psi3m(j+1,2) - 2 * psi3m(j,2) + psi3m(j-1,2))/(deltar**2) )                         &
+			             + ee2 * ( (psi3m(j+1,2) - 2 * psi3m(j,2) + psi3m(j-1,2))/(deltar**2) )                   &
 
-			          + ee2 * ( (psi3m(j+1,2) - psi3m(j-1,2))/(2*r*deltar) )                                         &
+			             + ee2 * ( (psi3m(j+1,2) - psi3m(j-1,2))/(2*r*deltar) )                                   &
 
-		  	          - ee3 * psi3m(j,2)                                                                             &
+		  	             - ee3 * psi3m(j,2)                                                                       &
 
-	                  + ee4 * psi1m(j,2) * psi2m(j,2) * exp(-Ii*deltaphase(j,k) )          
+	                   + ee4 * psi1m(j,2) * psi2m(j,2) * exp(-Ii*deltaphase(j,k) )          
 				                                                  
 
 			 
@@ -900,29 +901,29 @@ write(*,*) 'start of temperature ' , f
 
 !-------------------------------- boundry condition for head equation
 		 
-	           temperature(1,0 ,k)  = temperature(1,1,k)                  !Thermal insulation condition for crystal axis
+	           temperature(1,0 ,k)  = temperature(1,1,k)                !Thermal insulation condition for crystal axis
 
-               temperature(1,nr,k)  = T0                                  !Temperature-fixed condition for lateral surface
+               temperature(1,nr,k)  = T0                               !Temperature-fixed condition for lateral surface
 
                temperature(1,j ,0)  = temperature(1,j,1) - aa1*( temperature(1,j,1) - Tinf )                         &
-			                                             - aa2*( temperature(1,j,1)**4. - Tamb**4. )
+			                                                - aa2*( temperature(1,j,1)**4. - Tamb**4. )
 			                                                              !Convection & Radiation condition for input  surface
 
                temperature(1,j,nz)  = temperature(1,j,nz-1) - aa1*( temperature(1,j,nz-1) - Tinf )                   &
-			                                                - aa2*( temperature(1,j,nz-1)**4. - Tamb**4. )
+			                                                   - aa2*( temperature(1,j,nz-1)**4. - Tamb**4. )
 			                                                              !Convection & Radiation condition for output surface
             
                temperature(1,0 ,0 ) = temperature(1,0,1) - aa1*( temperature(1,0,1) - Tinf )                         &
-			                                             - aa2*( temperature(1,0,1)**4. - Tamb**4. ) 
+			                                                - aa2*( temperature(1,0,1)**4. - Tamb**4. ) 
 			                                                              !Convection & Radiation condition for ( 0,0 )
 
                temperature(1,0 ,nz) = temperature(1,0,nz-1) - aa1*( temperature(1,0,nz-1) - Tinf )                   &
-			                                                - aa2*( temperature(1,0,nz-1)**4. - Tamb**4. ) 
+			                                                   - aa2*( temperature(1,0,nz-1)**4. - Tamb**4. ) 
 			                                                              !Convection & Radiation condition for ( 0,nz)
 
-               temperature(1,nr,0 ) = T0                                  !Temperature-fixed condition for (nr,0 )
+               temperature(1,nr,0 ) = T0                               !Temperature-fixed condition for (nr,0 )
 
-               temperature(1,nr,nz) = T0                                  !Temperature-fixed condition for (nr,nz)
+               temperature(1,nr,nz) = T0                               !Temperature-fixed condition for (nr,nz)
 
 !------------------------------------ Ending of Boundary conditions
 
@@ -932,40 +933,40 @@ write(*,*) 'start of temperature ' , f
 									
 		       temperature(2,j,k) = temperature(1,j,k)                                                                                                                                                                                                                                                                                                                                                                                                                                                 &
 		                      
-        			 	          + aa3 * ( (temperature(1,j+1,k) -  temperature(1,j-1,k))/(2.*r*deltar)                         &
+        			 	          + aa3 * ( (temperature(1,j+1,k) -  temperature(1,j-1,k))/(2.*r*deltar)                            &
 								  
-					              + (temperature(1,j+1,k) -2.*temperature(1,j,k) + temperature(1,j-1,k))/(deltar**2.) )          & 
+					             + (temperature(1,j+1,k) -2.*temperature(1,j,k) + temperature(1,j-1,k))/(deltar**2.) )             & 
  
-                                  + aa3 * ( (temperature(1,j,k-1) -2.*temperature(1,j,k) + temperature(1,j,k+1))/(deltaz**2.) )  &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+                            + aa3 * ( (temperature(1,j,k-1) -2.*temperature(1,j,k) + temperature(1,j,k+1))/(deltaz**2.) )     &                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
-					  	          + aa4 * gama1 * psi1p(j,1)*conjg(psi1p(j,1))                                                   &                     
+					  	          + aa4 * gama1 * psi1p(j,1)*conjg(psi1p(j,1))                                                      &                     
 								 
-						          + aa4 * gama1 * psi1m(j,2)*conjg(psi1m(j,2))                                                   &                                                
+						          + aa4 * gama1 * psi1m(j,2)*conjg(psi1m(j,2))                                                      &                                                
 							                                     
-					              + aa4 * gama2 * psi2p(j,1)*conjg(psi2p(j,1))                                                   &
+					             + aa4 * gama2 * psi2p(j,1)*conjg(psi2p(j,1))                                                      &
 							  										  
-						          + aa4 * gama2 * psi2m(j,2)*conjg(psi2m(j,2))                                                   &            
+						          + aa4 * gama2 * psi2m(j,2)*conjg(psi2m(j,2))                                                      &            
 																	       
-						          + aa4 * 2. * gama3 * psi3p(j,1)*conjg(psi3p(j,1))                                              &
+						          + aa4 * 2. * gama3 * psi3p(j,1)*conjg(psi3p(j,1))                                                 &
 								 
-                                  + aa4 * 2. * gama3 * psi3m(j,2)*conjg(psi3m(j,2))                                              &							   
+                            + aa4 * 2. * gama3 * psi3m(j,2)*conjg(psi3m(j,2))                                                 &							   
 								 
-						          + aa5 * ( (temperature(1,j+1,k) - temperature(1,j-1,k)) * ( KT(j+1,k) - KT(j-1,k)) / deltar**2.)&
+						          + aa5 * ( (temperature(1,j+1,k) - temperature(1,j-1,k)) * ( KT(j+1,k) - KT(j-1,k)) / deltar**2.)  &
 										   
 	    				          + aa5 * ( (temperature(1,j,k+1) - temperature(1,j,k-1)) * ( KT(j,k+1) - KT(j,k-1)) / deltaz**2.) 
                  		
 		                                                                                                                                                                                                                                                                                                                                                 						 
 	         !----------------------------------- Phase Equation constants
 
-   		       nx1r0T = nx1T0 + dnx1dT * ( temperature(1,0,k) - T0 )
-	           ny1r0T = ny1T0 + dny1dT * ( temperature(1,0,k) - T0 )
-	           nz1r0T = nz1T0 + dnz1dT * ( temperature(1,0,k) - T0 )				
+   		      nx1r0T = nx1T0 + dnx1dT * ( temperature(1,0,k) - T0 )
+	            ny1r0T = ny1T0 + dny1dT * ( temperature(1,0,k) - T0 )
+	            nz1r0T = nz1T0 + dnz1dT * ( temperature(1,0,k) - T0 )				
     	 
-	           nx2r0T = nx2T0 + dnx2dT * ( temperature(1,0,k) - T0 )
-	           ny2r0T = ny2T0 + dny2dT * ( temperature(1,0,k) - T0 )
-	  	       nz2r0T = nz2T0 + dnz2dT * ( temperature(1,0,k) - T0 )
+	            nx2r0T = nx2T0 + dnx2dT * ( temperature(1,0,k) - T0 )
+	            ny2r0T = ny2T0 + dny2dT * ( temperature(1,0,k) - T0 )
+	  	         nz2r0T = nz2T0 + dnz2dT * ( temperature(1,0,k) - T0 )
         		   
-	   	       aa1r0T  = 1. / ( nx1r0T )**2. 
+	   	      aa1r0T  = 1. / ( nx1r0T )**2. 
                bb1r0T  = 1. / ( ny1r0T )**2. 
                cc1r0T  = 1. / ( nz1r0T )**2. 
 
@@ -973,28 +974,28 @@ write(*,*) 'start of temperature ' , f
                bb2r0T  = 1. / ( ny2r0T )**2. 
                cc2r0T  = 1. / ( nz2r0T )**2.       
   
-    	       B1r0T  =  -Term1 * ( bb1r0T + cc1r0T )                                                                &
-			             -Term2 * ( aa1r0T + cc1r0T )                                                                &
-			             -Term3 * ( aa1r0T + bb1r0T ) 
+    	         B1r0T  =  -Term1 * ( bb1r0T + cc1r0T )                                                 &
+			                -Term2 * ( aa1r0T + cc1r0T )                                                 &
+			                -Term3 * ( aa1r0T + bb1r0T ) 
      		 
-	   	       C1r0T  =  Term1 * bb1r0T * cc1r0T                                                                     &
-			            +Term2 * aa1r0T * cc1r0T                                                                     &
-			            +Term3 * aa1r0T * bb1r0T 
+	   	      C1r0T  =  Term1 * bb1r0T * cc1r0T                                                      &
+			               +Term2 * aa1r0T * cc1r0T                                                      &
+			               +Term3 * aa1r0T * bb1r0T 
 
-               B2r0T  = -Term1 * ( bb2r0T + cc2r0T )                                                                 &
-			            -Term2 * ( aa2r0T + cc2r0T )                                                                 &
-			            -Term3 * ( aa2r0T + bb2r0T )
+               B2r0T  = -Term1 * ( bb2r0T + cc2r0T )                                                  &
+			               -Term2 * ( aa2r0T + cc2r0T )                                                  &
+			               -Term3 * ( aa2r0T + bb2r0T )
              
-	 	       C2r0T  =  Term1 * bb2r0T * cc2r0T                                                                     &
-			            +Term2 * aa2r0T * cc2r0T                                                                     &
-			            +Term3 * aa2r0T * bb2r0T 
+	 	         C2r0T  =  Term1 * bb2r0T * cc2r0T                                                      &
+			               +Term2 * aa2r0T * cc2r0T                                                      &
+			               +Term3 * aa2r0T * bb2r0T 
 
              
- 	   	       no1r0T = (2.**0.5) / sqrt( -B1r0T  - sqrt( B1r0T**2. - 4.*C1r0T ) )  
+ 	   	      no1r0T = (2.**0.5) / sqrt( -B1r0T  - sqrt( B1r0T**2. - 4.*C1r0T ) )  
                ne1r0T = (2.**0.5) / sqrt( -B1r0T  + sqrt( B1r0T**2. - 4.*C1r0T ) )
                ne2r0T = (2.**0.5) / sqrt( -B2r0T  + sqrt( B2r0T**2. - 4.*C2r0T ) ) 
 			 
-	           deltano1r0T = no1r0T - no1T0
+	            deltano1r0T = no1r0T - no1T0
                deltane1r0T = ne1r0T - ne1T0
                deltane2r0T = ne2r0T - ne2T0
                
@@ -1009,37 +1010,37 @@ write(*,*) 'start of temperature ' , f
 	 	       nz2rT = nz2T0 + dnz2dT * ( temperature(1,j,k) - T0 )
           		   
 		       aa1rT  = 1. / ( nx1rT )**2. 
-               bb1rT  = 1. / ( ny1rT )**2. 
-               cc1rT  = 1. / ( nz1rT )**2. 
+             bb1rT  = 1. / ( ny1rT )**2. 
+             cc1rT  = 1. / ( nz1rT )**2. 
 
-               aa2rT  = 1. / ( nx2rT )**2. 
-               bb2rT  = 1. / ( ny2rT )**2. 
-               cc2rT  = 1. / ( nz2rT )**2.       
+             aa2rT  = 1. / ( nx2rT )**2. 
+             bb2rT  = 1. / ( ny2rT )**2. 
+             cc2rT  = 1. / ( nz2rT )**2.       
 
-	           B1rT  =  -Term1 * ( bb1rT + cc1rT )                                                                   &
-			            -Term2 * ( aa1rT + cc1rT )                                                                   &
-			            -Term3 * ( aa1rT + bb1rT ) 
+	          B1rT  =  -Term1 * ( bb1rT + cc1rT )                                                       &
+			             -Term2 * ( aa1rT + cc1rT )                                                       &
+			             -Term3 * ( aa1rT + bb1rT ) 
      		 
-		       C1rT  =  Term1 * bb1rT * cc1rT                                                                        &
-			           +Term2 * aa1rT * cc1rT                                                                        &
-			           +Term3 * aa1rT * bb1rT 
+		       C1rT  =  Term1 * bb1rT * cc1rT                                                            &
+			            +Term2 * aa1rT * cc1rT                                                            &
+			            +Term3 * aa1rT * bb1rT 
 
-               B2rT  = -Term1 * ( bb2rT + cc2rT )                                                                    &
-			           -Term2 * ( aa2rT + cc2rT )                                                                    &
-			           -Term3 * ( aa2rT + bb2rT )
+             B2rT  = -Term1 * ( bb2rT + cc2rT )                                                        &
+			              -Term2 * ( aa2rT + cc2rT )                                                      &
+			              -Term3 * ( aa2rT + bb2rT )
              
-		       C2rT  =   Term1 * bb2rT * cc2rT                                                                       &
-			            +Term2 * aa2rT * cc2rT                                                                       &
-			            +Term3 * aa2rT * bb2rT 
+		       C2rT  =   Term1 * bb2rT * cc2rT                                                           &
+			             +Term2 * aa2rT * cc2rT                                                           &
+			             +Term3 * aa2rT * bb2rT 
 
              
  	           no1rT = (2**0.5) / sqrt( -B1rT  - sqrt( B1rT**2. - 4.*C1rT ) )  
-               ne1rT = (2**0.5) / sqrt( -B1rT  + sqrt( B1rT**2. - 4.*C1rT ) )
-               ne2rT = (2**0.5) / sqrt( -B2rT  + sqrt( B2rT**2. - 4.*C2rT ) ) 
+              ne1rT = (2**0.5) / sqrt( -B1rT  + sqrt( B1rT**2. - 4.*C1rT ) )
+              ne2rT = (2**0.5) / sqrt( -B2rT  + sqrt( B2rT**2. - 4.*C2rT ) ) 
 			 
-               deltano1rT = no1rT - no1T0
-               deltane1rT = ne1rT - ne1T0
-               deltane2rT = ne2rT - ne2T0
+              deltano1rT = no1rT - no1T0
+              deltane1rT = ne1rT - ne1T0
+              deltane2rT = ne2rT - ne2T0
 
 
        	!------------------------------------ For Phase Equation
@@ -1047,32 +1048,32 @@ write(*,*) 'start of temperature ' , f
             
                deltaphase(nr,k  ) = (0.,0.)                               !for lateral surface
 
-       	       deltaphase(j,nz  ) = deltaphase(j,nz-1)                                                               &          			                        
-				                  + ( 2.*pi*deltaz / lambda1 )                                                       &
-					              * ( deltano1rT + deltane1rT - 2.*deltane2rT )    
+       	      deltaphase(j,nz  ) = deltaphase(j,nz-1)                                                 &          			                        
+				                      + ( 2.*pi*deltaz / lambda1 )                                         &
+					                   * ( deltano1rT + deltane1rT - 2.*deltane2rT )    
 		                                                                  !for output surface
 	
 
-               deltaphase(nr,0  ) = (0.,0.)                               !for (nr,0 )
+              deltaphase(nr,0  ) = (0.,0.)                               !for (nr,0 )
 
-		       deltaphase(nr,nz ) = (0.,0.)                               !for (nr,nz) 
+		        deltaphase(nr,nz ) = (0.,0.)                               !for (nr,nz) 
 
 	           deltaphase(0 ,0  ) = (0.,0.)                               !for ( 0,0 )
 
-			   deltaphase(0 ,k  ) = deltaphase(0,k-1)                                                                &           
-				                  + ( 2.*pi*deltaz / lambda1 )                                                       &
-							      * ( deltano1r0T  + deltane1r0T  - 2.*deltane2r0T  )    
+			   deltaphase(0 ,k  ) = deltaphase(0,k-1)                                                     &           
+				                   + ( 2.*pi*deltaz / lambda1 )                                            &
+							          * ( deltano1r0T  + deltane1r0T  - 2.*deltane2r0T  )    
 								                                          !for crystal axis    
 								   
-			   deltaphase(0 ,nz  ) = deltaphase(0,nz-1)                                                              &           
-				                   + ( 2.*pi*deltaz / lambda1 )                                                      &
+			   deltaphase(0 ,nz  ) = deltaphase(0,nz-1)                                                   &           
+				                   + ( 2.*pi*deltaz / lambda1 )                                            &
 						    	   * ( deltano1r0T  + deltane1r0T  - 2.*deltane2r0T  ) 	
 								                                          !for crystal axis				                            
  !----------------------------------- Phase Equation
 			  
-		       deltaphase(j,k-1+1) = deltaphase(j,k-1)                                                               &
-				                   + ( 2.*pi*deltaz / lambda1 )                                                      & 
-							       * ( deltano1rT + deltane1rT - 2.*deltane2rT )    
+		       deltaphase(j,k-1+1) = deltaphase(j,k-1)                                                   &
+				                     + ( 2.*pi*deltaz / lambda1 )                                          & 
+							            * ( deltano1rT + deltane1rT - 2.*deltane2rT )    
 	        end do !j						 
 	 					                              
          end do !k	
