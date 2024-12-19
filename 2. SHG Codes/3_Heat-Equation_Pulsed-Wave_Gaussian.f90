@@ -93,14 +93,15 @@ character*30  EE                                                                
 !write(*,'(/,2x,a,\)') 'Enter the tp value without decimal point : '
 !read(*,*) tpf
 
-
+! For Calculation
     E = 0.09
-   Np = 1
+   Np = 10
    tp = 50e-6
  freq = 500
 
+! For Generating Filenames based on the values above
    EE = '009' 
-  Npf = '1'
+  Npf = '10'
   tpf = '50'
 freqf = '500'
 

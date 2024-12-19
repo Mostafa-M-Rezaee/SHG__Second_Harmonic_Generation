@@ -67,7 +67,7 @@ complex*16    cc1          ,cc2          ,cc3           ,cc4          ,cc5      
 			    ,Psi3[allocatable](:,:,:)   ,Elec3[allocatable](:,:,:) 
                      
 
-character*35  filenameibestl                                                                                         &
+character*50  filenameibestl                                                                                         &
              ,filenameElec12t      ,filenameElec12r       ,filenameElec12z                                           &
              ,filenameElec22t      ,filenameElec22r       ,filenameElec22z                                           &         
 			    ,filenameElec32t      ,filenameElec32r       ,filenameElec32z                                           &
