@@ -73,7 +73,7 @@ character*35  filenameibestl                                                    
 			    ,filenameElec32t      ,filenameElec32r       ,filenameElec32z                                           &
 
 			    ,filenamePsi3picksl   ,filenamePsi2picksl    ,filenameLscalemaxl                                        & 
-			    ,plot_extention 
+			    ,plot_extension 
 
 !**********************************************************************************************************************
 !                                       Giving Zero to variables
@@ -161,18 +161,18 @@ tpf = '50'
 !      To achieve both efficiency and clarity in managing output data,
 !      below, we generate filenames based on input information.
 
-plot_extention = '.plt'
+plot_extension = '.plt'
 
 !------------------------------------------------ Field Equations Files
-filenameElec12t = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec12_t'//plot_extention
+filenameElec12t = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec12_t'//plot_extension
 open(7,file=filenameElec12t)
 !write(7,'(/,a,/)')    ' variables =     "t"                              "Elec1 ** 2"'
 
-filenameElec12r = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec12_r'//plot_extention
+filenameElec12r = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec12_r'//plot_extension
 open(8,file=filenameElec12r)
 !write(8,'(/,a,/)')    ' variables =     "r"                              "Elec1 ** 2"'
 
-filenameElec12z = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec12_z'//plot_extention
+filenameElec12z = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec12_z'//plot_extension
 open(9,file=filenameElec12z)
 !write(9,'(/,a,/)')    ' variables =     "z"                              "Elec1 ** 2"'
 
@@ -184,15 +184,15 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
  read(*,*)
 
 !------------------
-filenameElec22t = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec22_t'//plot_extention
+filenameElec22t = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec22_t'//plot_extension
 open(10,file=filenameElec22t)
 !write(10,'(/,a,/)')    ' variables =     "t"                              "Elec2 ** 2"'
 
-filenameElec22r = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec22_r'//plot_extention
+filenameElec22r = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec22_r'//plot_extension
 open(11,file=filenameElec22r)
 !write(11,'(/,a,/)')    ' variables =     "r"                              "Elec2 ** 2"'
 
-filenameElec22z = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec22_z'//plot_extention
+filenameElec22z = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec22_z'//plot_extension
 open(12,file=filenameElec22z)
 !write(12,'(/,a,/)')    ' variables =     "z"                              "Elec2 ** 2"'
 
@@ -203,15 +203,15 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
  read(*,*)
 
 !------------------
-filenameElec32t = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec32_t'//plot_extention
+filenameElec32t = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec32_t'//plot_extension
 open(13,file=filenameElec32t)
 !write(13,'(/,a,/)')    ' variables =     "t"                              "Elec3 ** 2"'
 
-filenameElec32r = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec32_r'//plot_extention
+filenameElec32r = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec32_r'//plot_extension
 open(14,file=filenameElec32r)
 !write(14,'(/,a,/)')    ' variables =     "r"                              "Elec3 ** 2"'
 
-filenameElec32z = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec32_z'//plot_extention
+filenameElec32z = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Elec32_z'//plot_extension
 open(15,file=filenameElec32z)
 !write(15,'(/,a,/)')    ' variables =     "z"                             "Elec3 ** 2"'
 
@@ -222,22 +222,22 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
  read(*,*)
 
 !------------------
-filenamePsi3picksl = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Psi3picks_l'//plot_extention
+filenamePsi3picksl = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Psi3picks_l'//plot_extension
 open(16,file=filenamePsi3picksl)
 !write(16,'(/,a,/)')    ' variables =     "l"                              "Psi3 picks ** 2"'
 
 !------------------
-filenamePsi2picksl = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Psi2picks_l'//plot_extention
+filenamePsi2picksl = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Psi2picks_l'//plot_extension
 open(17,file=filenamePsi2picksl)
 !write(17,'(/,a,/)')    ' variables =     "l"                              "Psi2 picks ** 2"'
 
 !------------------
-filenameLscalemaxl= 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Lscalemax_l'//plot_extention
+filenameLscalemaxl= 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Lscalemax_l'//plot_extension
 open(20,file=filenameLscalemaxl)
 !write(20,'(/,a,/)')    ' variables =     "l"                              "Lscalemax"'
 
 !------------------
-filenameibestl = 'E'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_ibest_l'//plot_extention
+filenameibestl = 'E'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_ibest_l'//plot_extension
 open(21,file=filenameibestl)
 !write(21,'(/,a,/)')    ' variables =     "l"                              "ibest"'
 

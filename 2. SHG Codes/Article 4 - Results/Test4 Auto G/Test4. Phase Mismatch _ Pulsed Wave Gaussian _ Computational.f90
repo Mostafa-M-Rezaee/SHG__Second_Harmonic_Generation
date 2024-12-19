@@ -38,8 +38,8 @@ real*8        t          ,z          ,E          ,h          ,r          ,G     
 			 ,omegaf     ,length     ,deltar     ,deltaz     ,deltat     ,radius                                     &
 			 ,epsilong   ,tbetween                                                                                   &
 			 ,stability                                                                                              &
-			 ,r_integral ,z_integral                                                                                 &
-             ,temperature[allocatable](:,:,:)            ,KT[allocatable](:,:)  
+             ,r_integral ,z_integral                                                                                 &
+			 ,temperature[allocatable](:,:,:)            ,KT[allocatable](:,:)  
 
 
 character*30  EE                                                                                                     &
@@ -72,25 +72,25 @@ real*8        phi                                                               
 complex*8     deltaphase[allocatable](:,:)                                                                           
 
 character*35  filenamePt   ,filenamePr   ,filenamePz                                                                 &
-			 ,plot_extension                                                              
+			 ,plot_extention                                                              
 
 !**********************************************************************************************************************
 !                                    Giving Zero to variables
 !**********************************************************************************************************************
 
 !------------------------------------------------ Giving Zero to Thermal Variables
-            i = 0           ;j = 0          ;k = 0          ;l = 0  
-           nt = 0          ;nr = 0         ;nz = 0         ;Np = 0                                   
+            i = 0          ;j = 0          ;k = 0          ;l = 0  
+           nt = 0         ;nr = 0         ;nz = 0         ;Np = 0                                   
 
-            t = 0.          ;z = 0.         ;E = 0.         ;h = 0.         ;r = 0.        ;G = 0.       ;P = 0.
-           T0 = 0.         ;pi = 0.        ;cp = 0.        ;tp = 0.        ;Q0 = 0.
-          roh = 0.        ;KT0 = 0.       ;aa1 = 0.       ;aa2 = 0.       ;aa3 = 0.      ;aa4 = 0.     ;aa5 = 0.
-         freq = 0.       ;gama = 0.      ;Tinf = 0.      ;Tamb = 0.       
-        timet = 0.      ;sigma = 0.
-       omegaf = 0.     ;length = 0.    ;deltar = 0.    ;deltaz = 0.    ;deltat = 0.   ;radius = 0.
-     epsilong = 0.   ;tbetween = 0.
+            t = 0.         ;z = 0.         ;E = 0.         ;h = 0.         ;r = 0.        ;G = 0.       ;P = 0.
+           T0 = 0.        ;pi = 0.        ;cp = 0.        ;tp = 0.        ;Q0 = 0.
+          roh = 0.       ;KT0 = 0.       ;aa1 = 0.       ;aa2 = 0.       ;aa3 = 0.      ;aa4 = 0.     ;aa5 = 0.
+         freq = 0.      ;gama = 0.      ;Tinf = 0.      ;Tamb = 0.       
+        timet = 0.     ;sigma = 0.
+       omegaf = 0.    ;length = 0.    ;deltar = 0.    ;deltaz = 0.    ;deltat = 0.   ;radius = 0.
+     epsilong = 0.  ;tbetween = 0.
     stability = 0.                                                             
-   r_integral = 0. ;z_integral = 0.   
+
 !------------------------------------------------ Giving Zero to Phase Variables
           phi = 0.                                                                                         
 
@@ -164,18 +164,18 @@ freqf = '500'
 !      To achieve both efficiency and clarity in managing output data,
 !      below, we generate filenames based on input information.
 
-plot_extension = '.plt'
+plot_extention = '.plt'
 
 !------------------------------------------------ Heat Equation Files
-filenameTt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_t'//plot_extension
+filenameTt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_t'//plot_extention
 open(1,file=filenameTt)
 write(1,'(/,a,/)')   ! ' variables=         "t"                             "temperature"'
 
-filenameTr = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_r'//plot_extension
+filenameTr = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_r'//plot_extention
 open(2,file=filenameTr)
 write(2,'(/,a,/)')    !' variables=         "r"                             "temperature"'
 
-filenameTz = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_z'//plot_extension
+filenameTz = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_z'//plot_extention
 open(3,file=filenameTz)
 write(3,'(/,a,/)')    !' variables=         "z"                             "temperature"' 
 
@@ -184,15 +184,15 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
  read(*,*)
 
 !------------------------------------------------ Phase Equation Files
-filenamePt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Pt'//plot_extension
+filenamePt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Pt'//plot_extention
 open(4,file=filenamePt)
 write(4,'(/,a,/)')    !' variables=         "t"          "deltaphase_real"      "deltaphase_imaginary"'
 
-filenamePr = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_P_r'//plot_extension
+filenamePr = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_P_r'//plot_extention
 open(5,file=filenamePr)
 write(5,'(/,a,/)')    !' variables=         "r"          "deltaphase_real"      "deltaphase_imaginary"'
 
-filenamePz = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_P_z'//plot_extension
+filenamePz = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_P_z'//plot_extention
 open(6,file=filenamePz)
 write(6,'(/,a,/)')    !' variables=         "z"           "deltaphase_real"      "deltaphase_imaginary"'
 
@@ -433,22 +433,23 @@ write(*,*) '--- This code takes approximately 1 minute to execute on &
 
 write(*,*) 
 
-!-------- 
 ! To Calculate normalization constant (G) - Formula (3) in the Article
 do k = 0, nz
-	z = k * deltaz 
-  
-	r_integral = 0.
-	do j = 0, nr
-	   r = j * deltar
-	   r_integral = r_integral + exp(-2 * r**2 / omegaf**2) * r * deltar
-	end do !j
+   z = k * deltaz 
  
-	z_integral= z_integral + exp(-gama * z) * r_integral * deltaz
-end do !k
- 
-Q0 = 1 / (sqrt(pi) * z_integral)    !Normalization	m^-3	-	Formula (14) in the Article
- 
+   r_integral = 0.
+   do j = 0, nr
+      r = j * deltar
+      r_integral = r_integral + exp(-2 * r**2 / omegaf**2) * r * deltar
+   end do
+
+   z_integral= z_integral+ exp(-gama * z) * r_integral * deltaz
+end do
+
+write(*,*) "The parameter z_integral is:", z_integral
+
+Q0 = 1/ sqrt(pi) * z_integral       !Normalization	m^-3	
+
  p = E / (tp * sqrt(pi))            !total power of the pulse
 !--------------------------------------------------------
  

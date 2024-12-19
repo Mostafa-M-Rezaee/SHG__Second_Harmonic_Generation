@@ -48,7 +48,7 @@ complex*16     Ii                                                               
                  
 
 character*30   filenamez                                                                                             &
-              ,plot_extention 
+              ,plot_extension 
 
 !**********************************************************************************************************************
 !                                         Zero to variables
@@ -98,27 +98,27 @@ write(*,'(/,2x,a,\)') 'Enter the deltak value  : '
 !      To achieve both efficiency and clarity in managing output data,
 !      below, we generate filenames based on input information.
 
-plot_extention = '.plt'
+plot_extension = '.plt'
 
-filenamez = 'elec1p-z'//plot_extention
+filenamez = 'elec1p-z'//plot_extension
 open(1,file=filenamez)
 
-filenamez = 'elec2p-z'//plot_extention
+filenamez = 'elec2p-z'//plot_extension
 open(2,file=filenamez)
 
-filenamez = 'elec3p-z'//plot_extention
+filenamez = 'elec3p-z'//plot_extension
 open(3,file=filenamez)
 
-filenamez = 'elec1,2,3'//plot_extention 
+filenamez = 'elec1,2,3'//plot_extension 
 open(4,file=filenamez) 
 
-filenamez = 'elec1m-z'//plot_extention
+filenamez = 'elec1m-z'//plot_extension
 open(5,file=filenamez)
 
-filenamez = 'elec2m-z'//plot_extention
+filenamez = 'elec2m-z'//plot_extension
 open(6,file=filenamez)
 
-filenamez = 'elec3m-z'//plot_extention
+filenamez = 'elec3m-z'//plot_extension
 open(7,file=filenamez)
 
 

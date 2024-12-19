@@ -102,7 +102,7 @@ real*8        phi                                                               
  complex*8    deltaphase[allocatable](:,:)
 
 character*30  filenamePt   ,filenamePr  ,filenamePz                                                                  &
-             ,plot_extention                                                                    
+             ,plot_extension                                                                    
      			              			                                      
 
 !**********************************************************************************************************************
@@ -200,39 +200,39 @@ timetch = '01'
 !      To achieve both efficiency and clarity in managing output data,
 !      below, we generate filenames based on input information.
 
-plot_extention = '.plt'
+plot_extension = '.plt'
 
 !------------------------------------  temperature 
 
-filenamet = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_T_t'//plot_extention
+filenamet = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_T_t'//plot_extension
 open(1,file=filenamet)
 
-filenamer = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_T_r'//plot_extention
+filenamer = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_T_r'//plot_extension
 open(2,file=filenamer)
 
-filenamez = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_T_z'//plot_extention
+filenamez = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_T_z'//plot_extension
 open(3,file=filenamez)
 
 !-----------------------------------  phase equation
 
-filenamet = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_p_t'//plot_extention
+filenamet = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_p_t'//plot_extension
 open(4,file=filenamet)
 
-filenamer = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_p_r'//plot_extention
+filenamer = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_p_r'//plot_extension
 open(5,file=filenamer)
 
-filenamez = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_p_z'//plot_extention
+filenamez = 'ST_'//trim(stabilitych)//'_time_'//trim(timetch)//'_p_z'//plot_extension
 open(6,file=filenamez)
 
 write(*,*) filenamet  ,filenamer  ,filenamez
 
 !-----------------------------------  field
  
-filenamePsi12pr = 'Psi_12_p_r'//plot_extention
+filenamePsi12pr = 'Psi_12_p_r'//plot_extension
 open(7,file=filenamePsi12pr)
 !write(7,'(/,a,/)')    ' variables =       "r"                               "Psi1p ** 2"'
 
-filenamePsi12pz = 'Psi_12_p_z'//plot_extention
+filenamePsi12pz = 'Psi_12_p_z'//plot_extension
 open(8,file=filenamePsi12pz)
 !write(8,'(/,a,/)')    ' variables =       "z"                               "Psi1p ** 2"'
 
@@ -242,11 +242,11 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
 
 !------------------
 
-filenamePsi22pr = ' Psi_22_p_r'//plot_extention
+filenamePsi22pr = ' Psi_22_p_r'//plot_extension
 open(9,file=filenamePsi22pr)
 !write(9,'(/,a,/)')    ' variables =        "r"                               "Psi2p ** 2"'
 
-filenamePsi22pz =' Psi_22_p_z'//plot_extention
+filenamePsi22pz =' Psi_22_p_z'//plot_extension
 open(10,file=filenamePsi22pz)
 !write(10,'(/,a,/)')    ' variables =       "z"                               "Psi2p ** 2"'
 
@@ -256,11 +256,11 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
 
 !------------------
 
-filenamePsi32pr = ' Psi_32_p_r'//plot_extention
+filenamePsi32pr = ' Psi_32_p_r'//plot_extension
 open(11,file=filenamePsi32pr)
 !write(11,'(/,a,/)')    ' variables =       "r"                               "Psi3p ** 2"'
 
-filenamePsi32pz = ' Psi_32_p_z'//plot_extention
+filenamePsi32pz = ' Psi_32_p_z'//plot_extension
 open(12,file=filenamePsi32pz)
 !write(12,'(/,a,/)')    ' variables =       "z"                               "Psi3p** 2"'
 
@@ -270,11 +270,11 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
 
 !--------------------------------------------------------------------------------------------
 
-filenamePsi12mr = 'Psi_12_m_r'//plot_extention
+filenamePsi12mr = 'Psi_12_m_r'//plot_extension
 open(13,file=filenamePsi12mr)
 !write(13,'(/,a,/)')    ' variables =       "r"                               "Psi1m ** 2"'
 
-filenamePsi12mz = 'Psi_12_m_z'//plot_extention
+filenamePsi12mz = 'Psi_12_m_z'//plot_extension
 open(14,file=filenamePsi12mz)
 !write(14,'(/,a,/)')    ' variables =       "z"                               "Psi1m ** 2"'
 
@@ -284,11 +284,11 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
 
 !------------------
 
-filenamePsi22mr = ' Psi_22_m_r'//plot_extention
+filenamePsi22mr = ' Psi_22_m_r'//plot_extension
 open(15,file=filenamePsi22mr)
 !write(15,'(/,a,/)')    ' variables =       "r"                               "Psi2m ** 2"'
 
-filenamePsi22mz =' Psi_22_m_z'//plot_extention
+filenamePsi22mz =' Psi_22_m_z'//plot_extension
 open(16,file=filenamePsi22mz)
 !write(16,'(/,a,/)')    ' variables =       "z"                               "Psi2m ** 2"'
 
@@ -298,11 +298,11 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
 
 !------------------
 
-filenamePsi32mr = ' Psi_32_m_r'//plot_extention
+filenamePsi32mr = ' Psi_32_m_r'//plot_extension
 open(17,file=filenamePsi32mr)
 !write(17,'(/,a,/)')    ' variables =       "r"                               "Psi3m ** 2"'
 
-filenamePsi32mz = ' Psi_32_m_z'//plot_extention
+filenamePsi32mz = ' Psi_32_m_z'//plot_extension
 open(18,file=filenamePsi32mz)
 !write(18,'(/,a,/)')    ' variables =       "z"                               "Psi3m** 2"'
 

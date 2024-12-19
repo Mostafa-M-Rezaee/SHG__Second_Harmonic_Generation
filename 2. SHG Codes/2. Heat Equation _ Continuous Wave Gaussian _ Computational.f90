@@ -38,8 +38,7 @@ real*8        t          ,z          ,p          ,h           ,r           ,G   
 			    ,radius     ,epsilong   ,Fidegree   ,Firadian                          &
 			    ,stability                                                             &
 			    ,r_integral ,z_integral                                                &
-		  
-    		 ,temperature[allocatable](:,:,:)    , KT[allocatable] (:,:)
+    		    ,temperature[allocatable](:,:,:)    , KT[allocatable] (:,:)
 			 
 complex*16    Ii  
 
@@ -47,7 +46,7 @@ character*30  pp                                                                
              ,timetf     ,omegafch                                                  &
 		   	 ,filenamet  ,filenamer  ,filenamez                                     &
              ,stabilityf                                                            &
-			    ,plot_extention                                                          
+			    ,plot_extension                                                          
 			 
 !**********************************************************************************************************************
 !                                         Zero to variables
@@ -64,7 +63,8 @@ character*30  pp                                                                
 			    timet = 0.      ;sigma = 0.
 			   omegaf = 0.     ;length = 0.       ;deltar = 0.        ;deltaz = 0.      ;deltat = 0.
 			   radius = 0.   ;epsilong = 0.     ;Fidegree = 0.      ;Firadian = 0.
-	      stability = 0.    
+	      stability = 0.  
+        r_integral = 0. ;z_integral = 0.    
 
 !**********************************************************************************************************************
 !                                             Inputs		  
@@ -100,15 +100,15 @@ stabilityf = '85'
 !      To achieve both efficiency and clarity in managing output data,
 !      below, we generate filenames based on input information.
 
-plot_extention = '.plt'
+plot_extension = '.plt'
 
-filenamet = 'ST_'//trim(stabilityf)//'_time_'//trim(timetf)//'_T_t'//plot_extention
+filenamet = 'ST_'//trim(stabilityf)//'_time_'//trim(timetf)//'_T_t'//plot_extension
 open(1,file=filenamet)
 
-filenamer = 'ST_'//trim(stabilityf)//'_time_'//trim(timetf)//'_T_r'//plot_extention
+filenamer = 'ST_'//trim(stabilityf)//'_time_'//trim(timetf)//'_T_r'//plot_extension
 open(2,file=filenamer)
 
-filenamez = 'ST_'//trim(stabilityf)//'_time_'//trim(timetf)//'_T_z'//plot_extention
+filenamez = 'ST_'//trim(stabilityf)//'_time_'//trim(timetf)//'_T_z'//plot_extension
 open(3,file=filenamez)
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamet ,filenamer ,filenamez

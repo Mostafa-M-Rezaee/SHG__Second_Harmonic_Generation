@@ -115,7 +115,7 @@ freqf = '500'
 
 plot_extension = '.plt'
 
-filenameTt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_T_t'//plot_extension 
+filenameTt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'T_t'//plot_extension 
 open(1,file=filenameTt)
 !write(1,'(/,a,/)')    '                     t                               temperature'
 
@@ -139,7 +139,7 @@ filenameKr = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim
 open(5,file=filenameKr)
 !write(2,'(/,a,/)')    '                     r                               K(T)'
 
-filenameKz = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_K_z'//plot_extension 
+filenameKz = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Kz_'//plot_extension 
 open(6,file=filenameKz)
 !write(3,'(/,a,/)')    '                     z                               K(T)'
 
@@ -273,14 +273,20 @@ do k = 0, nz
    do j = 0, nr
       r = j * deltar
       r_integral = r_integral + exp(-2 * r**2 / omegaf**2) * r * deltar
-   end do !j
+   end do
 
-   z_integral= z_integral + exp(-gama * z) * r_integral * deltaz
-end do !k
+   z_integral= z_integral+ exp(-gama * z) * r_integral * deltaz
+end do
 
-Q0 = 1 / (sqrt(pi) * z_integral)    !Normalization	m^-3	-	Formula (14) in the Article
+write(*,*) "The parameter z_integral is:", z_integral
 
- p = E / (sqrt(pi) * tp)            !total power of the pulse
+!z_integral = 1.703409099e-10      
+G = z_integral * pi * tp     
+!G = 1.703409099e-10 * pi * tp     
+
+Q0 = sqrt(pi) * tp / G              !Normalization	m^-3	-	Formula (14) in the Article
+
+ p = E / (tp * sqrt(pi))            !total power of the pulse
 
 !--------------------------------------------------------
 do j=0,nr
