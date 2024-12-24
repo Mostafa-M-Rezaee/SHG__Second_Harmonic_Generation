@@ -449,7 +449,7 @@ Please refer to the [0. Cite Us](https://github.com/Max-Ghadri/SHG__Second_Harmo
 
 
 # 13. For Additional Questions
-If you have questions that are not covered in the resources above, the best way to reach [Mostafa Rezaee](https://www.linkedin.com/in/mostafa-m-rezaee/).    
+If you have questions that are not covered in the resources above, the best way to reach [Mostafa Rezaee](https://www.linkedin.com/in/mostafa-rezaee/).    
 - Gmail: mostafa.mohammadrezaee@gmail.com       
-- [Linkedin](https://www.linkedin.com/in/mostafa-m-rezaee/)           
+- [Linkedin](https://www.linkedin.com/in/mostafa-rezaee/)           
 - [Personal Website](https://mostafa-mr.com/)       
