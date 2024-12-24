@@ -56,43 +56,43 @@ Folder PATH listing
 . 
 |
 +---0. Cite Us
-|       1. Heat Equation _ Continuous Wave Gaussian _ Analytical.pdf
-|       2. Heat Equation _ Continuous Wave Gaussian _ Computational.pdf
-|       3. Heat Equation _ Pulsed Wave Gaussian _ Computational.pdf
-|       4. Phase Mismatch _ Pulsed Wave Gaussian _ Computational.pdf
-|       5. Ideal _ Continuous Wave Gaussian _ Computational.pdf
-|       6. Ideal _ Pulsed Wave Bessel Gaussian _ Computational.pdf
-|       7. Coupled _ Continuous Wave Gaussian _ Computational.pdf
+|       1_Heat-Equation_Continuous-Wave_Gaussian_Analytical.pdf
+|       2_Heat-Equation_Continuous-Wave_Gaussian.pdf
+|       3_Heat-Equation_Pulsed-Wave_Gaussian.pdf
+|       4_Phase-Mismatch_Pulsed-Wave_Gaussia.pdf
+|       5_Ideal_Continuous-Wave_Gaussian.pdf
+|       6_Ideal_Pulsed-Wave_Bessel-Gaussian.pdf
+|       7_Coupled_Continuous-Wave_Gaussian.pdf
 |       README.md
 |       
 +---1. FORTRAN Tutorial
-|       00. ifort Installation Guide.md
-|       01. FORTRAN_Main Commands Tutorial.md
-|       02. FORTRAN_Coding Template Tutorial.md
-|       03. FORTRAN_Run a Code Tutorial.md
-|       04. FORTRAN_Coding Template.F90
-|       05. Write_Read_Variables Types.F90
-|       06. Readable Code Structure.F90
-|       07. do loop.F90
-|       08. If then else.F90
-|       09. open file.F90
-|       10. Array.F90
+|       00_ifort_Installation-Guide.md
+|       01_FORTRAN_Main-Commands_Tutorial.md
+|       02_FORTRAN_Coding-Template_Tutorial.md
+|       03_FORTRAN_Run_a_Code_Tutorial.md
+|       04_FORTRAN_Coding_Template.F90
+|       05_Write-Read-Variables_Types.F90
+|       06_Readable_Code_Structure.F90
+|       07_do-loop.F90
+|       08_If-then-else.F90
+|       09_open-file.F90
+|       10_Array.F90
 |       README.md
 |       
 +---2. SHG Codes
-|   |   2. Heat Equation _ Continuous Wave Gaussian _ Computational.f90
-|   |   3. Heat Equation _ Pulsed Wave Gaussian _ Computational.f90
-|   |   4. Phase Mismatch _ Pulsed Wave Gaussian _ Computational.f90
-|   |   5. Ideal _ Continuous Wave Gaussian _ Computational.f90
-|   |   6. Ideal _ Pulsed Wave Bessel Gaussian _ Computational.f90
-|   |   7. Coupled _ Continuous Wave Gaussian _ Computational.f90
-|   |   
-|   +---Article 2 - Results  
-|   +---Article 3 - Results       
-|   +---Article 4 - Results  
-|   +---Article 5 - Results     
-|   +---Article 6 - Results    
-|   \---Article 7 - Results
+|   |   2_Heat-Equation_Continuous-Wave_Gaussian.f90
+|   |   3_Heat-Equation_Pulsed-Wave_Gaussian.f90
+|   |   4_Phase-Mismatch_Pulsed-Wave_Gaussia.f90
+|   |   5_Ideal_Continuous-Wave_Gaussian.f90
+|   |   6_Ideal_Pulsed-Wave_Bessel-Gaussian.f90
+|   |   7_Coupled_Continuous-Wave_Gaussian.f90
+|   |  
+|   +---2_Results
+|   +---3_Results    
+|   +---4_Results     
+|   +---5_Results    
+|   +---6_Results    
+|   \---7_Results
 
 ```         
 
