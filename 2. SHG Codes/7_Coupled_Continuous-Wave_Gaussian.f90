@@ -28,7 +28,7 @@ implicit none
 
 integer       i            ,j            ,k            ,f            ,m                                              &
              ,nr           ,nt           ,nz                                                                         &
-       	     ,fmax
+       	    ,fmax
 
 real*8        t            ,r            ,z            ,p            ,A            ,B            ,S                  &                                              
 		       ,pi                                                                                                     &
@@ -186,9 +186,11 @@ character*30  filenamePt   ,filenamePr  ,filenamePz                             
 !write(*,'(/,2x,a,\)') 'Enter the total time value without decimal point : '
 !read(*,*)timetch
 
+! For Calculation
 stability = 0.85
 timet = 0.0001
 
+! For Generating Filenames based on the values above
 stabilitych = '85'
 timetch = '01'
 
@@ -381,20 +383,20 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
     Term2 = sin(theta)**2. * sin(phi)**2.
     Term3 = cos(theta)**2.
 
-     B1T0 = -Term1 * ( bb1T0 + cc1T0 )                                                    &
-		      -Term2 * ( aa1T0 + cc1T0 )                                                    &
+     B1T0 = -Term1 * ( bb1T0 + cc1T0 )              &
+		      -Term2 * ( aa1T0 + cc1T0 )              &
 		      -Term3 * ( aa1T0 + bb1T0 ) 
      		 
-     C1T0 =  Term1 * bb1T0 * cc1T0                                                        &
-	 	      +Term2 * aa1T0 * cc1T0                                                        &
+     C1T0 =  Term1 * bb1T0 * cc1T0                  &
+	 	      +Term2 * aa1T0 * cc1T0                  &
 		      +Term3 * aa1T0 * bb1T0 
 
-     B2T0 = -Term1 * ( bb2T0 + cc2T0 )                                                    &
-		      -Term2 * ( aa2T0 + cc2T0 )                                                    &
+     B2T0 = -Term1 * ( bb2T0 + cc2T0 )              &
+		      -Term2 * ( aa2T0 + cc2T0 )              &
 		      -Term3 * ( aa2T0 + bb2T0 )
              
-     C2T0 =  Term1 * bb2T0 * cc2T0                                                        &
-		      +Term2 * aa2T0 * cc2T0                                                        &
+     C2T0 =  Term1 * bb2T0 * cc2T0                  &
+		      +Term2 * aa2T0 * cc2T0                  &
 		      +Term3 * aa2T0 * bb2T0 
 
     no1T0 = (2**0.5) / sqrt( -B1T0 - sqrt( B1T0 ** 2. - 4. * C1T0 ) )  
@@ -456,7 +458,7 @@ end forall
 
 forall (j=0:nr,k=1:2)
                             psi1p(j,k)=(0.,0.)     ;psi1m(j,k)=(0.,0.)      
-				            psi2p(j,k)=(0.,0.)     ;psi2m(j,k)=(0.,0.)     
+				                psi2p(j,k)=(0.,0.)     ;psi2m(j,k)=(0.,0.)     
                             psi3p(j,k)=(0.,0.)     ;psi3m(j,k)=(0.,0.)        			                               						                                                      
 end forall !i
 
@@ -471,9 +473,9 @@ write(*,*)
 write(*,'(A13,F15.10 ,/)')  '      Power = ',P                
 
 write(*,'(A13,2F15.10  )')  '        Ii = ',Ii                  
-write(*,'(A13,I9       )')  '        Nt = ',Nt              
-write(*,'(A13,I5       )')  '        Nr = ',Nr                
-write(*,'(A13,I5       )')  '        Nz = ',Nz
+write(*,'(A13,I4       )')  '        Nt = ',Nt              
+write(*,'(A13,I6       )')  '        Nr = ',Nr                
+write(*,'(A13,I6       )')  '        Nz = ',Nz
 write(*,'(A13,F15.10 ,/)')  '        pi = ',pi
 
 write(*,'(A13,F15.10 ,/)')  '     timet = ',timet  
@@ -688,35 +690,35 @@ write(*,*)   'start of field equation' ,f
    
                 ee4 = cc4     
 !--------------			 
-	     psi1p(j,2) =  psi1p(j  ,1)                                                                             &
+	     psi1p(j,2) =  psi1p(j  ,1)                                                                   &
 					      
-				        + cc2 * ( (psi1p(j+1,1) - 2 * psi1p(j,1) + psi1p(j-1,1))/(deltar**2) )                     &
+				        + cc2 * ( (psi1p(j+1,1) - 2 * psi1p(j,1) + psi1p(j-1,1))/(deltar**2) )           &
 
-				        + cc2 * ( (psi1p(j+1,1) - psi1p(j-1,1))/(2*r*deltar) )                                     &
+				        + cc2 * ( (psi1p(j+1,1) - psi1p(j-1,1))/(2*r*deltar) )                           &
 
-			           - cc3 * psi1p(j,1)                                                                         &
+			           - cc3 * psi1p(j,1)                                                               &
 
 				        + cc4 * conjg(psi2p(j,1)) * psi3p(j,1) * exp(-Ii*deltaphase(j,k) )                                                                                              
            
 		   !---------------------------------
-	     psi2p(j,2) =  psi2p(j ,1)                                                                              &
+	     psi2p(j,2) =  psi2p(j ,1)                                                                    &
 
-				        + dd2 * ( (psi2p(j+1,1) - 2 * psi2p(j,1) + psi2p(j-1,1))/(deltar**2) )                     &
+				        + dd2 * ( (psi2p(j+1,1) - 2 * psi2p(j,1) + psi2p(j-1,1))/(deltar**2) )           &
 
-				        + dd2 * ( (psi2p(j+1,1) - psi2p(j-1,1))/(2*r*deltar) )                                     &
+				        + dd2 * ( (psi2p(j+1,1) - psi2p(j-1,1))/(2*r*deltar) )                           &
 
-				        - dd3 * psi2p(j,1)                                                                         &
+				        - dd3 * psi2p(j,1)                                                               &
 
 				        + dd4 * conjg(psi1p(j,1)) * psi3p(j,1) * exp(-Ii*deltaphase(j,k) )                                                                                               
 		   
 		   !---------------------------------			
-	     psi3p(j,2 ) =  psi3p(j  ,1)                                                                            &
+	     psi3p(j,2 ) =  psi3p(j  ,1)                                                                  &
 					      
-			            + ee2 * ( (psi3p(j+1,1) - 2 * psi3p(j,1) + psi3p(j-1,1))/(deltar**2) )                    &
+			            + ee2 * ( (psi3p(j+1,1) - 2 * psi3p(j,1) + psi3p(j-1,1))/(deltar**2) )          &
 
-			            + ee2 * ( (psi3p(j+1,1) - psi3p(j-1,1))/(2*r*deltar) )                                    &
+			            + ee2 * ( (psi3p(j+1,1) - psi3p(j-1,1))/(2*r*deltar) )                          &
 
-			 	         - ee3 * psi3p(j,1)                                                                        &
+			 	         - ee3 * psi3p(j,1)                                                              &
 
 			            + ee4 * psi1p(j,1) * psi2p(j,1) * exp(Ii*deltaphase(j,k) )                                                                                               
 
@@ -802,35 +804,35 @@ write(*,*)   'start of field equation' ,f
 
 !------------------------------------ End of Bounday conditions   
 
-         psi1m(j,1 ) =  psi1m(j  ,2)                                                                           &
+         psi1m(j,1 ) =  psi1m(j  ,2)                                                                   &
 					       
-			             + cc2 * ( (psi1m(j+1,2) - 2 * psi1m(j,2) + psi1m(j-1,2))/(deltar**2) )                   &
+			             + cc2 * ( (psi1m(j+1,2) - 2 * psi1m(j,2) + psi1m(j-1,2))/(deltar**2) )           &
 
-			             + cc2 * ( (psi1m(j+1,2) - psi1m(j-1,2))/(2*r*deltar) )                                   &
+			             + cc2 * ( (psi1m(j+1,2) - psi1m(j-1,2))/(2*r*deltar) )                           &
 
-			             - cc3 * psi1m(j,2)                                                                       & 
+			             - cc3 * psi1m(j,2)                                                               & 
 
 		                + cc4 * conjg(psi2m(j,2)) * psi3m(j,2) * exp(Ii*deltaphase(j,k))                                                                                              
     
 !---------------------------------
-         psi2m(j,1 )=  psi2m(j  ,2)                                                                            &
+         psi2m(j,1 )=  psi2m(j  ,2)                                                                    &
 
-			            + dd2 * ( (psi2m(j+1,2) - 2 * psi2m(j,2) + psi2m(j-1,2))/(deltar**2) )                    &
+			            + dd2 * ( (psi2m(j+1,2) - 2 * psi2m(j,2) + psi2m(j-1,2))/(deltar**2) )            &
 
-			            + dd2 * ( (psi2m(j+1,2) - psi2m(j-1,2))/(2*r*deltar) )                                    &
+			            + dd2 * ( (psi2m(j+1,2) - psi2m(j-1,2))/(2*r*deltar) )                            &
 
-		    	         - dd3 * psi2m(j,2)                                                                        &
+		    	         - dd3 * psi2m(j,2)                                                                &
 
 			            + dd4 * conjg(psi1m(j,2)) * psi3m(j,2) * exp(Ii*deltaphase(j,k) )                                                                                               
 		   
 !---------------------------------			
-         psi3m(j,1 ) =  psi3m(j  ,2)                                                                           &
+         psi3m(j,1 ) =  psi3m(j  ,2)                                                                   &
 					      
-			             + ee2 * ( (psi3m(j+1,2) - 2 * psi3m(j,2) + psi3m(j-1,2))/(deltar**2) )                   &
+			             + ee2 * ( (psi3m(j+1,2) - 2 * psi3m(j,2) + psi3m(j-1,2))/(deltar**2) )           &
 
-			             + ee2 * ( (psi3m(j+1,2) - psi3m(j-1,2))/(2*r*deltar) )                                   &
+			             + ee2 * ( (psi3m(j+1,2) - psi3m(j-1,2))/(2*r*deltar) )                           &
 
-		  	             - ee3 * psi3m(j,2)                                                                       &
+		  	             - ee3 * psi3m(j,2)                                                               &
 
 	                   + ee4 * psi1m(j,2) * psi2m(j,2) * exp(-Ii*deltaphase(j,k) )          
 				                                                  
@@ -974,20 +976,20 @@ write(*,*) 'start of temperature ' , f
                bb2r0T  = 1. / ( ny2r0T )**2. 
                cc2r0T  = 1. / ( nz2r0T )**2.       
   
-    	         B1r0T  =  -Term1 * ( bb1r0T + cc1r0T )                                                 &
-			                -Term2 * ( aa1r0T + cc1r0T )                                                 &
+    	         B1r0T  =  -Term1 * ( bb1r0T + cc1r0T )                &
+			                -Term2 * ( aa1r0T + cc1r0T )                &
 			                -Term3 * ( aa1r0T + bb1r0T ) 
      		 
-	   	      C1r0T  =  Term1 * bb1r0T * cc1r0T                                                      &
-			               +Term2 * aa1r0T * cc1r0T                                                      &
+	   	      C1r0T  =  Term1 * bb1r0T * cc1r0T                     &
+			               +Term2 * aa1r0T * cc1r0T                     &
 			               +Term3 * aa1r0T * bb1r0T 
 
-               B2r0T  = -Term1 * ( bb2r0T + cc2r0T )                                                  &
-			               -Term2 * ( aa2r0T + cc2r0T )                                                  &
+               B2r0T  = -Term1 * ( bb2r0T + cc2r0T )                 &
+			               -Term2 * ( aa2r0T + cc2r0T )                 &
 			               -Term3 * ( aa2r0T + bb2r0T )
              
-	 	         C2r0T  =  Term1 * bb2r0T * cc2r0T                                                      &
-			               +Term2 * aa2r0T * cc2r0T                                                      &
+	 	         C2r0T  =  Term1 * bb2r0T * cc2r0T                     &
+			               +Term2 * aa2r0T * cc2r0T                     &
 			               +Term3 * aa2r0T * bb2r0T 
 
              
@@ -1017,20 +1019,20 @@ write(*,*) 'start of temperature ' , f
              bb2rT  = 1. / ( ny2rT )**2. 
              cc2rT  = 1. / ( nz2rT )**2.       
 
-	          B1rT  =  -Term1 * ( bb1rT + cc1rT )                                                       &
-			             -Term2 * ( aa1rT + cc1rT )                                                       &
+	          B1rT  =  -Term1 * ( bb1rT + cc1rT )                 &
+			             -Term2 * ( aa1rT + cc1rT )                 &
 			             -Term3 * ( aa1rT + bb1rT ) 
      		 
-		       C1rT  =  Term1 * bb1rT * cc1rT                                                            &
-			            +Term2 * aa1rT * cc1rT                                                            &
+		       C1rT  =  Term1 * bb1rT * cc1rT                      &
+			            +Term2 * aa1rT * cc1rT                      &
 			            +Term3 * aa1rT * bb1rT 
 
-             B2rT  = -Term1 * ( bb2rT + cc2rT )                                                        &
-			              -Term2 * ( aa2rT + cc2rT )                                                      &
+             B2rT  = -Term1 * ( bb2rT + cc2rT )                  &
+			              -Term2 * ( aa2rT + cc2rT )                &
 			              -Term3 * ( aa2rT + bb2rT )
              
-		       C2rT  =   Term1 * bb2rT * cc2rT                                                           &
-			             +Term2 * aa2rT * cc2rT                                                           &
+		       C2rT  =   Term1 * bb2rT * cc2rT                     &
+			             +Term2 * aa2rT * cc2rT                     &
 			             +Term3 * aa2rT * bb2rT 
 
              
@@ -1048,8 +1050,8 @@ write(*,*) 'start of temperature ' , f
             
                deltaphase(nr,k  ) = (0.,0.)                               !for lateral surface
 
-       	      deltaphase(j,nz  ) = deltaphase(j,nz-1)                                                 &          			                        
-				                      + ( 2.*pi*deltaz / lambda1 )                                         &
+       	      deltaphase(j,nz  ) = deltaphase(j,nz-1)                                             &          			                        
+				                      + ( 2.*pi*deltaz / lambda1 )                                     &
 					                   * ( deltano1rT + deltane1rT - 2.*deltane2rT )    
 		                                                                  !for output surface
 	
@@ -1060,19 +1062,19 @@ write(*,*) 'start of temperature ' , f
 
 	           deltaphase(0 ,0  ) = (0.,0.)                               !for ( 0,0 )
 
-			   deltaphase(0 ,k  ) = deltaphase(0,k-1)                                                     &           
-				                   + ( 2.*pi*deltaz / lambda1 )                                            &
+			   deltaphase(0 ,k  ) = deltaphase(0,k-1)                                                 &           
+				                   + ( 2.*pi*deltaz / lambda1 )                                        &
 							          * ( deltano1r0T  + deltane1r0T  - 2.*deltane2r0T  )    
 								                                          !for crystal axis    
 								   
-			   deltaphase(0 ,nz  ) = deltaphase(0,nz-1)                                                   &           
-				                   + ( 2.*pi*deltaz / lambda1 )                                            &
+			   deltaphase(0 ,nz  ) = deltaphase(0,nz-1)                                               &           
+				                   + ( 2.*pi*deltaz / lambda1 )                                        &
 						    	   * ( deltano1r0T  + deltane1r0T  - 2.*deltane2r0T  ) 	
 								                                          !for crystal axis				                            
  !----------------------------------- Phase Equation
 			  
-		       deltaphase(j,k-1+1) = deltaphase(j,k-1)                                                   &
-				                     + ( 2.*pi*deltaz / lambda1 )                                          & 
+		       deltaphase(j,k-1+1) = deltaphase(j,k-1)                                               &
+				                     + ( 2.*pi*deltaz / lambda1 )                                      & 
 							            * ( deltano1rT + deltane1rT - 2.*deltane2rT )    
 	        end do !j						 
 	 					                              
@@ -1245,10 +1247,11 @@ close(18)
 !----------------------
 
 write(*,*) 
-write(*,*) '---- The results are stored in `.plt` format.                               &
-	        If a different format is required, users can set the desried extension in   &
-			"Determine  Filenames & Open files" section of the code or rename the file  & 
-			manually and open it with their preferred software. ----!'	
+write(*,*) '---- The results are stored in `.plt` format.                                  &
+	         If a different format is required, users can set the desried extension in      &
+			   "Determine Filenames & Open files" section of the code or rename the file      & 
+			   manually and open it with their preferred software. ----!'	
+
 			
 write(*,*) 	
 write(*,*) '---- Program Completed ----!'

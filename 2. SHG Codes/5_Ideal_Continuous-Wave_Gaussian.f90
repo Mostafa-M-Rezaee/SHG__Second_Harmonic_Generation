@@ -100,25 +100,25 @@ write(*,'(/,2x,a,\)') 'Enter the deltak value  : '
 
 plot_extension = '.plt'
 
-filenamez = 'elec1p-z'//plot_extension
+filenamez = 'elec1_p-z'//plot_extension
 open(1,file=filenamez)
 
-filenamez = 'elec2p-z'//plot_extension
+filenamez = 'elec2_p-z'//plot_extension
 open(2,file=filenamez)
 
-filenamez = 'elec3p-z'//plot_extension
+filenamez = 'elec3_p-z'//plot_extension
 open(3,file=filenamez)
 
-filenamez = 'elec1,2,3'//plot_extension 
+filenamez = 'elec1-2-3'//plot_extension 
 open(4,file=filenamez) 
 
-filenamez = 'elec1m-z'//plot_extension
+filenamez = 'elec1_m-z'//plot_extension
 open(5,file=filenamez)
 
-filenamez = 'elec2m-z'//plot_extension
+filenamez = 'elec2_m-z'//plot_extension
 open(6,file=filenamez)
 
-filenamez = 'elec3m-z'//plot_extension
+filenamez = 'elec3_m-z'//plot_extension
 open(7,file=filenamez)
 
 
@@ -151,12 +151,13 @@ open(7,file=filenamez)
 
 write(*,*)'------- Constants ----------------------------------------------------------'
 write(*,*)
-write(*,'(A13,I9        )') '         p = ',p
 write(*,'(A13,I9      ,/)') '        Nz = ',Nz
 
-write(*,'(A13,F15.10    )') '         c = ',c
-write(*,'(A13,F15.10  ,/)') '         d = ',d
+write(*,'(A13,F15.10    )') '         p = ',p
 write(*,'(A13,F15.10    )') '         l = ',l
+write(*,'(A13,F15.10  ,/)') '         d = ',d
+
+write(*,'(A13,F20.10  ,/)') '         c = ',c
 
 write(*,'(A13,F15.10    )') '        pi = ',pi
 write(*,'(A13,F15.10    )') '        n1 = ',n1
@@ -171,7 +172,7 @@ write(*,'(A13,F15.10  ,/)') '     gama3 = ',gama3
 write(*,'(A13,F15.10    )') '     landa1 = ',landa1
 write(*,'(A13,F15.10  ,/)') '     lenght = ',lenght    
 
-write(*,'(A13,F15.10    )') '    omega1 = ',omega1
+write(*,'(A13,E19.10    )') '    omega1 = ',omega1
 write(*,'(A13,F15.10    )') '    omegaf = ',omegaf
 write(*,'(A13,F15.10    )') '    deltak = ',deltak
 write(*,'(A13,F15.10  ,/)') '    deltaz = ',deltaz
@@ -311,10 +312,11 @@ end do !k
 close(1)
 
 write(*,*) 
-write(*,*) '---- The results are stored in `.plt` format.                               &
-	        If a different format is required, users can set the desried extension in   &
-			"Determine  Filenames & Open files" section of the code or rename the file  & 
-			manually and open it with their preferred software. ----!'	
+write(*,*) '---- The results are stored in `.plt` format.                                  &
+	         If a different format is required, users can set the desried extension in      &
+			   "Determine Filenames & Open files" section of the code or rename the file      & 
+			   manually and open it with their preferred software. ----!'	
+
 			
 write(*,*) 	
 write(*,*) '---- Program Completed ----!'

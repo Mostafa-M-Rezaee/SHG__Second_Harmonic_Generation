@@ -143,11 +143,13 @@ character*50  filenameibestl                                                    
 !write(*,'(/,2x,a,\)') 'Enter the tp value without decimal point : '
  !read(*,*) tpf
 
+! For Calculation
 E = 0.8  
 freq = 4000
 Np = 1
 tp = 50e-6
 
+! For Generating Filenames based on the values above
 EE = '08'
 freqf = '4000'
 Npf = '1'
@@ -198,7 +200,7 @@ open(12,file=filenameElec22z)
 
 write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameElec22t  &
                                                                                     ,filenameElec22r  &
-										    ,filenameElec22z
+										                                                      ,filenameElec22z
  write(*,'(A,\)')' Please press any key to continue '
  read(*,*)
 
@@ -345,48 +347,49 @@ end forall !i
 write(*,*)
 write(*,*)'------- Common Constants ---------------------------------------------------'
 write(*,*) 
-write(*,'(A15,F15.10 ,/)') '            E = ',E                
+write(*,'(A20,F15.10 ,/)') '            E = ',E                
 
-write(*,'(A15,2F15.10,/)') '           Ii = ',Ii                  
+write(*,'(A20,2F15.10,/)') '           Ii = ',Ii                  
 
-write(*,'(A13,I9       )') '           tp = ',tp
-write(*,'(A15,I9       )') '           Nt = ',Nt
-write(*,'(A15,I9       )') '          inn = ',inn              
-write(*,'(A15,I9       )') '           Nr = ',Nr                
-write(*,'(A15,I9       )') '           Nz = ',Nz
-write(*,'(A13,I9       )') '           Np = ',Np
-write(*,'(A15,I9     ,/)') '           kn = ',kn 
+write(*,'(A20,I9       )') '           Nt = ',Nt
+write(*,'(A20,I9       )') '           Nr = ',Nr                
+write(*,'(A20,I9       )') '           Nz = ',Nz
+write(*,'(A20,I9       )') '           Np = ',Np
+write(*,'(A20,I9     ,/)') '           kn = ',kn 
 
-write(*,'(A15,F15.10   )') '           pi = ',pi
-write(*,'(A15,F15.10 ,/)') '           Cp = ',Cp              
+write(*,'(A20,I9     ,/)') '          inn = ',inn              
 
-write(*,'(A15,F15.10   )') '          KT0 = ',KT0             
-write(*,'(A15,F15.10 ,/)') '          roh = ',roh              
+write(*,'(A20,F15.10   )') '           tp = ',tp
+write(*,'(A20,F15.10   )') '           pi = ',pi
+write(*,'(A20,F15.10 ,/)') '           Cp = ',Cp              
 
-write(*,'(A13,F15.10   )') '         freq = ',freq
-write(*,'(A15,f15.10   )') '        gama1 = ',gama1               
-write(*,'(A15,f15.10   )') '        gama2 = ',gama2               
-write(*,'(A15,f15.10 ,/)') '        gama3 = ',gama3              
+write(*,'(A20,F15.10   )') '          KT0 = ',KT0             
+write(*,'(A20,F15.10 ,/)') '          roh = ',roh              
 
-write(*,'(A15,F15.10   )') '        timet = ',timet           
-write(*,'(A15,f15.10   )') '        power = ',power              
-write(*,'(A15,f15.5  ,/)') '        alpha = ',alpha              
+write(*,'(A20,F15.10   )') '         freq = ',freq
+write(*,'(A20,f15.10   )') '        gama1 = ',gama1               
+write(*,'(A20,f15.10   )') '        gama2 = ',gama2               
+write(*,'(A20,f15.10 ,/)') '        gama3 = ',gama3              
 
-write(*,'(A15,F15.10   )') '       omegaf = ',omegaf          
-write(*,'(A15,F15.10   )') '       length = ',length          
-write(*,'(A15,F15.10   )') '       deltat = ',deltat          
-write(*,'(A15,F15.10   )') '       deltaz = ',deltaz          
-write(*,'(A15,F15.10   )') '      deltar1 = ',deltar1          
-write(*,'(A15,F15.10 ,/)') '      deltar2 = ',deltar2          
+write(*,'(A20,F15.10   )') '        timet = ',timet           
+write(*,'(A20,f15.10   )') '        power = ',power              
+write(*,'(A20,f15.5  ,/)') '        alpha = ',alpha              
 
-write(*,'(A15,F15.10 ,/)') '       radius = ',radius           
+write(*,'(A20,F15.10   )') '       omegaf = ',omegaf          
+write(*,'(A20,F15.10   )') '       length = ',length          
+write(*,'(A20,F15.10   )') '       deltat = ',deltat          
+write(*,'(A20,F15.10   )') '       deltaz = ',deltaz          
+write(*,'(A20,F15.10   )') '      deltar1 = ',deltar1          
+write(*,'(A20,F15.10 ,/)') '      deltar2 = ',deltar2          
 
-write(*,'(A15,F15.10   )') '      lambda1 = ',lambda1         
-write(*,'(A15,f15.10 ,/)') '      lambda2 = ',lambda2        
+write(*,'(A20,F15.10 ,/)') '       radius = ',radius           
 
-write(*,'(A15,F15.10 ,/)') '     tbetween = ',tbetween                                        
+write(*,'(A20,F15.10   )') '      lambda1 = ',lambda1         
+write(*,'(A20,f15.10 ,/)') '      lambda2 = ',lambda2        
 
-write(*,'(A15,F15.10 ,/)') '    stability = ',stability                                                                
+write(*,'(A20,F15.10 ,/)') '     tbetween = ',tbetween                                        
+
+write(*,'(A20,F15.10 ,/)') '    stability = ',stability                                                                
 
 write(*,*)'----------------------------------------------------------------------------'
 write(*,'(A,\)')' Please press any key to continue '
@@ -396,13 +399,13 @@ write(*,'(A,\)')' Please press any key to continue '
 write(*,*)
 write(*,*)'------- Field Equations Constants ------------------------------------------'
 write(*,*)
-write(*,'(A15,f15.3  ,/)') '            c = ',c                  
+write(*,'(A20,f15.3  ,/)') '            c = ',c                  
 
-write(*,'(A15,f35.30 ,/)') '         deff = ',deff                
+write(*,'(A20,f35.30 ,/)') '         deff = ',deff                
 
-write(*,'(A15,f25.5  ,/)') '        omega = ',omega               
+write(*,'(A20,f25.5  ,/)') '        omega = ',omega               
 
-write(*,'(A15,f25.20 ,/)') '     epsilon0 = ',epsilon0           
+write(*,'(A20,f25.20 ,/)') '     epsilon0 = ',epsilon0           
 
 write(*,*)'----------------------------------------------------------------------------'
 write(*,'(A,\)')' Please press any key to continue '
@@ -414,7 +417,7 @@ write(*,'(A,\)')' Please press any key to continue '
 
 ! Display estimated execution time information
 write(*,*)
-write(*,*) '--- This code takes approximately 1 minute to execute on &
+write(*,*) '--- This code takes approximately 2 minute to execute on &
 	        a medium-performance      laptop. Execution time may vary depending on &
 			the system''s CPU, RAM, and        background tasks. ---!'	
 
@@ -930,10 +933,11 @@ close(20)
 close(21)
 
 write(*,*) 
-write(*,*) '---- The results are stored in `.plt` format.                               &
-	        If a different format is required, users can set the desried extension in   &
-			"Determine  Filenames & Open files" section of the code or rename the file  & 
-			manually and open it with their preferred software. ----!'	
+write(*,*) '---- The results are stored in `.plt` format.                                  &
+	         If a different format is required, users can set the desried extension in      &
+			   "Determine Filenames & Open files" section of the code or rename the file      & 
+			   manually and open it with their preferred software. ----!'	
+
 			
 write(*,*) 	
 write(*,*) '---- Program Completed ----!'
