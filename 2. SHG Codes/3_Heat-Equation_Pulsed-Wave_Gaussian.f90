@@ -39,7 +39,7 @@ real          t          ,z          ,E          ,h          ,r          ,G     
 			    ,r_integral ,z_integral                                                                 &
              ,temperature[allocatable](:,:,:)    ,kT[allocatable](:,:)
 
-character*30  EE                                                                                     &
+character*35  EE                                                                                     &
              ,Npf            ,tpf                                                                    &
              ,freqf                                                                                  &           
              ,filenameTt     ,filenameTr   ,filenameTz   ,filenameKt   ,filenameKr   ,filenameKz     &
@@ -128,7 +128,7 @@ filenameTz = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim
 open(3,file=filenameTz)
 !write(3,'(/,a,/)')    '                     z                               temperature'
 
-write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenameTt, filenameTr, filenameTz
+write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :', filenameTt, filenameTr, filenameTz
 ! read(*,*)
 
 !-----------------------
@@ -437,10 +437,10 @@ close(5)
 close(6)
 
 write(*,*) 
-write(*,*) '---- The results are stored in `.plt` format.                               &
-	        If a different format is required, users can set the desried extension in   &
-			"Determine  Filenames & Open files" section of the code or rename the file  & 
-			manually and open it with their preferred software. ----!'	
+write(*,*) '---- The results are stored in `.plt` format.                                  &
+	         If a different format is required, users can set the desried extension in      &
+			   "Determine Filenames & Open files" section of the code or rename the file      & 
+			   manually and open it with their preferred software. ----!'	
 			
 write(*,*) 	
 write(*,*) '---- Program Completed ----!'

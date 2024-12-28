@@ -86,11 +86,13 @@ character*30  pp                                                                
 !write(*,'(/,2x,a,\)') 'Enter the total time value without decimal point : '
  !read(*,*)timetf 
 
+! For Calculation        
 timet = 1
 stability = 0.85
 
+! For Generating Filenames based on the values above
 timetf = '1'
-stabilityf = '85'
+stabilityf = '085'
 
 !**********************************************************************************************************************
 !                                 Determine  Filenames & Open files
@@ -111,7 +113,7 @@ open(2,file=filenamer)
 filenamez = 'ST_'//trim(stabilityf)//'_time_'//trim(timetf)//'_T_z'//plot_extension
 open(3,file=filenamez)
 
-write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :',filenamet ,filenamer ,filenamez
+write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these files :', filenamet, filenamer, filenamez
 
 !------------------------------------------------ contour Temp Step 1
 !open(11,file= 'contour_temp_2D.plt')
@@ -297,17 +299,17 @@ do i = 0,nt
          !------------------------------------ Heat Equation 
 		    
 							  
-      temperature(2,j,k) = temperature(1,j,k)                                                                                         &
+      temperature(2,j,k) = temperature(1,j,k)                                                                                   &
                            
-                           + aa3 * (   (temperature(1,j-1,k) - 2 * temperature(1,j,k) + temperature(1,j+1,k))/(deltar ** 2)           &
+                           + aa3 * (   (temperature(1,j-1,k) - 2 * temperature(1,j,k) + temperature(1,j+1,k))/(deltar ** 2)     &
                         
-                           + (temperature(1,j+1,k) - temperature(1,j-1,k)) /(r * 2 * deltar)                                          &
+                           + (temperature(1,j+1,k) - temperature(1,j-1,k)) /(r * 2 * deltar)                                    &
 
-                           + (temperature(1,j,k-1) - 2 * temperature(1,j,k) + temperature(1,j,k+1))/deltaz**2   )                     &
+                           + (temperature(1,j,k-1) - 2 * temperature(1,j,k) + temperature(1,j,k+1))/deltaz**2   )               &
 
-                           + aa4 * exp( (-2 * r ** 2)/(omegaf ** 2) ) * exp(- gama * z)                                               &
+                           + aa4 * exp( (-2 * r ** 2)/(omegaf ** 2) ) * exp(- gama * z)                                         &
 
-                           + aa5 * ( (temperature(1,j+1,k) - temperature(1,j-1,k)) * ( KT(j+1,k) - KT(j-1,k)) / deltar**2  )          &
+                           + aa5 * ( (temperature(1,j+1,k) - temperature(1,j-1,k)) * ( KT(j+1,k) - KT(j-1,k)) / deltar**2  )    &
                               
                            + aa5 * ( (temperature(1,j,k+1) - temperature(1,j,k-1)) * ( KT(j,k+1) - KT(j,k-1)) / deltaz**2  )  
                                           
@@ -372,10 +374,10 @@ close(11)
 close(21)
 
 write(*,*) 
-write(*,*) '---- The results are stored in `.plt` format.                               &
-	        If a different format is required, users can set the desried extension in   &
-			"Determine  Filenames & Open files" section of the code or rename the file  & 
-			manually and open it with their preferred software. ----!'	
+write(*,*) '---- The results are stored in `.plt` format.                                  &
+	         If a different format is required, users can set the desried extension in      &
+			   "Determine Filenames & Open files" section of the code or rename the file      & 
+			   manually and open it with their preferred software. ----!'	
 
 write(*,*) 	
 write(*,*) '---- Program Completed ----!'

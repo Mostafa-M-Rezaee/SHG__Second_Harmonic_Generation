@@ -145,11 +145,13 @@ character*35  filenamePt   ,filenamePr   ,filenamePz                            
 !write(*,'(/,2x,a,\)') 'Enter the frequency value without decimal point : '
  !read(*,*) freqf
  
+! For Calculation
    E = 0.09  
   Np = 1
   tp = 50e-6
 freq = 500
 
+! For Generating Filenames based on the values above
    EE = '009'   
   Npf = '1'
   tpf = '50'
@@ -184,7 +186,7 @@ write(*,'(2/,a,/,40x,a,/,40x,a,/,40x,a,/)')' Results will be saved in these file
  read(*,*)
 
 !------------------------------------------------ Phase Equation Files
-filenamePt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_Pt'//plot_extension
+filenamePt = 'E_'//trim(EE)//'_f_'//trim(freqf)//'_Np_'//trim(Npf)//'_tp_'//trim(tpf)//'_P_t'//plot_extension
 open(4,file=filenamePt)
 write(4,'(/,a,/)')    !' variables=         "t"          "deltaphase_real"      "deltaphase_imaginary"'
 
@@ -270,21 +272,21 @@ stability = ( (2*KT0*deltat)/(roh*Cp) ) * ( (deltar**2+deltaz**2)/(deltar**2*del
      Term2 = sin(theta)**2 * sin(phi)**2
      Term3 = cos(theta)**2
 
-      B1T0 = -Term1 * ( bb1T0 + cc1T0 )                               &
-	         -Term2 * ( aa1T0 + cc1T0 )                               &
+      B1T0 = -Term1 * ( bb1T0 + cc1T0 )            &
+	         -Term2 * ( aa1T0 + cc1T0 )            &
 	         -Term3 * ( aa1T0 + bb1T0 ) 
      		 
-      C1T0 =  Term1 * bb1T0 * cc1T0                                   &
-	         +Term2 * aa1T0 * cc1T0                                   &
+      C1T0 =  Term1 * bb1T0 * cc1T0                &
+	         +Term2 * aa1T0 * cc1T0                &
 	         +Term3 * aa1T0 * bb1T0 
 
 
-      B2T0 = -Term1 * ( bb2T0 + cc2T0 )                               &
-	     	 -Term2 * ( aa2T0 + cc2T0 )                               &
+      B2T0 = -Term1 * ( bb2T0 + cc2T0 )            &
+	     	 -Term2 * ( aa2T0 + cc2T0 )            &
 	     	 -Term3 * ( aa2T0 + bb2T0 )
              
-      C2T0 =  Term1 * bb2T0 * cc2T0                                   &
-	     	 +Term2 * aa2T0 * cc2T0                                   &
+      C2T0 =  Term1 * bb2T0 * cc2T0                &
+	     	 +Term2 * aa2T0 * cc2T0                &
 	     	 +Term3 * aa2T0 * bb2T0 
 
 
@@ -331,7 +333,6 @@ end forall !i
 write(*,*)
 write(*,*)'------- Heat Equation Constants --------------------------------------------'
 write(*,*)
-write(*,'(A13,I9       )') '        tp = ',tp
 write(*,'(A13,I9       )') '        Nt = ',Nt          
 write(*,'(A13,I9       )') '        Nr = ',Nr          
 write(*,'(A13,I9       )') '        Np = ',Np
@@ -340,6 +341,7 @@ write(*,'(A13,I9     ,/)') '        Nz = ',Nz
 write(*,'(A13,F15.10   )') '         h = ',h           
 write(*,'(A13,F15.10   )') '         E = ',E           
 
+write(*,'(A13,F15.10   )') '        tp = ',tp
 write(*,'(A13,F15.10   )') '        T0 = ',T0          
 write(*,'(A13,F15.10   )') '       KT0 = ',KT0         
 write(*,'(A13,F15.10   )') '        pi = ',pi          
@@ -592,8 +594,8 @@ do  l=1,Np     !Runing program for Np pulses
 			          +Term2 * aa1rT * cc1rT                    &
 			          +Term3 * aa1rT * bb1rT 
 
-			   B2rT = -Term1 * ( bb2rT + cc2rT )               &
-			          -Term2 * ( aa2rT + cc2rT )               &
+			   B2rT = -Term1 * ( bb2rT + cc2rT )                &
+			          -Term2 * ( aa2rT + cc2rT )                &
 			          -Term3 * ( aa2rT + bb2rT )
 			
 			   C2rT =  Term1 * bb2rT * cc2rT                    &
@@ -724,9 +726,9 @@ close(5)
 close(6)
 
 write(*,*) 
-write(*,*) '---- The results are stored in `.plt` format.                               &
-	        If a different format is required, users can set the desried extension in   &
-			"Determine  Filenames & Open files" section of the code or rename the file  & 
+write(*,*) '---- The results are stored in `.plt` format.                                  &
+	        If a different format is required, users can set the desried extension in      &
+		    "Determine Filenames & Open files" section of the code or rename the file      & 
 			manually and open it with their preferred software. ----!'	
 			
 write(*,*) 	
