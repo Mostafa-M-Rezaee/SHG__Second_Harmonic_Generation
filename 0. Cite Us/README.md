@@ -1,13 +1,14 @@
-**Note: Please consider cite to our related works. To make it easier to understand our contributions, the articles are sorted by thematic order, not by chronological order.**
+**Note:   
+Please consider cite to our related works. To make it easier to understand our contributions, the articles are sorted by thematic order, not by chronological order.**
 
 # Contents
 [1. Heat Equation Continuous Wave Gaussian Analytical](#1-heat-equation-continuous-wave-gaussian-analytical)    
-[2. Heat Equation Continuous Wave Gaussian Computational](#2-heat-equation-continuous-wave-gaussian-computational)    
-[3. Heat Equation Pulsed Wave Gaussian Computational](#3-heat-equation-pulsed-wave-gaussian-computational)    
-[4. Phase Mismatch Pulsed Wave Gaussian Computational](#4-phase-mismatch-pulsed-wave-gaussian-computational)    
-[5. Ideal Continuous Wave Gaussian Computational](#5-ideal-continuous-wave-gaussian-computational)    
-[6. Ideal Pulsed Wave Bessel Gaussian Computational](#6-ideal-pulsed-wave-bessel-gaussian-computational)    
-[7. Coupled Continuous Wave Gaussian Computational](#7-coupled-continuous-wave-gaussian-computational)    
+[2. Heat Equation Continuous Wave Gaussian](#2-heat-equation-continuous-wave-gaussian)    
+[3. Heat Equation Pulsed Wave Gaussian](#3-heat-equation-pulsed-wave-gaussian)    
+[4. Phase Mismatch Pulsed Wave Gaussian](#4-phase-mismatch-pulsed-wave-gaussian)    
+[5. Ideal Continuous Wave Gaussian](#5-ideal-continuous-wave-gaussian)    
+[6. Ideal Pulsed Wave Bessel Gaussian](#6-ideal-pulsed-wave-bessel-gaussian)    
+[7. Coupled Continuous Wave Gaussian](#7-coupled-continuous-wave-gaussian)    
 
 
 # 1. Heat Equation Continuous Wave Gaussian Analytical
@@ -35,7 +36,7 @@ Sabaeian, M., Nadgaran, H. and Mousave, L., 2008. Analytical solution of the hea
 ```
 
 
-# 2. Heat Equation Continuous Wave Gaussian Computational 
+# 2. Heat Equation Continuous Wave Gaussian  
 
 2014: Temperature Distribution in a Gaussian End-Pumped Nonlinear KTP Crystal: the Temperature Dependence of Thermal Conductivity and Radiation Boundary Condition
 
@@ -60,7 +61,7 @@ becomes negligible and can be ignored.}
 ```
 
 
-# 3. Heat Equation Pulsed Wave Gaussian Computational 
+# 3. Heat Equation Pulsed Wave Gaussian   
 
 2015: Complete Anisotropic Time-Dependent Heat Equation in KTP Crystal under Repetitively Pulsed Gaussian Beams: A Numerical Approach
 
@@ -85,7 +86,7 @@ Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S. and Khaldi-Nasab, 
 ```
 
 
-# 4. Phase Mismatch Pulsed Wave Gaussian Computational
+# 4. Phase Mismatch Pulsed Wave Gaussian  
 
 2015: Thermally induced phase mismatching in a repetitively Gaussian pulsed pumping KTP crystal: a spatio-temporal treatment
 
@@ -110,7 +111,7 @@ Rezaee, M.M., Sabaeian, M., Motazedian, A., Jalil-Abadi, F.S., Askari, H. and Kh
 ```
 
 
-# 5. Ideal Continuous Wave Gaussian Computational 
+# 5. Ideal Continuous Wave Gaussian   
 
 2015: Temperature increase effects on a double-pass cavity type II second harmonic generation: a model for depleted Gaussian continuous-waves
 
@@ -135,7 +136,7 @@ Sabaeian, M., Jalil-Abadi, F.S., Rezaee, M.M., Motazedian, A. and Shahzadeh, M.,
 ```
 
 
-# 6. Ideal Pulsed Wave Bessel Gaussian Computational 
+# 6. Ideal Pulsed Wave Bessel Gaussian   
 
 2014: Pulsed Bessel-Gauss beams: A depleted wave model for type II second harmonic generation
 
@@ -160,7 +161,7 @@ Sabaeian, M., Motazedian, A., Rezaee, M.M. and Jalil-Abadi, F.S., 2014. Pulsed B
 ```
 
 
-# 7. Coupled Continuous Wave Gaussian Computational 
+# 7. Coupled Continuous Wave Gaussian   
 
 2014: Heat coupled Gaussian continuous-wave double-pass type-II second harmonic generation: inclusion of thermally induced phase mismatching and thermal lensing
 

@@ -86,6 +86,7 @@ Folder PATH listing
 |   |   5_Ideal_Continuous-Wave_Gaussian.f90
 |   |   6_Ideal_Pulsed-Wave_Bessel-Gaussian.f90
 |   |   7_Coupled_Continuous-Wave_Gaussian.f90
+|   |   README.md 
 |   |  
 |   +---2_Results
 |   +---3_Results    
@@ -218,10 +219,10 @@ Each study builds on the last, incorporating increasingly realistic factors to i
 - **Heat Equation _ Continuous Wave Gaussian _ Analytical** [(Journal)](https://opg.optica.org/ao/abstract.cfm?uri=ao-47-13-2317), [(Article)](https://drive.google.com/file/d/18ttMkf2prKUyNsPEq9cskoHHzzX8SAL3/view?usp=sharing)  
 This work focuses on predicting temperature distributions in laser crystals using a Continuous Wave Gaussian source. The analytical model provided insights into the basic thermal behavior in solid-state lasers, a critical step toward designing more efficient systems by accurately modeling heat within complex crystal structures.
 
-- **Heat Equation _ Continuous Wave Gaussian _ Computational** [(Journal)](https://link.springer.com/article/10.1007/s13538-014-0291-x), [(Article)](https://drive.google.com/file/d/18F3k_iJ07qBrluaiskguTS4543vvu_ql/view?usp=sharing), [(Code)](https://drive.google.com/file/d/1--Hsa3ocLXiDJh8-MxRnv_FoY7PjAeAN/view?usp=sharing)   
+- **Heat Equation _ Continuous Wave Gaussian _ Computational** [(Journal)](https://link.springer.com/article/10.1007/s13538-014-0291-x), [(Article)](https://drive.google.com/file/d/18F3k_iJ07qBrluaiskguTS4543vvu_ql/view?usp=sharing), [(Code)]()   
 Building upon the analytical work, this computational study incorporated more realistic factors, such as temperature-dependent thermal conductivity and radiation effects. The model demonstrated the significant impact of these often-overlooked factors on heat distribution in KTP crystals, enhancing the thermal modeling of laser systems.
 
-- **Heat Equation _ Pulsed Wave Gaussian _ Computational** [(Journal)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-6-1241), [(Article)](https://drive.google.com/file/d/18HvFuUr76KRqqbIswoLgJYoMV1vD1Y0i/view?usp=sharing), [(Code)](https://drive.google.com/file/d/1869rFDZYDVdxf0IQZsiWlPkwTt2pMyuQ/view?usp=sharing)       
+- **Heat Equation _ Pulsed Wave Gaussian _ Computational** [(Journal)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-6-1241), [(Article)](https://drive.google.com/file/d/18HvFuUr76KRqqbIswoLgJYoMV1vD1Y0i/view?usp=sharing), [(Code)]()       
 This study developed a numerical model for heat distribution under Pulsed Gaussian conditions, highlighting the critical role of variable thermal conductivity, especially when radiation effects are minimal. The findings improved the accuracy of predicting heat behavior in pulsed laser systems, contributing to more effective thermal management strategies.
 
 
@@ -262,7 +263,7 @@ Note: The equations, represented in different colors for $\textcolor{orange}{T}$
 
 By solving the heat equation, we obtain the temperature-dependent phase mismatch $(\Delta \varphi)$  across the crystal. This relationship enables us to predict the phase mismatch spatially and temporally, which is crucial for optimizing nonlinear optical processes such as Second Harmonic Generation (SHG). Our contributions in this area are detailed in the following publication:
 
-- **Phase Mismatch _ Pulsed Wave Gaussian _ Computational** [(Journal)](https://www.researchgate.net/publication/267926440_Thermally_induced_phase_mismatching_in_a_repetitively_Gaussian_pulsed_pumping_KTP_crystal_A_spatiotemporal_treatment), [(Article)](https://drive.google.com/file/d/18VvRk22iipi_4PUVVhzVp16BRNN4TfbN/view?usp=sharing), [(Code)](https://drive.google.com/file/d/187EVqfSZcoRPltZ4EDr1mcYrmCOvVek8/view?usp=sharing)     
+- **Phase Mismatch _ Pulsed Wave Gaussian _ Computational** [(Journal)](https://www.researchgate.net/publication/267926440_Thermally_induced_phase_mismatching_in_a_repetitively_Gaussian_pulsed_pumping_KTP_crystal_A_spatiotemporal_treatment), [(Article)](https://drive.google.com/file/d/18VvRk22iipi_4PUVVhzVp16BRNN4TfbN/view?usp=sharing), [(Code)]()     
 This work addresses the issue of Thermally Induced Phase Mismatching (TIPM) in KTP crystals under Pulsed Wave Gaussian conditions. The study developed a spatiotemporal model to examine how temperature rise influences nonlinear conversion efficiency, highlighting the critical need to manage TIPM to optimize SHG performance in pulsed laser applications. The findings emphasize the importance of precise thermal management strategies to reduce phase mismatches and improve overall system efficiency.
 
 # 8. Electromagnetic Field
@@ -309,10 +310,10 @@ Note: The equations, represented in different colors for $\textcolor{purple}{\De
 
 We used different wave sources in each article: one uses a Continuous Wave Gaussian source, while the other employs a Pulsed Wave Bessel-Gaussian source. These variations in wave sources provide further insight into how different beam profiles affect the system's behavior.
 
-- **Ideal _ Continuous Wave Gaussian _ Computational** [(Journal)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-4-869), [(Article)](https://drive.google.com/file/d/18AKCzgJj9XeXfkdSd-pU1j5JNYf84JRb/view?usp=sharing), [(Code)](https://drive.google.com/file/d/1-7aDrrYysfBXYARvQ0oIZB3fcOuU5Xv8/view?usp=sharing)    
+- **Ideal _ Continuous Wave Gaussian _ Computational** [(Journal)](https://opg.optica.org/ao/abstract.cfm?uri=ao-54-4-869), [(Article)](https://drive.google.com/file/d/18AKCzgJj9XeXfkdSd-pU1j5JNYf84JRb/view?usp=sharing), [(Code)]()    
 This study explored SHG efficiency under Continuous Wave Gaussian conditions, highlighting how temperature fluctuations can prevent achieving ideal conversion efficiency. The study found that even minor temperature increases could drastically reduce SHG efficiency due to beam depletion and refractive index changes, highlighting the importance of temperature control in optimizing SHG processes.
  
-- **Ideal _ Pulsed Wave Bessel Gaussian _ Computational** [(Journal)](https://opg.optica.org/ao/abstract.cfm?uri=ao-53-32-7691), [(Article)](https://drive.google.com/file/d/18J0wFsrO8zeXkY09Jodgmx6Rkr28w-Ez/view?usp=sharing), [(Code)](https://drive.google.com/file/d/188vCILgTUQ6PXVRmlbOGgAzHyrxp4kAU/view?usp=sharing)    
+- **Ideal _ Pulsed Wave Bessel Gaussian _ Computational** [(Journal)](https://opg.optica.org/ao/abstract.cfm?uri=ao-53-32-7691), [(Article)](https://drive.google.com/file/d/18J0wFsrO8zeXkY09Jodgmx6Rkr28w-Ez/view?usp=sharing), [(Code)]()    
 This research introduced a model using Pulsed Bessel-Gauss beams, challenging traditional assumptions like the nondepleted wave approximation. This study provided a more accurate framework for SHG by considering wave depletion effects, demonstrating the impact of beam profile on heat and SHG efficiency under pulsed conditions.
 
 
@@ -373,7 +374,7 @@ Note: The equations, represented in different colors for $\textcolor{orange}{T}$
 </table>
 
 
-- **Coupled _ Continuous Wave Gaussian _ Computational** [(Journal)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-21-25615&id=302163), [(Article)](https://drive.google.com/file/d/18HWrgN8duMyRQpjSpjvIApGhuVh5ti_A/view?usp=sharing), [(Code)](https://drive.google.com/file/d/19pzmvRrSx8Jd_GG4mM_kG2LLiE5d-4fX/view?usp=sharing)     
+- **Coupled _ Continuous Wave Gaussian _ Computational** [(Journal)](https://opg.optica.org/oe/fulltext.cfm?uri=oe-22-21-25615&id=302163), [(Article)](https://drive.google.com/file/d/18HWrgN8duMyRQpjSpjvIApGhuVh5ti_A/view?usp=sharing), [(Code)]()     
 This study advanced our understanding by incorporating both Thermally Induced Phase Mismatching (TIPM) and thermal lensing into SHG models using a Continuous Wave Gaussian source. By coupling eight different equations, the model captured the dynamic interactions between heat and SHG efficiency over time. This comprehensive approach provided a realistic simulation that closely matched experimental results, significantly enhancing our understanding of thermal effects in Continuous Wave Gaussian SHG systems.
 
 
@@ -452,4 +453,3 @@ Please refer to the [0. Cite Us](https://github.com/Max-Ghadri/SHG__Second_Harmo
 If you have questions that are not covered in the resources above, the best way to reach [Mostafa Rezaee](https://www.linkedin.com/in/mostafa-rezaee/).    
 - Gmail: mostafa.mohammadrezaee@gmail.com       
 - [Linkedin](https://www.linkedin.com/in/mostafa-rezaee/)           
-- [Personal Website](https://mostafa-mr.com/)       
