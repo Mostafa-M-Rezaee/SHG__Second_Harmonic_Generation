@@ -1,12 +1,11 @@
 # Thermal Effects in Second Harmonic Generation (SHG)
-
 <details style="margin-bottom: 10px;">
   <summary><a href="#1-about-this-repository">1. About this Repository</a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#11-who-is-this-tutorial-for">1.1. Who Is This Tutorial For?</a><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#12-what-will-you-learn">1.2. What Will You Learn?</a><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#13-prerequisites">1.3. Prerequisites</a><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#14-contents-of-this-repository">1.4. Contents of this Repository</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#11-who-is-this-tutorial-for">1.1. Who Is This Tutorial For?</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#12-what-will-you-learn">1.2. What Will You Learn?</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#13-prerequisites">1.3. Prerequisites</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#14-contents-of-this-repository">1.4. Contents of this Repository</a>
   </div>
 </details>
 
@@ -33,21 +32,21 @@
 <details style="margin-bottom: 10px;">
   <summary><a href="#6-boundry-conditions">6. Boundary Conditions</a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#61-our-contribution-1">6.1. Our Contribution (1)</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#61-our-contribution-1">6.1. Our Contribution (1)</a>
   </div>
 </details>
 
 <details style="margin-bottom: 10px;">
   <summary><a href="#7-phase-mismatch">7. Phase Mismatch</a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#71-our-contribution-2">7.1. Our Contribution (2)</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#71-our-contribution-2">7.1. Our Contribution (2)</a>
   </div>
 </details>
 
 <details style="margin-bottom: 10px;">
   <summary><a href="#8-electromagnetic-field">8. Electromagnetic Field</a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#81-our-contribution-3">8.1. Our Contribution (3)</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#81-our-contribution-3">8.1. Our Contribution (3)</a>
   </div>
 </details>
 
@@ -61,10 +60,9 @@
 <details style="margin-bottom: 10px;">
   <summary><a href="#10-methodology">10. Methodology</a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#101-computational-approach-using-finite-difference-method-fdm">Computational Approach using Finite Difference Method (FDM)</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#101-computational-approach-using-finite-difference-method-fdm">10.1. Computational Approach using Finite Difference Method (FDM)</a>
   </div>
 </details>
-&nbsp;
 
 <div style="margin-bottom: 10px;">
   <a href="#11-research-opportunities">11. Research Opportunities</a>
@@ -79,16 +77,6 @@
 <div style="margin-bottom: 10px;">
   <a href="#13-for-additional-questions">13. For Additional Questions</a>
 </div>
-
-
-
-
-
-
--   
-- 
--    
--    
                                                  
 
 **Contents**  
