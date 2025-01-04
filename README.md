@@ -2,7 +2,7 @@
 
 <details style="margin-bottom: 10px;">
   <summary><a href="#1-about-this-repository">1. About this Repository</a></summary>
-  <div style="padding-left: 20px; line-height: 1.2;">
+  <div>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#11-who-is-this-tutorial-for">1.1. Who Is This Tutorial For?</a><br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#12-what-will-you-learn">1.2. What Will You Learn?</a><br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#13-prerequisites">1.3. Prerequisites</a><br>
@@ -10,75 +10,75 @@
   </div>
 </details>
 
-<div style="margin-bottom: 10px;">
+<div>
   <a href="#2-second-harmonic-generation-shg">2. Second Harmonic Generation (SHG)</a>
 </div>
 &nbsp;
 
-<div style="margin-bottom: 10px;">
+<div>
   <a href="#3-thermal-challenge-in-shg">3. Thermal Challenge in SHG</a>
 </div>
 &nbsp;
 
-<div style="margin-bottom: 10px;">
+<div>
   <a href="#4-thermal-gradient-in-a-crystal-during-shg">4. Thermal Gradient in a Crystal during SHG</a>
 </div>
 &nbsp;
 
-<div style="margin-bottom: 10px;">
+<div>
   <a href="#5-reducing-computational-cost">5. Reducing Computational Cost</a>
 </div>
 &nbsp;
 
-<details style="margin-bottom: 10px;">
+<details>
   <summary><a href="#6-boundry-conditions">6. Boundary Conditions</a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#61-our-contribution-1">6.1. Our Contribution (1)</a>
   </div>
 </details>
 
-<details style="margin-bottom: 10px;">
+<details>
   <summary><a href="#7-phase-mismatch">7. Phase Mismatch</a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#71-our-contribution-2">7.1. Our Contribution (2)</a>
   </div>
 </details>
 
-<details style="margin-bottom: 10px;">
+<details>
   <summary><a href="#8-electromagnetic-field">8. Electromagnetic Field</a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#81-our-contribution-3">8.1. Our Contribution (3)</a>
   </div>
 </details>
 
-<details style="margin-bottom: 10px;">
+<details>
   <summary><a href="#9-interdependency-of-heat-phase-and-electromagnetic-field">9. Interdependency of Heat, Phase, and Electromagnetic Field</a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#91-our-contribution-4">9.1. Our Contribution (4)</a>
   </div>
 </details>
 
-<details style="margin-bottom: 10px;">
+<details>
   <summary><a href="#10-methodology">10. Methodology</a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#101-computational-approach-using-finite-difference-method-fdm">10.1. Computational Approach using Finite Difference Method (FDM)</a>
   </div>
 </details>
 
-<div style="margin-bottom: 10px;">
+<div>
   <a href="#11-research-opportunities">11. Research Opportunities</a>
 </div>
 &nbsp;
 
-<div style="margin-bottom: 10px;">
+<div>
   <a href="#12-how-to-cite-us">12. How to Cite Us</a>
 </div>
 &nbsp;
 
-<div style="margin-bottom: 10px;">
+<div>
   <a href="#13-for-additional-questions">13. For Additional Questions</a>
 </div>
-                                                 
+&nbsp;                                                 
 
 # 1. About this Repository
 This GitHub repository offers comprehensive guidance, from basic to advanced levels, for computationally addressing thermal effects in Second Harmonic Generation (SHG). As an educational resource, this repository starts with covering fundamental aspects of Fortran, including how to install it and master its essential commands. Also, we demonstrate techniques for computationally solving a nonlinear optics phenomenon using the Finite Difference Method (FDM), provide access to the codes utilized in our studies, and explain our research findings clearly. Also, we outline potential research opportunities for future exploration. Our ongoing efforts involve expanding the repository to incorporate further advancements in the field. 
