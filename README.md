@@ -79,31 +79,6 @@
 </div>
                                                  
 
-**Contents**  
-[1. About this Repository](#1-about-this-repository)      
-&nbsp;&nbsp;&nbsp;&nbsp;[1.1. Who Is This Tutorial For?](#11-who-is-this-tutorial-for)           
-&nbsp;&nbsp;&nbsp;&nbsp;[1.2. What Will You Learn?](#12-what-will-you-learn)  
-&nbsp;&nbsp;&nbsp;&nbsp;[1.3. Prerequisites](#13-prerequisites)   
-&nbsp;&nbsp;&nbsp;&nbsp;[1.4. Contents of this Repository](#14-contents-of-this-repository)         
-[2. Second Harmonic Generation (SHG)](#2-second-harmonic-generation-shg)       
-[3. Thermal Challenge in SHG](#3-thermal-challenge-in-shg)          
-[4. Thermal Gradient in a Crystal during SHG](#4-thermal-gradient-in-a-crystal-during-shg)  
-[5. Reducing Computational Cost](#5-reducing-computational-cost)  
-[6. Boundry Conditions](#6-boundry-conditions)   
-&nbsp;&nbsp;&nbsp;&nbsp;[6.1. Our Contribution (1)](#61-our-contribution-1)     
-[7. Phase Mismatch](#7-phase-mismatch)      
-&nbsp;&nbsp;&nbsp;&nbsp;[7.1. Our Contribution (2)](#71-our-contribution-2)        
-[8. Electromagnetic Field](#8-electromagnetic-field)        
-&nbsp;&nbsp;&nbsp;&nbsp;[8.1. Our Contribution (3)](#81-our-contribution-3)        
-[9. Interdependency of Heat, Phase, and Electromagnetic Field](#9-interdependency-of-heat-phase-and-electromagnetic-field)        
-&nbsp;&nbsp;&nbsp;&nbsp;[9.1. Our Contribution (4)](#91-our-contribution-4)        
-[10. Methodology](#10-methodology)        
-&nbsp;&nbsp;&nbsp;&nbsp;[10.1. Computational Approach using Finite Difference Method (FDM)](#101-computational-approach-using-finite-difference-method-fdm)        
-[11. Research Opportunities](#11-research-opportunities)        
-[12. How to Cite Us](#12-how-to-cite-us)        
-[13. For Additional Questions](#13-for-additional-questions)        
-
-
 # 1. About this Repository
 This GitHub repository offers comprehensive guidance, from basic to advanced levels, for computationally addressing thermal effects in Second Harmonic Generation (SHG). As an educational resource, this repository starts with covering fundamental aspects of Fortran, including how to install it and master its essential commands. Also, we demonstrate techniques for computationally solving a nonlinear optics phenomenon using the Finite Difference Method (FDM), provide access to the codes utilized in our studies, and explain our research findings clearly. Also, we outline potential research opportunities for future exploration. Our ongoing efforts involve expanding the repository to incorporate further advancements in the field. 
 
