@@ -1,4 +1,5 @@
 # Thermal Effects in Second Harmonic Generation (SHG)
+
 <details style="margin-bottom: 10px;">
   <summary><a href="#1-about-this-repository">1. About this Repository</a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
