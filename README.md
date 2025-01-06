@@ -1,29 +1,86 @@
 # Thermal Effects in Second Harmonic Generation (SHG)
 
-**Contents**  
-[1. About this Repository](#1-about-this-repository)      
-&nbsp;&nbsp;&nbsp;&nbsp;[1.1. Who Is This Tutorial For?](#11-who-is-this-tutorial-for)           
-&nbsp;&nbsp;&nbsp;&nbsp;[1.2. What Will You Learn?](#12-what-will-you-learn)  
-&nbsp;&nbsp;&nbsp;&nbsp;[1.3. Prerequisites](#13-prerequisites)   
-&nbsp;&nbsp;&nbsp;&nbsp;[1.4. Contents of this Repository](#14-contents-of-this-repository)         
-[2. Second Harmonic Generation (SHG)](#2-second-harmonic-generation-shg)       
-[3. Thermal Challenge in SHG](#3-thermal-challenge-in-shg)          
-[4. Thermal Gradient in a Crystal during SHG](#4-thermal-gradient-in-a-crystal-during-shg)  
-[5. Reducing Computational Cost](#5-reducing-computational-cost)  
-[6. Boundry Conditions](#6-boundry-conditions)   
-&nbsp;&nbsp;&nbsp;&nbsp;[6.1. Our Contribution (1)](#61-our-contribution-1)     
-[7. Phase Mismatch](#7-phase-mismatch)      
-&nbsp;&nbsp;&nbsp;&nbsp;[7.1. Our Contribution (2)](#71-our-contribution-2)        
-[8. Electromagnetic Field](#8-electromagnetic-field)        
-&nbsp;&nbsp;&nbsp;&nbsp;[8.1. Our Contribution (3)](#81-our-contribution-3)        
-[9. Interdependency of Heat, Phase, and Electromagnetic Field](#9-interdependency-of-heat-phase-and-electromagnetic-field)        
-&nbsp;&nbsp;&nbsp;&nbsp;[9.1. Our Contribution (4)](#91-our-contribution-4)        
-[10. Methodology](#10-methodology)        
-&nbsp;&nbsp;&nbsp;&nbsp;[10.1. Computational Approach using Finite Difference Method (FDM)](#101-computational-approach-using-finite-difference-method-fdm)        
-[11. Research Opportunities](#11-research-opportunities)        
-[12. How to Cite Us](#12-how-to-cite-us)        
-[13. For Additional Questions](#13-for-additional-questions)        
+<details>
+  <summary><a href="#1-about-this-repository">1. About this Repository</a></summary>
+  <div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#11-who-is-this-tutorial-for">1.1. Who Is This Tutorial For?</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#12-what-will-you-learn">1.2. What Will You Learn?</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#13-prerequisites">1.3. Prerequisites</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#14-contents-of-this-repository">1.4. Contents of this Repository</a>
+  </div>
+</details>
 
+<div>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#2-second-harmonic-generation-shg">2. Second Harmonic Generation (SHG)</a>
+</div>
+&nbsp;
+
+<div>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#3-thermal-challenge-in-shg">3. Thermal Challenge in SHG</a>
+</div>
+&nbsp;
+
+<div>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#4-thermal-gradient-in-a-crystal-during-shg">4. Thermal Gradient in a Crystal during SHG</a>
+</div>
+&nbsp;
+
+<div>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#5-reducing-computational-cost">5. Reducing Computational Cost</a>
+</div>
+&nbsp;
+
+<details>
+  <summary><a href="#6-boundry-conditions">6. Boundary Conditions</a></summary>
+  <div style="padding-left: 20px; line-height: 1.2;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#61-our-contribution-1">6.1. Our Contribution (1)</a>
+  </div>
+</details>
+
+<details>
+  <summary><a href="#7-phase-mismatch">7. Phase Mismatch</a></summary>
+  <div style="padding-left: 20px; line-height: 1.2;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#71-our-contribution-2">7.1. Our Contribution (2)</a>
+  </div>
+</details>
+
+<details>
+  <summary><a href="#8-electromagnetic-field">8. Electromagnetic Field</a></summary>
+  <div style="padding-left: 20px; line-height: 1.2;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#81-our-contribution-3">8.1. Our Contribution (3)</a>
+  </div>
+</details>
+
+<details>
+  <summary><a href="#9-interdependency-of-heat-phase-and-electromagnetic-field">9. Interdependency of Heat, Phase, and Electromagnetic Field</a></summary>
+  <div style="padding-left: 20px; line-height: 1.2;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#91-our-contribution-4">9.1. Our Contribution (4)</a>
+  </div>
+</details>
+
+<details>
+  <summary><a href="#10-methodology">10. Methodology</a></summary>
+  <div style="padding-left: 20px; line-height: 1.2;">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#101-computational-approach-using-finite-difference-method-fdm">10.1. Computational Approach using Finite Difference Method (FDM)</a>
+  </div>
+</details>
+
+<div>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#11-research-opportunities">11. Research Opportunities</a>
+</div>
+&nbsp;
+
+<div>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#12-how-to-cite-us">12. How to Cite Us</a>
+</div>
+&nbsp;
+
+<div>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#13-for-additional-questions">13. For Additional Questions</a>
+</div>
+&nbsp;                                                 
+
+                            
 
 # 1. About this Repository
 This GitHub repository offers comprehensive guidance, from basic to advanced levels, for computationally addressing thermal effects in Second Harmonic Generation (SHG). As an educational resource, this repository starts with covering fundamental aspects of Fortran, including how to install it and master its essential commands. Also, we demonstrate techniques for computationally solving a nonlinear optics phenomenon using the Finite Difference Method (FDM), provide access to the codes utilized in our studies, and explain our research findings clearly. Also, we outline potential research opportunities for future exploration. Our ongoing efforts involve expanding the repository to incorporate further advancements in the field. 
@@ -446,10 +503,14 @@ Ultimately, exploring these new avenues will open up entirely new research traje
 We are currently working on these topics and are dedicated to pushing this research forward. In the near future, we will share the results of our ongoing studies along with new articles and code updates in this repository. Our goal is to expand thes repository into a more comprehensive resource that will support other researchers in exploring the complexities of thermal effects in nonlinear optics. Stay tuned for these updates, as they will provide even deeper insights and tools to enhance future research in this field.
 
 # 12. How to Cite Us
-Please refer to the [0. Cite Us](https://github.com/Max-Ghadri/SHG__Second_Harmonic_Generation/tree/main/0.%20Cite%20Us) folder for accurate citations. It contains essential guidelines for accurate referencing, ensuring accurate acknowledgement of our work.
+Please refer to the [0. Cite Us](https://github.com/Mostafa-M-Rezaee/SHG__Second_Harmonic_Generation/tree/main/0.%20Cite%20Us) folder for accurate citations. It contains essential guidelines for accurate referencing, ensuring accurate acknowledgement of our work.
 
 
 # 13. For Additional Questions
 If you have questions that are not covered in the resources above, the best way to reach [Mostafa Rezaee](https://www.linkedin.com/in/mostafa-rezaee/).    
 - Gmail: mostafa.mohammadrezaee@gmail.com       
 - [Linkedin](https://www.linkedin.com/in/mostafa-rezaee/)           
+
+
+
+
