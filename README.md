@@ -1,7 +1,14 @@
+<p align="center">
+  <img src="./Archive/images/3.%20Readme_images/SHG_Logo.png" alt="Image 1">
+</p>
+
+
 # Thermal Effects in Second Harmonic Generation (SHG)
 
+***Table of Contents***
+
 <details>
-  <summary><a href="#1-about-this-repository">1. About this Repository</a></summary>
+  <summary><a href="#1-about-this-repository"><i><b>1. About this Repository</b></i></a></summary>
   <div>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#11-who-is-this-tutorial-for">1.1. Who Is This Tutorial For?</a><br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#12-what-will-you-learn">1.2. What Will You Learn?</a><br>
@@ -11,72 +18,72 @@
 </details>
 
 <div>
-  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#2-second-harmonic-generation-shg">2. Second Harmonic Generation (SHG)</a>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#2-second-harmonic-generation-shg"><i><b>2. Second Harmonic Generation (SHG)</b></i></a>
 </div>
 &nbsp;
 
 <div>
-  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#3-thermal-challenge-in-shg">3. Thermal Challenge in SHG</a>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#3-thermal-challenge-in-shg"><i><b>3. Thermal Challenge in SHG</b></i></a>
 </div>
 &nbsp;
 
 <div>
-  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#4-thermal-gradient-in-a-crystal-during-shg">4. Thermal Gradient in a Crystal during SHG</a>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#4-thermal-gradient-in-a-crystal-during-shg"><i><b>4. Thermal Gradient in a Crystal during SHG</b></i></a>
 </div>
 &nbsp;
 
 <div>
-  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#5-reducing-computational-cost">5. Reducing Computational Cost</a>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#5-reducing-computational-cost"><i><b>5. Reducing Computational Cost</b></i></a>
 </div>
 &nbsp;
 
 <details>
-  <summary><a href="#6-boundry-conditions">6. Boundary Conditions</a></summary>
+  <summary><a href="#6-boundry-conditions"><i><b>6. Boundary Conditions</b></i></a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#61-our-contribution-1">6.1. Our Contribution (1)</a>
   </div>
 </details>
 
 <details>
-  <summary><a href="#7-phase-mismatch">7. Phase Mismatch</a></summary>
+  <summary><a href="#7-phase-mismatch"><i><b>7. Phase Mismatch</b></i></a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#71-our-contribution-2">7.1. Our Contribution (2)</a>
   </div>
 </details>
 
 <details>
-  <summary><a href="#8-electromagnetic-field">8. Electromagnetic Field</a></summary>
+  <summary><a href="#8-electromagnetic-field"><i><b>8. Electromagnetic Field</b></i></a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#81-our-contribution-3">8.1. Our Contribution (3)</a>
   </div>
 </details>
 
 <details>
-  <summary><a href="#9-interdependency-of-heat-phase-and-electromagnetic-field">9. Interdependency of Heat, Phase, and Electromagnetic Field</a></summary>
+  <summary><a href="#9-interdependency-of-heat-phase-and-electromagnetic-field"><i><b>9. Interdependency of Heat, Phase, and Electromagnetic Field</b></i></a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#91-our-contribution-4">9.1. Our Contribution (4)</a>
   </div>
 </details>
 
 <details>
-  <summary><a href="#10-methodology">10. Methodology</a></summary>
+  <summary><a href="#10-methodology"><i><b>10. Methodology</b></i></a></summary>
   <div style="padding-left: 20px; line-height: 1.2;">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#101-computational-approach-using-finite-difference-method-fdm">10.1. Computational Approach using Finite Difference Method (FDM)</a>
   </div>
 </details>
 
 <div>
-  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#11-research-opportunities">11. Research Opportunities</a>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#11-research-opportunities"><i><b>11. Research Opportunities</b></i></a>
 </div>
 &nbsp;
 
 <div>
-  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#12-how-to-cite-us">12. How to Cite Us</a>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#12-how-to-cite-us"><i><b>12. How to Cite Us</b></i></a>
 </div>
 &nbsp;
 
 <div>
-  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#13-for-additional-questions">13. For Additional Questions</a>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#13-for-additional-questions"><i><b>13. For Additional Questions</b></i></a>
 </div>
 &nbsp;                                                 
 
@@ -170,7 +177,7 @@ As the SHG process occurs, some of the input energy is not perfectly converted i
 To address this issue, the crystal is equipped with a cooling system depicted in the Figure 2. A coolant circulates around the crystal, absorbing the heat thereby maintaining an optimal temperature for a more efficient SHG. The crystal's lateral surface is maintained at a constant temperature through cooling. Typically, a double layer of copper covers these surfaces, with either water or liquid nitrogen passing through it. This ensures a constant temperature condition at the crystal's side surface. Additionally, the input and output surfaces of the crystal are cooled through both radiation and convection. Heat reaches these surfaces through conduction and is then transferred away by convection and radiation processes.
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image02.png" alt="Image 2" width="65%">
+  <img src="./Archive/images/3.%20Readme_images/image02.png" alt="Image 2" >
 </p>
 
 <p align="center"> <strong>Figure 2.</strong> A cooling system uses a double layer of copper and circulating coolant (water or liquid nitrogen) to manage heat dissipation, keeping the crystal at an optimal temperature for efficient laser performance during SHG.</p>
@@ -181,7 +188,7 @@ The thermal gradient within a crystal subjected to laser radiation is shown in F
 
 
 <p align="center">
-  <img src="./Archive/images/3.%20Readme_images/image03.png" alt="Image 3" width="100%">
+  <img src="./Archive/images/3.%20Readme_images/image03.png" alt="Image 3">
 </p>
 
 <p align="center"> <strong>Figure 3.</strong> Visualization of the thermal gradient in a crystal exposed to laser radiation. The hottest point is at the center where the laser is focused, with temperature decreasing outward toward the edges. The left side, where the laser first hits, is the hottest, with the temperature gradually cooling as it moves to the right.</p>
