@@ -1,3 +1,24 @@
+# Two Sections: 
+## Section 1: Created by authors
+## Section 2: Created by gitignore.io
+
+# Section 1--------------------------------------------------
+# Created by authors 
+
+tree.txt
+
+# To prevent Zone.Identifier files
+*.Zone.Identifier
+
+# Conda environments
+*.conda
+*.env
+*.envs
+.env/
+.envs/
+
+# Section 2--------------------------------------------------
+# Created by gitignore.io
 # Created by https://www.toptal.com/developers/gitignore/api/fortran,c++,python,jupyternotebooks,venv,visualstudiocode,linux,windows,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=fortran,c++,python,jupyternotebooks,venv,visualstudiocode,linux,windows,macos
 
