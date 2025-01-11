@@ -1,4 +1,0 @@
-name: shg
-channels:
-  - defaults
-prefix: /home/mostafa/miniconda3/envs/shg

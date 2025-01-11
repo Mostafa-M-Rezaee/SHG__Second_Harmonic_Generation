@@ -1,3 +1,6 @@
+! Note: 
+!     We have aligned the code with VS Code's formatting standards.
+!     But it may appears cluttered on GitHub due to formatting differences.
 
 
 !            ************************************************************************************
