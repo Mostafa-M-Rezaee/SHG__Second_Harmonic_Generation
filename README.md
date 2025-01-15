@@ -106,11 +106,11 @@ By the end of this tutorial, you will:
 ## 1.3. Prerequisites  
 This tutorial is designed for three types of researcher:
 
-1. **For those who are familiar with SHG and Fortran**: You can dive straight into the research phase. The codes and topics provided in this repository, in [2. SHG Codes](https://github.com/Mostafa-M-Rezaee/SHG__Second_Harmonic_Generation/tree/main/2.%20SHG%20Codes), are meant to deepen your knowledge and assist in further studies.
+1. **For those who are familiar with SHG and Fortran**: You can dive straight into the research phase. The codes and topics provided in this repository, in [**2. SHG Codes**](https://github.com/Mostafa-M-Rezaee/SHG__Second_Harmonic_Generation/tree/main/2.%20SHG%20Codes), are meant to deepen your knowledge and assist in further studies.
 
 2. **For those who know Fortran but are new to SHG**: This tutorial will introduce you to the fundamentals of SHG, guiding you step-by-step through the key concepts. By the end, you'll be ready to tackle complex problems in this field.
 
-3. **For beginners with no prior knowledge of SHG or Fortran**: This repository is built with you in mind. We’ll start with the basics, teaching you Fortran from the ground up in [1. FORTRAN Tutorial](https://github.com/Mostafa-M-Rezaee/SHG__Second_Harmonic_Generation/tree/main/1.%20FORTRAN%20Tutorial), followed by an introduction to SHG. Our goal is to help you progress from understanding the basics to solving advanced physics and engineering problems.
+3. **For beginners with no prior knowledge of SHG or Fortran**: This repository is built with you in mind. We’ll start with the basics, teaching you Fortran from the ground up in [**1. FORTRAN Tutorial**](https://github.com/Mostafa-M-Rezaee/SHG__Second_Harmonic_Generation/tree/main/1.%20FORTRAN%20Tutorial), followed by an introduction to SHG. Our goal is to help you progress from understanding the basics to solving advanced physics and engineering problems.
 
 
 ## 1.4. Contents of this Repository 
@@ -510,7 +510,7 @@ Ultimately, exploring these new avenues will open up entirely new research traje
 We are currently working on these topics and are dedicated to pushing this research forward. In the near future, we will share the results of our ongoing studies along with new articles and code updates in this repository. Our goal is to expand thes repository into a more comprehensive resource that will support other researchers in exploring the complexities of thermal effects in nonlinear optics. Stay tuned for these updates, as they will provide even deeper insights and tools to enhance future research in this field.
 
 # 12. How to Cite Us
-Please refer to the [0. Cite Us](https://github.com/Mostafa-M-Rezaee/SHG__Second_Harmonic_Generation/tree/main/0.%20Cite%20Us) folder for accurate citations. It contains essential guidelines for accurate referencing, ensuring accurate acknowledgement of our work.
+Please refer to the [**0. Cite Us**](https://github.com/Mostafa-M-Rezaee/SHG__Second_Harmonic_Generation/tree/main/0.%20Cite%20Us) folder for accurate citations. It contains essential guidelines for accurate referencing, ensuring accurate acknowledgement of our work.
 
 
 # 13. For Additional Questions
